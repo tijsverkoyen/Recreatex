@@ -31,16 +31,23 @@ class Recreatex
 	const DEBUG = true;
 
 	// URL for the api
-	const WSDL_URL = 'http://dev.webservices.webshop.recreatex.be/webshop.svc?wsdl';
+	const WSDL_URL = '/webshop.svc?wsdl';
 
 	// image endpoint URL
-	const REST_IMAGE_URL = 'http://dev.webservices.webshop.recreatex.be/WebShopImageService.svc';
+	const REST_IMAGE_URL = '/WebShopImageService.svc';
 
 	// document endpoint URL
-	const REST_DOCUMENT_URL = 'http://dev.webservices.webshop.recreatex.be/WebShopDocumentService.svc';
+	const REST_DOCUMENT_URL = '/WebShopDocumentService.svc';
 
 	// current version
 	const VERSION = '1.0.0';
+
+	/**
+	 * The server to use.
+	 *
+	 * @var	string
+	 */
+	private $server = 'http://dev.webservices.webshop.recreatex.be';
 
 
 	/**
@@ -56,7 +63,7 @@ class Recreatex
 	 *
 	 * @var	int
 	 */
-	private $timeOut = 60;
+	private $timeOut = 10;
 
 
 	/**
@@ -73,8 +80,9 @@ class Recreatex
 	 *
 	 * @return	void
 	 */
-	public function __construct()
+	public function __construct($server = null)
 	{
+		if($server !== null) $this->setServer($server);
 	}
 
 
@@ -111,7 +119,7 @@ class Recreatex
 							);
 
 			// create client
-			$this->soapClient = new SoapClient(self::WSDL_URL, $options);
+			$this->soapClient = new SoapClient($this->getServer() . self::WSDL_URL, $options);
 		}
 
 		$var = $this->soapClient->__getTypes();
@@ -152,6 +160,17 @@ class Recreatex
 
 
 	/**
+	 * Get the server.
+	 *
+	 * @return	string
+	 */
+	public function getServer()
+	{
+		return (string) $this->server;
+	}
+
+
+	/**
 	 * Get the timeout that will be used
 	 *
 	 * @return	int
@@ -171,6 +190,18 @@ class Recreatex
 	public function getUserAgent()
 	{
 		return (string) 'PHP Recreatex/' . self::VERSION . ' ' . $this->userAgent;
+	}
+
+
+	/**
+	 * Set the server
+	 *
+	 * @return	void
+	 * @param	string $server	The server to use.
+	 */
+	public function setServer($server)
+	{
+		$this->server = (string) $server;
 	}
 
 
@@ -325,7 +356,7 @@ class Recreatex
 			if($includeImage)
 			{
 				$item['image_url'] = $row->ImageUrl;
-				$item['image_full_url'] = self::REST_IMAGE_URL .'/'. $row->ImageUrl;
+				$item['image_full_url'] = $this->getServer() . self::REST_IMAGE_URL .'/'. $row->ImageUrl;
 			}
 			$item['articles'] = $row->Articles;
 
