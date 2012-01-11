@@ -65,7 +65,7 @@ class Recreatex
 	 *
 	 * @var	string
 	 */
-	private $server = 'http://dev.webservices.webshop.recreatex.be';
+	private $server;
 
 	/**
 	 * The service context
@@ -92,7 +92,8 @@ class Recreatex
 	/**
 	 * Default constructor
 	 *
-	 * @return	void
+	 * @param string[optional] $server	The server to use.
+	 * @param int[optional] $port		The port whereon the server is operating.
 	 */
 	public function __construct($server = null, $port = null)
 	{
@@ -102,8 +103,6 @@ class Recreatex
 
 	/**
 	 * Destructor
-	 *
-	 * @return	void
 	 */
 	public function __destruct()
 	{
@@ -118,6 +117,15 @@ class Recreatex
 		}
 	}
 
+	/**
+	 * Build the paging parameter
+	 *
+	 * @param int $page							The page to retrieve.
+	 * @param int $size							The number of items per page.
+	 * @param string[optional] $sortOn			The field to sort on.
+	 * @param bool[optional] $sortAscending		Should we sort ascending?
+	 * @return array
+	 */
 	public static function buildPagingParameter($page, $size, $sortOn = null, $sortAscending = false)
 	{
 		// init var
@@ -136,13 +144,23 @@ class Recreatex
 		return $return;
 	}
 
+	/**
+	 * Build the XML we will send.
+	 *
+	 * @param mixed $data
+	 * @param string[optional] $xml
+	 * @return string
+	 */
 	public static function buildXML($data, $xml = '')
 	{
+		// if it isn't an array it is just a single key
+		if(!is_array($data)) return '<' . (string) $data . ' />';
+
 		// loop all keys
 		foreach($data as $key => $value)
 		{
 			// no value;
-			if(empty($value)) $xml .= '<' . $key . '/>';
+			if(empty($value)) $xml .= '<' . $key . ' />';
 
 			else
 			{
@@ -182,9 +200,9 @@ class Recreatex
 	/**
 	 * Make the call
 	 *
-	 * @return	mixed
-	 * @param	string $method					The method to be called.
-	 * @param	array[optional] $parameters		The parameters.
+	 * @param string $method					The method to be called.
+	 * @param array[optional] $parameters		The parameters.
+	 * @return mixed
 	 */
 	private function doCall($method, $data = '')
 	{
@@ -203,14 +221,14 @@ class Recreatex
 		// do we have a service context?
 		if(!empty($serviceContext))
 		{
-			$body .= '		<Context>' ."\n";
+			$body .= '		<Context>' . "\n";
 
 			// add the service context fields
 			if(isset($serviceContext['division_id'])) $body .= '			<DivisionId>' . $serviceContext['division_id'] . '</DivisionId>' . "\n";
 			if(isset($serviceContext['language'])) $body .= '			<Language>' . $serviceContext['language'] . '</Language>' . "\n";
 			if(isset($serviceContext['shop_id'])) $body .= '			<ShopId>' . $serviceContext['shop_id'] . '</ShopId>' . "\n";
 
-			$body .= '		</Context>' ."\n";
+			$body .= '		</Context>' . "\n";
 		}
 
 		// build body
@@ -219,21 +237,20 @@ class Recreatex
 			$body .= '		' . trim($data) . "\n";
 		}
 
-
 		// end body
 		$body .= '	</soap:Body>' . "\n";
-		$body .= '</soap:Envelope>' ."\n";
+		$body .= '</soap:Envelope>' . "\n";
 
 		// build headers
 		$headers = array(
 			'Content-Type: text/xml; charset=utf-8',
-			'Content-Length: '. strlen($body),
-			'SOAPAction: "'. self::SOAP_URL .'/'. (string) $method .'"'
+			'Content-Length: ' . strlen($body),
+			'SOAPAction: "' . self::SOAP_URL . '/' . (string) $method . '"'
 		);
 
 		// set options
 		$options[CURLOPT_URL] = $this->getServer() . self::ENDPOINT;
-		if($this->getPort() != 0)  $options[CURLOPT_PORT] = $this->getPort();
+		if($this->getPort() != 0) $options[CURLOPT_PORT] = $this->getPort();
 		$options[CURLOPT_USERAGENT] = $this->getUserAgent();
 		$options[CURLOPT_RETURNTRANSFER] = true;
 		$options[CURLOPT_TIMEOUT] = (int) $this->getTimeOut();
@@ -336,7 +353,7 @@ class Recreatex
 		}
 
 		// return the direct response if it is available
-		if(isset($response->Body->{$method .'Response'})) return $response->Body->{$method .'Response'};
+		if(isset($response->Body->{$method . 'Response'})) return $response->Body->{$method . 'Response'};
 
 		// return the response
 		return $response->Body;
@@ -350,7 +367,7 @@ class Recreatex
 	/**
 	 * Get the server.
 	 *
-	 * @return	string
+	 * @return string
 	 */
 	public function getServer()
 	{
@@ -360,7 +377,7 @@ class Recreatex
 	/**
 	 * Get the service context
 	 *
-	 * @return	null|array
+	 * @return null|array
 	 */
 	public function getServiceContext()
 	{
@@ -370,7 +387,7 @@ class Recreatex
 	/**
 	 * Get the timeout that will be used
 	 *
-	 * @return	int
+	 * @return int
 	 */
 	public function getTimeOut()
 	{
@@ -381,7 +398,7 @@ class Recreatex
 	 * Get the useragent that will be used. Our version will be prepended to yours.
 	 * It will look like: "PHP Recreatex/<version> <your-user-agent>"
 	 *
-	 * @return	string
+	 * @return string
 	 */
 	public function getUserAgent()
 	{
@@ -396,6 +413,16 @@ class Recreatex
 	public function setPort($port)
 	{
 		$this->port = $port;
+	}
+
+	/**
+	 * Set the server
+	 *
+	 * @param string $server	The server to use.
+	 */
+	public function setServer($server)
+	{
+		$this->server = (string) $server;
 	}
 
 	/**
@@ -414,22 +441,10 @@ class Recreatex
 	}
 
 	/**
-	 * Set the server
-	 *
-	 * @return	void
-	 * @param	string $server	The server to use.
-	 */
-	public function setServer($server)
-	{
-		$this->server = (string) $server;
-	}
-
-	/**
 	 * Set the timeout
 	 * After this time the request will stop. You should handle any errors triggered by this.
 	 *
-	 * @return	void
-	 * @param	int $seconds	The timeout in seconds.
+	 * @param int $seconds	The timeout in seconds.
 	 */
 	public function setTimeOut($seconds)
 	{
@@ -440,23 +455,25 @@ class Recreatex
 	 * Set the user-agent for you application
 	 * It will be appended to ours, the result will look like: "PHP Recreatex/<version> <your-user-agent>"
 	 *
-	 * @return	void
-	 * @param	string $userAgent	Your user-agent, it should look like <app-name>/<app-version>.
+	 * @param string $userAgent	Your user-agent, it should look like <app-name>/<app-version>.
 	 */
 	public function setUserAgent($userAgent)
 	{
 		$this->userAgent = (string) $userAgent;
 	}
 
+// webservice methods
 	/**
 	 * Check if the service is available.
 	 *
-	 * @return	bool
+	 * @return bool
 	 */
 	public function isAvailable()
 	{
 		// build the body
-		$body = '<IsAvailable />';
+		$body = self::buildXML('IsAvailable');
+
+		Spoon::dump($body);
 
 		// make the call
 		$response = $this->doCall('IsAvailable', $body);
@@ -471,9 +488,9 @@ class Recreatex
 	/**
 	 * Authenticates a user.
 	 *
-	 * @return	array
-	 * @param	string $login		The login for the user.
-	 * @param	string $password	The password for the user.
+	 * @param string $login		The login for the user.
+	 * @param string $password	The password for the user.
+	 * @return array
 	 */
 	public function authenticateUser($login, $password)
 	{
@@ -543,8 +560,6 @@ class Recreatex
 			// not used
 		}
 
-
-
 		Spoon::dump(self::buildXML(array('Person' => $data)), false);
 
 		// make the call
@@ -561,24 +576,22 @@ class Recreatex
 		$return['Result']['Message'] = (string) $response->SavePersonResult->ValidationResults->ValidationResult->Message;
 		$return['Result']['BrokenRuleName'] = (string) $response->SavePersonResult->ValidationResults->ValidationResult->brokenRuleName;
 
-
 		Spoon::dump($response, false);
 		Spoon::dump($return);
-
 	}
 
 	public function forgotPassword()
 	{
-		throw new ReflectionException('Not implemented', 500);
+		throw new RecreatexException('Not implemented', 500);
 	}
 
 	/**
 	 * Find a person
 	 *
-	 * @return	array
-	 * @param	string[optional] $id		The unique ID of the persion you want.
-	 * @param	string[optional] $username	The username of the user you want.
-	 * @param	array[optional] $paging		The paging criteria, see Recreatex::buildPagingParameter().
+	 * @param string[optional] $id			The unique ID of the persion you want.
+	 * @param string[optional] $username	The username of the user you want.
+	 * @param array[optional] $paging		The paging criteria, see Recreatex::buildPagingParameter().
+	 * @return array
 	 */
 	public function findPerson($id = null, $username = null, $paging = null)
 	{
@@ -586,7 +599,7 @@ class Recreatex
 		$data = array();
 		if($id !== null) $data['FindPersonsCriteria']['Id'] = (string) $id;
 		if($username !== null) $data['Username'] = (string) $username;
-//		if($paging != null) $data['FindPersonsCriteria']['Paging'] = $paging;
+		if($paging != null) $data['FindPersonsCriteria']['Paging'] = $paging;
 
 		// make the call
 		$response = $this->doCall('FindPerson', self::buildXML($data));
@@ -703,7 +716,7 @@ class Recreatex
 	/**
 	 * List all the activity types
 	 *
-	 * @return	array
+	 * @return array
 	 */
 	public function listActivityTypes()
 	{
@@ -735,22 +748,22 @@ class Recreatex
 
 	public function findActivities()
 	{
-		throw new ReflectionException('Not implemented', 500);
+		throw new RecreatexException('Not implemented', 500);
 	}
 
 	/**
 	 * Get a list of article groups
 	 *
-	 * @return	array
-	 * @param	string[optional] $articleType		Define the type of articles to retrieve. Possible values are: Sale, Rental, All.
-	 * @param	bool[optional] $includeImage		Include the image.
-	 * @param	bool[optional] $includeImageUrl		Include the url of the image.
+	 * @param string[optional] $articleType		Define the type of articles to retrieve. Possible values are: Sale, Rental, All.
+	 * @param bool[optional] $includeImage		Include the image.
+	 * @param bool[optional] $includeImageUrl		Include the url of the image.
+	 * @return array
 	 */
 	public function listArticleGroups($articleType = 'Sale', $includeImage = false, $includeImageUrl = true)
 	{
 		// validate
 		$allowedArticleTypes = array('Sale', 'Rental', 'All');
-		if(!in_array($articleType, $allowedArticleTypes)) throw new RecreatexException('Invalid articletype ('. $articleType .'), allowed values are: '. implode(', ', $allowedArticleTypes) .'.');
+		if(!in_array($articleType, $allowedArticleTypes)) throw new RecreatexException('Invalid articletype (' . $articleType . '), allowed values are: ' . implode(', ', $allowedArticleTypes) . '.');
 
 		// build the data
 		$data = array(
@@ -785,7 +798,7 @@ class Recreatex
 			if($includeImageUrl)
 			{
 				$item['ImageUrl'] = (string) $row->ImageUrl;
-				$item['ImageFullUrl'] = $this->getServer() . self::REST_IMAGE_URL .'/'. $item['ImageUrl'];
+				$item['ImageFullUrl'] = $this->getServer() . self::REST_IMAGE_URL . '/' . $item['ImageUrl'];
 			}
 			if($row->Articles['nil'] == 'true') $item['Articles'] = null;
 			else $item['Articles'] = (array) $row->Articles;
@@ -801,20 +814,20 @@ class Recreatex
 	/**
 	 * Find articles.
 	 *
-	 * @return	array
-	 * @param	string[optional] $articleGroupId	If provided only articles from this group will be returned.
-	 * @param	string[optional] $namePattern		If provided only articles that match the pattern will be returned.
-	 * @param	string[optional] $buyerId			If provided only articles that are relevant for this user will be returned.
-	 * @param	string[optional] $articleType		The type of articles, possible values are: Sale, Rental, All.
-	 * @param	array[optional] $includes			A key-value-array with the properties to include, possible keys are: Price, ImageUrl, Image, Group.
-	 * @param	array[optional] $paging				The paging criteria, see Recreatex::buildPagingParameter().
-	 * @param	array[optional] $articles			A list containing related articles (not used).
+	 * @param string[optional] $articleGroupId	If provided only articles from this group will be returned.
+	 * @param string[optional] $namePattern		If provided only articles that match the pattern will be returned.
+	 * @param string[optional] $buyerId			If provided only articles that are relevant for this user will be returned.
+	 * @param string[optional] $articleType		The type of articles, possible values are: Sale, Rental, All.
+	 * @param array[optional] $includes			A key-value-array with the properties to include, possible keys are: Price, ImageUrl, Image, Group.
+	 * @param array[optional] $paging				The paging criteria, see Recreatex::buildPagingParameter().
+	 * @param array[optional] $articles			A list containing related articles (not used).
+	 * @return array
 	 */
 	public function findArticles($articleGroupId = null, $namePattern = null, $buyerId = null, $articleType = 'All', array $includes = array(), $paging = null, $articles = null)
 	{
 		// validate
 		$allowedArticleTypes = array('Sale', 'Rental', 'All');
-		if(!in_array($articleType, $allowedArticleTypes)) throw new RecreatexException('Invalid articletype ('. $articleType .'), allowed values are: '. implode(', ', $allowedArticleTypes) .'.');
+		if(!in_array($articleType, $allowedArticleTypes)) throw new RecreatexException('Invalid articletype (' . $articleType . '), allowed values are: ' . implode(', ', $allowedArticleTypes) . '.');
 
 		// build the data
 		$data = array();
@@ -859,7 +872,7 @@ class Recreatex
 			if(!isset($row->ImageUrl['nil']))
 			{
 				$item['ImageUrl'] = (string) $row->ImageUrl;
-				$item['ImageFullUrl'] = $this->getServer() . self::REST_IMAGE_URL .'/'. $item['ImageUrl'];
+				$item['ImageFullUrl'] = $this->getServer() . self::REST_IMAGE_URL . '/' . $item['ImageUrl'];
 			}
 			$item['IsRental'] = (bool) ((string) $row->IsRental == 'true');
 			$item['Price'] = (float) $row->Price;
@@ -876,7 +889,7 @@ class Recreatex
 	/**
 	 * Get a list of exposition types
 	 *
-	 * @return	array
+	 * @return array
 	 */
 	public function listExpositionTypes()
 	{
@@ -909,14 +922,14 @@ class Recreatex
 	/**
 	 * Find expositions.
 	 *
-	 * @return	array
-	 * @param	string[optional] $expositionId		If provided, ID of the specififiek exposition to return.
-	 * @param	string[optional] $namePattern		If provided, only items matching the pattern will be returned.
-	 * @param	int[optional] $from					If provided only items that start after this date will be returned.
-	 * @param	int[optional] $until				If provided only items that start before this date will be returned.
-	 * @param	string[optional] $expositionTypeId	If provided only items from this type will be returned.
-	 * @param	string[optional] $audienceId		If provided only items for this audience will be returned.
-	 * @param	array[optional] $includes			A key-value-array with the properties to include, possible keys are: ImageUrl, Image.
+	 * @param string[optional] $expositionId		If provided, ID of the specififiek exposition to return.
+	 * @param string[optional] $namePattern			If provided, only items matching the pattern will be returned.
+	 * @param int[optional] $from					If provided only items that start after this date will be returned.
+	 * @param int[optional] $until					If provided only items that start before this date will be returned.
+	 * @param string[optional] $expositionTypeId	If provided only items from this type will be returned.
+	 * @param string[optional] $audienceId			If provided only items for this audience will be returned.
+	 * @param array[optional] $includes				A key-value-array with the properties to include, possible keys are: ImageUrl, Image.
+	 * @return array
 	 */
 	public function findExpositions($expositionId = null, $namePattern = null, $from = null, $until = null, $expositionTypeId = null, $audienceId = null, array $includes = array())
 	{
@@ -944,49 +957,49 @@ class Recreatex
 	/**
 	 * List the periods for an exposition.
 	 *
-	 * @return	array
-	 * @param	string $expositionId		The ID of the exposition.
-	 * @param	array[optional] $paging		The paging criteria, see Recreatex::buildPagingParameter().
+	 * @param string $expositionId		The ID of the exposition.
+	 * @param array[optional] $paging	The paging criteria, see Recreatex::buildPagingParameter().
+	 * @return array
 	 */
 	public function listExpositionPeriods($expositionId, $paging = null)
 	{
-		throw new ReflectionException('Not implemented', 500);
+		throw new RecreatexException('Not implemented', 500);
 	}
 
 	public function listAudiences()
 	{
-		throw new ReflectionException('Not implemented', 500);
+		throw new RecreatexException('Not implemented', 500);
 	}
 
 	public function validateBasket()
 	{
-		throw new ReflectionException('Not implemented', 500);
+		throw new RecreatexException('Not implemented', 500);
 	}
 
 	public function validateBasketItem()
 	{
-		throw new ReflectionException('Not implemented', 500);
+		throw new RecreatexException('Not implemented', 500);
 	}
 
 	public function checkoutBasket()
 	{
-		throw new ReflectionException('Not implemented', 500);
+		throw new RecreatexException('Not implemented', 500);
 	}
 
 	public function lockBasketItems()
 	{
-		throw new ReflectionException('Not implemented', 500);
+		throw new RecreatexException('Not implemented', 500);
 	}
 
 	public function unlockBasketItems()
 	{
-		throw new ReflectionException('Not implemented', 500);
+		throw new RecreatexException('Not implemented', 500);
 	}
 
 	/**
 	 * List the payment methods.
 	 *
-	 * @return	array
+	 * @return array
 	 */
 	public function listPaymentMethods()
 	{
@@ -1041,7 +1054,7 @@ class Recreatex
 	/**
 	 * Lists the CultureActivities for the active division.
 	 *
-	 * @return	array
+	 * @return array
 	 */
 	public function listCultureActivities()
 	{
@@ -1074,14 +1087,14 @@ class Recreatex
 	/**
 	 * Find culture events.
 	 *
-	 * @return	array
-	 * @param	string[optional] $cultureEventid		If provided only this item will be returned.
-	 * @param	string[optional] $name					If provided only items matching the pattern will be returned.
-	 * @param	int[optional] $from						If provided only items that start after this date will be returned.
-	 * @param	int[optional] $until					If provided only items that start before this date will be returned.
-	 * @param	string[optional] $cultureActivityId		If provided only items within this activityid will be returned.
-	 * @param	array[optional] $paging					The paging criteria, see Recreatex::buildPagingParameter().
-	 * @param	array[optional] $includes				A key-value-array with the properties to include, possible keys are: ImageUrl, ImageUr, Options.
+	 * @param string[optional] $cultureEventid		If provided only this item will be returned.
+	 * @param string[optional] $name				If provided only items matching the pattern will be returned.
+	 * @param int[optional] $from					If provided only items that start after this date will be returned.
+	 * @param int[optional] $until					If provided only items that start before this date will be returned.
+	 * @param string[optional] $cultureActivityId	If provided only items within this activityid will be returned.
+	 * @param array[optional] $paging				The paging criteria, see Recreatex::buildPagingParameter().
+	 * @param array[optional] $includes				A key-value-array with the properties to include, possible keys are: ImageUrl, ImageUr, Options.
+	 * @return array
 	 */
 	public function findCultureEvents($cultureEventid = null, $name = null, $from = null, $until = null, $cultureActivityId = null, $paging = null, $includes = array())
 	{
@@ -1201,12 +1214,12 @@ class Recreatex
 
 	public function listHalls()
 	{
-		throw new ReflectionException('Not implemented', 500);
+		throw new RecreatexException('Not implemented', 500);
 	}
 
 	public function GetHallSeating()
 	{
-		throw new ReflectionException('Not implemented', 500);
+		throw new RecreatexException('Not implemented', 500);
 	}
 }
 
@@ -1218,5 +1231,3 @@ class Recreatex
 class RecreatexException extends Exception
 {
 }
-
-?>
