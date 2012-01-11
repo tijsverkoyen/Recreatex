@@ -204,7 +204,7 @@ class Recreatex
 	 * @param array[optional] $parameters		The parameters.
 	 * @return mixed
 	 */
-	private function doCall($method, $data = '')
+	private function doCall($method, $data = '', $includeContext = true)
 	{
 		/**
 		 * I know there is an PHP SOAP extension, but it can't handle requests with multiple message parts.
@@ -219,7 +219,7 @@ class Recreatex
 		$serviceContext = $this->getServiceContext();
 
 		// do we have a service context?
-		if(!empty($serviceContext))
+		if($includeContext && !empty($serviceContext))
 		{
 			$body .= '		<Context>' . "\n";
 
@@ -470,13 +470,8 @@ class Recreatex
 	 */
 	public function isAvailable()
 	{
-		// build the body
-		$body = self::buildXML('IsAvailable');
-
-		Spoon::dump($body);
-
 		// make the call
-		$response = $this->doCall('IsAvailable', $body);
+		$response = $this->doCall('IsAvailable', self::buildXML('IsAvailable'), false);
 
 		// validate
 		if(!isset($response->IsAvailableResult)) throw new RecreatexException('Invalid response.');
