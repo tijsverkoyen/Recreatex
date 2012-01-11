@@ -359,6 +359,11 @@ class Recreatex
 		return $response->Body;
 	}
 
+	/**
+	 * Get the port
+	 *
+	 * @return int
+	 */
 	public function getPort()
 	{
 		return (int) $this->port;
@@ -509,6 +514,39 @@ class Recreatex
 		return $return;
 	}
 
+	/**
+	 *
+	 * @param string[optional] $id					The unique ID of the person, will be empty while creating a person.
+	 * @param string[optional] $code				A unique code for the person.
+	 * @param array[optional] $name					The name details for a person. The array should have the keys below:
+	 * 			- string first		firstname of the person.
+	 * 			- string middle	middlename of the person.
+	 * 			- string last		lastname of the person.
+	 * @param array[optional] $address				The address details of the person. The array should have the keys below:
+	 * 			- string street	the street.
+	 * 			- string number	the housenumber.
+	 * 			- string box		the boxnumber.
+	 * 			- string zip_code	the zip code.
+	 * 			- string town		the town
+	 * 			- string country	the country, use ISO-codes.
+	 * @param array[optional] $settings				Extra settings for the person.
+	 * 			- bool subscribe_mailing_list	is the person subscribed on the newsletter?
+	 * @param string[optional] $email				The emailaddress of the person.
+	 * @param string[optional] $birthdate			The birthdate of the person.
+	 * @param string[optional] $gender				The gender of the person. Possible values are: male, female, unknown.
+	 * @param string[optional] $language			The language of the person, use ISO-codes.
+	 * @param string[optional] $picture				The data of the picture.
+	 * @param string[optional] $phone				The phone number of the person.
+	 * @param string[optional] $cellPhone			The cell phone number of the person.
+	 * @param string[optional] $bankAccount			The bankaccount of the person.
+	 * @param string[optional] $nationalNumber		The national number of the person.
+	 * @param string[optional] $comments			The comments for the person.
+	 * @param array[optiona] $credentials			The credentials of the person.
+	 * 			- login				the login.
+	 * 			- password			the password.
+	 * @param array[optional] $relations			The relations of the person.
+	 * @return array
+	 */
 	public function savePerson($id = null, $code = null, $name = array(), $address = array(), $settings = array(), $email = null, $birthdate = null, $gender = 2, $language = null, $picture = null, $phone = null, $cellPhone = null, $bankAccount = null, $nationalNumber = null, $comments = null, $credentials = array(), $relations = array())
 	{
 		// build the body
@@ -573,11 +611,6 @@ class Recreatex
 
 		Spoon::dump($response, false);
 		Spoon::dump($return);
-	}
-
-	public function forgotPassword()
-	{
-		throw new RecreatexException('Not implemented', 500);
 	}
 
 	/**
@@ -739,11 +772,6 @@ class Recreatex
 
 		// return
 		return $return;
-	}
-
-	public function findActivities()
-	{
-		throw new RecreatexException('Not implemented', 500);
 	}
 
 	/**
@@ -961,17 +989,7 @@ class Recreatex
 		throw new RecreatexException('Not implemented', 500);
 	}
 
-	public function listAudiences()
-	{
-		throw new RecreatexException('Not implemented', 500);
-	}
-
-	public function validateBasket()
-	{
-		throw new RecreatexException('Not implemented', 500);
-	}
-
-	public function validateBasketItem()
+	public function validateBasket($items = array(), $price, $payments = array(), $customerId)
 	{
 		throw new RecreatexException('Not implemented', 500);
 	}
@@ -1205,16 +1223,6 @@ class Recreatex
 		return $return;
 
 
-	}
-
-	public function listHalls()
-	{
-		throw new RecreatexException('Not implemented', 500);
-	}
-
-	public function GetHallSeating()
-	{
-		throw new RecreatexException('Not implemented', 500);
 	}
 }
 
