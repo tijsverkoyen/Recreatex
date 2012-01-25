@@ -74,9 +74,15 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testAuthenticateUser()
 	{
-		$var = $this->recreatex->authenticateUser(USERNAME, PASSWORD);
+		$var = $this->recreatex->authenticateUser('FALSE_USERNAME', 'FALSE_PASSWORD');
+
 		$this->assertArrayHasKey('HasSucceeded', $var);
-		$this->assertTrue($var['HasSucceeded']);
+		$this->assertFalse($var['HasSucceeded']);
+
+// 		$var = $this->recreatex->authenticateUser(USERNAME, PASSWORD);
+
+// 		$this->assertArrayHasKey('HasSucceeded', $var);
+// 		$this->assertTrue($var['HasSucceeded']);
 	}
 
 	/**
@@ -84,19 +90,14 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testSavePerson()
 	{
-		// TODO Auto-generated RecreatexTest->testSavePerson()
-		$this->markTestIncomplete("savePerson test not implemented");
-		$this->recreatex->savePerson(/* parameters */);
-	}
+		$name = array('First' => '[REMOVE ME] Tijs', 'Last' => 'Verkoyen');
+		$address = array('Street' => 'Kerkstraat', 'Number' => 108, 'ZipCode' => '9050', 'Town' => 'Gentbrugge', 'Country' => 'B', 'Box' => '');
+		$credential = array('Password' => time(), 'Username' => time());
 
-	/**
-	 * Tests Recreatex->forgotPassword()
-	 */
-	public function testForgotPassword()
-	{
-		// TODO Auto-generated RecreatexTest->testForgotPassword()
-		$this->markTestIncomplete("forgotPassword test not implemented");
-		$this->recreatex->forgotPassword(/* parameters */);
+		$var = $this->recreatex->savePerson(null, null, $name, $address, null, 'rcx-001@verkoyen.eu', null, null, 'NL', null, null, null, null, null, null, $credential);
+
+		$this->assertArrayHasKey('ValidationResults', $var);
+		$this->assertNull($var['ValidationResults']);
 	}
 
 	/**
@@ -115,19 +116,13 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testListActivityTypes()
 	{
-		// TODO Auto-generated RecreatexTest->testListActivityTypes()
-		$this->markTestIncomplete("listActivityTypes test not implemented");
-		$this->recreatex->listActivityTypes(/* parameters */);
-	}
+		$var = $this->recreatex->listActivityTypes();
 
-	/**
-	 * Tests Recreatex->findActivities()
-	 */
-	public function testFindActivities()
-	{
-		// TODO Auto-generated RecreatexTest->testFindActivities()
-		$this->markTestIncomplete("findActivities test not implemented");
-		$this->recreatex->findActivities(/* parameters */);
+		$this->assertType('array', $var);
+		foreach($var as $row)
+		{
+			$this->assertArrayHasKey('Id', $row);
+		}
 	}
 
 	/**
@@ -141,7 +136,6 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 		foreach($var as $row)
 		{
 			$this->assertArrayHasKey('Id', $row);
-			$this->assertArrayHasKey('Code', $row);
 		}
 	}
 
@@ -150,7 +144,10 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testFindArticles()
 	{
-		$this->assertType('array', $this->recreatex->findArticles('704f62b3-e2e0-4a70-b2f2-0c6eb4602a73', null, null, 'All'));
+		$var = $this->recreatex->findArticles();
+
+		$this->assertType('array', $var);
+		$this->assertTrue((count($var) == 10));
 	}
 
 	/**
@@ -158,97 +155,76 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testListExpositionTypes()
 	{
-		// TODO Auto-generated RecreatexTest->testListExpositionTypes()
-		$this->markTestIncomplete("listExpositionTypes test not implemented");
-		$this->recreatex->listExpositionTypes(/* parameters */);
+		$var = $this->recreatex->listExpositionTypes();
+
+		$this->assertType('array', $var);
+		$this->assertTrue((count($var) == 0));
 	}
 
-	/**
-	 * Tests Recreatex->findExpositions()
-	 */
-	public function testFindExpositions()
-	{
-		// TODO Auto-generated RecreatexTest->testFindExpositions()
-		$this->markTestIncomplete("findExpositions test not implemented");
-		$this->recreatex->findExpositions(/* parameters */);
-	}
+// 	/**
+// 	 * Tests Recreatex->findExpositions()
+// 	 */
+// 	public function testFindExpositions()
+// 	{
+// 		$this->markTestIncomplete("findExpositions test not implemented");
+// 		$var = $this->recreatex->findExpositions();
 
-	/**
-	 * Tests Recreatex->listExpositionPeriods()
-	 */
-	public function testListExpositionPeriods()
-	{
-		// TODO Auto-generated RecreatexTest->testListExpositionPeriods()
-		$this->markTestIncomplete("listExpositionPeriods test not implemented");
-		$this->recreatex->listExpositionPeriods(/* parameters */);
-	}
+// 		$this->assertType('array', $var);
+// 		$this->assertTrue((count($var) == 10));
+// 	}
 
-	/**
-	 * Tests Recreatex->listAudiences()
-	 */
-	public function testListAudiences()
-	{
-		// TODO Auto-generated RecreatexTest->testListAudiences()
-		$this->markTestIncomplete("listAudiences test not implemented");
-		$this->recreatex->listAudiences(/* parameters */);
-	}
+// 	/**
+// 	 * Tests Recreatex->validateBasket()
+// 	 */
+// 	public function testValidateBasket()
+// 	{
+// 		// TODO Auto-generated RecreatexTest->testValidateBasket()
+// 		$this->markTestIncomplete("validateBasket test not implemented");
+// 		$this->recreatex->validateBasket(/* parameters */);
+// 	}
 
-	/**
-	 * Tests Recreatex->validateBasket()
-	 */
-	public function testValidateBasket()
-	{
-		// TODO Auto-generated RecreatexTest->testValidateBasket()
-		$this->markTestIncomplete("validateBasket test not implemented");
-		$this->recreatex->validateBasket(/* parameters */);
-	}
+// 	/**
+// 	 * Tests Recreatex->checkoutBasket()
+// 	 */
+// 	public function testCheckoutBasket()
+// 	{
+// 		// TODO Auto-generated RecreatexTest->testCheckoutBasket()
+// 		$this->markTestIncomplete("checkoutBasket test not implemented");
+// 		$this->recreatex->checkoutBasket(/* parameters */);
+// 	}
 
-	/**
-	 * Tests Recreatex->validateBasketItem()
-	 */
-	public function testValidateBasketItem()
-	{
-		// TODO Auto-generated RecreatexTest->testValidateBasketItem()
-		$this->markTestIncomplete("validateBasketItem test not implemented");
-		$this->recreatex->validateBasketItem(/* parameters */);
-	}
+// 	/**
+// 	 * Tests Recreatex->lockBasketItems()
+// 	 */
+// 	public function testLockBasketItems()
+// 	{
+// 		// TODO Auto-generated RecreatexTest->testLockBasketItems()
+// 		$this->markTestIncomplete("lockBasketItems test not implemented");
+// 		$this->recreatex->lockBasketItems(/* parameters */);
+// 	}
 
-	/**
-	 * Tests Recreatex->checkoutBasket()
-	 */
-	public function testCheckoutBasket()
-	{
-		// TODO Auto-generated RecreatexTest->testCheckoutBasket()
-		$this->markTestIncomplete("checkoutBasket test not implemented");
-		$this->recreatex->checkoutBasket(/* parameters */);
-	}
-
-	/**
-	 * Tests Recreatex->lockBasketItems()
-	 */
-	public function testLockBasketItems()
-	{
-		// TODO Auto-generated RecreatexTest->testLockBasketItems()
-		$this->markTestIncomplete("lockBasketItems test not implemented");
-		$this->recreatex->lockBasketItems(/* parameters */);
-	}
-
-	/**
-	 * Tests Recreatex->unlockBasketItems()
-	 */
-	public function testUnlockBasketItems()
-	{
-		// TODO Auto-generated RecreatexTest->testUnlockBasketItems()
-		$this->markTestIncomplete("unlockBasketItems test not implemented");
-		$this->recreatex->unlockBasketItems(/* parameters */);
-	}
+// 	/**
+// 	 * Tests Recreatex->unlockBasketItems()
+// 	 */
+// 	public function testUnlockBasketItems()
+// 	{
+// 		// TODO Auto-generated RecreatexTest->testUnlockBasketItems()
+// 		$this->markTestIncomplete("unlockBasketItems test not implemented");
+// 		$this->recreatex->unlockBasketItems(/* parameters */);
+// 	}
 
 	/**
 	 * Tests Recreatex->listPaymentMethods()
 	 */
 	public function testListPaymentMethods()
 	{
-		$this->assertType('array', $this->recreatex->listPaymentMethods());
+		$var = $this->recreatex->listPaymentMethods();
+
+		$this->assertType('array', $var);
+		foreach($var as $row)
+		{
+			$this->assertArrayHasKey('Id', $row);
+		}
 	}
 
 	/**
@@ -272,28 +248,9 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testFindCultureEvents()
 	{
-		// TODO Auto-generated RecreatexTest->testFindCultureEvents()
-		$this->markTestIncomplete("findCultureEvents test not implemented");
-		$this->recreatex->findCultureEvents(/* parameters */);
-	}
+		$var = $this->recreatex->findCultureEvents();
 
-	/**
-	 * Tests Recreatex->listHalls()
-	 */
-	public function testListHalls()
-	{
-		// TODO Auto-generated RecreatexTest->testListHalls()
-		$this->markTestIncomplete("listHalls test not implemented");
-		$this->recreatex->listHalls(/* parameters */);
-	}
-
-	/**
-	 * Tests Recreatex->GetHallSeating()
-	 */
-	public function testGetHallSeating()
-	{
-		// TODO Auto-generated RecreatexTest->testGetHallSeating()
-		$this->markTestIncomplete("GetHallSeating test not implemented");
-		$this->recreatex->GetHallSeating(/* parameters */);
+		$this->assertType('array', $var);
+		$this->assertTrue((count($var) == 10));
 	}
 }
