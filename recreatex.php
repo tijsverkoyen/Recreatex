@@ -118,6 +118,120 @@ class Recreatex
 	}
 
 	/**
+	 * Callback-method for elements in the return-array
+	 *
+	 * @param mixed $input The value.
+	 * @param string $key The key.
+	 * @param DOMElement $XML The root-element.
+	 */
+	private static function arrayToXML(&$input, $key, $XML)
+	{
+		// skip attributes
+		if($key == '@attributes') return;
+
+		// create element
+		$element = new DOMElement($key);
+
+		// append
+		$XML->appendChild($element);
+
+		// no value? just stop here
+		if($input === null) return;
+
+		// is it an array and are there attributes
+		if(is_array($input) && isset($input['@attributes']))
+		{
+			// loop attributes
+			foreach((array) $input['@attributes'] as $name => $value) $element->setAttribute($name, $value);
+
+			// remove attributes
+			unset($input['@attributes']);
+
+			// reset the input if it is a single value
+			if(count($input) == 1)
+			{
+				// get keys
+				$keys = array_keys($input);
+
+				// reset
+				$input = $input[$keys[0]];
+			}
+		}
+
+		// the input isn't an array
+		if(!is_array($input))
+		{
+			// a string?
+			if(is_string($input))
+			{
+				// characters that require a cdata wrapper
+				$illegalCharacters = array('&', '<', '>', '"', '\'');
+
+				// default we dont wrap with cdata tags
+				$wrapCdata = false;
+
+				// find illegal characters in input string
+				foreach($illegalCharacters as $character)
+				{
+					if(stripos($input, $character) !== false)
+					{
+						// wrap input with cdata
+						$wrapCdata = true;
+
+						// no need to search further
+						break;
+					}
+				}
+
+				// check if value contains illegal chars, if so wrap in CDATA
+				if($wrapCdata) $element->appendChild(new DOMCdataSection($input));
+
+				// just regular element
+				else $element->appendChild(new DOMText($input));
+			}
+
+			// regular element
+			else $element->appendChild(new DOMText($input));
+		}
+
+		// the value is an array
+		else
+		{
+			if(!empty($input)) ksort($input);
+
+			// init var
+			$isNonNumeric = false;
+
+			// loop all elements
+			foreach($input as $index => $value)
+			{
+				// non numeric string as key?
+				if(!is_numeric($index))
+				{
+					// reset var
+					$isNonNumeric = true;
+
+					// stop searching
+					break;
+				}
+			}
+
+			// is there are named keys they should be handles as elements
+			if($isNonNumeric) array_walk($input, array('Recreatex', 'arrayToXML'), $element);
+
+			// numeric elements means this a list of items
+			else
+			{
+				// handle the value as an element
+				foreach($input as $value)
+				{
+					if(is_array($value)) array_walk($value, array('Recreatex', 'arrayToXML'), $element);
+				}
+			}
+		}
+	}
+
+	/**
 	 * Build the paging parameter
 	 *
 	 * @param int $page							The page to retrieve.
@@ -145,56 +259,77 @@ class Recreatex
 	}
 
 	/**
-	 * Build the XML we will send.
+	 * Decode the response
 	 *
-	 * @param mixed $data
-	 * @param string[optional] $xml
-	 * @return string
+	 * @param SimpleXMLElement $item	The item to decode.
+	 * @param array[optional] $return	A placeholder.
+	 * @param int[optional] $i			A counter.
+	 * @return mixed
 	 */
-	public static function buildXML($data, $xml = '')
+	private function decodeResponse($item, $return = null, $i = 0)
 	{
-		// if it isn't an array it is just a single key
-		if(!is_array($data)) return '<' . (string) $data . ' />';
+		$base64Keys = array('Bytes');
+		$floatKeys = array('Price', 'Stock', 'Cost');
+		$integerKeys = array('AvailableSeats');
+		$fullImageUrlsKeys = array('ImageUri', 'ImageUrl');
+		$timestampKeys = array('From', 'Until', 'SalesFrom', 'SalesUntil');
 
-		// loop all keys
-		foreach($data as $key => $value)
+		if($item instanceof SimpleXMLElement)
 		{
-			// no value;
-			if(empty($value)) $xml .= '<' . $key . ' />';
-
-			else
+			foreach($item as $key => $value)
 			{
-				// start
-				$xml .= '<' . $key . '>';
+				// empty
+				if(isset($value['nil']) && (string) $value['nil'] === 'true') $return[$key] = null;
 
-				// if it is an array we should call ourself
-				if(is_array($value)) $xml = self::buildXML($value, $xml);
-
-				// a boolean
-				elseif(is_bool($value))
+				// empty
+				elseif(isset($value[0]) && (string) $value == '')
 				{
-					if($value) $xml .= 'true';
-					else $xml .= 'false';
+					$return[$key] = self::decodeResponse($value, null, 1);
 				}
-
-				elseif(is_int($value)) $xml .= (string) $value;
-
-
-				// a string?
-				elseif(is_string($value)) $xml .= $value;
 
 				else
 				{
-					Spoon::dump('GODVER');
-				}
+					// base64
+					if(in_array($key, $base64Keys)) $return[$key] = base64_decode((string) $value);
 
-				// end
-				$xml .= '</' . $key . '>';
+					// booleans
+					elseif((string) $value == 'true') $return[$key] = true;
+					elseif((string) $value == 'false') $return[$key] = false;
+
+					// floats
+					elseif(in_array($key, $floatKeys)) $return[$key] = (float) $value;
+
+					// integers
+					elseif(in_array($key, $integerKeys)) $return[$key] = (int) $value;
+
+					// fallback to string
+					else $return[$key] = (string) $value;
+
+					// add an extra item with the full image url
+					if(in_array($key, $fullImageUrlsKeys))
+					{
+						Spoon::dump($key);
+
+						// add full url
+						$item['ImageFullUrl'] = ($item['ImageUri'] != '') ? $this->getServer() . self::REST_IMAGE_URL . '/' . $item['ImageUri'] : null;
+					}
+
+					// add an extra item with the value converted to a UNIX-timestamp
+					if(in_array($key, $timestampKeys))
+					{
+						$return[$key . 'Timestamp'] = (int) strtotime((string) $value);
+					}
+
+				}
 			}
 		}
 
-		// return
-		return $xml;
+		else
+		{
+			throw new RecreatexException('invalid item');
+		}
+
+		return $return;
 	}
 
 	/**
@@ -204,16 +339,29 @@ class Recreatex
 	 * @param array[optional] $parameters		The parameters.
 	 * @return mixed
 	 */
-	private function doCall($method, $data = '', $includeContext = true)
+	private function doCall($method, $data = null, $includeContext = true, $overruleKey = null)
 	{
 		/**
 		 * I know there is an PHP SOAP extension, but it can't handle requests with multiple message parts.
 		 * So this is my own SOAP-client implementation.
 		 */
+
+		// init XML
+		$XML = new DOMDocument('1.0', 'utf-8');
+
+		// set some properties
+		$XML->preserveWhiteSpace = false;
+		$XML->formatOutput = true;
+
+		// create root element
+		$root = $XML->createElement('soap:Envelope');
+		$root->setAttribute('xmlns:soap', 'http://schemas.xmlsoap.org/soap/envelope/');
+		$root->setAttribute('xmlns', 'http://www.recreatex.be/webshop/v1.1/');
+		$XML->appendChild($root);
+
 		// create body
-		$body = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
-		$body .= '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://www.recreatex.be/webshop/v1.1/">' . "\n";
-		$body .= '	<soap:Body>' . "\n";
+		$body = $XML->createElement('soap:Body');
+		$root->appendChild($body);
 
 		// grab the service context?
 		$serviceContext = $this->getServiceContext();
@@ -221,30 +369,35 @@ class Recreatex
 		// do we have a service context?
 		if($includeContext && !empty($serviceContext))
 		{
-			$body .= '		<Context>' . "\n";
+			// create the context
+			$context = $XML->createElement('Context');
 
-			// add the service context fields
-			if(isset($serviceContext['division_id'])) $body .= '			<DivisionId>' . $serviceContext['division_id'] . '</DivisionId>' . "\n";
-			if(isset($serviceContext['language'])) $body .= '			<Language>' . $serviceContext['language'] . '</Language>' . "\n";
-			if(isset($serviceContext['shop_id'])) $body .= '			<ShopId>' . $serviceContext['shop_id'] . '</ShopId>' . "\n";
+			if(isset($serviceContext['division_id'])) $context->appendChild($XML->createElement('DivisionId', $serviceContext['division_id']));
+			if(isset($serviceContext['language'])) $context->appendChild($XML->createElement('Language', $serviceContext['language']));
+			if(isset($serviceContext['shop_id'])) $context->appendChild($XML->createElement('ShopId', $serviceContext['shop_id']));
 
-			$body .= '		</Context>' . "\n";
+			// append the content
+			$body->appendChild($context);
 		}
 
-		// build body
-		if(trim($data) != '')
-		{
-			$body .= '		' . trim($data) . "\n";
-		}
+		// sort the data
+		if(!empty($data)) ksort($data);
 
-		// end body
-		$body .= '	</soap:Body>' . "\n";
-		$body .= '</soap:Envelope>' . "\n";
+		// should we overrule the root-key?
+		if($overruleKey) $realData = array($overruleKey => $data);
+
+		else $realData = array($method => $data);
+
+		// build XML
+		array_walk($realData, array('Recreatex', 'arrayToXML'), $body);
+
+		// store the body
+		$body = $XML->saveXML();
 
 		// build headers
 		$headers = array(
 			'Content-Type: text/xml; charset=utf-8',
-			'Content-Length: ' . strlen($body),
+			'Content-Length: ' . mb_strlen($body),
 			'SOAPAction: "' . self::SOAP_URL . '/' . (string) $method . '"'
 		);
 
@@ -476,13 +629,13 @@ class Recreatex
 	public function isAvailable()
 	{
 		// make the call
-		$response = $this->doCall('IsAvailable', self::buildXML('IsAvailable'), false);
+		$response = $this->doCall('IsAvailable', null, false);
 
 		// validate
 		if(!isset($response->IsAvailableResult)) throw new RecreatexException('Invalid response.');
 
 		// return
-		return (bool) $response->IsAvailableResult;
+		return (bool) ((string) $response->IsAvailableResult == 'true');
 	}
 
 	/**
@@ -499,7 +652,7 @@ class Recreatex
 		$data['Credentials']['Password'] = (string) $password;
 
 		// make the call
-		$response = $this->doCall('AuthenticateUser', self::buildXML($data));
+		$response = $this->doCall('AuthenticateUser', $data);
 
 		// validate
 		if(!isset($response->AuthenticationResult)) throw new RecreatexException('Invalid response.');
@@ -519,54 +672,55 @@ class Recreatex
 	 * @param string[optional] $id					The unique ID of the person, will be empty while creating a person.
 	 * @param string[optional] $code				A unique code for the person.
 	 * @param array[optional] $name					The name details for a person. The array should have the keys below:
-	 * 			- string first		firstname of the person.
-	 * 			- string middle	middlename of the person.
-	 * 			- string last		lastname of the person.
+	 * 			- string First		firstname of the person.
+	 * 			- string Middle	middlename of the person.
+	 * 			- string Last		lastname of the person.
 	 * @param array[optional] $address				The address details of the person. The array should have the keys below:
-	 * 			- string street	the street.
-	 * 			- string number	the housenumber.
-	 * 			- string box		the boxnumber.
-	 * 			- string zip_code	the zip code.
-	 * 			- string town		the town
-	 * 			- string country	the country, use ISO-codes.
+	 * 			- string Street	the street.
+	 * 			- string Number	the housenumber.
+	 * 			- string Box		the boxnumber.
+	 * 			- string ZipCode	the zip code.
+	 * 			- string Town		the town
+	 * 			- string Country	the country, use ISO-codes.
 	 * @param array[optional] $settings				Extra settings for the person.
 	 * 			- bool subscribe_mailing_list	is the person subscribed on the newsletter?
 	 * @param string[optional] $email				The emailaddress of the person.
 	 * @param string[optional] $birthdate			The birthdate of the person.
 	 * @param string[optional] $gender				The gender of the person. Possible values are: male, female, unknown.
 	 * @param string[optional] $language			The language of the person, use ISO-codes.
-	 * @param string[optional] $picture				The data of the picture.
+	 * @param string[optional] $picture				The base64-data of the picture.
 	 * @param string[optional] $phone				The phone number of the person.
 	 * @param string[optional] $cellPhone			The cell phone number of the person.
 	 * @param string[optional] $bankAccount			The bankaccount of the person.
 	 * @param string[optional] $nationalNumber		The national number of the person.
 	 * @param string[optional] $comments			The comments for the person.
-	 * @param array[optiona] $credentials			The credentials of the person.
-	 * 			- login				the login.
-	 * 			- password			the password.
+	 * @param array[optiona] $credential			The credentials of the person.
+	 * 			- Username			the username.
+	 * 			- Password			the password.
 	 * @param array[optional] $relations			The relations of the person.
+	 * 			-
 	 * @return array
 	 */
-	public function savePerson($id = null, $code = null, $name = array(), $address = array(), $settings = array(), $email = null, $birthdate = null, $gender = 2, $language = null, $picture = null, $phone = null, $cellPhone = null, $bankAccount = null, $nationalNumber = null, $comments = null, $credentials = array(), $relations = array())
+	public function savePerson($id = null, $code = null, $name = array(), $address = array(), $settings = array(), $email = null, $birthdate = null, $gender = null, $language = null, $picture = null, $phone = null, $cellPhone = null, $bankAccount = null, $nationalNumber = null, $comments = null, $credential = array(), $relations = array())
 	{
 		// build the body
 		$data = array();
 		if($id !== null) $data['Id'] = (string) $id;
-		if($code !== null) $data['Person']['Code'] = (string) $code;
+		if($code !== null) $data['Code'] = (string) $code;
 		if(!empty($name))
 		{
-			if(isset($name['First'])) $data['PersonName']['First'] = (string) $name['First'];
-			if(isset($name['Middle'])) $data['PersonName']['First'] = (string) $name['Middle'];
-			if(isset($name['Last'])) $data['PersonName']['First'] = (string) $name['Last'];
+			if(isset($name['First'])) $data['Name']['First'] = (string) $name['First'];
+			if(isset($name['Middle'])) $data['Name']['Middle'] = (string) $name['Middle'];
+			if(isset($name['Last'])) $data['Name']['Last'] = (string) $name['Last'];
 		}
 		if(!empty($address))
 		{
-			if(isset($name['Street'])) $data['Address']['Street'] = (string) $address['Street'];
-			if(isset($name['Number'])) $data['Address']['Number'] = (string) $address['Number'];
-			if(isset($name['Box'])) $data['Address']['Box'] = (string) $address['Box'];
-			if(isset($name['ZipCode'])) $data['Address']['ZipCode'] = (string) $address['ZipCode'];
-			if(isset($name['Town'])) $data['Address']['Town'] = (string) $address['Town'];
-			if(isset($name['Country'])) $data['Address']['Country'] = (string) $address['Country'];
+			if(isset($address['Street'])) $data['Address']['Street'] = (string) $address['Street'];
+			if(isset($address['Number'])) $data['Address']['Number'] = (string) $address['Number'];
+			if(isset($address['Box'])) $data['Address']['Box'] = (string) $address['Box'];
+			if(isset($address['ZipCode'])) $data['Address']['ZipCode'] = (string) $address['ZipCode'];
+			if(isset($address['Town'])) $data['Address']['Town'] = (string) $address['Town'];
+			if(isset($address['Country'])) $data['Address']['Country'] = (string) $address['Country'];
 		}
 		if(!empty($settings))
 		{
@@ -583,57 +737,74 @@ class Recreatex
 		if($bankAccount !== null) $data['BankAccount'] = (string) $bankAccount;
 		if($nationalNumber !== null) $data['NationalNumber'] = (string) $nationalNumber;
 		if($comments !== null) $data['Comments'] = (string) $comments;
-		if(!empty($credentials))
+		if(!empty($credential))
 		{
-			if(isset($credentials['Login'])) $data['Credentials']['Login'] = (string) $credentials['Login'];
-			if(isset($credentials['Password'])) $data['Credentials']['Password'] = (string) $credentials['Password'];
+			if(isset($credential['Password'])) $data['Credential']['Password'] = (string) $credential['Password'];
+			if(isset($credential['Username'])) $data['Credential']['Username'] = (string) $credential['Username'];
 		}
 		if(!empty($relations))
 		{
 			// not used
 		}
 
-		Spoon::dump(self::buildXML(array('Person' => $data)), false);
-
 		// make the call
-		$response = $this->doCall('SavePerson', self::buildXML(array('Person' => $data)));
+		$response = $this->doCall('SavePerson', $data, true, 'Person');
 
 		// validate
-		if(!isset($response->SavePersonResult->Person)) throw new RecreatexException('Invalid response.');
-		if(!isset($response->SavePersonResult->ValidationResults->ValidationResult)) throw new RecreatexException('Invalid response.');
+		if(!isset($response->SavePersonResult)) throw new RecreatexException('Invalid response.');
 
-		// init var
-		$return = array();
+		// decode response
+		$return = self::decodeResponse($response->SavePersonResult[0]);
 
-		$return['Result']['IsValid'] = (bool) ((string) $response->SavePersonResult->ValidationResults->ValidationResult->IsValid == 'true');
-		$return['Result']['Message'] = (string) $response->SavePersonResult->ValidationResults->ValidationResult->Message;
-		$return['Result']['BrokenRuleName'] = (string) $response->SavePersonResult->ValidationResults->ValidationResult->brokenRuleName;
-
-		Spoon::dump($response, false);
-		Spoon::dump($return);
+		// return
+		return $return;
 	}
+
+
+	public function savePersonByObject($object)
+	{
+		// make the call
+		$response = $this->doCall('SavePerson', array('Person' => $object), true);
+
+		// validate
+		if(!isset($response->SavePersonResult)) throw new RecreatexException('Invalid response.');
+
+		// decode response
+		$return = self::decodeResponse($response->SavePersonResult[0]);
+
+		// return
+		return $return;
+	}
+
 
 	/**
 	 * Find a person
 	 *
 	 * @param string[optional] $id			The unique ID of the persion you want.
 	 * @param string[optional] $username	The username of the user you want.
+	 * @param string[opional] $email
+	 * @param array[optional] $includes
 	 * @param array[optional] $paging		The paging criteria, see Recreatex::buildPagingParameter().
 	 * @return array
 	 */
-	public function findPerson($id = null, $username = null, $paging = null)
+	public function findPerson($id = null, $username = null, $email = null, array $includes = array(), $paging = null)
 	{
 		// build body
 		$data = array();
-		if($id !== null) $data['FindPersonsCriteria']['Id'] = (string) $id;
-		if($username !== null) $data['Username'] = (string) $username;
-		if($paging != null) $data['FindPersonsCriteria']['Paging'] = $paging;
+		if($id !== null) $data['Criteria']['Id'] = (string) $id;
+		if($username !== null) $data['Criteria']['UserName'] = (string) $username;
+		if($email !== null) $data['Criteria']['Email'] = (string) $email;
+		if($paging != null) $data['Criteria']['Paging'] = $paging;
+		if(!empty($includes))
+		{
+			foreach($includes as $key => $value) $data['Criteria']['Includes'][$key] = (bool) $value;
+		}
 
 		// make the call
-		$response = $this->doCall('FindPerson', self::buildXML($data));
+		$response = $this->doCall('FindPerson', $data);
 
 		// validate
-		if(!isset($response->FindPersonResult->Person)) throw new RecreatexException('Invalid response.');
+		if(!isset($response->FindPersonResult)) throw new RecreatexException('Invalid response.');
 
 		// init var
 		$return = array();
@@ -642,99 +813,7 @@ class Recreatex
 		foreach($response->FindPersonResult->Person as $row)
 		{
 			// build item
-			$item = array();
-			$item['Id'] = (string) $row->Id;
-			$item['Code'] = ((string) $row->Code == '') ? null : (string) $row->Code;
-			$item['Name'] = null;
-
-			if(!isset($row->Name['nil']))
-			{
-				// init var
-				$name = null;
-
-				// build
-				$name['First'] = (!isset($row->Name->First['nil'])) ? (string) $row->Name->First : null;
-				$name['Last'] = (!isset($row->Name->Last['nil'])) ? (string) $row->Name->Last : null;
-				$name['Middle'] = (!isset($row->Name->Middle['nil'])) ? (string) $row->Name->Middle : null;
-
-				// add
-				$item['Name'] = $name;
-			}
-			$item['Address'] = null;
-			if(!isset($row->Address['nil']))
-			{
-				// init var
-				$address = null;
-
-				// build
-				$address['Box'] = (!isset($row->Address->Box['nil'])) ? (string) $row->Address->Box : null;
-				$address['Country'] = (!isset($row->Address->Country['nil'])) ? (string) $row->Address->Country : null;
-				$address['Number'] = (!isset($row->Address->Number['nil'])) ? (string) $row->Address->Number : null;
-				$address['Street'] = (!isset($row->Address->Street['nil'])) ? (string) $row->Address->Street : null;
-				$address['Town'] = (!isset($row->Address->Town['nil'])) ? (string) $row->Address->Town : null;
-				$address['ZipCode'] = (!isset($row->Address->ZipCode['nil'])) ? (string) $row->Address->ZipCode : null;
-
-				// add
-				$item['Address'] = $address;
-			}
-
-			$item['Settings'] = null;
-			if(!isset($row->Settings['nil']))
-			{
-				// init var
-				$settings = null;
-
-				// build
-				$settings['Subcategories'] = null;
-
-				// @todo
-				if(!empty($row->Settings->Subcategories)) Spoon::dump($row->Settings->Subcategories);
-
-				$settings['SubscribeMailingList'] = (bool) ((string) $row->Settings->SubscribeMailingList == 'true');
-
-				// add
-				$item['Settings'] = $settings;
-			}
-			$item['Email'] = ((string) $row->Email == '') ? null : (string) $row->Email;
-			$item['BirthDate'] = (string) $row->BirthDate;
-			$item['Gender'] = (string) $row->Gender;
-			$item['Language'] = ((string) $row->Language == '') ? null : (string) $row->Language;
-			$item['Picture'] = ((string) $row->Picture == '') ? null : (string) $row->Picture;
-			$item['Phone'] = ((string) $row->Phone == '') ? null : (string) $row->Phone;
-			$item['CellPhone'] = ((string) $row->CellPhone == '') ? null : (string) $row->CellPhone;
-			$item['BankAccount'] = ((string) $row->BankAccount == '') ? null : (string) $row->BankAccount;
-			$item['NationalNumber'] = ((string) $row->NationalNumber == '') ? null : (string) $row->NationalNumber;
-			$item['Comments'] = ((string) $row->Comments == '') ? null : (string) $row->Comments;
-
-			$item['Credential'] = null;
-			if(!isset($row->Credential['nil']))
-			{
-				// init var
-				$credential = null;
-
-				// build
-				$credential['Login'] = (!isset($row->Credential->Login['nil'])) ? (string) $row->Credential->Login : null;
-				$credential['Password'] = (!isset($row->Credential->Password['nil'])) ? (string) $row->Credential->Password : null;
-
-				// add
-				$item['Credential'] = $credential;
-			}
-
-			$item['Relations'] = null;
-			if(!isset($row->Relation['nil']))
-			{
-				// init var
-				$relations = null;
-
-				// @todo
-				if(!empty($row->Relation)) Spoon::dump($row->Settings->Relation);
-
-				// add
-				$item['Relations'] = $relations;
-			}
-
-			// add
-			$return[] = $item;
+			$return[] = self::decodeResponse($row);
 		}
 
 		// return
@@ -752,7 +831,7 @@ class Recreatex
 		$response = $this->doCall('ListActivityTypes');
 
 		// validate
-		if(!isset($response->ActivityType)) throw new RecreatexException('Invalid response.');
+		if(!isset($response->ActivityTypes)) throw new RecreatexException('Invalid response.');
 
 		// init var
 		$return = array();
@@ -762,9 +841,9 @@ class Recreatex
 		{
 			// build item
 			$item = array();
-			$item['Id'] = $row->Id;
-			$item['Code'] = $row->Code;
-			$item['Name'] = $row->Name;
+			$item['Id'] = (string) $row->Id;
+			$item['Code'] = (string) $row->Code;
+			$item['Name'] = (string) $row->Name;
 
 			// add
 			$return[] = $item;
@@ -779,7 +858,7 @@ class Recreatex
 	 *
 	 * @param string[optional] $articleType		Define the type of articles to retrieve. Possible values are: Sale, Rental, All.
 	 * @param bool[optional] $includeImage		Include the image.
-	 * @param bool[optional] $includeImageUrl		Include the url of the image.
+	 * @param bool[optional] $includeImageUrl	Include the url of the image.
 	 * @return array
 	 */
 	public function listArticleGroups($articleType = 'Sale', $includeImage = false, $includeImageUrl = true)
@@ -796,10 +875,10 @@ class Recreatex
 		);
 
 		// make the call
-		$response = $this->doCall('ListArticleGroups', self::buildXML(array('ArticleGroupSearchCriteria' => $data)));
+		$response = $this->doCall('ListArticleGroups', array('ArticleGroupSearchCriteria' => $data));
 
 		// validate
-		if(!isset($response->ArticleGroups->ArticleGroup)) throw new RecreatexException('Invalid response.');
+		if(!isset($response->ArticleGroups)) throw new RecreatexException('Invalid response.');
 
 		// init var
 		$return = array();
@@ -807,24 +886,11 @@ class Recreatex
 		// loop
 		foreach($response->ArticleGroups->ArticleGroup as $row)
 		{
-			// build item
-			$item = array();
-			$item['Id'] = (string) $row->Id;
-			$item['Code'] = (string) $row->Code;
-			$item['Name'] = (string) $row->Name;
-			$item['Description'] = (string) $row->Description;
-			if($includeImage)
-			{
-				$item['Image']['ContentType'] = $row->Image->ContentType;
-				$item['Image']['Data'] = base64_decode($row->Image->Bytes);
-			}
-			if($includeImageUrl)
-			{
-				$item['ImageUrl'] = (string) $row->ImageUrl;
-				$item['ImageFullUrl'] = $this->getServer() . self::REST_IMAGE_URL . '/' . $item['ImageUrl'];
-			}
-			if($row->Articles['nil'] == 'true') $item['Articles'] = null;
-			else $item['Articles'] = (array) $row->Articles;
+			// decode the response
+			$item = self::decodeResponse($row);
+
+			// add full url
+			if($includeImageUrl) $item['ImageFullUrl'] = ($item['ImageUrl'] != '') ? $this->getServer() . self::REST_IMAGE_URL . '/' . $item['ImageUrl'] : null;
 
 			// add
 			$return[] = $item;
@@ -869,10 +935,10 @@ class Recreatex
 		if(isset($data['Paging']) || isset($data['Includes'])) $data = array('ArticleSearchCriteria' => $data);
 
 		// make the call
-		$response = $this->doCall('FindArticles', self::buildXML($data));
+		$response = $this->doCall('FindArticles', $data);
 
 		// validate
-		if(!isset($response->Articles->Article)) throw new RecreatexException('Invalid response.');
+		if(!isset($response->Articles)) throw new RecreatexException('Invalid response.');
 
 		// init var
 		$return = array();
@@ -881,25 +947,10 @@ class Recreatex
 		foreach($response->Articles->Article as $row)
 		{
 			// build item
-			$item = array();
-			$item['Id'] = (string) $row->Id;
-			$item['Code'] = (string) $row->Code;
-			$item['Name'] = (string) $row->Name;
-			$item['Description'] = (string) $row->Description;
-			if(!isset($row->Group['nil'])) $item['Group'] = (string) $row->Group;
-			if(!isset($row->Image['nil']))
-			{
-				$item['image']['ContentType'] = $row->Image->ContentType;
-				$item['image']['Data'] = base64_decode($row->Image->Bytes);
-			}
-			if(!isset($row->ImageUrl['nil']))
-			{
-				$item['ImageUrl'] = (string) $row->ImageUrl;
-				$item['ImageFullUrl'] = $this->getServer() . self::REST_IMAGE_URL . '/' . $item['ImageUrl'];
-			}
-			$item['IsRental'] = (bool) ((string) $row->IsRental == 'true');
-			$item['Price'] = (float) $row->Price;
-			$item['Stock'] = (float) $row->Stock;
+			$item = self::decodeResponse($row);
+
+			// add full url
+			$item['ImageFullUrl'] = ($item['ImageUrl'] != '') ? $this->getServer() . self::REST_IMAGE_URL . '/' . $item['ImageUrl'] : null;
 
 			// add
 			$return[] = $item;
@@ -920,7 +971,7 @@ class Recreatex
 		$response = $this->doCall('ListExpositionTypes');
 
 		// validate
-		if(!isset($response->ExpositionTypes->ExpositionType)) throw new RecreatexException('Invalid response.');
+		if(!isset($response->ExpositionTypes)) throw new RecreatexException('Invalid response.');
 
 		// init var
 		$return = array();
@@ -956,6 +1007,8 @@ class Recreatex
 	 */
 	public function findExpositions($expositionId = null, $namePattern = null, $from = null, $until = null, $expositionTypeId = null, $audienceId = null, array $includes = array())
 	{
+		throw new RecreatexException('Implement me when there are expositions.');
+
 		// build the data
 		$data = array();
 		if($expositionId !== null) $data['ExpositionId'] = (string) $expositionId;
@@ -971,10 +1024,7 @@ class Recreatex
 		$data = array('ExpositionSearchCriteria' => $data);
 
 		// make the call
-		$response = $this->doCall('FindExpositions', self::buildXML($data));
-
-		// ...
-		throw new RecreatexException('Implement me when there are expositions.');
+		$response = $this->doCall('FindExpositions', $data);
 	}
 
 	/**
@@ -989,14 +1039,59 @@ class Recreatex
 		throw new RecreatexException('Not implemented', 500);
 	}
 
-	public function validateBasket($items = array(), $price, $payments = array(), $customerId)
+	/**
+	 * Validate the basket
+	 *
+	 * @param string $customerId	The ID of the buyer.
+	 * @param array $items			The items that will be validated as an array, each item can have the keys below:
+	 * 			- Id (string)			The ID of the item.
+	 * 			- Quantity (int)		The number of items.
+	 * 			- DivisionId (string)	The dvision the item belongs to.
+	 * @param array $payments		The payment methods used.
+	 * 			- Amount (float)			The amount that was payed.
+	 * 			- Currency (string)			The curreny used to pay.
+	 * 			- PaymentMethodId (string)	The ID of the payment method.
+	 * @param float $price			The total of the order.
+	 * @return array
+	 */
+	public function validateBasket($customerId, array $items, array $payments, $price)
 	{
-		throw new RecreatexException('Not implemented', 500);
+		// build body
+		$data = array();
+		$data['CustomerId'] = (string) $customerId;
+		$data['Price'] = (float) $price;
+
+		// add items
+		foreach($items as $row) $data['Items'][] = array('Item' => $row);
+		foreach($payments as $row) $data['Payments'] = array('Payment' => $row);
+
+		// make the call
+		$response = $this->doCall('ValidateBasket', array('ValidateBasket' => $data));
+
+		// validate
+		if(!isset($response->ValidateBasketResult)) throw new RecreatexException('Invalid response.');
+
+		// return
+		return self::decodeResponse($response->ValidateBasketResult[0]);
 	}
 
-	public function checkoutBasket()
+	public function checkoutBasket($customerId, array $items, array $payments, $price)
 	{
-		throw new RecreatexException('Not implemented', 500);
+		// build body
+		$data = array();
+		$data['CustomerId'] = (string) $customerId;
+		$data['Items'] = $items;
+		$data['Paymenst'] = $payments;
+		$data['Price'] = (float) $price;
+
+		// make the call
+		$response = $this->doCall('CheckoutBasket', array('Basket' => $data));
+
+		// validate
+		if(!isset($response->CheckoutBasketResult)) throw new RecreatexException('Invalid response.');
+
+		// return
+		return self::decodeResponse($response->CheckoutBasketResult[0]);
 	}
 
 	public function lockBasketItems()
@@ -1016,14 +1111,11 @@ class Recreatex
 	 */
 	public function listPaymentMethods()
 	{
-		// build the body
-		$body = '<ListPaymentMethods />';
-
 		// make the call
-		$response = $this->doCall('ListPaymentMethods', $body);
+		$response = $this->doCall('ListPaymentMethods', array('ListPaymentMethods' => null));
 
 		// validate
-		if(!isset($response->PaymentMethods->BasketPaymentMethod)) throw new RecreatexException('Invalid response.');
+		if(!isset($response->PaymentMethods)) throw new RecreatexException('Invalid response.');
 
 		// init var
 		$return = array();
@@ -1032,32 +1124,7 @@ class Recreatex
 		foreach($response->PaymentMethods->BasketPaymentMethod as $row)
 		{
 			// build item
-			$item = array();
-			$item['Id'] = (string) $row->Id;
-			$item['Name'] = (string) $row->Name;
-			$item['Description'] = (isset($row->Description['nil'])) ? null : (string) $row->Description;
-
-			// any incasso costs?
-			if(isset($row->AdditionalIncassoCosts->IncassoCost))
-			{
-				// init
-				$item['AdditionalIncassoCosts'] = array();
-
-				// loop them
-				foreach($row->AdditionalIncassoCosts->IncassoCost as $cost)
-				{
-					// build item
-					$temp['Name'] = (string) $cost->Name;
-					$temp['Cost'] = (float) $cost->Cost;
-					$temp['NumberOfPayments'] = (float) $cost->NumberOfPayments;
-
-					// add
-					$item['AdditionalIncassoCosts'][] = $temp;
-				}
-			}
-
-			// add
-			$return[] = $item;
+			$return[] = self::decodeResponse($row);
 		}
 
 		// return
@@ -1084,13 +1151,7 @@ class Recreatex
 		foreach($response->CultureActivities->CultureActivity as $row)
 		{
 			// build item
-			$item = array();
-			$item['Id'] = (string) $row->Id;
-			$item['Code'] = (string) $row->Code;
-			$item['Name'] = (string) $row->Name;
-
-			// add
-			$return[] = $item;
+			$return[] = self::decodeResponse($row);
 		}
 
 		// return
@@ -1100,7 +1161,7 @@ class Recreatex
 	/**
 	 * Find culture events.
 	 *
-	 * @param string[optional] $cultureEventid		If provided only this item will be returned.
+	 * @param string[optional] $cultureEventId		If provided only this item will be returned.
 	 * @param string[optional] $name				If provided only items matching the pattern will be returned.
 	 * @param int[optional] $from					If provided only items that start after this date will be returned.
 	 * @param int[optional] $until					If provided only items that start before this date will be returned.
@@ -1109,11 +1170,11 @@ class Recreatex
 	 * @param array[optional] $includes				A key-value-array with the properties to include, possible keys are: ImageUrl, ImageUr, Options.
 	 * @return array
 	 */
-	public function findCultureEvents($cultureEventid = null, $name = null, $from = null, $until = null, $cultureActivityId = null, $paging = null, $includes = array())
+	public function findCultureEvents($cultureEventId = null, $name = null, $from = null, $until = null, $cultureActivityId = null, $paging = null, $includes = array())
 	{
 		// build the data
 		$data = array();
-		if($cultureEventid !== null) $data['CultureEventId'] = (string) $expositionId;
+		if($cultureEventId !== null) $data['CultureEventId'] = (string) $cultureEventId;
 		if($name !== null) $data['Name'] = (string) $name;
 		if($from !== null) $data['From'] = date('c', (int) $from);
 		if($until !== null) $data['Until'] = date('c', (int) $until);
@@ -1126,10 +1187,10 @@ class Recreatex
 		$data = array('CultureEventSearchCriteria' => $data);
 
 		// make the call
-		$response = $this->doCall('FindCultureEvents', self::buildXML($data));
+		$response = $this->doCall('FindCultureEvents', $data);
 
 		// validate
-		if(!isset($response->CultureEvents->CultureEvent)) throw new RecreatexException('Invalid response.');
+		if(!isset($response->CultureEvents)) throw new RecreatexException('Invalid response.');
 
 		// init var
 		$return = array();
@@ -1140,80 +1201,31 @@ class Recreatex
 		foreach($response->CultureEvents->CultureEvent as $row)
 		{
 			// build item
-			$item = array();
-			$item['AdministrativeCost'] = null;
-			if(isset($row->AdministrativeCost))
-			{
-				// init var
-				$administrativeCost = null;
+			$item = self::decodeResponse($row);
 
-				if(!isset($row->AdministrativeCost->Cost['nil'])) $administrativeCost['Cost'] = (float) $row->AdministrativeCost->Cost;
-				if(!isset($row->AdministrativeCost->Name['nil'])) $administrativeCost['Name'] = (string) $row->AdministrativeCost->Name;
+			// @todo	something wierd with Ref nzo...
 
-				// add
-				$item['AdministrativeCost'] = $administrativeCost;
-			}
-			$item['AvailableSeats'] = (int) $row->AvailableSeats;
-			$item['Code'] = (string) $row->Code;
-			$item['CultureActivity'] = null;
-			if(isset($row->CultureActivity))
-			{
-				// stored
-				if(isset($row->CultureActivity['Ref']) && isset($cultureActivitiesStore[(string) $row->CultureActivity['Ref']]))
-				{
-					$activity = $cultureActivitiesStore[(string) $row->CultureActivity['Ref']];
-				}
-				else
-				{
-					// build activity
-					$activity['Id'] = (string) $row->CultureActivity->Id;
-					$activity['Code'] = (string) $row->CultureActivity->Code;
-					$activity['Description'] = (string) $row->CultureActivity->Description;
+// 			if(isset($row->CultureActivity))
+// 			{
+// 				// stored
+// 				if(isset($row->CultureActivity['Ref']) && isset($cultureActivitiesStore[(string) $row->CultureActivity['Ref']]))
+// 				{
+// 					$activity = $cultureActivitiesStore[(string) $row->CultureActivity['Ref']];
+// 				}
+// 				else
+// 				{
+// 					// build activity
+// 					$activity['Id'] = (string) $row->CultureActivity->Id;
+// 					$activity['Code'] = (string) $row->CultureActivity->Code;
+// 					$activity['Description'] = (string) $row->CultureActivity->Description;
 
-					$cultureActivitiesStore[(string) $row->CultureActivity['Id']] = $activity;
-				}
+// 					$cultureActivitiesStore[(string) $row->CultureActivity['Id']] = $activity;
+// 				}
 
-				// add
-				$item['CultureActivity'] = $activity;
-			}
-			$item['Description'] = (string) $row->Description;
-			$item['From'] = (string) $row->From;
-			$item['Hall'] = null;
-			if(isset($row->Hall))
-			{
-				// stored
-				if(isset($row->Hall['Ref']) && isset($hallsStore[(string) $row->Hall['Reff']]))
-				{
-					$hall = $hallsStore[(string) $row->Hall['Ref']];
-				}
-				else
-				{
-					// build hall
-					$hall['Address'] = null; // <xs:element minOccurs="0" name="Address" nillable="true" type="q75:Address" xmlns:q75="http://www.recreatex.be/webshop/v0.5/" />
-					$hall['Blocks'] = null; // <xs:element minOccurs="0" name="Blocks" nillable="true" type="q76:ArrayOfSeatBlock" xmlns:q76="http://www.recreatex.be/webshop/v0.5/" />
-					$hall['Code'] = (string) $row->Hall->Code;
-					$hall['Description'] = (isset($row->Hall->Description['nil'])) ? null : (string) $row->Hall->Description;
-					$hall['Id'] = (string) $row->Hall->Id;
-					$hall['Name'] = (string) $row->Hall->Name;
-					$hall['Rows'] = null; // <xs:element minOccurs="0" name="Rows" nillable="true" type="q77:ArrayOfSeatRow" xmlns:q77="http://www.recreatex.be/webshop/v0.5/" />
+// 				// add
+// 				$item['CultureActivity'] = $activity;
+// 			}
 
-					$hallsStore[(string) $row->Hall['Id']] = $hall;
-				}
-
-				// add
-				$item['Hall'] = $hall;
-			}
-			$item['Image'] = null; // <xs:element minOccurs="0" name="Image" nillable="true" type="q258:Picture" xmlns:q258="http://www.recreatex.be/webshop/v0.5/" />
-			$item['ImageUr'] = (string) $row->ImageUr;
-			$item['Id'] = (string) $row->Id;
-			$item['IncassoCost'] = null; // <xs:element minOccurs="0" name="IncassoCost" nillable="true" type="q259:IncassoCost" xmlns:q259="http://www.recreatex.be/webshop/v0.5/" />
-			$item['Name'] = (string) $row->Name;
-			$item['Prices'] = null; // <xs:element minOccurs="0" name="Prices" nillable="true" type="q260:ArrayOfPrice" xmlns:q260="http://www.recreatex.be/webshop/v0.5/" />
-			$item['ReservationCost'] = null; // <xs:element minOccurs="0" name="ReservationCost" nillable="true" type="q261:ReservationCost" xmlns:q261="http://www.recreatex.be/webshop/v0.5/" />
-			$item['SalesFrom'] = (string) $row->SalesFrom;
-			$item['SalesUntil'] = (string) $row->SalesUntil;
-			$item['Status'] = null; // <xs:element minOccurs="0" name="Status" type="q262:CultureEventStatus" xmlns:q262="http://www.recreatex.be/webshop/v0.5/" />
-			$item['Until'] = (string) $row->Until;
 
 			// add
 			$return[] = $item;
