@@ -336,7 +336,9 @@ class Recreatex
 	 * Make the call
 	 *
 	 * @param string $method					The method to be called.
-	 * @param array[optional] $parameters		The parameters.
+	 * @param array[optional] $data				The data.
+	 * @param bool[optional] $includeContext	Should we include the context, if available.
+	 * @param bool[optional] $overruleKey		Each method is wrapped, but for several methods this can't be done automatically.
 	 * @return mixed
 	 */
 	private function doCall($method, $data = null, $includeContext = true, $overruleKey = null)
@@ -760,9 +762,16 @@ class Recreatex
 		return $return;
 	}
 
-
+	/**
+	 * Save a person
+	 *
+	 * @param array $object		The existing person.
+	 * @return array
+	 */
 	public function savePersonByObject($object)
 	{
+		// @todo	fix the data automagically..
+
 		// make the call
 		$response = $this->doCall('SavePerson', array('Person' => $object), true);
 
@@ -775,7 +784,6 @@ class Recreatex
 		// return
 		return $return;
 	}
-
 
 	/**
 	 * Find a person
