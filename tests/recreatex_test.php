@@ -209,15 +209,23 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 // 		$this->recreatex->checkoutBasket(/* parameters */);
 // 	}
 
-// 	/**
-// 	 * Tests Recreatex->lockBasketItems()
-// 	 */
-// 	public function testLockBasketItems()
-// 	{
-// 		// TODO Auto-generated RecreatexTest->testLockBasketItems()
-// 		$this->markTestIncomplete("lockBasketItems test not implemented");
-// 		$this->recreatex->lockBasketItems(/* parameters */);
-// 	}
+	/**
+	 * Tests Recreatex->lockBasketItems()
+	 */
+	public function testLockBasketItems()
+	{
+		$basketItems = array(
+			array('Quantity' => 1, 'UnitPrice' => 3.9, 'Article' => array('Id' => 'ec0ab572-ff67-4a37-a846-f3330748e9bb', 'Price' => 3.9), '@attributes' => array('xsi:type' => 'ArticleSale')),
+			array('Quantity' => 2, 'UnitPrice' => 3.25, 'Article' => array('Id' => '8f7a16d1-c1b1-48c0-acde-01b322002722', 'Price' => 3.25), '@attributes' => array('xsi:type' => 'ArticleSale'))
+		);
+
+		$var = $this->recreatex->lockBasketItems($basketItems);
+
+		$this->assertArrayHasKey('BasketItems', $var);
+		$this->assertArrayHasKey('IsLocked', $var);
+		$this->assertTrue($var['IsLocked']);
+		$this->assertArrayHasKey('ValidationResult', $var);
+	}
 
 	/**
 	 * Tests Recreatex->unlockBasketItems()
