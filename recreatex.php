@@ -1074,13 +1074,13 @@ class Recreatex
 	 *
 	 * @param string $customerId	The ID of the buyer.
 	 * @param array $items			The items that will be validated as an array, each item can have the keys below:
-	 * 			- Id (string)			The ID of the item.
-	 * 			- Quantity (int)		The number of items.
-	 * 			- DivisionId (string)	The dvision the item belongs to.
+	 * 			- string Id				The ID of the item.
+	 * 			- int Quantity			The number of items.
+	 * 			- string DivisionId 	The division the item belongs to.
 	 * @param array $payments		The payment methods used.
-	 * 			- Amount (float)			The amount that was payed.
-	 * 			- Currency (string)			The curreny used to pay.
-	 * 			- PaymentMethodId (string)	The ID of the payment method.
+	 * 			- float Amount				The amount that was payed.
+	 * 			- string Currency			The curreny used to pay.
+	 * 			- string PaymentMethodId	The ID of the payment method.
 	 * @param float $price			The total of the order.
 	 * @return array
 	 */
@@ -1093,10 +1093,10 @@ class Recreatex
 
 		// add items
 		foreach($items as $row) $data['Items'][] = array('Item' => $row);
-		foreach($payments as $row) $data['Payments'] = array('Payment' => $row);
+		if(!empty($payments)) foreach($payments as $row) $data['Payments'][] = array('BasketPayment' => $row);
 
 		// make the call
-		$response = $this->doCall('ValidateBasket', array('ValidateBasket' => $data));
+		$response = $this->doCall('ValidateBasket', $data, true, 'Basket');
 
 		// validate
 		if(!isset($response->ValidateBasketResult)) throw new RecreatexException('Invalid response.');
@@ -1107,6 +1107,8 @@ class Recreatex
 
 	public function checkoutBasket($customerId, array $items, array $payments, $price)
 	{
+		throw new RecreatexException('Not implemented', 500);
+
 		// build body
 		$data = array();
 		$data['CustomerId'] = (string) $customerId;
@@ -1124,14 +1126,47 @@ class Recreatex
 		return self::decodeResponse($response->CheckoutBasketResult[0]);
 	}
 
-	public function lockBasketItems()
+	/**
+	 * Lock the basket items.
+	 *
+	 * @param array $basket
+	 * @return array
+	 */
+	public function lockBasketItems(array $basket)
 	{
-		throw new RecreatexException('Not implemented', 500);
+		// build body
+		$data = array();
+		foreach($basket as $row) $data[] = array('BasketItem' => $row);
+
+		// make the call
+		$response = $this->doCall('LockBasketItems', $data, true, 'BasketItems');
+
+		// validate
+		if(!isset($response->LockBasketResult)) throw new RecreatexException('Invalid response.');
+
+		// return
+		return self::decodeResponse($response->LockBasketResult[0]);
 	}
 
-	public function unlockBasketItems()
+	/**
+	 * Lock the basket items.
+	 *
+	 * @param array $lockTickets	The locks that will be cleared, each item can have the keys below:
+	 * 			- string ExpirationTime		The expire time.
+	 * 			- string Id					The id of the lock.
+	 * @return array
+	 */
+	public function unlockBasketItems(array $lockTickets)
 	{
-		throw new RecreatexException('Not implemented', 500);
+		// build body
+		$data = array();
+		foreach($lockTickets as $row) $data[] = array('LockTicket' => $row);
+
+		// make the call
+		$response = $this->doCall('UnlockBasketItems', $data, true, 'LockTickets');
+
+		// return
+		return true;
 	}
 
 	/**
