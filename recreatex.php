@@ -386,6 +386,7 @@ class Recreatex
 		$root = $XML->createElement('soap:Envelope');
 		$root->setAttribute('xmlns:soap', 'http://schemas.xmlsoap.org/soap/envelope/');
 		$root->setAttribute('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
+		$root->setAttribute('xmlns:xsd',  'http://www.w3.org/2001/XMLSchema');
 		$root->setAttribute('xmlns', 'http://www.recreatex.be/webshop/v1.1/');
 		$XML->appendChild($root);
 
@@ -1074,9 +1075,7 @@ class Recreatex
 	 *
 	 * @param string $customerId	The ID of the buyer.
 	 * @param array $items			The items that will be validated as an array, each item can have the keys below:
-	 * 			- string Id				The ID of the item.
-	 * 			- int Quantity			The number of items.
-	 * 			- string DivisionId 	The division the item belongs to.
+	 * 			- ...
 	 * @param array $payments		The payment methods used.
 	 * 			- float Amount				The amount that was payed.
 	 * 			- string Currency			The curreny used to pay.
@@ -1092,7 +1091,8 @@ class Recreatex
 		$data['Price'] = (float) $price;
 
 		// add items
-		foreach($items as $row) $data['Items'][] = array('Item' => $row);
+		foreach($items as $row) $data['BasketItems'][] = array('BasketItem' => $row);
+
 		if(!empty($payments)) foreach($payments as $row) $data['Payments'][] = array('BasketPayment' => $row);
 
 		// make the call
@@ -1105,19 +1105,33 @@ class Recreatex
 		return self::decodeResponse($response->ValidateBasketResult[0]);
 	}
 
+	/**
+	 * Checkout the basket
+	 *
+	 * @param string $customerId	The ID of the buyer.
+	 * @param array $items			The items that will be validated as an array, each item can have the keys below:
+	 * 			- ...
+	 * @param array $payments		The payment methods used.
+	 * 			- float Amount				The amount that was payed.
+	 * 			- string Currency			The curreny used to pay.
+	 * 			- string PaymentMethodId	The ID of the payment method.
+	 * @param float $price			The total of the order.
+	 * @return array
+	 */
 	public function checkoutBasket($customerId, array $items, array $payments, $price)
 	{
-		throw new RecreatexException('Not implemented', 500);
-
 		// build body
 		$data = array();
 		$data['CustomerId'] = (string) $customerId;
-		$data['Items'] = $items;
-		$data['Paymenst'] = $payments;
 		$data['Price'] = (float) $price;
 
+		// add items
+		foreach($items as $row) $data['BasketItems'][] = array('BasketItem' => $row);
+
+		if(!empty($payments)) foreach($payments as $row) $data['Payments'][] = array('BasketPayment' => $row);
+
 		// make the call
-		$response = $this->doCall('CheckoutBasket', array('Basket' => $data));
+		$response = $this->doCall('CheckoutBasket', $data, true, 'Basket');
 
 		// validate
 		if(!isset($response->CheckoutBasketResult)) throw new RecreatexException('Invalid response.');
@@ -1129,7 +1143,9 @@ class Recreatex
 	/**
 	 * Lock the basket items.
 	 *
-	 * @param array $basket
+	 * @remark
+	 * @param array $basket		The items that will be locked, each item can have the keys below:
+	 * 	...
 	 * @return array
 	 */
 	public function lockBasketItems(array $basket)
