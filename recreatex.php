@@ -124,10 +124,15 @@ class Recreatex
 	 * @param string $key The key.
 	 * @param DOMElement $XML The root-element.
 	 */
-	private static function arrayToXML(&$input, $key, $XML)
+	private static function arrayToXML(&$input, $key, $data)
 	{
+		$XML = $data[0];
+		$removeNullKeys = (bool) $data[1];
+
 		// skip attributes
 		if($key == '@attributes') return;
+
+		if($removeNullKeys && is_null($input)) return;
 
 		// create element
 		$element = new DOMElement($key);
@@ -143,9 +148,6 @@ class Recreatex
 		{
 			// loop attributes
 			foreach((array) $input['@attributes'] as $name => $value) $element->setAttribute($name, $value);
-
-			// remove attributes
-			unset($input['@attributes']);
 
 			// reset the input if it is a single value
 			if(count($input) == 1)
@@ -217,7 +219,7 @@ class Recreatex
 			}
 
 			// is there are named keys they should be handles as elements
-			if($isNonNumeric) array_walk($input, array('Recreatex', 'arrayToXML'), $element);
+			if($isNonNumeric) array_walk($input, array('Recreatex', 'arrayToXML'), array($element, $removeNullKeys));
 
 			// numeric elements means this a list of items
 			else
@@ -225,7 +227,7 @@ class Recreatex
 				// handle the value as an element
 				foreach($input as $value)
 				{
-					if(is_array($value)) array_walk($value, array('Recreatex', 'arrayToXML'), $element);
+					if(is_array($value)) array_walk($value, array('Recreatex', 'arrayToXML'), array($element, $removeNullKeys));
 				}
 			}
 		}
@@ -339,9 +341,10 @@ class Recreatex
 	 * @param array[optional] $data				The data.
 	 * @param bool[optional] $includeContext	Should we include the context, if available.
 	 * @param bool[optional] $overruleKey		Each method is wrapped, but for several methods this can't be done automatically.
+	 * @param bool[optional] $removeNullValues	Should null values be removed from the XML?
 	 * @return mixed
 	 */
-	private function doCall($method, $data = null, $includeContext = true, $overruleKey = null)
+	private function doCall($method, $data = null, $includeContext = true, $overruleKey = null, $removeNullValues = false)
 	{
 		/**
 		 * I know there is an PHP SOAP extension, but it can't handle requests with multiple message parts.
@@ -391,7 +394,7 @@ class Recreatex
 		else $realData = array($method => $data);
 
 		// build XML
-		array_walk($realData, array('Recreatex', 'arrayToXML'), $body);
+		array_walk($realData, array('Recreatex', 'arrayToXML'), array($body, $removeNullValues));
 
 		// store the body
 		$body = $XML->saveXML();
