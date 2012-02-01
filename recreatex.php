@@ -385,6 +385,7 @@ class Recreatex
 		// create root element
 		$root = $XML->createElement('soap:Envelope');
 		$root->setAttribute('xmlns:soap', 'http://schemas.xmlsoap.org/soap/envelope/');
+		$root->setAttribute('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
 		$root->setAttribute('xmlns', 'http://www.recreatex.be/webshop/v1.1/');
 		$XML->appendChild($root);
 
@@ -395,33 +396,28 @@ class Recreatex
 		// grab the service context?
 		$serviceContext = $this->getServiceContext();
 
+		// should we overrule the root-key?
+		if($overruleKey) $realData = array($overruleKey => $data);
+		else $realData = array($method => $data);
+
 		// do we have a service context?
 		if($includeContext && !empty($serviceContext))
 		{
-			// create the context
-			$context = $XML->createElement('Context');
-
-			if(isset($serviceContext['division_id'])) $context->appendChild($XML->createElement('DivisionId', $serviceContext['division_id']));
-			if(isset($serviceContext['language'])) $context->appendChild($XML->createElement('Language', $serviceContext['language']));
-			if(isset($serviceContext['shop_id'])) $context->appendChild($XML->createElement('ShopId', $serviceContext['shop_id']));
-
-			// append the content
-			$body->appendChild($context);
+			if(isset($serviceContext['division_id'])) $realData['Context']['DivisionId'] = $serviceContext['division_id'];
+			if(isset($serviceContext['language'])) $realData['Context']['Language'] = $serviceContext['language'];
+			if(isset($serviceContext['shop_id'])) $realData['Context']['ShopId'] = $serviceContext['shop_id'];
 		}
 
-		// sort the data
-		if(!empty($data)) ksort($data);
-
-		// should we overrule the root-key?
-		if($overruleKey) $realData = array($overruleKey => $data);
-
-		else $realData = array($method => $data);
+		// SOAP expects the parameters in alphabetical order
+		ksort($realData);
 
 		// build XML
 		array_walk($realData, array('Recreatex', 'arrayToXML'), array($body, $removeNullValues));
 
 		// store the body
 		$body = $XML->saveXML();
+
+// Spoon::dump($body);
 
 		// build headers
 		$headers = array(
