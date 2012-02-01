@@ -793,10 +793,8 @@ class Recreatex
 	 */
 	public function savePersonByObject($object)
 	{
-		// @todo	fix the data automagically..
-
 		// make the call
-		$response = $this->doCall('SavePerson', array('Person' => $object), true);
+		$response = $this->doCall('SavePerson', $object, true, 'Person', true);
 
 		// validate
 		if(!isset($response->SavePersonResult)) throw new RecreatexException('Invalid response.');
