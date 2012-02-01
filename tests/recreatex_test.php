@@ -101,6 +101,22 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
+	 * Tests Recreatex->savePersonByObject()
+	 */
+	public function testSavePersonByObject()
+	{
+		// get member
+		$object = $this->recreatex->findPerson(null, null, 'rcx-001@verkoyen.eu');
+		$member = $object[0];
+		$member['Comments'] = 'Edited at ' . date('Y-m-d H:i:s');
+
+		$var = $this->recreatex->savePersonByObject($member);
+
+		$this->assertArrayHasKey('ValidationResults', $var);
+		$this->assertNull($var['ValidationResults']);
+	}
+
+	/**
 	 * Tests Recreatex->findPerson()
 	 */
 	public function testFindPerson()
@@ -203,15 +219,15 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 // 		$this->recreatex->lockBasketItems(/* parameters */);
 // 	}
 
-// 	/**
-// 	 * Tests Recreatex->unlockBasketItems()
-// 	 */
-// 	public function testUnlockBasketItems()
-// 	{
-// 		// TODO Auto-generated RecreatexTest->testUnlockBasketItems()
-// 		$this->markTestIncomplete("unlockBasketItems test not implemented");
-// 		$this->recreatex->unlockBasketItems(/* parameters */);
-// 	}
+	/**
+	 * Tests Recreatex->unlockBasketItems()
+	 */
+	public function testUnlockBasketItems()
+	{
+		$var = $this->recreatex->unlockBasketItems(array(array('@attributes' => array('xsi:type' => 'ArticleSaleLockTicket'), 'Id' => 'ec0ab572-ff67-4a37-a846-f3330748e9bb')));
+
+		$this->assertTrue($var);
+	}
 
 	/**
 	 * Tests Recreatex->listPaymentMethods()
