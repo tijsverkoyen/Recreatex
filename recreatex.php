@@ -163,8 +163,18 @@ class Recreatex
 		// the input isn't an array
 		if(!is_array($input))
 		{
+			// boolean
+			if(is_bool($input)) $element->appendChild(new DOMText(($input) ? 'true' : 'false'));
+
+			// integer
+			elseif(is_int($input)) $element->appendChild(new DOMText($input));
+
+			// floats
+			elseif(is_double($input)) $element->appendChild(new DOMText($input));
+			elseif(is_float($input)) $element->appendChild(new DOMText($input));
+
 			// a string?
-			if(is_string($input))
+			elseif(is_string($input))
 			{
 				// characters that require a cdata wrapper
 				$illegalCharacters = array('&', '<', '>', '"', '\'');
@@ -192,8 +202,19 @@ class Recreatex
 				else $element->appendChild(new DOMText($input));
 			}
 
-			// regular element
-			else $element->appendChild(new DOMText($input));
+
+			// fallback
+			else
+			{
+				if(self::DEBUG)
+				{
+					echo 'Unknown type';
+					var_dump($input);
+					exit;
+				}
+
+				$element->appendChild(new DOMText($input));
+			}
 		}
 
 		// the value is an array
@@ -310,7 +331,10 @@ class Recreatex
 					// add an extra item with the full image url
 					if(in_array($key, $fullImageUrlsKeys))
 					{
-						Spoon::dump($key);
+						echo '<pre>';
+						var_dump($key);
+						echo '</pre>';
+						exit;
 
 						// add full url
 						$item['ImageFullUrl'] = ($item['ImageUri'] != '') ? $this->getServer() . self::REST_IMAGE_URL . '/' . $item['ImageUri'] : null;
