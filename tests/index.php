@@ -53,4 +53,13 @@ $payments = array(
 // $response = $recreatex->unlockBasketItems(array(array('@attributes' => array('xsi:type' => 'ArticleSaleLockTicket'), 'Id' => 'ec0ab572-ff67-4a37-a846-f3330748e9bb')));
 // @todo implement me	$response = $recreatex->validateBasket('9e60c807-5f6f-415e-90cb-028c54d1554f', $basketItems, $payments, $totalPrice);
 
-Spoon::dump($response);
+// output (Spoon::dump())
+ob_start();
+var_dump($response);
+$output = ob_get_clean();
+
+// cleanup the output
+$output = preg_replace('/\]\=\>\n(\s+)/m', '] => ', $output);
+
+// print
+echo '<pre>' . htmlspecialchars($output, ENT_QUOTES, 'UTF-8') . '</pre>';

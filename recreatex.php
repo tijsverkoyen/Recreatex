@@ -418,8 +418,6 @@ class Recreatex
 		// store the body
 		$body = $XML->saveXML();
 
-// Spoon::dump($body);
-
 		// build headers
 		$headers = array(
 			'Content-Type: text/xml; charset=utf-8',
@@ -1283,8 +1281,7 @@ class Recreatex
 			// build item
 			$item = self::decodeResponse($row);
 
-			// @todo	something wierd with Ref nzo...
-
+			// @todo	something wierd with Ref...
 // 			if(isset($row->CultureActivity))
 // 			{
 // 				// stored
@@ -1298,14 +1295,11 @@ class Recreatex
 // 					$activity['Id'] = (string) $row->CultureActivity->Id;
 // 					$activity['Code'] = (string) $row->CultureActivity->Code;
 // 					$activity['Description'] = (string) $row->CultureActivity->Description;
-
 // 					$cultureActivitiesStore[(string) $row->CultureActivity['Id']] = $activity;
 // 				}
-
 // 				// add
 // 				$item['CultureActivity'] = $activity;
 // 			}
-
 
 			// add
 			$return[] = $item;
@@ -1313,8 +1307,6 @@ class Recreatex
 
 		// return
 		return $return;
-
-
 	}
 }
 
