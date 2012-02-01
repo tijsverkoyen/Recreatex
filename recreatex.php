@@ -820,17 +820,17 @@ class Recreatex
 	{
 		// build body
 		$data = array();
-		if($id !== null) $data['Criteria']['Id'] = (string) $id;
-		if($username !== null) $data['Criteria']['UserName'] = (string) $username;
-		if($email !== null) $data['Criteria']['Email'] = (string) $email;
-		if($paging != null) $data['Criteria']['Paging'] = $paging;
+		if($id !== null) $data['Id'] = (string) $id;
+		if($username !== null) $data['UserName'] = (string) $username;
+		if($email !== null) $data['Email'] = (string) $email;
+		if($paging != null) $data['Paging'] = $paging;
 		if(!empty($includes))
 		{
-			foreach($includes as $key => $value) $data['Criteria']['Includes'][$key] = (bool) $value;
+			foreach($includes as $key => $value) $data['Includes'][$key] = (bool) $value;
 		}
 
 		// make the call
-		$response = $this->doCall('FindPerson', $data);
+		$response = $this->doCall('FindPerson', $data, true, 'Criteria');
 
 		// validate
 		if(!isset($response->FindPersonResult)) throw new RecreatexException('Invalid response.');
@@ -932,39 +932,41 @@ class Recreatex
 	/**
 	 * Find articles.
 	 *
-	 * @param string[optional] $articleGroupId	If provided only articles from this group will be returned.
+	 * @param string[optional] $id				The id of the article.
+	 * @param string[optional] $groupId			The is of the group wherin the article is located.
 	 * @param string[optional] $namePattern		If provided only articles that match the pattern will be returned.
 	 * @param string[optional] $buyerId			If provided only articles that are relevant for this user will be returned.
+	 * @param string[optional] $stockLocationId	The id of the stocklocation
 	 * @param string[optional] $articleType		The type of articles, possible values are: Sale, Rental, All.
-	 * @param array[optional] $includes			A key-value-array with the properties to include, possible keys are: Price, ImageUrl, Image, Group.
-	 * @param array[optional] $paging				The paging criteria, see Recreatex::buildPagingParameter().
-	 * @param array[optional] $articles			A list containing related articles (not used).
+	 * @param array[optional] $includes			A key-value-array with the properties to include, possible keys are:
+	 * 			- bool Price
+	 * 			- bool ImageUrl
+	 * 			- bool Image
+	 * 			- bool Group
+	 * @param array[optional] $paging			The paging criteria, see Recreatex::buildPagingParameter().
 	 * @return array
 	 */
-	public function findArticles($articleGroupId = null, $namePattern = null, $buyerId = null, $articleType = 'All', array $includes = array(), $paging = null, $articles = null)
+	public function findArticles($id = null, $groupId = null, $namePattern = null, $buyerId = null, $stockLocationId = null, $articleType = null, array $includes = array('Price' => true, 'ImageUrl' => true, 'Image' => true, 'Group.'), $paging = null)
 	{
-		// validate
-		$allowedArticleTypes = array('Sale', 'Rental', 'All');
-		if(!in_array($articleType, $allowedArticleTypes)) throw new RecreatexException('Invalid articletype (' . $articleType . '), allowed values are: ' . implode(', ', $allowedArticleTypes) . '.');
-
 		// build the data
 		$data = array();
-		if($articleGroupId !== null) $data['ArticleGroupId'] = (string) $articleGroupId;
+		if($id !== null) $data['ArticleId'] = (string) $id;
+		if($groupId !== null) $data['ArticleGroupId'] = (string) $groupId;
 		if($namePattern !== null) $data['NamePattern'] = (string) $namePattern;
 		if($buyerId !== null) $data['BuyerId'] = (string) $buyerId;
-		$data['ArticleTypes'] = (string) $articleType;
+		if($stockLocationId !== null) $data['StockLocationId'] = (string) $stockLocationId;
+		if($articleType !== null) $data['ArticleTypes'] = (string) $articleType;
 		if(!empty($includes))
 		{
 			foreach($includes as $key => $value) $data['Includes'][$key] = (bool) $value;
 		}
 		if(!empty($paging)) $data['Paging'] = $paging;
-		if(!empty($articles)) $data['Articles'] = $articles;
 
-		// paging or includes?
-		if(isset($data['Paging']) || isset($data['Includes'])) $data = array('ArticleSearchCriteria' => $data);
+		$overruleKey = null;
+		if(!empty($data)) $overruleKey = 'ArticleSearchCriteria';
 
 		// make the call
-		$response = $this->doCall('FindArticles', $data);
+		$response = $this->doCall('FindArticles', $data, true, $overruleKey);
 
 		// validate
 		if(!isset($response->Articles)) throw new RecreatexException('Invalid response.');
@@ -1036,7 +1038,7 @@ class Recreatex
 	 */
 	public function findExpositions($expositionId = null, $namePattern = null, $from = null, $until = null, $expositionTypeId = null, $audienceId = null, array $includes = array())
 	{
-		throw new RecreatexException('Implement me when there are expositions.');
+		throw new RecreatexException('Not implemented');
 
 		// build the data
 		$data = array();
@@ -1050,10 +1052,9 @@ class Recreatex
 		{
 			foreach($includes as $key => $value) $data['Includes'][$key] = (bool) $value;
 		}
-		$data = array('ExpositionSearchCriteria' => $data);
 
 		// make the call
-		$response = $this->doCall('FindExpositions', $data);
+		$response = $this->doCall('FindExpositions', $data, true, 'ExpositionSearchCriteria');
 	}
 
 	/**
@@ -1199,24 +1200,23 @@ class Recreatex
 	 * @param array[optional] $includes				A key-value-array with the properties to include, possible keys are: ImageUrl, ImageUr, Options.
 	 * @return array
 	 */
-	public function findCultureEvents($cultureEventId = null, $name = null, $from = null, $until = null, $cultureActivityId = null, $paging = null, $includes = array())
+	public function findCultureEvents($eventId = null, $activityId = null, $name = null, $from = null, $until = null, $paging = null, $includes = array())
 	{
 		// build the data
 		$data = array();
-		if($cultureEventId !== null) $data['CultureEventId'] = (string) $cultureEventId;
+		if($eventId !== null) $data['CultureEventId'] = (string) $eventId;
 		if($name !== null) $data['Name'] = (string) $name;
 		if($from !== null) $data['From'] = date('c', (int) $from);
 		if($until !== null) $data['Until'] = date('c', (int) $until);
-		if($cultureActivityId !== null) $data['CultureActivityId'] = (string) $cultureActivityId;
+		if($activityId !== null) $data['CultureActivityId'] = (string) $activityId;
 		if($paging !== null) $data['Paging'] = $paging;
 		if(!empty($includes))
 		{
 			foreach($includes as $key => $value) $data['Includes'][$key] = (bool) $value;
 		}
-		$data = array('CultureEventSearchCriteria' => $data);
 
 		// make the call
-		$response = $this->doCall('FindCultureEvents', $data);
+		$response = $this->doCall('FindCultureEvents', $data, true, 'CultureEventSearchCriteria');
 
 		// validate
 		if(!isset($response->CultureEvents)) throw new RecreatexException('Invalid response.');
