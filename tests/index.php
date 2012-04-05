@@ -14,9 +14,12 @@ $basketItems = array(
 );
 $totalPrice = ((3.9 * 1) + (3.25) * 2);
 $payments = array(
-	array('Amount' => $totalPrice, 'Currency' => 'EURO', 'PaymentMethodId' => 'b16e0cda-7c53-4e8a-8285-07f9fe3c7e51'),
+	array(
+		'Amount' => $totalPrice,
+		'Currency' => 'EURO',
+		'PaymentMethodId' => 'b16e0cda-7c53-4e8a-8285-07f9fe3c7e51'
+	),
 );
-
 
 // $response = $recreatex->authenticateUser(USERNAME, PASSWORD);
 // $response = $recreatex->authenticateUser('1327508437', '1327508437');
@@ -51,7 +54,8 @@ $payments = array(
 // $member['Comments'] = 'Last edited '. date('Y-m-d H:i:s');
 // $response = $recreatex->savePersonByObject($member);
 // $response = $recreatex->unlockBasketItems(array(array('@attributes' => array('xsi:type' => 'ArticleSaleLockTicket'), 'Id' => 'ec0ab572-ff67-4a37-a846-f3330748e9bb')));
-// @todo implement me	$response = $recreatex->validateBasket('9e60c807-5f6f-415e-90cb-028c54d1554f', $basketItems, $payments, $totalPrice);
+// @todo implement me
+// $response = $recreatex->validateBasket('9e60c807-5f6f-415e-90cb-028c54d1554f', $basketItems, $payments, $totalPrice);
 
 // output (Spoon::dump())
 ob_start();
