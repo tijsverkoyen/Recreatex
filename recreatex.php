@@ -147,7 +147,7 @@ class Recreatex
 			// loop attributes
 			foreach((array) $input['@attributes'] as $name => $value) $element->setAttribute($name, $value);
 
-				// reset the input if it is a single value
+			// reset the input if it is a single value
 			if(count($input) == 1)
 			{
 				// get keys
@@ -408,7 +408,11 @@ class Recreatex
 		$body = $XML->saveXML();
 
 		// build headers
-		$headers = array('Content-Type: text/xml; charset=utf-8', 'Content-Length: ' . mb_strlen($body), 'SOAPAction: "' . self::SOAP_URL . '/' . (string) $method . '"');
+		$headers = array(
+			'Content-Type: text/xml; charset=utf-8',
+			'Content-Length: ' . mb_strlen($body),
+			'SOAPAction: "' . self::SOAP_URL . '/' . (string) $method . '"'
+		);
 
 		// set options
 		$options[CURLOPT_URL] = $this->getServer() . self::ENDPOINT;
@@ -451,8 +455,22 @@ class Recreatex
 		}
 
 		// init vars
-		$search = array('<s:', '</s:', ' z:', ' i:', ' xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"', ' xmlns="http://www.recreatex.be/webshop/v0.5/"', ' xmlns:i="http://www.w3.org/2001/XMLSchema-instance"', ' xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/"');
-		$replace = array('<', '</', ' ', ' ', '', '', '', '');
+		$search = array(
+			'<s:', '</s:',
+			' z:', ' i:',
+			' xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"',
+			' xmlns="http://www.recreatex.be/webshop/v0.5/"',
+			' xmlns:i="http://www.w3.org/2001/XMLSchema-instance"',
+			' xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/"'
+		);
+		$replace = array(
+			'<', '</',
+			' ', ' ',
+			'',
+			'',
+			'',
+			''
+		);
 
 		/**
 		 * Because SimpleXML really sucks and it can't handle namespaced attributes, it fucks up the returned data.
@@ -584,7 +602,7 @@ class Recreatex
 	 *
 	 * @param string[optional] $divisionId	The divisionId, no clue..
 	 * @param string[optional] $language	The language to use, I have no idea what the possible languages are.
-	 * @paramstring[optional]  $shopId		The id of your shop.
+	 * @param string[optional] $shopId		The id of your shop.
 	 */
 	public function setServiceContext($divisionId = null, $language = null, $shopId = null)
 	{
@@ -596,8 +614,7 @@ class Recreatex
 
 	/**
 	 * Set the timeout
-	 * After this time the request will stop.
-	 * You should handle any errors triggered by this.
+	 * After this time the request will stop. You should handle any errors triggered by this.
 	 *
 	 * @param int $seconds	The timeout in seconds.
 	 */
@@ -610,14 +627,14 @@ class Recreatex
 	 * Set the user-agent for you application
 	 * It will be appended to ours, the result will look like: "PHP Recreatex/<version> <your-user-agent>"
 	 *
-	 * @param string $userAgent	The user-agent, it should look like <app-name>/<app-version>.
+	 * @param string $userAgent	Your user-agent, it should look like <app-name>/<app-version>.
 	 */
 	public function setUserAgent($userAgent)
 	{
 		$this->userAgent = (string) $userAgent;
 	}
 
-	// webservice methods
+// webservice methods
 	/**
 	 * Check if the service is available.
 	 *
@@ -858,9 +875,9 @@ class Recreatex
 	/**
 	 * Get a list of article groups
 	 *
-	 * @param string[optional] $articleType		The type of articles to retrieve. Possible values are: Sale, Rental, All.
-	 * @param bool[optional] $includeImage		Should the image be included.
-	 * @param bool[optional] $includeImageUrl	Should the url of the image be included.
+	 * @param string[optional] $articleType		Define the type of articles to retrieve. Possible values are: Sale, Rental, All.
+	 * @param bool[optional] $includeImage		Include the image.
+	 * @param bool[optional] $includeImageUrl	Include the url of the image.
 	 * @return array
 	 */
 	public function listArticleGroups($articleType = 'Sale', $includeImage = false, $includeImageUrl = true)
@@ -870,7 +887,11 @@ class Recreatex
 		if(!in_array($articleType, $allowedArticleTypes)) throw new RecreatexException('Invalid articletype (' . $articleType . '), allowed values are: ' . implode(', ', $allowedArticleTypes) . '.');
 
 		// build the data
-		$data = array('ArticleTypes' => (string) $articleType, 'IncludeImage' => (bool) $includeImage, 'IncludeImageUrl' => (bool) $includeImageUrl);
+		$data = array(
+			'ArticleTypes' => (string) $articleType,
+			'IncludeImage' => (bool) $includeImage,
+			'IncludeImageUrl' => (bool) $includeImageUrl,
+		);
 
 		// make the call
 		$response = $this->doCall('ListArticleGroups', array('ArticleGroupSearchCriteria' => $data));
@@ -998,7 +1019,7 @@ class Recreatex
 	 *
 	 * @param string[optional] $expositionId		If provided, ID of the specififiek exposition to return.
 	 * @param string[optional] $namePattern			If provided, only items matching the pattern will be returned.
-	 * @param int[optional] $from					If rovided only items that start after this date will be returned.
+	 * @param int[optional] $from					If provided only items that start after this date will be returned.
 	 * @param int[optional] $until					If provided only items that start before this date will be returned.
 	 * @param string[optional] $expositionTypeId	If provided only items from this type will be returned.
 	 * @param string[optional] $audienceId			If provided only items for this audience will be returned.
@@ -1068,7 +1089,7 @@ class Recreatex
 			foreach($payments as $row) $data['Payments'][] = array('BasketPayment' => $row);
 		}
 
-			// make the call
+		// make the call
 		$response = $this->doCall('ValidateBasket', $data, true, 'Basket');
 
 		// validate
@@ -1129,7 +1150,7 @@ class Recreatex
 		$data = array();
 		foreach($basket as $row) $data[] = array('BasketItem' => $row);
 
-			// make the call
+		// make the call
 		$response = $this->doCall('LockBasketItems', $data, true, 'BasketItems');
 
 		// validate
@@ -1153,7 +1174,7 @@ class Recreatex
 		$data = array();
 		foreach($lockTickets as $row) $data[] = array('LockTicket' => $row);
 
-			// make the call
+		// make the call
 		$response = $this->doCall('UnlockBasketItems', $data, true, 'LockTickets');
 
 		// return
