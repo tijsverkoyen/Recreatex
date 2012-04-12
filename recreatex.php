@@ -3,7 +3,7 @@
 /**
  * Recreatex class
  *
- * This source file can be used to communicate with Recreatex (http://www.syx.nl/en/products/recreatex)
+ * This source file can be used to communicate with Recreatex (http://www.syx.nl/en/products/recreatex, v1.3.1)
  *
  * The class is documented in the file itself. If you find any bugs help me out and report them. Reporting can be done by sending an email to php-recreatex-bugs[at]verkoyen[dot]eu.
  * If you report a bug, make sure you give me enough information (include your code).
@@ -39,7 +39,7 @@ class Recreatex
 	const REST_DOCUMENT_URL = '/WebShopDocumentService.svc';
 
 	// soap URL
-	const SOAP_URL = 'http://www.recreatex.be/webshop/v1.1/IWebShop';
+	const SOAP_URL = 'http://www.recreatex.be/webshop/v1.3/IWebShop';
 
 	// current version
 	const VERSION = '1.0.0';
@@ -292,6 +292,7 @@ class Recreatex
 		$integerKeys = array('AvailableSeats');
 		$fullImageUrlsKeys = array('ImageUri', 'ImageUrl');
 		$timestampKeys = array('From', 'Until', 'SalesFrom', 'SalesUntil');
+		$arrayKeys = array('Subcategories');
 
 		if($item instanceof SimpleXMLElement)
 		{
@@ -301,12 +302,32 @@ class Recreatex
 				if(isset($value['nil']) && (string) $value['nil'] === 'true') $return[$key] = null;
 
 				// empty
-				elseif(isset($value[0]) && (string) $value == '') $return[$key] = self::decodeResponse($value, null, 1);
+				elseif(isset($value[0]) && (string) $value == '')
+				{
+					if(in_array($key, $arrayKeys))
+					{
+						foreach($value as $row)
+						{
+							$return[$key][] = self::decodeResponse($row);
+						}
+					}
+
+					else $return[$key] = self::decodeResponse($value, null, 1);
+				}
 
 				else
 				{
+					// arrays
+					if(in_array($key, $arrayKeys))
+					{
+						foreach($value as $row)
+						{
+							$return[$key][] = self::decodeResponse($row);
+						}
+					}
+
 					// base64
-					if(in_array($key, $base64Keys)) $return[$key] = base64_decode((string) $value);
+					elseif(in_array($key, $base64Keys)) $return[$key] = base64_decode((string) $value);
 
 					// booleans
 					elseif((string) $value == 'true') $return[$key] = true;
@@ -376,7 +397,7 @@ class Recreatex
 		$root->setAttribute('xmlns:soap', 'http://schemas.xmlsoap.org/soap/envelope/');
 		$root->setAttribute('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
 		$root->setAttribute('xmlns:xsd', 'http://www.w3.org/2001/XMLSchema');
-		$root->setAttribute('xmlns', 'http://www.recreatex.be/webshop/v1.1/');
+		$root->setAttribute('xmlns', 'http://www.recreatex.be/webshop/v1.3/');
 		$XML->appendChild($root);
 
 		// create body
@@ -662,8 +683,8 @@ class Recreatex
 	public function authenticateUser($login, $password)
 	{
 		// build the body
-		$data['Credentials']['Login'] = (string) $login;
 		$data['Credentials']['Password'] = (string) $password;
+		$data['Credentials']['Login'] = (string) $login;
 
 		// make the call
 		$response = $this->doCall('AuthenticateUser', $data);
@@ -698,7 +719,28 @@ class Recreatex
 	 * 												- string Town		The town
 	 * 												- string Country	The country, use ISO-codes.
 	 * @param array[optional] $settings			The settings for the person.
-	 * 												- bool subscribe_mailing_list	Is the person subscribed on the newsletter?
+	 * 												- bool SubscribeMailingList		Is the person subscribed on the newsletter?
+	 * 												- array Subcategories			An array of subcategories, each item can have the keys below:
+	 * 													- array Category
+	 * 														- string Code
+	 * 														- string Id
+	 * 														- string Name
+	 * 													- string CategoryId
+	 * 													- string Code
+	 * 													- string Id
+	 * 													- string Name
+	 * 												- array PriceGroups				An array of person price groups, each item can have the keys below:
+	 * 													- string Id
+	 * 													- string Type				Possible values are: PlaceReservations, Ticketing, Entries, Sales, Rental, Wellness
+	 * 													- array PriceGroup
+	 * 														- string Id
+	 * 														- string Name
+	 * 														- string Type
+	 * 													- string StartDate
+	 * 													- string EndDate
+	 * 													- string Weekday			Possible values are: EveryDay, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+	 * 													- string From
+	 * 													- string Till
 	 * @param string[optional] $email			The emailaddress of the person.
 	 * @param string[optional] $birthdate		The birthdate of the person.
 	 * @param string[optional] $gender			The gender of the person. Possible values are: male, female, unknown.
@@ -713,10 +755,15 @@ class Recreatex
 	 * 												- string Username	The username.
 	 * 												- string Password	The password.
 	 * @param array[optional] $relations		The relations of the person.
-	 * 												- ?
+	 * 												- array From
+	 * 												- string Id
+	 * 												- array To
+	 * @param string[optional] $activationId
+	 * @param string[optional] $resetPasswordId
+	 * @param bool[optional] $activationId
 	 * @return array
 	 */
-	public function savePerson($id = null, $code = null, $name = array(), $address = array(), $settings = array(), $email = null, $birthdate = null, $gender = null, $language = null, $picture = null, $phone = null, $cellPhone = null, $bankAccount = null, $nationalNumber = null, $comments = null, $credential = array(), $relations = array())
+	public function savePerson($id = null, $code = null, $name = array(), $address = array(), $settings = array(), $email = null, $birthdate = null, $gender = null, $language = null, $picture = null, $phone = null, $cellPhone = null, $bankAccount = null, $nationalNumber = null, $comments = null, $credential = array(), $relations = array(), $activationId = null, $resetPasswordId = null, $isBlocked = null)
 	{
 		// build the body
 		$data = array();
@@ -740,11 +787,14 @@ class Recreatex
 		if(!empty($settings))
 		{
 			if(isset($settings['SubscribeMailingList'])) $data['Settings']['SubscribeMailingList'] = (bool) $settings['SubscribeMailingList'];
+			if(isset($settings['Subcategories']))
+			{
+				foreach($settings['Subcategories'] as $subcategory) $data['Settings']['Subcategories'][] = $subcategory;
+			}
 		}
 		if($email !== null) $data['Email'] = (string) $email;
 		if($birthdate !== null) $data['BirthDate'] = (string) $birthdate;
 		if($gender !== null) $data['Gender'] = (string) $gender;
-
 		if($language !== null) $data['Language'] = (string) $language;
 		if($picture !== null) $data['Picture'] = (string) $picture;
 		if($phone !== null) $data['Phone'] = (string) $phone;
@@ -759,8 +809,11 @@ class Recreatex
 		}
 		if(!empty($relations))
 		{
-			// @remark not used
+			foreach($relations as $relation) $data['Relations'][] = $relation;
 		}
+		if($activationId !== null) $data['ActivationId'] = (string) $activationId;
+		if($resetPasswordId !== null) $data['ResetPasswordId'] = (string) $resetPasswordId;
+		if($isBlocked !== null) $data['IsBlocked'] = (bool) $isBlocked;
 
 		// make the call
 		$response = $this->doCall('SavePerson', $data, true, 'Person');
@@ -771,8 +824,14 @@ class Recreatex
 		// decode response
 		$return = self::decodeResponse($response->SavePersonResult[0]);
 
+		// validate
+		if(isset($return['ValidationResults']['ValidationResult']['Message']))
+		{
+			throw new RecreatexException($return['ValidationResults']['ValidationResult']['Message']);
+		}
+
 		// return
-		return $return;
+		return $return['Person'];
 	}
 
 	/**
@@ -792,6 +851,43 @@ class Recreatex
 		// decode response
 		$return = self::decodeResponse($response->SavePersonResult[0]);
 
+		// validate
+		if(isset($return['ValidationResults']['ValidationResult']['Message']))
+		{
+			throw new RecreatexException($return['ValidationResults']['ValidationResult']['Message']);
+		}
+
+		// return
+		return $return['Person'];
+	}
+
+	/**
+	 * Not implemented
+	 *
+	 * @throws RecreatexException
+	 */
+	public function savePersonSubcategories()
+	{
+		throw new RecreatexException('Not implemented');
+	}
+
+	/**
+	 * Retrieve the password for a user
+	 *
+	 * @param string $username		The username
+	 * @return array
+	 */
+	public function forgotPassword($username)
+	{
+		// make the call
+		$response = $this->doCall('ForgotPassword', (string) $username, true, 'Login');
+
+		// validate
+		if(!isset($response->ForgotPasswordResult)) throw new RecreatexException('Invalid response.');
+
+		// decode response
+		$return = self::decodeResponse($response->ForgotPasswordResult[0]);
+
 		// return
 		return $return;
 	}
@@ -799,25 +895,33 @@ class Recreatex
 	/**
 	 * Find a person
 	 *
-	 * @param string[optional] $id			The unique ID of the persion you want.
-	 * @param string[optional] $username	The username of the user you want.
+	 * @param string[optional] $id					The unique ID of the persion you want.
+	 * @param string[optional] $username			The username of the user you want.
 	 * @param string[optional] $email
+	 * @param string[optional] $activationId
+	 * @param string[optional] $resetPasswordId
+	 * @param string[optional] $nationalNumber
+	 * @param bool[optional] $isBlocked
 	 * @param array[optional] $includes
-	 * @param array[optional] $paging		Paging criteria, see Recreatex::buildPagingParameter().
+	 * @param array[optional] $paging				Paging criteria, see Recreatex::buildPagingParameter().
 	 * @return array
 	 */
-	public function findPerson($id = null, $username = null, $email = null, array $includes = array(), $paging = null)
+	public function findPerson($id = null, $username = null, $email = null, $activationId = null, $resetPasswordId = null, $nationalNumber = null, $isBlocked = null, array $includes = array(), $paging = null)
 	{
 		// build body
 		$data = array();
 		if($id !== null) $data['Id'] = (string) $id;
 		if($username !== null) $data['UserName'] = (string) $username;
 		if($email !== null) $data['Email'] = (string) $email;
-		if($paging != null) $data['Paging'] = $paging;
+		if($activationId !== null) $data['ActivationId'] = (string) $activationId;
+		if($resetPasswordId !== null) $data['ResetPasswordId'] = (string) $resetPasswordId;
+		if($nationalNumber !== null) $data['NationalNumber'] = (string) $nationalNumber;
+		if($isBlocked !== null) $data['IsBlocked'] = (bool) $isBlocked;
 		if(!empty($includes))
 		{
 			foreach($includes as $key => $value) $data['Includes'][$key] = (bool) $value;
 		}
+		if($paging != null) $data['Paging'] = $paging;
 
 		// make the call
 		$response = $this->doCall('FindPerson', $data, true, 'Criteria');
@@ -829,14 +933,20 @@ class Recreatex
 		$return = array();
 
 		// loop
-		foreach($response->FindPersonResult->Person as $row)
-		{
-			// build item
-			$return[] = self::decodeResponse($row);
-		}
+		foreach($response->FindPersonResult->Person as $row) $return[] = self::decodeResponse($row);
 
 		// return
 		return $return;
+	}
+
+	/**
+	 * Not implemented
+	 *
+	 * @throws RecreatexException
+	 */
+	public function savePersonPriceGroups()
+	{
+		throw new RecreatexException('Not implemented');
 	}
 
 	/**
@@ -856,7 +966,7 @@ class Recreatex
 		$return = array();
 
 		// loop
-		foreach($response->ActivityType as $row)
+		foreach($response->ActivityTypes as $row)
 		{
 			// build item
 			$item = array();
@@ -867,6 +977,66 @@ class Recreatex
 			// add
 			$return[] = $item;
 		}
+
+		// return
+		return $return;
+	}
+
+	/**
+	 * Find activities
+	 *
+	 * @param string[optional] $id
+	 * @param string[optional] $typeId
+	 * @param int[optional] $ageFrom
+	 * @param int[optional $ageTo
+	 * @param string[optional $keyword
+	 * @param string[optional $periodFrom
+	 * @param string[optional $periodUntil
+	 * @param string[optional $personId
+	 * @param array[optional] $includes
+	 * 												- bool DayParts
+	 * 												- bool Image
+	 * 												- bool ImageUrl
+	 * 												- bool Options
+	 * 												- bool Price
+	 * 												- bool Type
+	 * @param array[optional] $paging			Paging criteria, see Recreatex::buildPagingParameter().
+	 */
+	public function findActivities($id = null, $typeId = null, $ageFrom = null, $ageTo = null, $keyword = null, $periodFrom = null, $periodUntil = null, $personId = null, array $includes = array(), $paging = null)
+	{
+		// build body
+		$data = array();
+		if($id !== null) $data['ActivityId'] = (string) $id;
+		if($typeId !== null) $data['ActivityTypeId'] = (string) $typeId;
+		if($ageFrom !== null) $data['AgeFrom'] = (int) $ageFrom;
+		if($ageTo !== null) $data['AgeTo'] = (int) $ageTo;
+		if($keyword !== null) $data['Keyword'] = (string) $keyword;
+		if($periodFrom !== null && $periodUntil !== null)
+		{
+			$data['Period']['From'] = (string) $periodFrom;
+			$data['Period']['Until'] = (string) $periodUntil;
+		}
+		if($personId !== null) $data['PersonId'] = (string) $personId;
+		if(!empty($includes))
+		{
+			foreach($includes as $key => $value) $data['Includes'][$key] = (bool) $value;
+		}
+		if($paging != null) $data['Paging'] = $paging;
+
+		$overruleKey = null;
+		if(!empty($data)) $overruleKey = 'ActivitySearchCriteria';
+
+		// make the call
+		$response = $this->doCall('FindActivities', $data, true, $overruleKey);
+
+		// validate
+		if(!isset($response->FindActivitiesResult)) throw new RecreatexException('Invalid response.');
+
+		// init var
+		$return = array();
+
+		// loop
+		foreach($response->FindActivities->Activity as $row) $return[] = self::decodeResponse($row);
 
 		// return
 		return $return;
@@ -920,6 +1090,37 @@ class Recreatex
 	}
 
 	/**
+	 * Find article categories
+	 *
+	 * @param string[optional] $type			Possible values are: Sale, Rental, All
+	 * @param bool[optional] $includeImage
+	 * @param bool[optional] $includeImageUrl
+	 * @return array
+	 */
+	public function findArticleCategories($type = null, $includeImage = null, $includeImageUrl = null)
+	{
+		$data = array();
+		if($type !== null) $data['ArticleTypes'] = (string) $type;
+		if($includeImage !== null) $data['IncludeImage'] = (bool) $includeImage;
+		if($includeImageUrl !== null) $data['IncludeImageUrl'] = (bool) $includeImageUrl;
+
+		// make the call
+		$response = $this->doCall('FindArticleCategories', $data, true, 'ArticleGroupSearchCriteria');
+
+		// validate
+		if(!isset($response->FindArticleCategoriesResult)) throw new RecreatexException('Invalid response.');
+
+		// init var
+		$return = array();
+
+		// loop
+		foreach($response->FindArticleCategories->ArticleGroup as $row) $return[] = self::decodeResponse($row);
+
+		// return
+		return $return;
+	}
+
+	/**
 	 * Find articles.
 	 *
 	 * @param string[optional] $id					The id of the article.
@@ -928,6 +1129,8 @@ class Recreatex
 	 * @param string[optional] $buyerId				If provided only articles that are relevant for this user will be returned.
 	 * @param string[optional] $stockLocationId		The id of the stocklocation
 	 * @param string[optional] $articleType			The type of articles, possible values are: Sale, Rental, All.
+	 * @param string[optional] $articleCategoryId
+	 * @param string[bool] $includeDetail
 	 * @param array[optional] $includes				Key-value-array with the properties to include, possible keys are:
 	 * 													- bool Price
 	 * 													- bool ImageUrl
@@ -936,16 +1139,18 @@ class Recreatex
 	 * @param array[optional] $paging				The paging criteria, see Recreatex::buildPagingParameter().
 	 * @return array
 	 */
-	public function findArticles($id = null, $groupId = null, $namePattern = null, $buyerId = null, $stockLocationId = null, $articleType = null, array $includes = array('Price' => true, 'ImageUrl' => true, 'Image' => true, 'Group.'), $paging = null)
+	public function findArticles($id = null, $groupId = null, $namePattern = null, $buyerId = null, $stockLocationId = null, $articleType = null, $articleCategoryId = null, $includeDetail = null, array $includes = array(), $paging = null)
 	{
 		// build the data
 		$data = array();
-		if($id !== null) $data['ArticleId'] = (string) $id;
 		if($groupId !== null) $data['ArticleGroupId'] = (string) $groupId;
+		if($id !== null) $data['ArticleId'] = (string) $id;
+		if($articleCategoryId !== null) $data['ArticleCategoryId'] = (string) $articleCategoryId;
 		if($namePattern !== null) $data['NamePattern'] = (string) $namePattern;
 		if($buyerId !== null) $data['BuyerId'] = (string) $buyerId;
 		if($stockLocationId !== null) $data['StockLocationId'] = (string) $stockLocationId;
 		if($articleType !== null) $data['ArticleTypes'] = (string) $articleType;
+		if($includeDetail !== null) $data['IncludeDetail'] = (bool) $includeDetail;
 		if(!empty($includes))
 		{
 			foreach($includes as $key => $value) $data['Includes'][$key] = (bool) $value;
@@ -998,17 +1203,49 @@ class Recreatex
 		$return = array();
 
 		// loop
-		foreach($response->ExpositionTypes->ExpositionType as $row)
-		{
-			// build item
-			$item = array();
-			$item['Id'] = (string) $row->Id;
-			$item['Name'] = (string) $row->Name;
-			$item['Description'] = (isset($row->Description['nil'])) ? null : (string) $row->Description;
+		foreach($response->ExpositionTypes->ExpositionType as $row) $return[] = self::decodeResponse($row);
 
-			// add
-			$return[] = $item;
+		// return
+		return $return;
+	}
+
+	/**
+	 * Find exposition types
+	 *
+	 * @param string[optional] $audienceId
+	 * @param string[optional] $expositionTypeId
+	 * @param string[optional] $namePattern
+	 * @param array[optional] $includes
+	 * @param array[optional] $paging				The paging criteria, see Recreatex::buildPagingParameter().
+	 * @return array
+	 */
+	public function findExpositionTypes($audienceId = null, $expositionTypeId = null, $namePattern = null, array $includes = array(), $paging = null)
+	{
+		// build the data
+		$data = array();
+		if($audienceId !== null) $data['AudienceId'] = (string) $audienceId;
+		if($expositionTypeId !== null) $data['ExpositionTypeId'] = (string) $expositionTypeId;
+		if($namePattern !== null) $data['NamePattern'] = (string) $namePattern;
+		if(!empty($includes))
+		{
+			foreach($includes as $key => $value) $data['Includes'][$key] = (bool) $value;
 		}
+		if(!empty($paging)) $data['Paging'] = $paging;
+
+		$overruleKey = null;
+		if(!empty($data)) $overruleKey = 'ExpositionTypeSearchCriteria';
+
+		// make the call
+		$response = $this->doCall('FindExpositionTypes', $data, true, $overruleKey);
+
+		// validate
+		if(!isset($response->ExpositionTypes)) throw new RecreatexException('Invalid response.');
+
+		// init var
+		$return = array();
+
+		// loop
+		foreach($response->ExpositionTypes->ExpositionType as $row) $return[] = self::decodeResponse($row);
 
 		// return
 		return $return;
@@ -1030,8 +1267,6 @@ class Recreatex
 	 */
 	public function findExpositions($expositionId = null, $namePattern = null, $from = null, $until = null, $expositionTypeId = null, $audienceId = null, array $includes = array())
 	{
-		throw new RecreatexException('Not implemented');
-
 		// build the data
 		$data = array();
 		if($expositionId !== null) $data['ExpositionId'] = (string) $expositionId;
@@ -1047,18 +1282,74 @@ class Recreatex
 
 		// make the call
 		$response = $this->doCall('FindExpositions', $data, true, 'ExpositionSearchCriteria');
+
+		// validate
+		if(!isset($response->Expositions)) throw new RecreatexException('Invalid response.');
+
+		// init var
+		$return = array();
+
+		// loop
+		foreach($response->Expositions->Exposition as $row) $return[] =  self::decodeResponse($row);
+
+		// return
+		return $return;
 	}
 
 	/**
-	 * List the periods for an exposition.
+	 * List expositions periods
 	 *
-	 * @param string $expositionId		ID of the exposition.
-	 * @param array[optional] $paging	Paging criteria, see Recreatex::buildPagingParameter().
+	 * @param string[optional] $expositionId
+	 * @param string[optional] $from
+	 * @param string[optional] $until
+	 * @param array[optional] $paging				The paging criteria, see Recreatex::buildPagingParameter().
 	 * @return array
 	 */
-	public function listExpositionPeriods($expositionId, $paging = null)
+	public function listExpositionPeriods($expositionId = null, $from = null, $until = null, $paging = null)
 	{
-		throw new RecreatexException('Not implemented', 500);
+		$data = array();
+		if($expositionId !== null) $data['ExpositionId'] = (string) $expositionId;
+		if($from !== null) $data['From'] = (string) $from;
+		if($until !== null) $data['Until'] = (string) $until;
+		if(!empty($paging)) $data['Paging'] = $paging;
+
+		// make the call
+		$response = $this->doCall('ListExpositionPeriods', $data);
+
+		// validate
+		if(!isset($response->ExpositionPeriods)) throw new RecreatexException('Invalid response.');
+
+		// init var
+		$return = array();
+
+		// loop
+		foreach($response->ExpositionPeriods->ExpositionPeriod as $row) $return[] = self::decodeResponse($row);
+
+		// return
+		return $return;
+	}
+
+	/**
+	 * List audiences
+	 *
+	 * @return array
+	 */
+	public function listAudiences()
+	{
+		// make the call
+		$response = $this->doCall('ListAudiences');
+
+		// validate
+		if(!isset($response->Audiences)) throw new RecreatexException('Invalid response.');
+
+		// init var
+		$return = array();
+
+		// loop
+		foreach($response->Audiences->Audience as $row) $return[] = self::decodeResponse($row);
+
+		// return
+		return $return;
 	}
 
 	/**
@@ -1097,6 +1388,16 @@ class Recreatex
 
 		// return
 		return self::decodeResponse($response->ValidateBasketResult[0]);
+	}
+
+	/**
+	 * Not implemented
+	 *
+	 * @throws RecreatexException
+	 */
+	public function validateBasketItem()
+	{
+		throw new RecreatexException('Not implemented');
 	}
 
 	/**
@@ -1166,13 +1467,43 @@ class Recreatex
 	 * @param array $lockTickets	Locks that will be cleared, each item can have the keys below:
 	 * 									- string ExpirationTime		The expire time.
 	 * 									- string Id					The id of the lock.
-	 * @return array
+	 * @return bool
 	 */
 	public function unlockBasketItems(array $lockTickets)
 	{
 		// build body
 		$data = array();
-		foreach($lockTickets as $row) $data[] = array('LockTicket' => $row);
+		foreach($lockTickets as $row) $data[] = $row;
+
+		// make the call
+		$response = $this->doCall('UnlockBasketItems', $data, true, 'LockTickets');
+
+		// return
+		return true;
+	}
+
+	/**
+	 * Not implemented
+	 *
+	 * @throws RecreatexException
+	 */
+	public function reCalculateBasket()
+	{
+		throw new RecreatexException('Not implemented');
+	}
+
+	/**
+	 * Lock the basket items.
+	 *
+	 * @param array $lockTickets	Locks that will be cleared, each item can have the keys below:
+	 * 									- string Id					The id of the lock.
+	 * @return array
+	 */
+	public function extendLockPeriod(array $lockTickets)
+	{
+		// build body
+		$data = array();
+		foreach($lockTickets as $row) $data[] = $row;
 
 		// make the call
 		$response = $this->doCall('UnlockBasketItems', $data, true, 'LockTickets');
@@ -1235,13 +1566,14 @@ class Recreatex
 	 * @param int[optional] $from					If provided only items that start after this date will be returned.
 	 * @param int[optional] $until					If provided only items that start before this date will be returned.
 	 * @param string[optional] $cultureActivityId	If provided only items within this activityid will be returned.
-	 * @param array[optional] $paging				The paging criteria, see Recreatex::buildPagingParameter().
 	 * @param array[optional] $includes				Key-value-array with the properties to include, possible keys are:
-	 * 													- bool ImageUrl
+	 * 													- bool Image
+	 * 													- bool ImageUri
 	 * 													- bool Options
+	 * @param array[optional] $paging				The paging criteria, see Recreatex::buildPagingParameter().
 	 * @return array
 	 */
-	public function findCultureEvents($eventId = null, $activityId = null, $name = null, $from = null, $until = null, $paging = null, $includes = array())
+	public function findCultureEvents($eventId = null, $activityId = null, $name = null, $from = null, $until = null, $includes = array(), $paging = null)
 	{
 		// build the data
 		$data = array();
@@ -1296,6 +1628,162 @@ class Recreatex
 			// add
 			$return[] = $item;
 		}
+
+		// return
+		return $return;
+	}
+
+	/**
+	 * List the halls
+	 *
+	 * @return array
+	 */
+	public function listHalls()
+	{
+		// make the call
+		$response = $this->doCall('ListHalls');
+
+		// validate
+		if(!isset($response->Halls)) throw new RecreatexException('Invalid response.');
+
+		// init var
+		$return = array();
+
+		// loop
+		foreach($response->Halls->Hall as $row) $return[] = self::decodeResponse($row);
+
+		// return
+		return $return;
+	}
+
+	/**
+	 * Get the hall seating
+	 *
+	 * @param string $id
+	 * @return array
+	 */
+	public function getHallSeating($id)
+	{
+		$data['HallId'] = (string) $id;
+
+		// make the call
+		$response = $this->doCall('GetHallSeating', $data);
+
+		// validate
+		if(!isset($response->Hall)) throw new RecreatexException('Invalid response.');
+
+		// return
+		return self::decodeResponse($response->Hall[0]);
+	}
+
+	/**
+	 * Get seat allocations
+	 *
+	 * @param string $id
+	 * @return array
+	 */
+	public function getSeatAllocations($id)
+	{
+		$data['HallId'] = (string) $id;
+
+		// make the call
+		$response = $this->doCall('GetSeatAllocations', $data);
+
+		// validate
+		if(!isset($response->Overview)) throw new RecreatexException('Invalid response.');
+
+		// return
+		return self::decodeResponse($response->Overview[0]);
+	}
+
+	/**
+	 * Find culture reseverations
+	 *
+	 * @param string $personId
+	 * @param string[optional] $cultureEventId
+	 * @param string[optional] $cultureEventReservationId
+	 * @param string[optional] $from
+	 * @param string[optional] $until
+	 * @param array[optional] $paging						Paging criteria, see Recreatex::buildPagingParameter().
+	 * @return array
+	 */
+	public function findCultureReservations($personId, $cultureEventId = null, $cultureEventReservationId = null, $from = null, $until = null, $paging = null)
+	{
+		// build the data
+		$data = array();
+		$data['PersonId'] = (string) $personId;
+		if($cultureEventId !== null) $data['CultureEventId'] = (string) $cultureEventId;
+		if($cultureEventReservationId !== null) $data['CultureEventReservationId'] = (string) $cultureEventReservationId;
+		if($from !== null) $data['From'] = date('c', (int) $from);
+		if($until !== null) $data['Until'] = date('c', (int) $until);
+		if($paging != null) $data['Paging'] = $paging;
+
+		$overruleKey = null;
+		if(!empty($data)) $overruleKey = 'CultureReservationSearchCriteria';
+
+		// make the call
+		$response = $this->doCall('FindCultureReservations', $data, true, $overruleKey);
+
+		// validate
+		if(!isset($response->CultureReservations)) throw new RecreatexException('Invalid response.');
+
+		// init var
+		$return = array();
+
+		// loop
+		foreach($response->CultureReservations->CultureReservation as $row) $return[] = self::decodeResponse($row);
+
+		// return
+		return $return;
+	}
+
+	/**
+	 * Find price groups
+	 *
+	 * @return array
+	 */
+	public function findPriceGroups()
+	{
+		// build the data
+		$data = array();
+
+		$overruleKey = null;
+		if(!empty($data)) $overruleKey = 'PriceGroupSearchCriteria';
+
+		// make the call
+		$response = $this->doCall('FindPriceGroups', $data, true, $overruleKey);
+
+		// validate
+		if(!isset($response->PriceGroups)) throw new RecreatexException('Invalid response.');
+
+		// init var
+		$return = array();
+
+		// loop
+		foreach($response->PriceGroups->PriceGroup as $row) $return[] = self::decodeResponse($row);
+
+		// return
+		return $return;
+	}
+
+	/**
+	 * List the categories
+	 *
+	 * @return array
+	 */
+	public function listCategories()
+	{
+		// make the call
+		$response = $this->doCall('ListCategories');
+
+		// validate
+		if(!isset($response->Categories)) throw new RecreatexException('Invalid response.');
+
+		// init var
+		$return = array();
+
+		// loop
+		foreach($response->Categories->Category as $row) $return[] = self::decodeResponse($row);
 
 		// return
 		return $return;
