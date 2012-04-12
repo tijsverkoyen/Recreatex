@@ -79,10 +79,13 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 		$this->assertArrayHasKey('HasSucceeded', $var);
 		$this->assertFalse($var['HasSucceeded']);
 
+		// uncomment when we have a working username & password
+		/*
 		$var = $this->recreatex->authenticateUser(USERNAME, PASSWORD);
 
 		$this->assertArrayHasKey('HasSucceeded', $var);
 		$this->assertTrue($var['HasSucceeded']);
+		*/
 	}
 
 	/**
@@ -90,14 +93,9 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testSavePerson()
 	{
-		$name = array('First' => '[REMOVE ME] Tijs', 'Last' => 'Verkoyen');
-		$address = array('Street' => 'Kerkstraat', 'Number' => 108, 'ZipCode' => '9050', 'Town' => 'Gentbrugge', 'Country' => 'B', 'Box' => '');
-		$credential = array('Password' => time(), 'Username' => time());
+		$var = $this->recreatex->savePerson(null, null, array('First' => '[TEST] Tijs', 'Last' => 'Verkoyen', 'Middle' => ''), array('Street' => 'Kerkstraat', 'Number' => 108, 'ZipCode' => '9050', 'Town' => 'Gentbrugge', 'Country' => 'B', 'Box' => ''), null, 'rcx-001@verkoyen.eu', null, null, 'NL', null, null, null, null, null, null, array('Password' => time(), 'Username' => microtime(true)));
 
-		$var = $this->recreatex->savePerson(null, null, $name, $address, null, 'rcx-001@verkoyen.eu', null, null, 'NL', null, null, null, null, null, null, $credential);
-
-		$this->assertArrayHasKey('ValidationResults', $var);
-		$this->assertNull($var['ValidationResults']);
+		$this->assertArrayHasKey('Id', $var);
 	}
 
 	/**
@@ -105,6 +103,8 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testSavePersonByObject()
 	{
+		$var = $this->recreatex->savePerson(null, null, array('First' => '[TEST] Tijs', 'Last' => 'Verkoyen', 'Middle' => ''), array('Street' => 'Kerkstraat', 'Number' => 108, 'ZipCode' => '9050', 'Town' => 'Gentbrugge', 'Country' => 'B', 'Box' => ''), null, 'rcx-001@verkoyen.eu', null, null, 'NL', null, null, null, null, null, null, array('Password' => time(), 'Username' => microtime(true)));
+
 		// get member
 		$object = $this->recreatex->findPerson(null, null, 'rcx-001@verkoyen.eu');
 		$member = $object[0];
@@ -112,8 +112,22 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 
 		$var = $this->recreatex->savePersonByObject($member);
 
-		$this->assertArrayHasKey('ValidationResults', $var);
-		$this->assertNull($var['ValidationResults']);
+		$this->assertArrayHasKey('Id', $var);
+	}
+
+	/**
+	 * Test Recreatex->forgotPassword()
+	 */
+	public function testForgotPassword()
+	{
+		$name = array('First' => '[REMOVE ME] Tijs', 'Last' => 'Verkoyen');
+		$address = array('Street' => 'Kerkstraat', 'Number' => 108, 'ZipCode' => '9050', 'Town' => 'Gentbrugge', 'Country' => 'B', 'Box' => '');
+		$credential = array('Password' => time(), 'Username' => time());
+
+		$var = $this->recreatex->forgotPassword(USERNAME);
+
+		$this->assertArrayHasKey('Password', $var);
+		$this->assertArrayHasKey('EmailAddress', $var);
 	}
 
 	/**
@@ -276,5 +290,37 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 
 		$this->assertType('array', $var);
 		$this->assertTrue((count($var) == 10));
+	}
+
+	/**
+	 * Test Recreatex->listHalls()
+	 */
+	public function testListHalls()
+	{
+		$var = $this->recreatex->listHalls();
+
+		$this->assertType('array', $var);
+		foreach($var as $row)
+		{
+			$this->assertArrayHasKey('Id', $row);
+			$this->assertArrayHasKey('Code', $row);
+			$this->assertArrayHasKey('Name', $row);
+		}
+	}
+
+	/**
+	 * Test Recreatex->listCategories()
+	 */
+	public function testListCategories()
+	{
+		$var = $this->recreatex->listCategories();
+
+		$this->assertType('array', $var);
+		foreach($var as $row)
+		{
+			$this->assertArrayHasKey('Id', $row);
+			$this->assertArrayHasKey('Code', $row);
+			$this->assertArrayHasKey('Name', $row);
+		}
 	}
 }
