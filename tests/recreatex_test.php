@@ -79,13 +79,10 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 		$this->assertArrayHasKey('HasSucceeded', $var);
 		$this->assertFalse($var['HasSucceeded']);
 
-		// uncomment when we have a working username & password
-		/*
 		$var = $this->recreatex->authenticateUser(USERNAME, PASSWORD);
 
 		$this->assertArrayHasKey('HasSucceeded', $var);
 		$this->assertTrue($var['HasSucceeded']);
-		*/
 	}
 
 	/**
