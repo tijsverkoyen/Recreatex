@@ -205,7 +205,6 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 		}
 	}
 
-
 	/**
 	 * Tests Recreatex->findArticleCategories()
 	 */
@@ -302,7 +301,6 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 		$this->assertArrayHasKey('Items', $var);
 		$this->assertTrue(count($var['Items']) == 2);
 	}
-
 
 // 	/**
 // 	 * Tests Recreatex->validateBasket()
@@ -409,7 +407,6 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 			$this->assertArrayHasKey('Name', $row);
 		}
 	}
-
 
 	/**
 	 * Test Recreatex->getHallSeating()

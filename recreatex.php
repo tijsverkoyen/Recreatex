@@ -392,6 +392,7 @@ class Recreatex
 	 * @param bool[optional] $includeContext	Should we include the context, if available.
 	 * @param bool[optional] $overruleKey		The method is wrapped, but for several methods this can't be done automatically.
 	 * @param bool[optional] $removeNullValues	Should null values be removed from the XML?
+	 * @param bool[optional] $sort				Should the passed data be sorted?
 	 * @return mixed
 	 */
 	private function doCall($method, $data = null, $includeContext = true, $overruleKey = null, $removeNullValues = false, $sort = true)
@@ -853,7 +854,6 @@ class Recreatex
 		return $return['Person'];
 	}
 
-
 	/**
 	 * Save parson subcategories
 	 *
@@ -880,7 +880,6 @@ class Recreatex
 		// return
 		return $return['Person'];
 	}
-
 
 	/**
 	 * Retrieve the password for a user
@@ -1505,9 +1504,10 @@ class Recreatex
 	}
 
 	/**
-	 * Not implemented
+	 * Recalculate the basket
 	 *
-	 * @throws RecreatexException
+	 * @param array $basket
+	 * @return array
 	 */
 	public function reCalculateBasket(array $basket)
 	{
