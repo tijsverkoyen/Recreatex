@@ -126,6 +126,7 @@ class Recreatex
 	{
 		$XML = $data[0];
 		$removeNullKeys = (bool) $data[1];
+		$sort = (bool) $data[2];
 
 		// skip attributes
 		if($key == '@attributes') return;
@@ -217,7 +218,7 @@ class Recreatex
 		// the value is an array
 		else
 		{
-			if(!empty($input)) ksort($input);
+			if(!empty($input) && $sort) ksort($input);
 
 			// init var
 			$isNonNumeric = false;
@@ -237,7 +238,7 @@ class Recreatex
 			}
 
 			// is there are named keys they should be handles as elements
-			if($isNonNumeric) array_walk($input, array('Recreatex', 'arrayToXML'), array($element, $removeNullKeys));
+			if($isNonNumeric) array_walk($input, array('Recreatex', 'arrayToXML'), array($element, $removeNullKeys, $sort));
 
 			// numeric elements means this a list of items
 			else
@@ -245,7 +246,7 @@ class Recreatex
 				// handle the value as an element
 				foreach($input as $value)
 				{
-					if(is_array($value)) array_walk($value, array('Recreatex', 'arrayToXML'), array($element, $removeNullKeys));
+					if(is_array($value)) array_walk($value, array('Recreatex', 'arrayToXML'), array($element, $removeNullKeys, $sort));
 				}
 			}
 		}
@@ -287,13 +288,15 @@ class Recreatex
 	 */
 	private function decodeResponse($item, $return = null, $i = 0)
 	{
+		// @later	decode attributes (revalidateBasket)
+
 		$base64Keys = array('Bytes');
-		$floatKeys = array('Price', 'Stock', 'Cost', 'Amount', 'IncassoCost', 'Dx', 'Dy', 'X', 'Y');
-		$integerKeys = array('AvailableSeats', 'Sequence', 'Available', 'Blocked', 'Locked', 'Option', 'Reserved');
+		$floatKeys = array('Price', 'Stock', 'Cost', 'Amount', 'IncassoCost', 'Dx', 'Dy', 'X', 'Y', 'UnitPrice');
+		$integerKeys = array('AvailableSeats', 'Sequence', 'Available', 'Blocked', 'Locked', 'Option', 'Reserved', 'Quantity');
 		$imageKeys = array('Image');
 		$fullImageUrlsKeys = array('ImageUri', 'ImageUrl');
 		$timestampKeys = array('From', 'Until', 'SalesFrom', 'SalesUntil');
-		$arrayKeys = array('Subcategories', 'Blocks', 'Rows', 'Seats');
+		$arrayKeys = array('Subcategories', 'Blocks', 'Rows', 'Seats', 'BasketItems', 'Items');
 
 		if($item instanceof SimpleXMLElement)
 		{
@@ -391,7 +394,7 @@ class Recreatex
 	 * @param bool[optional] $removeNullValues	Should null values be removed from the XML?
 	 * @return mixed
 	 */
-	private function doCall($method, $data = null, $includeContext = true, $overruleKey = null, $removeNullValues = false)
+	private function doCall($method, $data = null, $includeContext = true, $overruleKey = null, $removeNullValues = false, $sort = true)
 	{
 		/**
 		 * I know there is an PHP SOAP extension, but it can't handle requests with multiple message parts.
@@ -435,7 +438,7 @@ class Recreatex
 		ksort($realData);
 
 		// build XML
-		array_walk($realData, array('Recreatex', 'arrayToXML'), array($body, $removeNullValues));
+		array_walk($realData, array('Recreatex', 'arrayToXML'), array($body, $removeNullValues, $sort));
 
 		// store the body
 		$body = $XML->saveXML();
@@ -1450,23 +1453,34 @@ class Recreatex
 	 * Lock the basket items.
 	 *
 	 * @param array $basket		Items that will be locked, each item can have the keys below:
-	 * 						- ?
+	 * 								- @attributes
+	 * 								- Quantity
+	 * 								- Article
+	 * 							@remark; make sure the keys are in the correct order.
 	 * @return array
 	 */
 	public function lockBasketItems(array $basket)
 	{
 		// build body
 		$data = array();
-		foreach($basket as $row) $data[] = array('BasketItem' => $row);
+		foreach($basket as $row) $data[] = $row;
 
 		// make the call
-		$response = $this->doCall('LockBasketItems', $data, true, 'BasketItems');
+		$response = $this->doCall('LockBasketItems', $data, true, 'BasketItems', false, false);
 
 		// validate
 		if(!isset($response->LockBasketResult)) throw new RecreatexException('Invalid response.');
 
+		$return = self::decodeResponse($response->LockBasketResult[0]);
+
+		// validate
+		if(isset($return['ValidationResults']['ValidationResult']['Message']))
+		{
+			throw new RecreatexException($return['ValidationResults']['ValidationResult']['Message']);
+		}
+
 		// return
-		return self::decodeResponse($response->LockBasketResult[0]);
+		return $return;
 	}
 
 	/**
@@ -1495,9 +1509,20 @@ class Recreatex
 	 *
 	 * @throws RecreatexException
 	 */
-	public function reCalculateBasket()
+	public function reCalculateBasket(array $basket)
 	{
-		throw new RecreatexException('Not implemented');
+		// build body
+		$data = array();
+		foreach($basket as $row) $data['Items'][] = $row;
+
+		// make the call
+		$response = $this->doCall('ReCalculateBasket', $data, true, 'Basket', false, false);
+
+		// validate
+		if(!isset($response->Basket)) throw new RecreatexException('Invalid response.');
+
+		// return
+		return self::decodeResponse($response->Basket[0]);
 	}
 
 	/**
