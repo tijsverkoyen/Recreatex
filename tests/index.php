@@ -42,7 +42,7 @@ $defaultPaging = Recreatex::buildPagingParameter(1, 2, 'Name', true);
 // $response = $recreatex->listArticleGroups('Sale');
 // $response = $recreatex->listArticleGroups('Rental');
 // $response = $recreatex->listArticleGroups('All', true, false);
-// @todo	empty response $response = $recreatex->findArticleCategories();
+// @todo	empty response	$response = $recreatex->findArticleCategories();
 // $response = $recreatex->findArticles();
 // $response = $recreatex->findArticles('8f7a16d1-c1b1-48c0-acde-01b322002722');
 // $response = $recreatex->findArticles(null, null, 'Leffe');
@@ -52,9 +52,9 @@ $defaultPaging = Recreatex::buildPagingParameter(1, 2, 'Name', true);
 // @todo	empty response	$response = $recreatex->listExpositionPeriods();
 // @todo	empty response	$response = $recreatex->listAudiences();
 
-// @todo	empty response	$response = $recreatex->validateBasket('9e60c807-5f6f-415e-90cb-028c54d1554f', $basketItems, $payments, $totalPrice);
-// @todo	error with price	$response = $recreatex->validateBasketItem();
-// @todo	empty response	$response = $recreatex->checkoutBasket('9e60c807-5f6f-415e-90cb-028c54d1554f', $basketItems, $payments, $totalPrice);
+// @todo	$response = $recreatex->validateBasket('9e60c807-5f6f-415e-90cb-028c54d1554f', $basketItems, $payments, $totalPrice);
+// @todo	$response = $recreatex->validateBasketItem();
+// @todo	$response = $recreatex->checkoutBasket('9e60c807-5f6f-415e-90cb-028c54d1554f', $basketItems, $payments, $totalPrice);
 // $product1 = $recreatex->findArticles('8f7a16d1-c1b1-48c0-acde-01b322002722');
 // $product2 = $recreatex->findArticles('940eaa14-5582-49a1-9be7-d881127c3449');
 // $basketItems = array(
@@ -62,9 +62,9 @@ $defaultPaging = Recreatex::buildPagingParameter(1, 2, 'Name', true);
 // 	array('BasketItem' => array('@attributes' => array('xsi:type' => 'ArticleSale'), 'Quantity' => 10, 'Article' => $product2[0]))
 // );
 // $response = $recreatex->lockBasketItems($basketItems);
-// $response = $recreatex->unlockBasketItems(array(array('Id' => '00000000-0000-0000-0000-000000000000')));
 // $response = $recreatex->reCalculateBasket($basketItems);
-// @todo	empty response	$response = $recreatex->extendLockPeriod(array(array('Id' => '00000000-0000-0000-0000-000000000000')));
+// @todo	$response = $recreatex->unlockBasketItems(array(array('Id' => '00000000-0000-0000-0000-000000000000')));
+// @todo	$response = $recreatex->extendLockPeriod(array(array('Id' => '00000000-0000-0000-0000-000000000000')));
 // $response = $recreatex->listPaymentMethods();
 // $response = $recreatex->listCultureActivities();
 // $response = $recreatex->findCultureEvents();

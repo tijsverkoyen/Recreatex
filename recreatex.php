@@ -27,7 +27,7 @@
 class Recreatex
 {
 	// internal constant to enable/disable debugging
-	const DEBUG = true;
+	const DEBUG = false;
 
 	// URL for the api
 	const ENDPOINT = '/webshop.svc';
