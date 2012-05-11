@@ -11,15 +11,12 @@ $defaultPaging = Recreatex::buildPagingParameter(1, 2, 'Name', true);
 // $response = $recreatex->isAvailable();
 // $response = $recreatex->authenticateUser(USERNAME, PASSWORD);
 // $subcategories = array(
-// 	array('Subcategory' => array('Id' => 'aaf5d152-bc45-462b-bf27-a8a99c270497', 'CategoryId' => 'fc950daf-e3a5-4b91-9edd-8c2dc70b00e5')),
-// 	array('Subcategory' => array('Id' => '3bbcb4e4-d92f-4ca8-a033-a00b4970d0f9', 'CategoryId' => 'fc950daf-e3a5-4b91-9edd-8c2dc70b00e5')),
-// 	array('Subcategory' => array('Id' => 'd1f667dd-a339-481c-899c-103077f8cc25', 'CategoryId' => 'a332558b-fcef-40df-89ff-565bb2286300')),
-// 	array('Subcategory' => array('Id' => '8350674f-2aa1-4826-b032-563996b15ce7', 'CategoryId' => 'a332558b-fcef-40df-89ff-565bb2286300')),
+// 	array('Id' => 'aaf5d152-bc45-462b-bf27-a8a99c270497', 'CategoryId' => 'fc950daf-e3a5-4b91-9edd-8c2dc70b00e5'),
+// 	array('Id' => '3bbcb4e4-d92f-4ca8-a033-a00b4970d0f9', 'CategoryId' => 'fc950daf-e3a5-4b91-9edd-8c2dc70b00e5'),
+// 	array('Id' => 'd1f667dd-a339-481c-899c-103077f8cc25', 'CategoryId' => 'a332558b-fcef-40df-89ff-565bb2286300'),
+// 	array('Id' => '8350674f-2aa1-4826-b032-563996b15ce7', 'CategoryId' => 'a332558b-fcef-40df-89ff-565bb2286300'),
 // );
-// $person = $recreatex->findPerson('96d66f0f-5a54-478b-83e0-e0a4a70b2d52');
-// $person = $person[0];
-// $person['Settings']['Subcategories'] = $subcategories;
-// $response = $recreatex->savePersonSubcategoriesByObject($person);
+// $response = $recreatex->savePersonSubcategories('31e68d35-0257-4ca8-9e07-1edeb56faa03', null, null, $subcategories);
 // $response = $recreatex->savePerson(null, null, array('First' => '[TEST] Tijs', 'Last' => 'Verkoyen', 'Middle' => ''), array('Street' => 'Kerkstraat', 'Number' => 108, 'ZipCode' => '9050', 'Town' => 'Gentbrugge', 'Country' => 'B', 'Box' => ''), null, 'rcx-001@verkoyen.eu', null, null, 'NL', null, null, null, null, null, null, array('Password' => time(), 'Username' => time()));
 // $response = $recreatex->savePerson('96d66f0f-5a54-478b-83e0-e0a4a70b2d52', null, array('First' => '[TEST] Tijs', 'Last' => 'Verkoyen', 'Middle' => ''), array('Street' => 'Kerkstraat', 'Number' => 108, 'ZipCode' => '9050', 'Town' => 'Gentbrugge', 'Country' => 'B', 'Box' => ''), array(), 'rcx-002@verkoyen.eu', '1985-06-20', null, 'NL', null, null, null, null, null, null, array('Password' => time(), 'Username' => time()));
 // $person = $recreatex->findPerson('96d66f0f-5a54-478b-83e0-e0a4a70b2d52');

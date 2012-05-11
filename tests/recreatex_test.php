@@ -113,6 +113,35 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
+	 * Test Recreatext->savePersonSubcategoriesByObject()
+	 */
+	public function testSavePersonSubcategories()
+	{
+		$var = $this->recreatex->savePerson(null, null, array('First' => '[TEST] Tijs', 'Last' => 'Verkoyen', 'Middle' => ''), array('Street' => 'Kerkstraat', 'Number' => 108, 'ZipCode' => '9050', 'Town' => 'Gentbrugge', 'Country' => 'B', 'Box' => ''), null, 'rcx-001@verkoyen.eu', null, null, 'NL', null, null, null, null, null, null, array('Password' => time(), 'Username' => microtime(true)));
+
+		$subcategories = array(
+			array('Id' => 'aaf5d152-bc45-462b-bf27-a8a99c270497', 'CategoryId' => 'fc950daf-e3a5-4b91-9edd-8c2dc70b00e5'),
+			array('Id' => '3bbcb4e4-d92f-4ca8-a033-a00b4970d0f9', 'CategoryId' => 'fc950daf-e3a5-4b91-9edd-8c2dc70b00e5'),
+			array('Id' => 'd1f667dd-a339-481c-899c-103077f8cc25', 'CategoryId' => 'a332558b-fcef-40df-89ff-565bb2286300'),
+			array('Id' => '8350674f-2aa1-4826-b032-563996b15ce7', 'CategoryId' => 'a332558b-fcef-40df-89ff-565bb2286300'),
+		);
+		$var = $this->recreatex->savePersonSubcategories($var['Id'], null, null, $subcategories);
+
+		$this->assertType('array', $var);
+
+		foreach($subcategories as $row)
+		{
+			$hasSubcategory = false;
+			foreach($var['Settings']['Subcategories'] as $item)
+			{
+				if($item['Id'] == $row['Id']) $hasSubcategory = true;
+			}
+
+			$this->assertTrue($hasSubcategory);
+		}
+	}
+
+	/**
 	 * Test Recreatex->forgotPassword()
 	 */
 	public function testForgotPassword()

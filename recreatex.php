@@ -874,30 +874,34 @@ class Recreatex
 	}
 
 	/**
-	 * Save parson subcategories
+	 * Save person subcategories
 	 *
-	 * @param array $object
+	 * @param string[optional] $id			The id of the person.
+	 * @param string[optional] $username	The username of the person.
+	 * @param string[optional] $email		The email of the person.
+	 * @param array $subcategories			The subcategories that need to be stored.
 	 * @return array
 	 */
-	public function savePersonSubcategoriesByObject($object)
+	public function savePersonSubcategories($id, $username, $email, array $subcategories)
 	{
+		$data = array();
+		if($id !== null) $data['Id'] = (string) $id;
+		if($username !== null) $data['UserName'] = (string) $username;
+		if($email !== null) $data['Email'] = (string) $email;
+		$data['Settings']['Subcategories'] = array();
+		foreach($subcategories as $category)
+		{
+			$data['Settings']['Subcategories'][] = array('Subcategory' => $category);
+		}
+
 		// make the call
-		$response = $this->doCall('SavePersonSubcategories', $object, true, 'Person', true);
+		$response = $this->doCall('SavePersonSubcategories', $data, true, 'Person');
 
 		// validate
 		if(!isset($response->SavePersonResult)) throw new RecreatexException('Invalid response.');
 
-		// decode response
-		$return = self::decodeResponse($response->SavePersonResult[0]);
-
-		// validate
-		if(isset($return['ValidationResults']['ValidationResult']['Message']))
-		{
-			throw new RecreatexException($return['ValidationResults']['ValidationResult']['Message']);
-		}
-
 		// return
-		return $return['Person'];
+		return self::decodeResponse($response->SavePersonResult->Person[0]);
 	}
 
 	/**
