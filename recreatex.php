@@ -736,8 +736,27 @@ class Recreatex
 	 * 												- string Country	The country, use ISO-codes.
 	 * @param array[optional] $settings			The settings for the person.
 	 * 												- bool SubscribeMailingList		Is the person subscribed on the newsletter?
-	 * 												- array Subcategories			The categories will be ignored, use savePersonSubcategoriesByObject.
-	 * 												- array PriceGroups				The categories will be ignored, savePersonPriceGroupsByObject.
+	 * 												- array Subcategories			An array of subcategories, each item can have the keys below:
+	 * 													- array Category
+	 * 														- string Code
+	 * 														- string Id
+	 * 														- string Name
+	 * 													- string CategoryId
+	 * 													- string Code
+	 * 													- string Id
+	 * 													- string Name
+	 * 												- array PriceGroups				An array of person price groups, each item can have the keys below:
+	 * 													- string Id
+	 * 													- string Type				Possible values are: PlaceReservations, Ticketing, Entries, Sales, Rental, Wellness
+	 * 													- array PriceGroup
+	 * 														- string Id
+	 * 														- string Name
+	 * 														- string Type
+	 * 													- string StartDate
+	 * 													- string EndDate
+	 * 													- string Weekday			Possible values are: EveryDay, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+	 * 													- string From
+	 * 													- string Till
 	 * @param string[optional] $email			The emailaddress of the person.
 	 * @param string[optional] $birthdate		The birthdate of the person.
 	 * @param string[optional] $gender			The gender of the person. Possible values are: male, female, unknown.
@@ -1692,7 +1711,7 @@ class Recreatex
 	/**
 	 * Get the hall seating
 	 *
-	 * @param string $id
+	 * @param string $id	The id of the hall.
 	 * @return array
 	 */
 	public function getHallSeating($id)
@@ -1710,7 +1729,7 @@ class Recreatex
 	/**
 	 * Get seat allocations
 	 *
-	 * @param string $id
+	 * @param string $id	The id of the hall.
 	 * @return array
 	 */
 	public function getSeatAllocations($id)
