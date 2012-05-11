@@ -25,18 +25,19 @@ $defaultPaging = Recreatex::buildPagingParameter(1, 2, 'Name', true);
 // $response = $recreatex->savePersonByObject($person);
 // $response = $recreatex->forgotPassword(USERNAME);
 // $response = $recreatex->findPerson(null, null, null, null, null, null, null, array('Categories' => true, 'PriceGroups' => true));
-// $response = $recreatex->findPerson('03121ba4-9796-4b38-a756-e840013c6f11', null, null, null, null, null, null, array('Categories' => true, 'PriceGroups' => true));
+// $response = $recreatex->findPerson('0b70499c-9a43-405d-a897-66d4fb5da372', null, null, null, null, null, null, array('Categories' => true, 'PriceGroups' => true));
 // $response = $recreatex->findPerson(null, null, 'rcx-001@verkoyen.eu', null, null, null, null, array('Categories' => true, 'PriceGroups' => true));
 // $response = $recreatex->findPerson(null, null, 'rcx-002@verkoyen.eu', null, null, null, null, array('Categories' => true));
 // $response = $recreatex->findPerson(null, null, null, null, null, null, null, array(), $defaultPaging);
 // $priceGroups = array(array('Id' => 'ff927dbb-440a-489e-8c18-61cc919d3e44'));
 // $response = $recreatex->savePersonPriceGroups('31e68d35-0257-4ca8-9e07-1edeb56faa03', null, null, $priceGroups);
 // $response = $recreatex->listActivityTypes();
-// @todo	empty response	$response = $recreatex->findActivities(null, null, null, null, 'b', null, null, null, array(), $defaultPaging);
+// @todo	empty response
+// $response = $recreatex->findActivities(null, null, null, null, 'b', null, null, null, array(), $defaultPaging);
 // $response = $recreatex->listArticleGroups('Sale');
 // $response = $recreatex->listArticleGroups('Rental');
 // $response = $recreatex->listArticleGroups('All', true, false);
-// @todo	empty response	$response = $recreatex->findArticleCategories();
+// @todo	error $response = $recreatex->findArticleCategories(null, null, Recreatex::buildPagingParameter(1, 10));
 // $response = $recreatex->findArticles();
 // $response = $recreatex->findArticles('8f7a16d1-c1b1-48c0-acde-01b322002722');
 // $response = $recreatex->findArticles(null, null, 'Leffe');
@@ -45,7 +46,6 @@ $defaultPaging = Recreatex::buildPagingParameter(1, 2, 'Name', true);
 // @todo	empty response	$response = $recreatex->findExpositions();
 // @todo	empty response	$response = $recreatex->listExpositionPeriods();
 // @todo	empty response	$response = $recreatex->listAudiences();
-
 // @todo	$response = $recreatex->validateBasket('9e60c807-5f6f-415e-90cb-028c54d1554f', $basketItems, $payments, $totalPrice);
 // @todo	$response = $recreatex->validateBasketItem();
 // @todo	$response = $recreatex->checkoutBasket('9e60c807-5f6f-415e-90cb-028c54d1554f', $basketItems, $payments, $totalPrice);
@@ -68,8 +68,8 @@ $defaultPaging = Recreatex::buildPagingParameter(1, 2, 'Name', true);
 // $response = $recreatex->getHallSeating('40dde1cc-ea9a-4947-872a-b92c310aca60');
 // $response = $recreatex->getSeatAllocations('40dde1cc-ea9a-4947-872a-b92c310aca60');
 // @todo	empty response $response = $recreatex->findCultureReservations('8fdd4de4-aff1-4454-87c7-1972d1558a8a');
-// $response = $recreatex->findPriceGroups();
-// $response = $recreatex->findPriceGroups('', 'Sales');
+// @todo	empty response $response = $recreatex->findPriceGroups();
+// @todo	empty response $response = $recreatex->findPriceGroups('', 'Sales');
 // $response = $recreatex->listCategories();
 
 // output (Spoon::dump())

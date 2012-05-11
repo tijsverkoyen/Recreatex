@@ -179,15 +179,6 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
  		$this->assertArrayHasKey('Id', $var);
 	}
 
-// 	public function testFindActivities()
-// 	{
-// 		$this->markTestIncomplete("findActivities test not implemented");
-// 		$var = $this->recreatex->findActivities();
-
-// 		$this->assertType('array', $var);
-// 		$this->assertTrue((count($var) == 10));
-// 	}
-
 	/**
 	 * Tests Recreatex->listActivityTypes()
 	 */
@@ -201,6 +192,17 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 			$this->assertArrayHasKey('Id', $row);
 		}
 	}
+
+	/**
+	 * Tests Recreatex->findActivities()
+	 */
+ 	public function testFindActivities()
+ 	{
+ 		$paging = Recreatex::buildPagingParameter(1, 10, 'Name', true);
+ 		$var = $this->recreatex->findActivities(null, null, null, null, 'b', null, null, null, array(), $paging);
+
+ 		$this->assertType('array', $var);
+ 	}
 
 	/**
 	 * Tests Recreatex->listArticleGroups()
@@ -221,11 +223,10 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testFindArticleCategories()
 	{
-// 		$this->markTestIncomplete("findArticleCategories test not implemented");
-// 		$var = $this->recreatex->findArticleCategories();
+ 		$var = $this->recreatex->findArticleCategories();
 
-// 		$this->assertType('array', $var);
-// 		$this->assertTrue((count($var) == 10));
+ 		$this->assertType('array', $var);
+ 		$this->assertTrue((count($var) == 10));
 	}
 
 	/**
@@ -295,43 +296,28 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * Tests Recreatex->revalidateBasket()
+	 * Tests Recreatex->validateBasket()
 	 */
-	public function testRevalidateBasket()
+	public function testValidateBasket()
 	{
-		$product1 = $this->recreatex->findArticles('8f7a16d1-c1b1-48c0-acde-01b322002722');
-		$product2 = $this->recreatex->findArticles('940eaa14-5582-49a1-9be7-d881127c3449');
-		$basketItems = array(
-				array('BasketItem' => array('@attributes' => array('xsi:type' => 'ArticleSale'), 'Quantity' => 5, 'Article' => $product1[0])),
-				array('BasketItem' => array('@attributes' => array('xsi:type' => 'ArticleSale'), 'Quantity' => 10, 'Article' => $product2[0]))
-		);
-		$var = $this->recreatex->reCalculateBasket($basketItems);
-
-		$this->assertType('array', $var);
-		$this->assertArrayHasKey('CustomerId', $var);
-		$this->assertArrayHasKey('Items', $var);
-		$this->assertTrue(count($var['Items']) == 2);
+		$this->markTestIncomplete("validateBasket test not implemented");
 	}
 
-// 	/**
-// 	 * Tests Recreatex->validateBasket()
-// 	 */
-// 	public function testValidateBasket()
-// 	{
-// 		// TODO Auto-generated RecreatexTest->testValidateBasket()
-// 		$this->markTestIncomplete("validateBasket test not implemented");
-// 		$this->recreatex->validateBasket(/* parameters */);
-// 	}
+ 	/**
+ 	 * Tests Recreatex->validateBasket()
+ 	 */
+ 	public function testValidateBasketItems()
+ 	{
+ 		$this->markTestIncomplete("validateBasket test not implemented");
+ 	}
 
-// 	/**
-// 	 * Tests Recreatex->checkoutBasket()
-// 	 */
-// 	public function testCheckoutBasket()
-// 	{
-// 		// TODO Auto-generated RecreatexTest->testCheckoutBasket()
-// 		$this->markTestIncomplete("checkoutBasket test not implemented");
-// 		$this->recreatex->checkoutBasket(/* parameters */);
-// 	}
+ 	/**
+ 	 * Tests Recreatex->checkoutBasket()
+ 	 */
+ 	public function testCheckoutBasket()
+ 	{
+ 		$this->markTestIncomplete("checkoutBasket test not implemented");
+ 	}
 
 	/**
 	 * Tests Recreatex->lockBasketItems()
@@ -363,6 +349,34 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
+	 * Tests Recreatex->reCalculateBasket()
+	 */
+	public function testReCalculateBasket()
+	{
+		$product1 = $this->recreatex->findArticles('8f7a16d1-c1b1-48c0-acde-01b322002722');
+		$product2 = $this->recreatex->findArticles('940eaa14-5582-49a1-9be7-d881127c3449');
+
+		$basketItems = array(
+			array('BasketItem' => array('@attributes' => array('xsi:type' => 'ArticleSale'), 'Quantity' => 5, 'Article' => $product1[0])),
+			array('BasketItem' => array('@attributes' => array('xsi:type' => 'ArticleSale'), 'Quantity' => 10, 'Article' => $product2[0]))
+		);
+		$var = $this->recreatex->reCalculateBasket($basketItems);
+
+		$this->assertArrayHasKey('CustomerId', $var);
+		$this->assertArrayHasKey('Items', $var);
+		$this->assertArrayHasKey('Payments', $var);
+		$this->assertArrayHasKey('Price', $var);
+	}
+
+	/**
+	 * Tests Recreatex->extendLockPeriod()
+	 */
+	public function testExtendLockPeriod()
+	{
+		$this->markTestIncomplete();
+	}
+
+	/**
 	 * Tests Recreatex->listPaymentMethods()
 	 */
 	public function testListPaymentMethods()
@@ -373,6 +387,8 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 		foreach($var as $row)
 		{
 			$this->assertArrayHasKey('Id', $row);
+			$this->assertArrayHasKey('Code', $row);
+			$this->assertArrayHasKey('Name', $row);
 		}
 	}
 
@@ -426,8 +442,40 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	{
 		$var = $this->recreatex->getHallSeating('40dde1cc-ea9a-4947-872a-b92c310aca60');
 
-		$this->assertType('Array', $var);
+		$this->assertType('array', $var);
 		$this->assertArrayHasKey('Blocks', $var);
+		foreach($var['Blocks'] as $row)
+		{
+			$this->assertArrayHasKey('Code', $row);
+			$this->assertArrayHasKey('Id', $row);
+			$this->assertArrayHasKey('Location', $row);
+			$this->assertArrayHasKey('Name', $row);
+			$this->assertArrayHasKey('Rows', $row);
+			$this->assertType('array', $row['Rows']);
+			foreach($row['Rows'] as $subRow)
+			{
+				$this->assertArrayHasKey('Code', $subRow);
+				$this->assertArrayHasKey('Id', $subRow);
+				$this->assertArrayHasKey('Location', $subRow);
+				$this->assertArrayHasKey('Name', $subRow);
+				$this->assertArrayHasKey('Range', $subRow);
+				$this->assertArrayHasKey('Seats', $subRow);
+				$this->assertType('array', $subRow['Seats']);
+				foreach($subRow['Seats'] as $subSubRow)
+				{
+					$this->assertArrayHasKey('Code', $subSubRow);
+					$this->assertArrayHasKey('Id', $subSubRow);
+					$this->assertArrayHasKey('Location', $subSubRow);
+					$this->assertArrayHasKey('Sequence', $subSubRow);
+					$this->assertArrayHasKey('Number', $subSubRow);
+				}
+			}
+		}
+
+		$this->assertArrayHasKey('Code', $var);
+		$this->assertArrayHasKey('Description', $var);
+		$this->assertArrayHasKey('Id', $var);
+		$this->assertArrayHasKey('Name', $var);
 	}
 
 	/**
@@ -437,9 +485,33 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	{
 		$var = $this->recreatex->getSeatAllocations('40dde1cc-ea9a-4947-872a-b92c310aca60');
 
-		$this->assertType('Array', $var);
+		$this->assertArrayHasKey('Allocations', $var);
 		$this->assertArrayHasKey('Allocations', $var);
 		$this->assertArrayHasKey('Summary', $var);
+		$this->assertArrayHasKey('Count', $var['Summary']);
+		$this->assertArrayHasKey('Available', $var['Summary']['Count']);
+		$this->assertArrayHasKey('Blocked', $var['Summary']['Count']);
+		$this->assertArrayHasKey('Locked', $var['Summary']['Count']);
+		$this->assertArrayHasKey('Option', $var['Summary']['Count']);
+		$this->assertArrayHasKey('Reserved', $var['Summary']['Count']);
+		$this->assertArrayHasKey('BlockSummaries', $var['Summary']);
+		$this->assertArrayHasKey('Hall', $var['Summary']);
+	}
+
+	/**
+	 * Test Recreatex->findCultureReservations()
+	 */
+	public function testFindCultureReservations()
+	{
+		$var = $this->recreatex->findCultureReservations('96d66f0f-5a54-478b-83e0-e0a4a70b2d52');
+
+		$this->assertType('array', $var);
+		foreach($var as $row)
+		{
+			$this->assertArrayHasKey('Id', $row);
+			$this->assertArrayHasKey('Name', $row);
+			$this->assertArrayHasKey('Type', $row);
+		}
 	}
 
 	/**

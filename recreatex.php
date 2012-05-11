@@ -803,6 +803,10 @@ class Recreatex
 		if(!empty($settings))
 		{
 			if(isset($settings['SubscribeMailingList'])) $data['Settings']['SubscribeMailingList'] = (bool) $settings['SubscribeMailingList'];
+			if(isset($settings['Subcategories']))
+			{
+				foreach($settings['Subcategories'] as $subcategory) $data['Settings']['Subcategories'][] = array('Subcategory' => $subcategory);
+			}
 		}
 		if($email !== null) $data['Email'] = (string) $email;
 		if($birthdate !== null) $data['BirthDate'] = (string) $birthdate;
@@ -1135,20 +1139,21 @@ class Recreatex
 	/**
 	 * Find article categories
 	 *
-	 * @param string[optional] $type			Possible values are: Sale, Rental, All
-	 * @param bool[optional] $includeImage
-	 * @param bool[optional] $includeImageUrl
+	 * @param string[optional] $id					The id of the category.
+	 * @param string[optional] $namePattern			If provided only category that match the pattern will be returned.
+	 * @param array[optional] $paging				The paging criteria, see Recreatex::buildPagingParameter().
 	 * @return array
 	 */
-	public function findArticleCategories($type = null, $includeImage = false, $includeImageUrl = true)
+	public function findArticleCategories($id = null, $namePattern = null, $paging = null)
 	{
+		// build the data
 		$data = array();
-		if($type !== null) $data['ArticleTypes'] = (string) $type;
-		if($includeImage !== null) $data['IncludeImage'] = (bool) $includeImage;
-		if($includeImageUrl !== null) $data['IncludeImageUrl'] = (bool) $includeImageUrl;
+		$data['ArticleCategoryId'] = $id;
+		$data['NamePattern'] = $namePattern;
+		if(!empty($paging)) $data['Paging'] = $paging;
 
 		// make the call
-		$response = $this->doCall('FindArticleCategories', $data, true, 'ArticleGroupSearchCriteria');
+		$response = $this->doCall('FindArticleCategories', $data, true, 'ArticleCategorySearchCriteria');
 
 		// validate
 		if(!isset($response->ArticleCategories)) throw new RecreatexException('Invalid response.');
