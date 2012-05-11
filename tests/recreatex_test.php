@@ -168,33 +168,15 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * Test Recreatext->savePersonSubcategoriesByObject()
+	 * Tests Recreatex->savePersonPriceGroups()
 	 */
-	public function testSavePersonSubcategoriesByObject()
+	public function testSavePersonPriceGroups()
 	{
-		$subcategories = array(
-				array('Subcategory' => array('Id' => 'aaf5d152-bc45-462b-bf27-a8a99c270497', 'CategoryId' => 'fc950daf-e3a5-4b91-9edd-8c2dc70b00e5')),
-				array('Subcategory' => array('Id' => '3bbcb4e4-d92f-4ca8-a033-a00b4970d0f9', 'CategoryId' => 'fc950daf-e3a5-4b91-9edd-8c2dc70b00e5')),
-				array('Subcategory' => array('Id' => 'd1f667dd-a339-481c-899c-103077f8cc25', 'CategoryId' => 'a332558b-fcef-40df-89ff-565bb2286300')),
-				array('Subcategory' => array('Id' => '8350674f-2aa1-4826-b032-563996b15ce7', 'CategoryId' => 'a332558b-fcef-40df-89ff-565bb2286300')),
-		);
-		$person = $this->recreatex->findPerson('96d66f0f-5a54-478b-83e0-e0a4a70b2d52');
-		$person = $person[0];
-		$person['Settings']['Subcategories'] = $subcategories;
-		$var = $this->recreatex->savePersonSubcategoriesByObject($person);
+ 		$priceGroups = array(array('Id' => 'ff927dbb-440a-489e-8c18-61cc919d3e44'));
+ 		$var = $this->recreatex->savePersonPriceGroups('31e68d35-0257-4ca8-9e07-1edeb56faa03', null, null, $priceGroups);
 
-		$this->assertType('array', $var);
-
-		foreach($subcategories as $row)
-		{
-			$hasSubcategory = false;
-			foreach($var['Settings']['Subcategories'] as $item)
-			{
-				if($item['Id'] == $row['Subcategory']['Id']) $hasSubcategory = true;
-			}
-
-			$this->assertTrue($hasSubcategory);
-		}
+ 		$this->assertType('array', $var);
+ 		$this->assertArrayHasKey('Id', $var);
 	}
 
 // 	public function testFindActivities()

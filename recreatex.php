@@ -977,28 +977,38 @@ class Recreatex
 	/**
 	 * Save person price groups
 	 *
-	 * @param array $object
+	 * @param string[optional] $id			The ID of the person.
+	 * @param string[optional] $username	The username of the person.
+	 * @param string[optional] $email		The email of the person.
+	 * @param array $priceGroups			The priceGroups to store.
 	 * @return array
 	 */
-	public function savePersonPriceGroupsByObject($object)
+	public function savePersonPriceGroups($id = null, $username = null, $email = null, array $priceGroups)
 	{
+		$data = array();
+		if($id !== null) $data['Id'] = (string) $id;
+		if($username !== null) $data['UserName'] = (string) $username;
+		if($email !== null) $data['Email'] = (string) $email;
+		$data['Settings']['PriceGroups'] = array();
+		foreach($priceGroups as $priceGroup)
+		{
+			$data['Settings']['PriceGroups'][] = array('PriceGroup' => $priceGroup);
+		}
+
 		// make the call
-		$response = $this->doCall('SavePersonPriceGroups', $object, true, 'Person', true);
+		$response = $this->doCall('SavePersonPriceGroups', $data, true, 'Person');
 
 		// validate
 		if(!isset($response->SavePersonResult)) throw new RecreatexException('Invalid response.');
 
-		// decode response
-		$return = self::decodeResponse($response->SavePersonResult[0]);
-
 		// validate
-		if(isset($return['ValidationResults']['ValidationResult']['Message']))
+		if(isset($response->SavePersonResult->ValidationResults->ValidationResult->Message))
 		{
-			throw new RecreatexException($return['ValidationResults']['ValidationResult']['Message']);
+			throw new RecreatexException((string) $response->SavePersonResult->ValidationResults->ValidationResult->Message);
 		}
 
 		// return
-		return $return['Person'];
+		return self::decodeResponse($response->SavePersonResult->Person[0]);
 	}
 
 	/**
