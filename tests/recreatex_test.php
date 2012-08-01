@@ -369,7 +369,15 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testListCultureEventCategories()
 	{
-		$this->markTestIncomplete('test not implemented');
+		$var = $this->recreatex->listCultureEventCategories();
+
+		$this->assertInternalType('array', $var);
+		foreach($var as $row)
+		{
+			$this->assertArrayHasKey('Id', $row);
+			$this->assertArrayHasKey('Name', $row);
+			$this->assertArrayHasKey('Type', $row);
+		}
 	}
 
 	/**
