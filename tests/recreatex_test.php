@@ -79,7 +79,18 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 		$this->assertArrayHasKey('HasSucceeded', $var);
 		$this->assertFalse($var['HasSucceeded']);
 
-		$var = $this->recreatex->authenticateUser(USERNAME, PASSWORD);
+		$username = time();
+		$password = time();
+		$response = $this->recreatex->savePerson(
+			null, null,
+			array('First' => '[TEST] Tijs', 'Last' => 'Verkoyen', 'Middle' => ''),
+			array('Street' => 'Some', 'Number' => 108, 'ZipCode' => '9050', 'Town' => 'Gentbrugge', 'Country' => 'B', 'Box' => ''),
+			null,
+			time() . '@foobar.com', null, null, 'NL', null, null, null, null, null, null,
+			array('Password' => $password, 'Username' => $username)
+		);
+
+		$var = $this->recreatex->authenticateUser($username, $password);
 
 		$this->assertArrayHasKey('HasSucceeded', $var);
 		$this->assertTrue($var['HasSucceeded']);
