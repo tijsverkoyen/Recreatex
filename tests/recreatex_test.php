@@ -522,24 +522,27 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testLockBasketItems()
 	{
-		$basketItems = array(
+		$event = $this->recreatex->findCultureEvents(null, null, 'Tijs');
+		$event = $event[0];
+		$var = $this->recreatex->lockBasketItems(
 			array(
-				'BasketItem' => array(
-					'@attributes' => array('xsi:type' => 'CultureEventReservation'),
-					'Quantity' => 1,
-					'CultureEventId' => '15a76dbb-3549-420a-96f4-12c47fc1032a',
-					'Entries' => array(
-						'CultureEventReservationEntry' => array(
-							'@attributes' => array('xsi:type' => 'BestAvailableSeatsCultureEventReservationEntry'),
-							'PriceGroupId' => 'ff927dbb-440a-489e-8c18-61cc919d3e44',
-							'ParticipantCount' => 1
-						)
-					),
-					'ReservationDate' => '2012-08-01T10:31:14.8254499+02:00',
-				)
-			),
+				 array(
+					 'BasketItem' => array(
+						 '@attributes' => array('xsi:type' => 'CultureEventReservation'),
+						 'Quantity' => 1,
+						 'CultureEventId' => $event['Id'],
+						 'Entries' => array(
+							 'CultureEventReservationEntry' => array(
+								 '@attributes' => array('xsi:type' => 'BestAvailableSeatsCultureEventReservationEntry'),
+								 'PriceGroupId' => $event['Prices']['CultureEventPrice']['Group']['Id'],
+								 'ParticipantCount' => 2
+							 )
+						 ),
+						 'ReservationDate' =>  date('c'),
+					 )
+				 ),
+			)
 		);
-		$var = $this->recreatex->lockBasketItems($basketItems);
 
 		$this->assertArrayHasKey('BasketItems', $var);
 		foreach($var['BasketItems'] as $item)

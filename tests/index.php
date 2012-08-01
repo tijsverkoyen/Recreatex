@@ -128,28 +128,29 @@ $defaultPaging = Recreatex::buildPagingParameter(1, 2, 'Name', true);
 // example for listPaymentMethods
 //$response = $recreatex->listPaymentMethods();
 
-
-//@todo	$response = $recreatex->validateBasket('9e60c807-5f6f-415e-90cb-028c54d1554f', $basketItems, $payments, $totalPrice);
-//@todo	$response = $recreatex->validateBasketItem();
-//@todo	$response = $recreatex->checkoutBasket('9e60c807-5f6f-415e-90cb-028c54d1554f', $basketItems, $payments, $totalPrice);
-// $basketItems = array(
-// 	array(
+// example for lockBasketItems
+//$event = $recreatex->findCultureEvents(null, null, 'Tijs');
+//$event = $event[0];
+//$response = $recreatex->lockBasketItems(
+//	array(
+//	  	array(
 //		 'BasketItem' => array(
-//		 	'@attributes' => array('xsi:type' => 'CultureEventReservation'),
+//			'@attributes' => array('xsi:type' => 'CultureEventReservation'),
 //			'Quantity' => 1,
-//			'CultureEventId' => '15a76dbb-3549-420a-96f4-12c47fc1032a',
+//			'CultureEventId' => $event['Id'],
 //			'Entries' => array(
 //				'CultureEventReservationEntry' => array(
 //					'@attributes' => array('xsi:type' => 'BestAvailableSeatsCultureEventReservationEntry'),
-//					'PriceGroupId' => 'ff927dbb-440a-489e-8c18-61cc919d3e44',
-//					'ParticipantCount' => 1
+//					'PriceGroupId' => $event['Prices']['CultureEventPrice']['Group']['Id'],
+//					'ParticipantCount' => 2
 //				)
 //			),
-//			'ReservationDate' => '2012-08-01T10:31:14.8254499+02:00',
+//			'ReservationDate' =>  date('c'),
 //		 )
 //	 ),
-// );
-//$response = $recreatex->lockBasketItems($basketItems);
+//  )
+//);
+
 // example for extendLockPeriod
 //$response = $recreatex->extendLockPeriod(
 //	array(
