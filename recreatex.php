@@ -1470,11 +1470,27 @@ class Recreatex
 	}
 
 	/**
-	 * Not implemented
+	 * Lists the CultureEventCategories for the active division.
+	 *
+	 * @return array
 	 */
 	public function listCultureEventCategories()
 	{
-		throw new RecreatexException('Not implemented');
+		// make the call
+		$response = $this->doCall('ListCultureEventCategories');
+
+		// validate
+		if(!isset($response->CultureEventCategories)) throw new RecreatexException('Invalid response.');
+
+		// init var
+		$return = array();
+
+		// loop
+		foreach($response->CultureEventCategories->CultureEventCategory as $row) $return[] = self::decodeResponse($row);
+
+		// return
+		return $return;
+
 	}
 
 	/**
