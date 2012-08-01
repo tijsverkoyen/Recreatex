@@ -1838,14 +1838,18 @@ class Recreatex
 	/**
 	 * Recalculate the basket
 	 *
+	 * @param string $customerId
 	 * @param array $basket
+	 * @param float $price
 	 * @return array
 	 */
-	public function reCalculateBasket(array $basket)
+	public function reCalculateBasket($customerId, array $basket, $price)
 	{
 		// build body
 		$data = array();
+		$data['CustomerId'] = $customerId;
 		foreach($basket as $row) $data['Items'][] = $row;
+		$data['Price'] = (float) $price;
 
 		// make the call
 		$response = $this->doCall('ReCalculateBasket', $data, true, 'Basket', false, false);

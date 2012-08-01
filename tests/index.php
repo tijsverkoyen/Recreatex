@@ -170,6 +170,35 @@ $defaultPaging = Recreatex::buildPagingParameter(1, 2, 'Name', true);
 //	)
 //);
 
+// example for reCalculateBasket
+//$event = $recreatex->findCultureEvents(null, null, 'Tijs');
+//$event = $event[0];
+//$response = $recreatex->reCalculateBasket(
+//	'433abb44-1f80-4dd5-b167-f8080c10fd12',
+//	array(
+//	  	array(
+//			'BasketItem' => array(
+//				'@attributes' => array('xsi:type' => 'CultureEventReservation'),
+//				'Quantity' => 1,
+//				'UnitPrice' => 0,
+//				'CultureEventId' => $event['Id'],
+//				'Entries' => array(
+//					'CultureEventReservationEntry' => array(
+//						'@attributes' => array('xsi:type' => 'BestAvailableSeatsCultureEventReservationEntry'),
+//						'PriceGroupId' => $event['Prices']['CultureEventPrice']['Group']['Id'],
+//						'ParticipantCount' => 2
+//					)
+//				),
+//				'LockTicket' => array(
+//					'@attributes' => array('xsi:type' => 'CultureEventReservationLockTicket'),
+//					'Id' => '2a4baa3a-fe89-420e-bea0-6aa8816ca35d',
+//				),
+//				'ReservationDate' =>  date('c'),
+//			)
+//		)
+//	),
+//	122
+//);
 
 //@todo	$response = $recreatex->validateBasket('9e60c807-5f6f-415e-90cb-028c54d1554f', $basketItems, $payments, $totalPrice);
 //@todo	$response = $recreatex->validateBasketItem();

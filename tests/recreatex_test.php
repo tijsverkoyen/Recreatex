@@ -602,7 +602,64 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testReCalculateBasket()
 	{
-		$this->markTestIncomplete('test not implemented');
+		$person = $this->recreatex->savePerson(
+			null, null,
+			array('First' => '[TEST] Tijs', 'Last' => 'Verkoyen', 'Middle' => ''),
+			array('Street' => 'Some', 'Number' => 108, 'ZipCode' => '9050', 'Town' => 'Gentbrugge', 'Country' => 'B', 'Box' => ''),
+			null,
+			time() . '@foobar.com', null, null, 'NL', null, null, null, null, null, null,
+			array('Password' => time(), 'Username' => time())
+		);
+
+		$event = $this->recreatex->findCultureEvents(null, null, 'Tijs');
+		$event = $event[0];
+
+		$lock = $this->recreatex->lockBasketItems(
+			array(
+			  	array(
+				 'BasketItem' => array(
+					'@attributes' => array('xsi:type' => 'CultureEventReservation'),
+					'Quantity' => 1,
+					'CultureEventId' => $event['Id'],
+					'Entries' => array(
+						'CultureEventReservationEntry' => array(
+							'@attributes' => array('xsi:type' => 'BestAvailableSeatsCultureEventReservationEntry'),
+							'PriceGroupId' => $event['Prices']['CultureEventPrice']['Group']['Id'],
+							'ParticipantCount' => 2
+						)
+					),
+					'ReservationDate' =>  date('c'),
+				 )
+			 ),
+		  )
+		);
+
+		$response = $this->recreatex->reCalculateBasket(
+			$person['Id'],
+			array(
+				 array(
+					 'BasketItem' => array(
+						 '@attributes' => array('xsi:type' => 'CultureEventReservation'),
+						 'Quantity' => 1,
+						 'UnitPrice' => 0,
+						 'CultureEventId' => $event['Id'],
+						 'Entries' => array(
+							 'CultureEventReservationEntry' => array(
+								 '@attributes' => array('xsi:type' => 'BestAvailableSeatsCultureEventReservationEntry'),
+								 'PriceGroupId' => $event['Prices']['CultureEventPrice']['Group']['Id'],
+								 'ParticipantCount' => 2
+							 )
+						 ),
+						 'LockTicket' => array(
+							 '@attributes' => array('xsi:type' => 'CultureEventReservationLockTicket'),
+							 'Id' => $lock['BasketItems'][0]['LockTicket']['Id'],
+						 ),
+						 'ReservationDate' =>  date('c'),
+					 )
+				 )
+			),
+			122
+		);
 	}
 
 	/**
