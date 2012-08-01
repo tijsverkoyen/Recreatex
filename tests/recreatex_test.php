@@ -127,7 +127,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 		);
 		$var = $this->recreatex->savePersonSubcategories($var['Id'], null, null, $subcategories);
 
-		$this->assertType('array', $var);
+		$this->assertInternalType('array', $var);
 
 		foreach($subcategories as $row)
 		{
@@ -163,7 +163,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	{
 		$var = $this->recreatex->findPerson();
 
-		$this->assertType('array', $var);
+		$this->assertInternalType('array', $var);
 		$this->assertTrue((count($var) == 10));
 	}
 
@@ -175,7 +175,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
  		$priceGroups = array(array('Id' => 'ff927dbb-440a-489e-8c18-61cc919d3e44'));
  		$var = $this->recreatex->savePersonPriceGroups('31e68d35-0257-4ca8-9e07-1edeb56faa03', null, null, $priceGroups);
 
- 		$this->assertType('array', $var);
+ 		$this->assertInternalType('array', $var);
  		$this->assertArrayHasKey('Id', $var);
 	}
 
@@ -186,7 +186,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	{
 		$var = $this->recreatex->listActivityTypes();
 
-		$this->assertType('array', $var);
+		$this->assertInternalType('array', $var);
 		foreach($var as $row)
 		{
 			$this->assertArrayHasKey('Id', $row);
@@ -201,7 +201,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
  		$paging = Recreatex::buildPagingParameter(1, 10, 'Name', true);
  		$var = $this->recreatex->findActivities(null, null, null, null, 'b', null, null, null, array(), $paging);
 
- 		$this->assertType('array', $var);
+ 		$this->assertInternalType('array', $var);
  	}
 
 	/**
@@ -211,7 +211,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	{
 		$var = $this->recreatex->listArticleGroups();
 
-		$this->assertType('array', $var);
+		$this->assertInternalType('array', $var);
 		foreach($var as $row)
 		{
 			$this->assertArrayHasKey('Id', $row);
@@ -225,7 +225,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	{
  		$var = $this->recreatex->findArticleCategories();
 
- 		$this->assertType('array', $var);
+ 		$this->assertInternalType('array', $var);
  		$this->assertTrue((count($var) == 10));
 	}
 
@@ -236,7 +236,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	{
 		$var = $this->recreatex->findArticles();
 
-		$this->assertType('array', $var);
+		$this->assertInternalType('array', $var);
 		$this->assertTrue((count($var) == 10));
 	}
 
@@ -247,7 +247,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	{
 		$var = $this->recreatex->listExpositionTypes();
 
-		$this->assertType('array', $var);
+		$this->assertInternalType('array', $var);
 		$this->assertTrue((count($var) == 0));
 	}
 
@@ -258,7 +258,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	{
 		$var = $this->recreatex->findExpositionTypes();
 
-		$this->assertType('array', $var);
+		$this->assertInternalType('array', $var);
 		$this->assertTrue((count($var) == 0));
 	}
 
@@ -269,7 +269,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	{
 		$var = $this->recreatex->findExpositions();
 
-		$this->assertType('array', $var);
+		$this->assertInternalType('array', $var);
 		$this->assertTrue((count($var) == 0));
 	}
 
@@ -280,7 +280,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	{
 		$var = $this->recreatex->listExpositionPeriods();
 
-		$this->assertType('array', $var);
+		$this->assertInternalType('array', $var);
 		$this->assertTrue((count($var) == 0));
 	}
 
@@ -291,7 +291,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	{
 		$var = $this->recreatex->listAudiences();
 
-		$this->assertType('array', $var);
+		$this->assertInternalType('array', $var);
 		$this->assertTrue((count($var) == 0));
 	}
 
@@ -383,7 +383,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	{
 		$var = $this->recreatex->listPaymentMethods();
 
-		$this->assertType('array', $var);
+		$this->assertInternalType('array', $var);
 		foreach($var as $row)
 		{
 			$this->assertArrayHasKey('Id', $row);
@@ -399,7 +399,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	{
 		$var = $this->recreatex->listCultureActivities();
 
-		$this->assertType('array', $var);
+		$this->assertInternalType('array', $var);
 		foreach($var as $row)
 		{
 			$this->assertArrayHasKey('Id', $row);
@@ -415,7 +415,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	{
 		$var = $this->recreatex->findCultureEvents();
 
-		$this->assertType('array', $var);
+		$this->assertInternalType('array', $var);
 		$this->assertTrue((count($var) == 10));
 	}
 
@@ -426,7 +426,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	{
 		$var = $this->recreatex->listHalls();
 
-		$this->assertType('array', $var);
+		$this->assertInternalType('array', $var);
 		foreach($var as $row)
 		{
 			$this->assertArrayHasKey('Id', $row);
@@ -442,7 +442,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	{
 		$var = $this->recreatex->getHallSeating('40dde1cc-ea9a-4947-872a-b92c310aca60');
 
-		$this->assertType('array', $var);
+		$this->assertInternalType('array', $var);
 		$this->assertArrayHasKey('Blocks', $var);
 		foreach($var['Blocks'] as $row)
 		{
@@ -451,7 +451,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 			$this->assertArrayHasKey('Location', $row);
 			$this->assertArrayHasKey('Name', $row);
 			$this->assertArrayHasKey('Rows', $row);
-			$this->assertType('array', $row['Rows']);
+			$this->assertInternalType('array', $row['Rows']);
 			foreach($row['Rows'] as $subRow)
 			{
 				$this->assertArrayHasKey('Code', $subRow);
@@ -460,7 +460,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 				$this->assertArrayHasKey('Name', $subRow);
 				$this->assertArrayHasKey('Range', $subRow);
 				$this->assertArrayHasKey('Seats', $subRow);
-				$this->assertType('array', $subRow['Seats']);
+				$this->assertInternalType('array', $subRow['Seats']);
 				foreach($subRow['Seats'] as $subSubRow)
 				{
 					$this->assertArrayHasKey('Code', $subSubRow);
@@ -505,7 +505,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	{
 		$var = $this->recreatex->findCultureReservations('96d66f0f-5a54-478b-83e0-e0a4a70b2d52');
 
-		$this->assertType('array', $var);
+		$this->assertInternalType('array', $var);
 		foreach($var as $row)
 		{
 			$this->assertArrayHasKey('Id', $row);
@@ -521,7 +521,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	{
 		$var = $this->recreatex->findPriceGroups();
 
-		$this->assertType('array', $var);
+		$this->assertInternalType('array', $var);
 		foreach($var as $row)
 		{
 			$this->assertArrayHasKey('Id', $row);
@@ -537,7 +537,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	{
 		$var = $this->recreatex->listCategories();
 
-		$this->assertType('array', $var);
+		$this->assertInternalType('array', $var);
 		foreach($var as $row)
 		{
 			$this->assertArrayHasKey('Id', $row);
