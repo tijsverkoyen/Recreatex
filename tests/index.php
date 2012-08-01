@@ -42,7 +42,7 @@ $defaultPaging = Recreatex::buildPagingParameter(1, 2, 'Name', true);
 //$person['Comments'] = 'Last edited '. date('Y-m-d H:i:s');
 //$response = $recreatex->savePersonByObject($person);
 
-// example  for findPriceGroups @todo	empty response
+// example for findPriceGroups @todo	empty response
 //$response = $recreatex->findPriceGroups();
 
 // example for savePersonPriceGroups
@@ -133,7 +133,7 @@ $defaultPaging = Recreatex::buildPagingParameter(1, 2, 'Name', true);
 //$event = $event[0];
 //$response = $recreatex->lockBasketItems(
 //	array(
-//	  	array(
+//	 	array(
 //		 'BasketItem' => array(
 //			'@attributes' => array('xsi:type' => 'CultureEventReservation'),
 //			'Quantity' => 1,
@@ -145,10 +145,10 @@ $defaultPaging = Recreatex::buildPagingParameter(1, 2, 'Name', true);
 //					'ParticipantCount' => 2
 //				)
 //			),
-//			'ReservationDate' =>  date('c'),
+//			'ReservationDate' => date('c'),
 //		 )
 //	 ),
-//  )
+// )
 //);
 
 // example for unlockBasketItems
@@ -176,7 +176,7 @@ $defaultPaging = Recreatex::buildPagingParameter(1, 2, 'Name', true);
 //$response = $recreatex->reCalculateBasket(
 //	'433abb44-1f80-4dd5-b167-f8080c10fd12',
 //	array(
-//	  	array(
+//	 	array(
 //			'BasketItem' => array(
 //				'@attributes' => array('xsi:type' => 'CultureEventReservation'),
 //				'Quantity' => 1,
@@ -193,7 +193,7 @@ $defaultPaging = Recreatex::buildPagingParameter(1, 2, 'Name', true);
 //					'@attributes' => array('xsi:type' => 'CultureEventReservationLockTicket'),
 //					'Id' => '2a4baa3a-fe89-420e-bea0-6aa8816ca35d',
 //				),
-//				'ReservationDate' =>  date('c'),
+//				'ReservationDate' => date('c'),
 //			)
 //		)
 //	),

@@ -546,7 +546,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 								 'ParticipantCount' => 2
 							 )
 						 ),
-						 'ReservationDate' =>  date('c'),
+						 'ReservationDate' => date('c'),
 					 )
 				 ),
 			)
@@ -589,7 +589,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 								 'ParticipantCount' => 2
 							 )
 						 ),
-						 'ReservationDate' =>  date('c'),
+						 'ReservationDate' => date('c'),
 					 )
 				 ),
 			)
@@ -624,7 +624,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 
 		$lock = $this->recreatex->lockBasketItems(
 			array(
-			  	array(
+			 	array(
 				 'BasketItem' => array(
 					'@attributes' => array('xsi:type' => 'CultureEventReservation'),
 					'Quantity' => 1,
@@ -636,10 +636,10 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 							'ParticipantCount' => 2
 						)
 					),
-					'ReservationDate' =>  date('c'),
+					'ReservationDate' => date('c'),
 				 )
 			 ),
-		  )
+		 )
 		);
 
 		$response = $this->recreatex->reCalculateBasket(
@@ -662,7 +662,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 							 '@attributes' => array('xsi:type' => 'CultureEventReservationLockTicket'),
 							 'Id' => $lock['BasketItems'][0]['LockTicket']['Id'],
 						 ),
-						 'ReservationDate' =>  date('c'),
+						 'ReservationDate' => date('c'),
 					 )
 				 )
 			),
@@ -691,7 +691,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 								 'ParticipantCount' => 2
 							 )
 						 ),
-						 'ReservationDate' =>  date('c'),
+						 'ReservationDate' => date('c'),
 					 )
 				 ),
 			)
