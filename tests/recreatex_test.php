@@ -335,18 +335,39 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testLockBasketItems()
 	{
-		$product1 = $this->recreatex->findArticles('8f7a16d1-c1b1-48c0-acde-01b322002722');
-		$product2 = $this->recreatex->findArticles('940eaa14-5582-49a1-9be7-d881127c3449');
 		$basketItems = array(
-			array('BasketItem' => array('@attributes' => array('xsi:type' => 'ArticleSale'), 'Quantity' => 5, 'Article' => $product1[0])),
-			array('BasketItem' => array('@attributes' => array('xsi:type' => 'ArticleSale'), 'Quantity' => 10, 'Article' => $product2[0]))
+			array(
+				'BasketItem' => array(
+					'@attributes' => array('xsi:type' => 'CultureEventReservation'),
+					'Quantity' => 1,
+					'CultureEventId' => '15a76dbb-3549-420a-96f4-12c47fc1032a',
+					'Entries' => array(
+						'CultureEventReservationEntry' => array(
+							'@attributes' => array('xsi:type' => 'BestAvailableSeatsCultureEventReservationEntry'),
+							'PriceGroupId' => 'ff927dbb-440a-489e-8c18-61cc919d3e44',
+							'ParticipantCount' => 1
+						)
+					),
+					'ReservationDate' => '2012-08-01T10:31:14.8254499+02:00',
+				)
+			),
 		);
 		$var = $this->recreatex->lockBasketItems($basketItems);
 
 		$this->assertArrayHasKey('BasketItems', $var);
+		foreach($var['BasketItems'] as $item)
+		{
+			$this->assertArrayHasKey('Id', $item);
+			$this->assertArrayHasKey('Quantity', $item);
+			$this->assertArrayHasKey('Entries', $item);
+			$this->assertArrayHasKey('LockTicket', $item);
+			$this->assertArrayHasKey('ExpirationTime', $item['LockTicket']);
+			$this->assertArrayHasKey('Id', $item['LockTicket']);
+		}
 		$this->assertArrayHasKey('IsLocked', $var);
 		$this->assertTrue($var['IsLocked']);
 		$this->assertArrayHasKey('ValidationResult', $var);
+		$this->assertNull($var['ValidationResult']);
 	}
 
 	/**

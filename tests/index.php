@@ -51,24 +51,24 @@ $defaultPaging = Recreatex::buildPagingParameter(1, 2, 'Name', true);
 //@todo	$response = $recreatex->validateBasket('9e60c807-5f6f-415e-90cb-028c54d1554f', $basketItems, $payments, $totalPrice);
 //@todo	$response = $recreatex->validateBasketItem();
 //@todo	$response = $recreatex->checkoutBasket('9e60c807-5f6f-415e-90cb-028c54d1554f', $basketItems, $payments, $totalPrice);
- $basketItems = array(
- 	array(
-		 'BasketItem' => array(
-		 	'@attributes' => array('xsi:type' => 'CultureEventReservation'),
-			'Quantity' => 1,
-			'CultureEventId' => '15a76dbb-3549-420a-96f4-12c47fc1032a',
-			'Entries' => array(
-				'CultureEventReservationEntry' => array(
-					'@attributes' => array('xsi:type' => 'BestAvailableSeatsCultureEventReservationEntry'),
-					'PriceGroupId' => 'ff927dbb-440a-489e-8c18-61cc919d3e44',
-					'ParticipantCount' => 1
-				)
-			),
-			'ReservationDate' => '2012-08-01T10:31:14.8254499+02:00',
-		 )
-	 ),
- );
- $response = $recreatex->lockBasketItems($basketItems);
+// $basketItems = array(
+// 	array(
+//		 'BasketItem' => array(
+//		 	'@attributes' => array('xsi:type' => 'CultureEventReservation'),
+//			'Quantity' => 1,
+//			'CultureEventId' => '15a76dbb-3549-420a-96f4-12c47fc1032a',
+//			'Entries' => array(
+//				'CultureEventReservationEntry' => array(
+//					'@attributes' => array('xsi:type' => 'BestAvailableSeatsCultureEventReservationEntry'),
+//					'PriceGroupId' => 'ff927dbb-440a-489e-8c18-61cc919d3e44',
+//					'ParticipantCount' => 1
+//				)
+//			),
+//			'ReservationDate' => '2012-08-01T10:31:14.8254499+02:00',
+//		 )
+//	 ),
+// );
+// $response = $recreatex->lockBasketItems($basketItems);
 //$response = $recreatex->reCalculateBasket($basketItems);
 //@todo $response = $recreatex->unlockBasketItems(array(array('Id' => 'ef30c567-e41d-415c-b600-e0893f0e6390')));
 //@todo	$response = $recreatex->extendLockPeriod(array(array('Id' => '00000000-0000-0000-0000-000000000000')));
