@@ -565,7 +565,36 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testUnlockBasketItems()
 	{
-		$this->markTestIncomplete('test not implemented');
+		$event = $this->recreatex->findCultureEvents(null, null, 'Tijs');
+		$event = $event[0];
+		$var = $this->recreatex->lockBasketItems(
+			array(
+				 array(
+					 'BasketItem' => array(
+						 '@attributes' => array('xsi:type' => 'CultureEventReservation'),
+						 'Quantity' => 1,
+						 'CultureEventId' => $event['Id'],
+						 'Entries' => array(
+							 'CultureEventReservationEntry' => array(
+								 '@attributes' => array('xsi:type' => 'BestAvailableSeatsCultureEventReservationEntry'),
+								 'PriceGroupId' => $event['Prices']['CultureEventPrice']['Group']['Id'],
+								 'ParticipantCount' => 2
+							 )
+						 ),
+						 'ReservationDate' =>  date('c'),
+					 )
+				 ),
+			)
+		);
+
+		$var = $this->recreatex->unlockBasketItems(
+			array(
+				 array('Id' => $var['BasketItems'][0]['LockTicket']['Id'])
+			)
+		);
+
+		$this->assertTrue($var);
+
 	}
 
 	/**

@@ -151,6 +151,13 @@ $defaultPaging = Recreatex::buildPagingParameter(1, 2, 'Name', true);
 //  )
 //);
 
+// example for unlockBasketItems
+//$response = $recreatex->unlockBasketItems(
+//	array(
+//		 array('Id' => '0278dfc9-20c5-43dc-a0f8-60574ec5e9b0')
+//	)
+//);
+
 // example for extendLockPeriod
 //$response = $recreatex->extendLockPeriod(
 //	array(
@@ -162,9 +169,12 @@ $defaultPaging = Recreatex::buildPagingParameter(1, 2, 'Name', true);
 //		)
 //	)
 //);
+
+
+//@todo	$response = $recreatex->validateBasket('9e60c807-5f6f-415e-90cb-028c54d1554f', $basketItems, $payments, $totalPrice);
+//@todo	$response = $recreatex->validateBasketItem();
+//@todo	$response = $recreatex->checkoutBasket('9e60c807-5f6f-415e-90cb-028c54d1554f', $basketItems, $payments, $totalPrice);
 //$response = $recreatex->reCalculateBasket($basketItems);
-//@todo //$response = $recreatex->unlockBasketItems(array(array('Id' => '55106ced-bfc3-40b6-89b6-8bfcec241c16')));
-//@todo	$response = $recreatex->extendLockPeriod(array(array('Id' => '00000000-0000-0000-0000-000000000000')));
 
 //output (Spoon::dump())
 ob_start();
