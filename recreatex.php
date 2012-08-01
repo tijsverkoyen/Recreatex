@@ -886,7 +886,7 @@ class Recreatex
 	 * @param array $subcategories			The subcategories that need to be stored.
 	 * @return array
 	 */
-	public function savePersonSubcategories($id, $username, $email, array $subcategories)
+	public function savePersonSubcategories($id = null, $username = null, $email = null, array $subcategories)
 	{
 		$data = array();
 		if($id !== null) $data['Id'] = (string) $id;
