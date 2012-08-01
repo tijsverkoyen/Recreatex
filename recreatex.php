@@ -39,7 +39,7 @@ class Recreatex
 	const REST_DOCUMENT_URL = '/WebShopDocumentService.svc';
 
 	// soap URL
-	const SOAP_URL = 'http://www.recreatex.be/webshop/v1.3/IWebShop';
+	const SOAP_URL = 'http://www.recreatex.be/webshop/v1.6/IWebShop';
 
 	// current version
 	const VERSION = '1.0.0';
@@ -413,7 +413,7 @@ class Recreatex
 		$root->setAttribute('xmlns:soap', 'http://schemas.xmlsoap.org/soap/envelope/');
 		$root->setAttribute('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
 		$root->setAttribute('xmlns:xsd', 'http://www.w3.org/2001/XMLSchema');
-		$root->setAttribute('xmlns', 'http://www.recreatex.be/webshop/v1.3/');
+		$root->setAttribute('xmlns', 'http://www.recreatex.be/webshop/v1.6/');
 		$XML->appendChild($root);
 
 		// create body
@@ -669,24 +669,6 @@ class Recreatex
 	public function setUserAgent($userAgent)
 	{
 		$this->userAgent = (string) $userAgent;
-	}
-
-// webservice methods
-	/**
-	 * Check if the service is available.
-	 *
-	 * @return bool
-	 */
-	public function isAvailable()
-	{
-		// make the call
-		$response = $this->doCall('IsAvailable', null, false);
-
-		// validate
-		if(!isset($response->IsAvailableResult)) throw new RecreatexException('Invalid response.');
-
-		// return
-		return (bool) ((string) $response->IsAvailableResult == 'true');
 	}
 
 	/**
