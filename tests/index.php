@@ -8,7 +8,6 @@ $recreatex = new Recreatex(SERVER, PORT);
 $recreatex->setServiceContext(DIVISION_ID, LANGUAGE, SHOP_ID);
 
 $defaultPaging = Recreatex::buildPagingParameter(1, 2, 'Name', true);
-//$response = $recreatex->isAvailable();
 //$username = time();
 //$password = time();
 //$response = $recreatex->savePerson(null, null, array('First' => '[TEST] Tijs', 'Last' => 'Verkoyen', 'Middle' => ''), array('Street' => 'Some', 'Number' => 108, 'ZipCode' => '9050', 'Town' => 'Gentbrugge', 'Country' => 'B', 'Box' => ''), null, time() .'@foobar.com', null, null, 'NL', null, null, null, null, null, null, array('Password' => $password, 'Username' => $username));
@@ -68,9 +67,10 @@ $defaultPaging = Recreatex::buildPagingParameter(1, 2, 'Name', true);
 //		 )
 //	 ),
 // );
-// $response = $recreatex->lockBasketItems($basketItems);
+//$response = $recreatex->lockBasketItems($basketItems);
 //$response = $recreatex->reCalculateBasket($basketItems);
-//@todo $response = $recreatex->unlockBasketItems(array(array('Id' => 'ef30c567-e41d-415c-b600-e0893f0e6390')));
+//@todo
+$response = $recreatex->unlockBasketItems(array(array('Id' => '55106ced-bfc3-40b6-89b6-8bfcec241c16')));
 //@todo	$response = $recreatex->extendLockPeriod(array(array('Id' => '00000000-0000-0000-0000-000000000000')));
 //$response = $recreatex->listPaymentMethods();
 //$response = $recreatex->listCultureActivities();
