@@ -39,9 +39,10 @@ $defaultPaging = Recreatex::buildPagingParameter(1, 2, 'Name', true);
 //$response = $recreatex->listArticleGroups('Rental');
 //$response = $recreatex->listArticleGroups('All', true, false);
 //@todo	error $response = $recreatex->findArticleCategories(null, null, Recreatex::buildPagingParameter(1, 10));
+//$recreatex->setTimeOut(40);
 //$response = $recreatex->findArticles();
 //$response = $recreatex->findArticles('8f7a16d1-c1b1-48c0-acde-01b322002722');
-//$response = $recreatex->findArticles(null, null, 'Leffe');
+//$response = $recreatex->findArticles(null, null, 'Porto');
 //@todo	empty response	$response = $recreatex->listExpositionTypes();
 //@todo	empty response	$response = $recreatex->findExpositionTypes();
 //@todo	empty response	$response = $recreatex->findExpositions();
@@ -70,7 +71,7 @@ $defaultPaging = Recreatex::buildPagingParameter(1, 2, 'Name', true);
 //$response = $recreatex->lockBasketItems($basketItems);
 //$response = $recreatex->reCalculateBasket($basketItems);
 //@todo
-$response = $recreatex->unlockBasketItems(array(array('Id' => '55106ced-bfc3-40b6-89b6-8bfcec241c16')));
+//$response = $recreatex->unlockBasketItems(array(array('Id' => '55106ced-bfc3-40b6-89b6-8bfcec241c16')));
 //@todo	$response = $recreatex->extendLockPeriod(array(array('Id' => '00000000-0000-0000-0000-000000000000')));
 //$response = $recreatex->listPaymentMethods();
 //$response = $recreatex->listCultureActivities();
@@ -82,7 +83,6 @@ $response = $recreatex->unlockBasketItems(array(array('Id' => '55106ced-bfc3-40b
 //$response = $recreatex->getSeatAllocations('9762ddb2-cba6-4ad0-82c8-d494d4ae1642');
 //@todo	empty response $response = $recreatex->findCultureReservations('8fdd4de4-aff1-4454-87c7-1972d1558a8a');
 //@todo	empty response $response = $recreatex->findPriceGroups();
-//@todo	empty response $response = $recreatex->findPriceGroups('', 'Sales');
 //$response = $recreatex->listCategories();
 
 //output (Spoon::dump())
