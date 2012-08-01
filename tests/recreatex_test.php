@@ -578,6 +578,43 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testExtendLockPeriod()
 	{
-		$this->markTestIncomplete('test not implemented');
+		$event = $this->recreatex->findCultureEvents(null, null, 'Tijs');
+		$event = $event[0];
+		$var = $this->recreatex->lockBasketItems(
+			array(
+				 array(
+					 'BasketItem' => array(
+						 '@attributes' => array('xsi:type' => 'CultureEventReservation'),
+						 'Quantity' => 1,
+						 'CultureEventId' => $event['Id'],
+						 'Entries' => array(
+							 'CultureEventReservationEntry' => array(
+								 '@attributes' => array('xsi:type' => 'BestAvailableSeatsCultureEventReservationEntry'),
+								 'PriceGroupId' => $event['Prices']['CultureEventPrice']['Group']['Id'],
+								 'ParticipantCount' => 2
+							 )
+						 ),
+						 'ReservationDate' =>  date('c'),
+					 )
+				 ),
+			)
+		);
+
+		$var = $this->recreatex->extendLockPeriod(
+			array(
+				 array(
+					'LockTicket' => array(
+						'@attributes' => array('xsi:type' => 'CultureEventReservationLockTicket'),
+						'Id' => $var['BasketItems'][0]['LockTicket']['Id']
+					)
+				)
+			)
+		);
+
+		$this->assertArrayHasKey('Succeeded', $var);
+		$this->assertArrayHasKey('LockTicket', $var['Succeeded']);
+		$this->assertArrayHasKey('Id', $var['Succeeded']['LockTicket']);
+		$this->assertArrayHasKey('Failed', $var);
+		$this->assertNull($var['Failed']);
 	}
 }

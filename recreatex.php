@@ -1871,10 +1871,15 @@ class Recreatex
 		foreach($lockTickets as $row) $data[] = $row;
 
 		// make the call
-		$response = $this->doCall('UnlockBasketItems', $data, true, 'LockTickets');
+		$response = $this->doCall('ExtendLockPeriod', $data, true, 'LockTickets');
+
+		// validate
+		if(!isset($response->ExtendedLocks)) throw new RecreatexException('Invalid response.');
+
+		$return = self::decodeResponse($response->ExtendedLocks[0]);
 
 		// return
-		return true;
+		return $return;
 	}
 }
 

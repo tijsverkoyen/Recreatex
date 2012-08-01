@@ -150,6 +150,17 @@ $defaultPaging = Recreatex::buildPagingParameter(1, 2, 'Name', true);
 //	 ),
 // );
 //$response = $recreatex->lockBasketItems($basketItems);
+// example for extendLockPeriod
+//$response = $recreatex->extendLockPeriod(
+//	array(
+//		 array(
+//			'LockTicket' => array(
+//				'@attributes' => array('xsi:type' => 'CultureEventReservationLockTicket'),
+//				'Id' => '03f4493c-687c-4b4c-9e62-39c5025a9f08'
+//			)
+//		)
+//	)
+//);
 //$response = $recreatex->reCalculateBasket($basketItems);
 //@todo //$response = $recreatex->unlockBasketItems(array(array('Id' => '55106ced-bfc3-40b6-89b6-8bfcec241c16')));
 //@todo	$response = $recreatex->extendLockPeriod(array(array('Id' => '00000000-0000-0000-0000-000000000000')));
