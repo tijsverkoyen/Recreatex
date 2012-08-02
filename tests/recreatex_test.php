@@ -697,7 +697,6 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 		);
 
 		$response = $this->recreatex->reCalculateBasket(
-			$person['Id'],
 			array(
 				 array(
 					 'BasketItem' => array(
@@ -720,7 +719,9 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 					 )
 				 )
 			),
-			122
+			122,
+			array(),
+			$person['Id']
 		);
 	}
 

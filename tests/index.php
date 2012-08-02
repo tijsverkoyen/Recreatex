@@ -174,7 +174,6 @@ $defaultPaging = Recreatex::buildPagingParameter(1, 2, 'Name', true);
 //$event = $recreatex->findCultureEvents(null, null, 'Tijs');
 //$event = $event[0];
 //$response = $recreatex->reCalculateBasket(
-//	'433abb44-1f80-4dd5-b167-f8080c10fd12',
 //	array(
 //	 	array(
 //			'BasketItem' => array(
@@ -197,7 +196,9 @@ $defaultPaging = Recreatex::buildPagingParameter(1, 2, 'Name', true);
 //			)
 //		)
 //	),
-//	122
+//	122,
+//	array(),
+//	'433abb44-1f80-4dd5-b167-f8080c10fd12'
 //);
 
 // example for validateBasket
@@ -259,7 +260,6 @@ $response = $recreatex->validateBasket(
 
 //@todo	$response = $recreatex->validateBasketItem();
 //@todo	$response = $recreatex->checkoutBasket('9e60c807-5f6f-415e-90cb-028c54d1554f', $basketItems, $payments, $totalPrice);
-//$response = $recreatex->reCalculateBasket($basketItems);
 
 //output (Spoon::dump())
 ob_start();

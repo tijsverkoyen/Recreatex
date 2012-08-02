@@ -1817,7 +1817,7 @@ class Recreatex
 	}
 
 	/**
-	 * Lock the basket items.
+	 * Unlock the basket items.
 	 *
 	 * @param array $lockTickets	Locks that will be cleared, each item can have the keys below:
 	 * 									- string ExpirationTime		The expire time.
@@ -1840,18 +1840,20 @@ class Recreatex
 	/**
 	 * Recalculate the basket
 	 *
-	 * @param string $customerId
 	 * @param array $basket
 	 * @param float $price
+	 * @param array $payments
+	 * @param string $customerId
 	 * @return array
 	 */
-	public function reCalculateBasket($customerId, array $basket, $price)
+	public function reCalculateBasket(array $basket, $price, array $payments, $customerId)
 	{
 		// build body
 		$data = array();
 		$data['CustomerId'] = $customerId;
 		foreach($basket as $row) $data['Items'][] = $row;
 		$data['Price'] = (float) $price;
+		foreach($payments as $row) $data['Payments'][] = $row;
 
 		// make the call
 		$response = $this->doCall('ReCalculateBasket', $data, true, 'Basket', false, false);
