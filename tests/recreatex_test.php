@@ -571,8 +571,69 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
  	 */
  	public function testCheckoutBasket()
  	{
- 		$this->markTestIncomplete('test not implemented');
- 	}
+		 $event = $this->recreatex->findCultureEvents(null, null, 'Tijs');
+		 $event = $event[0];
+		 $paymentMethod = $this->recreatex->listPaymentMethods();
+		 $paymentMethod = $paymentMethod[0];
+		 $lock = $this->recreatex->lockBasketItems(
+			 array(
+				  array(
+					  'BasketItem' => array(
+						  '@attributes' => array('xsi:type' => 'CultureEventReservation'),
+						  'Quantity' => 1,
+						  'CultureEventId' => $event['Id'],
+						  'Entries' => array(
+							  'CultureEventReservationEntry' => array(
+								  '@attributes' => array('xsi:type' => 'BestAvailableSeatsCultureEventReservationEntry'),
+								  'PriceGroupId' => $event['Prices']['CultureEventPrice']['Group']['Id'],
+								  'ParticipantCount' => 2
+							  )
+						  ),
+						  'ReservationDate' => date('c'),
+					  )
+				  ),
+			 )
+		 );
+		 $var = $this->recreatex->checkoutBasket(
+			 array(
+				  array(
+					  'BasketItem' => array(
+						  '@attributes' => array('xsi:type' => 'CultureEventReservation'),
+						  'Quantity' => 1,
+						  'UnitPrice' => 0,
+						  'CultureEventId' => $event['Id'],
+						  'Entries' => array(
+							  'CultureEventReservationEntry' => array(
+								  '@attributes' => array('xsi:type' => 'BestAvailableSeatsCultureEventReservationEntry'),
+								  'PriceGroupId' => $event['Prices']['CultureEventPrice']['Group']['Id'],
+								  'ParticipantCount' => 2
+							  )
+						  ),
+						  'LockTicket' => array(
+							  '@attributes' => array('xsi:type' => 'CultureEventReservationLockTicket'),
+							  'Id' => $lock['BasketItems'][0]['LockTicket']['Id'],
+						  ),
+						  'ReservationDate' => date('c'),
+					  )
+				  )
+			 ),
+			 142,
+			 array(
+				  array(
+					  'PaymentMethodId' => $paymentMethod['Id'],
+					  'Amount' => 142.00,
+					  'Currency' => '€'
+				  ),
+			 ),
+			 '433abb44-1f80-4dd5-b167-f8080c10fd12'
+		 );
+
+		 $this->assertArrayHasKey('BasketValidationResult', $var);
+		 $this->assertArrayHasKey('IsValid', $var['BasketValidationResult']);
+		 $this->assertTrue($var['BasketValidationResult']['IsValid']);
+		 $this->assertArrayHasKey('ResultState', $var);
+		 $this->assertArrayHasKey('SalesItems', $var);
+	 }
 
 	/**
 	 * Tests Recreatex->lockBasketItems()

@@ -1737,7 +1737,6 @@ class Recreatex
 	/**
 	 * Checkout the basket
 	 *
-	 * @param string $customerId	The id of the buyer.
 	 * @param array $items			The items that will be validated as an array, each item can have the keys below:
 	 * 									- ?
 	 * @param array $payments		The used payment methods.
@@ -1745,9 +1744,10 @@ class Recreatex
 	 * 									- string Currency			The curreny used to pay.
 	 * 									- string PaymentMethodId	The ID of the payment method.
 	 * @param float $price			Total of the order.
+	 * @param string $customerId	The id of the buyer.
 	 * @return array
 	 */
-	public function checkoutBasket($customerId, array $items, array $payments, $price)
+	public function checkoutBasket(array $items, $price, array $payments, $customerId)
 	{
 		// build body
 		$data = array();
@@ -1755,7 +1755,7 @@ class Recreatex
 		$data['Price'] = (float) $price;
 
 		// add items
-		foreach($items as $row) $data['BasketItems'][] = $row;
+		foreach($items as $row) $data['Items'][] = $row;
 
 		if(!empty($payments))
 		{

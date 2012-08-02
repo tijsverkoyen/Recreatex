@@ -258,6 +258,64 @@ $defaultPaging = Recreatex::buildPagingParameter(1, 2, 'Name', true);
 //	'433abb44-1f80-4dd5-b167-f8080c10fd12'
 //);
 
+// example for checkoutBasket
+//$event = $recreatex->findCultureEvents(null, null, 'Tijs');
+//$event = $event[0];
+//$paymentMethod = $recreatex->listPaymentMethods();
+//$paymentMethod = $paymentMethod[0];
+//$lock = $recreatex->lockBasketItems(
+//	array(
+//		array(
+//			'BasketItem' => array(
+//				'@attributes' => array('xsi:type' => 'CultureEventReservation'),
+//				'Quantity' => 1,
+//				'CultureEventId' => $event['Id'],
+//				'Entries' => array(
+//					'CultureEventReservationEntry' => array(
+//						'@attributes' => array('xsi:type' => 'BestAvailableSeatsCultureEventReservationEntry'),
+//						'PriceGroupId' => $event['Prices']['CultureEventPrice']['Group']['Id'],
+//						'ParticipantCount' => 2
+//					)
+//				),
+//				'ReservationDate' => date('c'),
+//			)
+//		),
+//	)
+//);
+//$response = $recreatex->checkoutBasket(
+//	array(
+//	 	array(
+//			'BasketItem' => array(
+//				'@attributes' => array('xsi:type' => 'CultureEventReservation'),
+//				'Quantity' => 1,
+//				'UnitPrice' => 0,
+//				'CultureEventId' => $event['Id'],
+//				'Entries' => array(
+//					'CultureEventReservationEntry' => array(
+//						'@attributes' => array('xsi:type' => 'BestAvailableSeatsCultureEventReservationEntry'),
+//						'PriceGroupId' => $event['Prices']['CultureEventPrice']['Group']['Id'],
+//						'ParticipantCount' => 2
+//					)
+//				),
+//				'LockTicket' => array(
+//					'@attributes' => array('xsi:type' => 'CultureEventReservationLockTicket'),
+//					'Id' => $lock['BasketItems'][0]['LockTicket']['Id'],
+//				),
+//				'ReservationDate' => date('c'),
+//			)
+//		)
+//	),
+//	142,
+//	array(
+//		array(
+//			'PaymentMethodId' => $paymentMethod['Id'],
+//			'Amount' => 142.00,
+//			'Currency' => '€'
+//		),
+//	),
+//	'433abb44-1f80-4dd5-b167-f8080c10fd12'
+//);
+
 //output (Spoon::dump())
 ob_start();
 var_dump($response);
