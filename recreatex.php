@@ -1735,16 +1735,6 @@ class Recreatex
 	}
 
 	/**
-	 * Not implemented
-	 *
-	 * @throws RecreatexException
-	 */
-	public function validateBasketItem()
-	{
-		throw new RecreatexException('Not implemented');
-	}
-
-	/**
 	 * Checkout the basket
 	 *
 	 * @param string $customerId	The id of the buyer.
