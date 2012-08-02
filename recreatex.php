@@ -297,6 +297,7 @@ class Recreatex
 		$floatKeys = array('Price', 'Stock', 'Cost', 'Amount', 'IncassoCost', 'Dx', 'Dy', 'X', 'Y', 'UnitPrice');
 		$integerKeys = array('AvailableSeats', 'Sequence', 'Available', 'Blocked', 'Locked', 'Option', 'Reserved', 'Quantity');
 		$imageKeys = array('Image');
+		$fullDocumentUrlsKeys = array('CultureEventReservationId');
 		$fullImageUrlsKeys = array('ImageUri', 'ImageUrl');
 		$timestampKeys = array('From', 'Until', 'SalesFrom', 'SalesUntil');
 		$arrayKeys = array('Subcategories', 'Blocks', 'Rows', 'Seats', 'BasketItems', 'Items');
@@ -369,6 +370,18 @@ class Recreatex
 							$return['ImageFullUrl'] = $this->getServer();
 							if($this->getPort() != 80 || $this->getPort() != 443) $return['ImageFullUrl'] .= ':' . $this->getPort();
 							$return['ImageFullUrl'] .= self::REST_IMAGE_URL . '/' . (string) $value;
+						}
+					}
+
+					// add an extra item with the full document url
+					if(in_array($key, $fullDocumentUrlsKeys))
+					{
+						$return['CultureEventReservationIdDocumentFullUrl'] = null;
+						if((string) $value != '')
+						{
+							$return['CultureEventReservationIdDocumentFullUrl'] = $this->getServer();
+							if($this->getPort() != 80 || $this->getPort() != 443) $return['CultureEventReservationIdDocumentFullUrl'] .= ':' . $this->getPort();
+							$return['CultureEventReservationIdDocumentFullUrl'] .= self::REST_DOCUMENT_URL . '/CultureEvents/' . $this->serviceContext['shop_id'] . '/NL/' . (string) $value;
 						}
 					}
 
