@@ -529,7 +529,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 				 ),
 			)
 		);
-		$response = $this->recreatex->validateBasket(
+		$var = $this->recreatex->validateBasket(
 			array(
 				 array(
 					 'BasketItem' => array(
@@ -561,15 +561,10 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 			),
 			'433abb44-1f80-4dd5-b167-f8080c10fd12'
 		);
-	}
 
- 	/**
- 	 * Tests Recreatex->validateBasketItem()
- 	 */
- 	public function testValidateBasketItem()
- 	{
- 		$this->markTestIncomplete('test not implemented');
- 	}
+		$this->assertArrayHasKey('IsValid', $var);
+		$this->assertTrue($var['IsValid']);
+	}
 
  	/**
  	 * Tests Recreatex->checkoutBasket()
