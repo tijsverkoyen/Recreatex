@@ -1697,17 +1697,19 @@ class Recreatex
 	/**
 	 * Validate the basket
 	 *
-	 * @param string $customerId	ID of the buyer.
 	 * @param array $items			The items that will be validated as an array, each item can have the keys below:
-	 * 									- ...
+	 * 									- array BasketItem
+	 * 										- Id
+	 * 										- QuantityId
+	 * @param float $price			Total of the order.
 	 * @param array $payments		The payment methods used.
 	 * 									- float Amount				The amount that was payed.
 	 * 									- string Currency			The curreny used to pay.
 	 * 									- string PaymentMethodId	The ID of the payment method.
-	 * @param float $price			Total of the order.
+	 * @param string $customerId	ID of the buyer.
 	 * @return array
 	 */
-	public function validateBasket($customerId, array $items, array $payments, $price)
+	public function validateBasket(array $basket, $price, array $payments, $customerId)
 	{
 		// build body
 		$data = array();
@@ -1715,7 +1717,7 @@ class Recreatex
 		$data['Price'] = (float) $price;
 
 		// add items
-		foreach($items as $row) $data['Items'][] = array('BasketItem' => $row);
+		foreach($basket as $row) $data['Items'][] = $row;
 
 		if(!empty($payments))
 		{
@@ -1763,7 +1765,7 @@ class Recreatex
 		$data['Price'] = (float) $price;
 
 		// add items
-		foreach($items as $row) $data['BasketItems'][] = array('BasketItem' => $row);
+		foreach($items as $row) $data['BasketItems'][] = $row;
 
 		if(!empty($payments))
 		{

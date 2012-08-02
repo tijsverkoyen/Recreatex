@@ -200,7 +200,63 @@ $defaultPaging = Recreatex::buildPagingParameter(1, 2, 'Name', true);
 //	122
 //);
 
-//@todo	$response = $recreatex->validateBasket('9e60c807-5f6f-415e-90cb-028c54d1554f', $basketItems, $payments, $totalPrice);
+// example for validateBasket
+$event = $recreatex->findCultureEvents(null, null, 'Tijs');
+$event = $event[0];
+$paymentMethod = $recreatex->listPaymentMethods();
+$paymentMethod = $paymentMethod[0];
+$lock = $recreatex->lockBasketItems(
+	array(
+		array(
+			'BasketItem' => array(
+				'@attributes' => array('xsi:type' => 'CultureEventReservation'),
+				'Quantity' => 1,
+				'CultureEventId' => $event['Id'],
+				'Entries' => array(
+					'CultureEventReservationEntry' => array(
+						'@attributes' => array('xsi:type' => 'BestAvailableSeatsCultureEventReservationEntry'),
+						'PriceGroupId' => $event['Prices']['CultureEventPrice']['Group']['Id'],
+						'ParticipantCount' => 2
+					)
+				),
+				'ReservationDate' => date('c'),
+			)
+		),
+	)
+);
+$response = $recreatex->validateBasket(
+	array(
+	 	array(
+			'BasketItem' => array(
+				'@attributes' => array('xsi:type' => 'CultureEventReservation'),
+				'Quantity' => 1,
+				'UnitPrice' => 0,
+				'CultureEventId' => $event['Id'],
+				'Entries' => array(
+					'CultureEventReservationEntry' => array(
+						'@attributes' => array('xsi:type' => 'BestAvailableSeatsCultureEventReservationEntry'),
+						'PriceGroupId' => $event['Prices']['CultureEventPrice']['Group']['Id'],
+						'ParticipantCount' => 2
+					)
+				),
+				'LockTicket' => array(
+					'@attributes' => array('xsi:type' => 'CultureEventReservationLockTicket'),
+					'Id' => $lock['BasketItems'][0]['LockTicket']['Id'],
+				),
+				'ReservationDate' => date('c'),
+			)
+		)
+	),
+	142,
+	array(
+		array(
+			'Id' => $paymentMethod['Id'],
+			'Amount' => 142,00
+		),
+	),
+	'433abb44-1f80-4dd5-b167-f8080c10fd12'
+);
+
 //@todo	$response = $recreatex->validateBasketItem();
 //@todo	$response = $recreatex->checkoutBasket('9e60c807-5f6f-415e-90cb-028c54d1554f', $basketItems, $payments, $totalPrice);
 //$response = $recreatex->reCalculateBasket($basketItems);
