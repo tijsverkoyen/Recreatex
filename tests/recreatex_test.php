@@ -520,7 +520,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 						 'Entries' => array(
 							 'CultureEventReservationEntry' => array(
 								 '@attributes' => array('xsi:type' => 'BestAvailableSeatsCultureEventReservationEntry'),
-								 'PriceGroupId' => $event['Prices']['CultureEventPrice']['Group']['Id'],
+								 'PriceGroupId' => $event['Prices'][0]['Group']['Id'],
 								 'ParticipantCount' => 2
 							 )
 						 ),
@@ -540,7 +540,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 						 'Entries' => array(
 							 'CultureEventReservationEntry' => array(
 								 '@attributes' => array('xsi:type' => 'BestAvailableSeatsCultureEventReservationEntry'),
-								 'PriceGroupId' => $event['Prices']['CultureEventPrice']['Group']['Id'],
+								 'PriceGroupId' => $event['Prices'][0]['Group']['Id'],
 								 'ParticipantCount' => 2
 							 )
 						 ),
@@ -585,7 +585,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 						  'Entries' => array(
 							  'CultureEventReservationEntry' => array(
 								  '@attributes' => array('xsi:type' => 'BestAvailableSeatsCultureEventReservationEntry'),
-								  'PriceGroupId' => $event['Prices']['CultureEventPrice']['Group']['Id'],
+								  'PriceGroupId' => $event['Prices'][0]['Group']['Id'],
 								  'ParticipantCount' => 2
 							  )
 						  ),
@@ -605,7 +605,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 						  'Entries' => array(
 							  'CultureEventReservationEntry' => array(
 								  '@attributes' => array('xsi:type' => 'BestAvailableSeatsCultureEventReservationEntry'),
-								  'PriceGroupId' => $event['Prices']['CultureEventPrice']['Group']['Id'],
+								  'PriceGroupId' => $event['Prices'][0]['Group']['Id'],
 								  'ParticipantCount' => 2
 							  )
 						  ),
@@ -652,7 +652,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 						 'Entries' => array(
 							 'CultureEventReservationEntry' => array(
 								 '@attributes' => array('xsi:type' => 'BestAvailableSeatsCultureEventReservationEntry'),
-								 'PriceGroupId' => $event['Prices']['CultureEventPrice']['Group']['Id'],
+								 'PriceGroupId' => $event['Prices'][0]['Group']['Id'],
 								 'ParticipantCount' => 2
 							 )
 						 ),
@@ -695,7 +695,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 						 'Entries' => array(
 							 'CultureEventReservationEntry' => array(
 								 '@attributes' => array('xsi:type' => 'BestAvailableSeatsCultureEventReservationEntry'),
-								 'PriceGroupId' => $event['Prices']['CultureEventPrice']['Group']['Id'],
+								 'PriceGroupId' => $event['Prices'][0]['Group']['Id'],
 								 'ParticipantCount' => 2
 							 )
 						 ),
@@ -742,7 +742,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 					'Entries' => array(
 						'CultureEventReservationEntry' => array(
 							'@attributes' => array('xsi:type' => 'BestAvailableSeatsCultureEventReservationEntry'),
-							'PriceGroupId' => $event['Prices']['CultureEventPrice']['Group']['Id'],
+							'PriceGroupId' => $event['Prices'][0]['Group']['Id'],
 							'ParticipantCount' => 2
 						)
 					),
@@ -763,7 +763,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 						 'Entries' => array(
 							 'CultureEventReservationEntry' => array(
 								 '@attributes' => array('xsi:type' => 'BestAvailableSeatsCultureEventReservationEntry'),
-								 'PriceGroupId' => $event['Prices']['CultureEventPrice']['Group']['Id'],
+								 'PriceGroupId' => $event['Prices'][0]['Group']['Id'],
 								 'ParticipantCount' => 2
 							 )
 						 ),
@@ -798,7 +798,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 						 'Entries' => array(
 							 'CultureEventReservationEntry' => array(
 								 '@attributes' => array('xsi:type' => 'BestAvailableSeatsCultureEventReservationEntry'),
-								 'PriceGroupId' => $event['Prices']['CultureEventPrice']['Group']['Id'],
+								 'PriceGroupId' => $event['Prices'][0]['Group']['Id'],
 								 'ParticipantCount' => 2
 							 )
 						 ),

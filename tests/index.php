@@ -141,7 +141,7 @@ $defaultPaging = Recreatex::buildPagingParameter(1, 2, 'Name', true);
 //			'Entries' => array(
 //				'CultureEventReservationEntry' => array(
 //					'@attributes' => array('xsi:type' => 'BestAvailableSeatsCultureEventReservationEntry'),
-//					'PriceGroupId' => $event['Prices']['CultureEventPrice']['Group']['Id'],
+//					'PriceGroupId' => $event['Prices'][0]['Group']['Id'],
 //					'ParticipantCount' => 2
 //				)
 //			),
@@ -184,7 +184,7 @@ $defaultPaging = Recreatex::buildPagingParameter(1, 2, 'Name', true);
 //				'Entries' => array(
 //					'CultureEventReservationEntry' => array(
 //						'@attributes' => array('xsi:type' => 'BestAvailableSeatsCultureEventReservationEntry'),
-//						'PriceGroupId' => $event['Prices']['CultureEventPrice']['Group']['Id'],
+//						'PriceGroupId' => $event['Prices'][0]['Group']['Id'],
 //						'ParticipantCount' => 2
 //					)
 //				),
@@ -216,7 +216,7 @@ $defaultPaging = Recreatex::buildPagingParameter(1, 2, 'Name', true);
 //				'Entries' => array(
 //					'CultureEventReservationEntry' => array(
 //						'@attributes' => array('xsi:type' => 'BestAvailableSeatsCultureEventReservationEntry'),
-//						'PriceGroupId' => $event['Prices']['CultureEventPrice']['Group']['Id'],
+//						'PriceGroupId' => $event['Prices'][0]['Group']['Id'],
 //						'ParticipantCount' => 2
 //					)
 //				),
@@ -236,7 +236,7 @@ $defaultPaging = Recreatex::buildPagingParameter(1, 2, 'Name', true);
 //				'Entries' => array(
 //					'CultureEventReservationEntry' => array(
 //						'@attributes' => array('xsi:type' => 'BestAvailableSeatsCultureEventReservationEntry'),
-//						'PriceGroupId' => $event['Prices']['CultureEventPrice']['Group']['Id'],
+//						'PriceGroupId' => $event['Prices'][0]['Group']['Id'],
 //						'ParticipantCount' => 2
 //					)
 //				),
@@ -273,7 +273,7 @@ $defaultPaging = Recreatex::buildPagingParameter(1, 2, 'Name', true);
 //				'Entries' => array(
 //					'CultureEventReservationEntry' => array(
 //						'@attributes' => array('xsi:type' => 'BestAvailableSeatsCultureEventReservationEntry'),
-//						'PriceGroupId' => $event['Prices']['CultureEventPrice']['Group']['Id'],
+//						'PriceGroupId' => $event['Prices'][0]['Group']['Id'],
 //						'ParticipantCount' => 2
 //					)
 //				),
@@ -293,7 +293,7 @@ $defaultPaging = Recreatex::buildPagingParameter(1, 2, 'Name', true);
 //				'Entries' => array(
 //					'CultureEventReservationEntry' => array(
 //						'@attributes' => array('xsi:type' => 'BestAvailableSeatsCultureEventReservationEntry'),
-//						'PriceGroupId' => $event['Prices']['CultureEventPrice']['Group']['Id'],
+//						'PriceGroupId' => $event['Prices'][0]['Group']['Id'],
 //						'ParticipantCount' => 2
 //					)
 //				),
