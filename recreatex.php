@@ -10,6 +10,7 @@
  *
  * Changelog since 1.2.0
  * - Implemented Basket methods
+ * - SeatAllocations is now handled as an array
  *
  * Changelog since 1.0.0
  * - Support for 1.6
@@ -303,7 +304,7 @@ class Recreatex
 		$fullDocumentUrlsKeys = array('CultureEventReservationId');
 		$fullImageUrlsKeys = array('ImageUri', 'ImageUrl');
 		$timestampKeys = array('From', 'Until', 'SalesFrom', 'SalesUntil');
-		$arrayKeys = array('Subcategories', 'Blocks', 'Rows', 'Seats', 'BasketItems', 'Items');
+		$arrayKeys = array('Subcategories', 'Blocks', 'Rows', 'Seats', 'BasketItems', 'Items', 'Prices', 'SeatAllocations');
 
 		if($item instanceof SimpleXMLElement)
 		{
