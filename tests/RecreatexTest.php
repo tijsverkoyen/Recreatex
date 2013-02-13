@@ -73,6 +73,23 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Tests Recreatex->FindArticles()
+     */
+    public function testFindArticles()
+    {
+        $paging = new \TijsVerkoyen\Recreatex\ComplexType\PagingCriteria();
+        $paging->setPageSize(10);
+        $criteria = new \TijsVerkoyen\Recreatex\ComplexType\ArticleSearchCriteria();
+        $criteria->setPaging($paging);
+        $response = $this->recreatex->findArticles($criteria);
+
+        $this->assertInternalType('array', $response);
+        foreach ($response as $row) {
+            $this->assertInstanceOf('TijsVerkoyen\Recreatex\ComplexType\Article', $row);
+        }
+    }
+
+    /**
      * Tests Recreatex->IsAvailable()
      */
     public function testIsAvailable()

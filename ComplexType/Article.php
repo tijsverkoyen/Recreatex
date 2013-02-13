@@ -14,151 +14,88 @@ class Article extends ComplexTypeAbstract
     const CLASS_NAME = 'Article';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Code
+     * @var string
      */
     protected $Code;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Description
+     * @var string
      */
     protected $Description;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $DivisionId
+     * @var SimpleType\Guid
      */
     protected $DivisionId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArticleGroup|null $Group
+     * @var ArticleGroup
      */
     protected $Group;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $Id
+     * @var SimpleType\Guid
      */
     protected $Id;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var Picture|null $Image
+     * @var Picture
      */
     protected $Image;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $ImageUrl
+     * @var string
      */
     protected $ImageUrl;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfArticleIngredient|null $Ingredients
+     * @var ArrayOfArticleIngredient
      */
     protected $Ingredients;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
      *
-     * @var boolean|null $IsRental
+     * @var boolean
      */
     protected $IsRental;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Name
+     * @var string
      */
     protected $Name;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfArticleOption|null $Options
+     * @var ArrayOfArticleOption
      */
     protected $Options;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var float|null $Price
+     * @var float
      */
     protected $Price;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var float|null $Stock
+     * @var float
      */
     protected $Stock;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfStockLocation|null $StockLocations
+     * @var ArrayOfStockLocation
      */
     protected $StockLocations;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $IsStockItem
+     * @var boolean
      */
     protected $IsStockItem;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfguid|null $Categories
+     * @var ArrayOfGuid
      */
     protected $Categories;
 
     /**
-     * @param  string|null $code
+     * @param  string[optional] $code
      * @return Article
      */
     public function setCode($code)
@@ -169,7 +106,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getCode()
     {
@@ -177,7 +114,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $description
+     * @param  string[optional] $description
      * @return Article
      */
     public function setDescription($description)
@@ -188,7 +125,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getDescription()
     {
@@ -196,7 +133,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null $divisionId
+     * @param  SimpleType\Guid[optional] $divisionId
      * @return Article
      */
     public function setDivisionId(SimpleType\Guid $divisionId = null)
@@ -207,7 +144,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getDivisionId()
     {
@@ -215,7 +152,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArticleGroup|null $group
+     * @param  ArticleGroup[optional] $group
      * @return Article
      */
     public function setGroup(ArticleGroup $group = null)
@@ -226,7 +163,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArticleGroup|null
+     * @return ArticleGroup
      */
     public function getGroup()
     {
@@ -234,7 +171,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return Article
      */
     public function setId(SimpleType\Guid $id = null)
@@ -245,7 +182,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -253,7 +190,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @param  Picture|null $image
+     * @param  Picture[optional] $image
      * @return Article
      */
     public function setImage(Picture $image = null)
@@ -264,7 +201,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @return Picture|null
+     * @return Picture
      */
     public function getImage()
     {
@@ -272,7 +209,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $imageUrl
+     * @param  string[optional] $imageUrl
      * @return Article
      */
     public function setImageUrl($imageUrl)
@@ -283,7 +220,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getImageUrl()
     {
@@ -291,7 +228,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfArticleIngredient|null $ingredients
+     * @param  ArrayOfArticleIngredient[optional] $ingredients
      * @return Article
      */
     public function setIngredients(ArrayOfArticleIngredient $ingredients = null)
@@ -302,7 +239,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfArticleIngredient|null
+     * @return ArrayOfArticleIngredient[optional]
      */
     public function getIngredients()
     {
@@ -310,7 +247,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null $isRental
+     * @param  boolean[optional] $isRental
      * @return Article
      */
     public function setIsRental($isRental)
@@ -321,7 +258,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean[optional]
      */
     public function getIsRental()
     {
@@ -329,7 +266,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $name
+     * @param  string[optional] $name
      * @return Article
      */
     public function setName($name)
@@ -340,7 +277,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -348,7 +285,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfArticleOption|null $options
+     * @param  ArrayOfArticleOption[optional] $options
      * @return Article
      */
     public function setOptions(ArrayOfArticleOption $options = null)
@@ -359,7 +296,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfArticleOption|null
+     * @return ArrayOfArticleOption
      */
     public function getOptions()
     {
@@ -367,7 +304,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @param  float|null $price
+     * @param  float[optional] $price
      * @return Article
      */
     public function setPrice($price)
@@ -378,7 +315,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @return float|null
+     * @return float
      */
     public function getPrice()
     {
@@ -386,7 +323,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @param  float|null $stock
+     * @param  float[optional] $stock
      * @return Article
      */
     public function setStock($stock)
@@ -397,7 +334,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @return float|null
+     * @return float
      */
     public function getStock()
     {
@@ -405,7 +342,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfStockLocation|null $stockLocations
+     * @param  ArrayOfStockLocation[optional] $stockLocations
      * @return Article
      */
     public function setStockLocations(ArrayOfStockLocation $stockLocations = null)
@@ -416,7 +353,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfStockLocation|null
+     * @return ArrayOfStockLocation
      */
     public function getStockLocations()
     {
@@ -424,7 +361,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null $isStockItem
+     * @param  boolean[optional] $isStockItem
      * @return Article
      */
     public function setIsStockItem($isStockItem)
@@ -435,7 +372,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getIsStockItem()
     {
@@ -443,7 +380,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfguid|null $categories
+     * @param  ArrayOfguid[optional] $categories
      * @return Article
      */
     public function setCategories(ArrayOfguid $categories = null)
@@ -454,7 +391,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfguid|null
+     * @return ArrayOfguid
      */
     public function getCategories()
     {

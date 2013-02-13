@@ -616,11 +616,15 @@ class Recreatex extends BaseSoapClient
      * @param  ServiceContext        $Context
      * @return ArrayOfArticle
      */
-    public function findArticles(ArticleSearchCriteria $ArticleSearchCriteria, ServiceContext $Context)
+    public function findArticles(ArticleSearchCriteria $ArticleSearchCriteria)
     {
-        return $this->getSoapClient()->FindArticles(
-            array($ArticleSearchCriteria, $Context)
+        $response = $this->getSoapClient()->FindArticles(
+            $ArticleSearchCriteria,
+            $this->getServiceContext()
         );
+        $this->isValidResponse($response);
+
+        return $response->getArticle();
     }
 
     /**
