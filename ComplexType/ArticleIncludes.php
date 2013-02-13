@@ -2,8 +2,6 @@
 
 namespace TijsVerkoyen\Recreatex\ComplexType;
 
-use TijsVerkoyen\Recreatex\SimpleType;
-
 /**
  *
  * @link https://github.com/opensoft/php-wsdl-proxy-generator WSDL parser and Proxy class generator on PHP
@@ -56,7 +54,7 @@ class ArticleIncludes extends ComplexTypeAbstract
      *
      * @var boolean|null $Ingrediënts
      */
-    protected $Ingrediënts;
+    protected $Ingredients;
 
     /**
 
@@ -130,9 +128,8 @@ class ArticleIncludes extends ComplexTypeAbstract
      */
     protected $ArticleCategories;
 
-
     /**
-     * @param boolean|null $freeArticles
+     * @param  boolean|null    $freeArticles
      * @return ArticleIncludes
      */
     public function setFreeArticles($freeArticles)
@@ -151,7 +148,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param boolean|null $group
+     * @param  boolean|null    $group
      * @return ArticleIncludes
      */
     public function setGroup($group)
@@ -170,7 +167,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param boolean|null $image
+     * @param  boolean|null    $image
      * @return ArticleIncludes
      */
     public function setImage($image)
@@ -189,7 +186,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param boolean|null $imageUrl
+     * @param  boolean|null    $imageUrl
      * @return ArticleIncludes
      */
     public function setImageUrl($imageUrl)
@@ -208,12 +205,12 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param boolean|null $ingrediënts
+     * @param  boolean|null    $ingredients
      * @return ArticleIncludes
      */
-    public function setIngrediënts($ingrediënts)
+    public function setIngredients($ingredients)
     {
-        $this->Ingrediënts = $ingrediënts;
+        $this->Ingrediënts = $ingredients;
 
         return $this;
     }
@@ -221,13 +218,13 @@ class ArticleIncludes extends ComplexTypeAbstract
     /**
      * @return boolean|null
      */
-    public function getIngrediënts()
+    public function getIngredients()
     {
-        return $this->Ingrediënts;
+        return $this->Ingredients;
     }
 
     /**
-     * @param boolean|null $locations
+     * @param  boolean|null    $locations
      * @return ArticleIncludes
      */
     public function setLocations($locations)
@@ -246,7 +243,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param boolean|null $options
+     * @param  boolean|null    $options
      * @return ArticleIncludes
      */
     public function setOptions($options)
@@ -265,7 +262,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param boolean|null $price
+     * @param  boolean|null    $price
      * @return ArticleIncludes
      */
     public function setPrice($price)
@@ -284,7 +281,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param boolean|null $rentArticles
+     * @param  boolean|null    $rentArticles
      * @return ArticleIncludes
      */
     public function setRentArticles($rentArticles)
@@ -303,7 +300,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param boolean|null $saleArticles
+     * @param  boolean|null    $saleArticles
      * @return ArticleIncludes
      */
     public function setSaleArticles($saleArticles)
@@ -322,7 +319,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param boolean|null $soldOutArticles
+     * @param  boolean|null    $soldOutArticles
      * @return ArticleIncludes
      */
     public function setSoldOutArticles($soldOutArticles)
@@ -341,7 +338,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param boolean|null $stock
+     * @param  boolean|null    $stock
      * @return ArticleIncludes
      */
     public function setStock($stock)
@@ -360,7 +357,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param boolean|null $articleCategories
+     * @param  boolean|null    $articleCategories
      * @return ArticleIncludes
      */
     public function setArticleCategories($articleCategories)
@@ -377,7 +374,4 @@ class ArticleIncludes extends ComplexTypeAbstract
     {
         return $this->ArticleCategories;
     }
-
-
 }
-

@@ -10,17 +10,9 @@ namespace TijsVerkoyen\Recreatex\SimpleType;
 class PersonPriceGroupType extends SimpleTypeAbstract
 {
     const PLACERESERVATIONS = 'PlaceReservations';
-
     const TICKETING = 'Ticketing';
-
     const ENTRIES = 'Entries';
-
     const SALES = 'Sales';
-
     const RENTAL = 'Rental';
-
     const WELLNESS = 'Wellness';
-
-
 }
-

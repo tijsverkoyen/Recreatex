@@ -18,13 +18,12 @@ class ArrayOfGuid extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = unbounded
      *
-     * @var SimpleType\guid[] $guid
+     * @var SimpleType\Guid[] $guid
      */
     protected $guid = array();
 
-
     /**
-     * @param SimpleType\Guid[] $guid
+     * @param  SimpleType\Guid[] $guid
      * @return ArrayOfGuid
      */
     public function setGuid(array $guid = array())
@@ -35,13 +34,10 @@ class ArrayOfGuid extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid[]
+     * @return SimpleType\Guid[]
      */
     public function getGuid()
     {
         return $this->guid;
     }
-
-
 }
-

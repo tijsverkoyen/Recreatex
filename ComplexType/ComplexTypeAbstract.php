@@ -5,7 +5,7 @@ namespace TijsVerkoyen\Recreatex\ComplexType;
 use TijsVerkoyen\Recreatex\SimpleType;
 
 /**
- * Abstract class for all simple data types 
+ * Abstract class for all simple data types
  *
  * @link https://github.com/opensoft/php-wsdl-proxy-generator WSDL parser and Proxy class generator on PHP
  * @author WSDL parser and Proxy class generator on PHP
@@ -30,7 +30,7 @@ abstract class ComplexTypeAbstract
     /**
      * Returns the complex type as an array
      *
-     * @param boolean $renderTopKey
+     * @param  boolean $renderTopKey
      * @return array
      */
     public function toArray($renderTopKey = false)
@@ -47,7 +47,7 @@ abstract class ComplexTypeAbstract
     /**
      * Recursive algorithm to convert complex types to and array
      *
-     * @param array $arrayValues
+     * @param  array $arrayValues
      * @return array
      */
     protected function convertToArray($arrayValues)
@@ -82,7 +82,7 @@ abstract class ComplexTypeAbstract
         $nameOfProperties = array();
         $reflector = new \ReflectionClass(get_class($this));
         $properties = $reflector->getProperties();
-        foreach($properties as $reflectionProperty) {
+        foreach ($properties as $reflectionProperty) {
             $reflectionProperty->setAccessible(true);
             $nameOfProperties[$reflectionProperty->getName()] = $reflectionProperty->getValue($this);
         }
@@ -90,4 +90,3 @@ abstract class ComplexTypeAbstract
         return $nameOfProperties;
     }
 }
-

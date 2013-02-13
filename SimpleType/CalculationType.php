@@ -10,13 +10,7 @@ namespace TijsVerkoyen\Recreatex\SimpleType;
 class CalculationType extends SimpleTypeAbstract
 {
     const PRICETIMESHOURS = 'PriceTimesHours';
-
     const FIXEDPRICE = 'FixedPrice';
-
     const PRICETIMESQUANTITY = 'PriceTimesQuantity';
-
     const PRICETIMESQUANTITYTIMESHOURS = 'PriceTimesQuantityTimesHours';
-
-
 }
-

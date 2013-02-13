@@ -5,8 +5,8 @@ namespace TijsVerkoyen\Recreatex\ComplexType;
 use TijsVerkoyen\Recreatex\SimpleType;
 
 /**
- * Abstract class. An item that belongs in the Basket. (i.e. a Sale, Reservation, Rental of 
- * something,...) 
+ * Abstract class. An item that belongs in the Basket. (i.e. a Sale, Reservation, Rental of
+ * something,...)
  *
  * @link https://github.com/opensoft/php-wsdl-proxy-generator WSDL parser and Proxy class generator on PHP
  * @author WSDL parser and Proxy class generator on PHP
@@ -20,7 +20,7 @@ class BasketItem extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $DivisionId
+     * @var SimpleType\Guid|null $DivisionId
      */
     protected $DivisionId;
 
@@ -29,7 +29,7 @@ class BasketItem extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $Id
+     * @var SimpleType\Guid|null $Id
      */
     protected $Id;
 
@@ -60,12 +60,11 @@ class BasketItem extends ComplexTypeAbstract
      */
     protected $UnitPrice;
 
-
     /**
-     * @param SimpleType\guid|null $divisionId
+     * @param  SimpleType\Guid|null $divisionId
      * @return BasketItem
      */
-    public function setDivisionId(SimpleType\guid $divisionId = null)
+    public function setDivisionId(SimpleType\Guid $divisionId = null)
     {
         $this->DivisionId = $divisionId;
 
@@ -73,7 +72,7 @@ class BasketItem extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getDivisionId()
     {
@@ -81,10 +80,10 @@ class BasketItem extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $id
+     * @param  SimpleType\Guid|null $id
      * @return BasketItem
      */
-    public function setId(SimpleType\guid $id = null)
+    public function setId(SimpleType\Guid $id = null)
     {
         $this->Id = $id;
 
@@ -92,7 +91,7 @@ class BasketItem extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getId()
     {
@@ -100,7 +99,7 @@ class BasketItem extends ComplexTypeAbstract
     }
 
     /**
-     * @param integer|null $quantity
+     * @param  integer|null $quantity
      * @return BasketItem
      */
     public function setQuantity($quantity)
@@ -119,7 +118,7 @@ class BasketItem extends ComplexTypeAbstract
     }
 
     /**
-     * @param ArrayOfstring|null $ruleNamesToIgnore
+     * @param  ArrayOfstring|null $ruleNamesToIgnore
      * @return BasketItem
      */
     public function setRuleNamesToIgnore(ArrayOfstring $ruleNamesToIgnore = null)
@@ -138,7 +137,7 @@ class BasketItem extends ComplexTypeAbstract
     }
 
     /**
-     * @param float|null $unitPrice
+     * @param  float|null $unitPrice
      * @return BasketItem
      */
     public function setUnitPrice($unitPrice)
@@ -155,7 +154,4 @@ class BasketItem extends ComplexTypeAbstract
     {
         return $this->UnitPrice;
     }
-
-
 }
-

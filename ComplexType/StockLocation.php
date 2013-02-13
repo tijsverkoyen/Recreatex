@@ -36,13 +36,12 @@ class StockLocation extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $Id
+     * @var SimpleType\Guid|null $Id
      */
     protected $Id;
 
-
     /**
-     * @param string|null $code
+     * @param  string|null   $code
      * @return StockLocation
      */
     public function setCode($code)
@@ -61,7 +60,7 @@ class StockLocation extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $description
+     * @param  string|null   $description
      * @return StockLocation
      */
     public function setDescription($description)
@@ -80,10 +79,10 @@ class StockLocation extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $id
+     * @param  SimpleType\Guid|null $id
      * @return StockLocation
      */
-    public function setId(SimpleType\guid $id = null)
+    public function setId(SimpleType\Guid $id = null)
     {
         $this->Id = $id;
 
@@ -91,13 +90,10 @@ class StockLocation extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getId()
     {
         return $this->Id;
     }
-
-
 }
-

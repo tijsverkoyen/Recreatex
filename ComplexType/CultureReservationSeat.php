@@ -27,7 +27,7 @@ class CultureReservationSeat extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $CultureEventId
+     * @var SimpleType\Guid|null $CultureEventId
      */
     protected $CultureEventId;
 
@@ -36,7 +36,7 @@ class CultureReservationSeat extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $Id
+     * @var SimpleType\Guid|null $Id
      */
     protected $Id;
 
@@ -81,13 +81,12 @@ class CultureReservationSeat extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $SeatId
+     * @var SimpleType\Guid|null $SeatId
      */
     protected $SeatId;
 
-
     /**
-     * @param CultureEvent|null $cultureEvent
+     * @param  CultureEvent|null      $cultureEvent
      * @return CultureReservationSeat
      */
     public function setCultureEvent(CultureEvent $cultureEvent = null)
@@ -106,10 +105,10 @@ class CultureReservationSeat extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $cultureEventId
+     * @param  SimpleType\Guid|null   $cultureEventId
      * @return CultureReservationSeat
      */
-    public function setCultureEventId(SimpleType\guid $cultureEventId = null)
+    public function setCultureEventId(SimpleType\Guid $cultureEventId = null)
     {
         $this->CultureEventId = $cultureEventId;
 
@@ -117,7 +116,7 @@ class CultureReservationSeat extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getCultureEventId()
     {
@@ -125,10 +124,10 @@ class CultureReservationSeat extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $id
+     * @param  SimpleType\Guid|null   $id
      * @return CultureReservationSeat
      */
-    public function setId(SimpleType\guid $id = null)
+    public function setId(SimpleType\Guid $id = null)
     {
         $this->Id = $id;
 
@@ -136,7 +135,7 @@ class CultureReservationSeat extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getId()
     {
@@ -144,7 +143,7 @@ class CultureReservationSeat extends ComplexTypeAbstract
     }
 
     /**
-     * @param float|null $price
+     * @param  float|null             $price
      * @return CultureReservationSeat
      */
     public function setPrice($price)
@@ -163,7 +162,7 @@ class CultureReservationSeat extends ComplexTypeAbstract
     }
 
     /**
-     * @param Price|null $priceGroup
+     * @param  Price|null             $priceGroup
      * @return CultureReservationSeat
      */
     public function setPriceGroup(Price $priceGroup = null)
@@ -182,7 +181,7 @@ class CultureReservationSeat extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $priceGroupName
+     * @param  string|null            $priceGroupName
      * @return CultureReservationSeat
      */
     public function setPriceGroupName($priceGroupName)
@@ -201,7 +200,7 @@ class CultureReservationSeat extends ComplexTypeAbstract
     }
 
     /**
-     * @param Seat|null $seat
+     * @param  Seat|null              $seat
      * @return CultureReservationSeat
      */
     public function setSeat(Seat $seat = null)
@@ -220,10 +219,10 @@ class CultureReservationSeat extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $seatId
+     * @param  SimpleType\Guid|null   $seatId
      * @return CultureReservationSeat
      */
-    public function setSeatId(SimpleType\guid $seatId = null)
+    public function setSeatId(SimpleType\Guid $seatId = null)
     {
         $this->SeatId = $seatId;
 
@@ -231,13 +230,10 @@ class CultureReservationSeat extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getSeatId()
     {
         return $this->SeatId;
     }
-
-
 }
-

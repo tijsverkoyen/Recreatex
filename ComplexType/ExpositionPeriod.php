@@ -18,7 +18,7 @@ class ExpositionPeriod extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $ExpositionId
+     * @var SimpleType\Guid|null $ExpositionId
      */
     protected $ExpositionId;
 
@@ -45,7 +45,7 @@ class ExpositionPeriod extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $Id
+     * @var SimpleType\Guid|null $Id
      */
     protected $Id;
 
@@ -67,12 +67,11 @@ class ExpositionPeriod extends ComplexTypeAbstract
      */
     protected $Until;
 
-
     /**
-     * @param SimpleType\guid|null $expositionId
+     * @param  SimpleType\Guid|null $expositionId
      * @return ExpositionPeriod
      */
-    public function setExpositionId(SimpleType\guid $expositionId = null)
+    public function setExpositionId(SimpleType\Guid $expositionId = null)
     {
         $this->ExpositionId = $expositionId;
 
@@ -80,7 +79,7 @@ class ExpositionPeriod extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getExpositionId()
     {
@@ -88,7 +87,7 @@ class ExpositionPeriod extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $finalSubscriptionDate
+     * @param  string|null      $finalSubscriptionDate
      * @return ExpositionPeriod
      */
     public function setFinalSubscriptionDate($finalSubscriptionDate)
@@ -107,7 +106,7 @@ class ExpositionPeriod extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $from
+     * @param  string|null      $from
      * @return ExpositionPeriod
      */
     public function setFrom($from)
@@ -126,10 +125,10 @@ class ExpositionPeriod extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $id
+     * @param  SimpleType\Guid|null $id
      * @return ExpositionPeriod
      */
-    public function setId(SimpleType\guid $id = null)
+    public function setId(SimpleType\Guid $id = null)
     {
         $this->Id = $id;
 
@@ -137,7 +136,7 @@ class ExpositionPeriod extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getId()
     {
@@ -145,7 +144,7 @@ class ExpositionPeriod extends ComplexTypeAbstract
     }
 
     /**
-     * @param Occupancy|null $occupancy
+     * @param  Occupancy|null   $occupancy
      * @return ExpositionPeriod
      */
     public function setOccupancy(Occupancy $occupancy = null)
@@ -164,7 +163,7 @@ class ExpositionPeriod extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $until
+     * @param  string|null      $until
      * @return ExpositionPeriod
      */
     public function setUntil($until)
@@ -181,7 +180,4 @@ class ExpositionPeriod extends ComplexTypeAbstract
     {
         return $this->Until;
     }
-
-
 }
-

@@ -18,7 +18,7 @@ class CultureEventSearchCriteria extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $CultureActivityId
+     * @var SimpleType\Guid|null $CultureActivityId
      */
     protected $CultureActivityId;
 
@@ -27,7 +27,7 @@ class CultureEventSearchCriteria extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $CultureEventId
+     * @var SimpleType\Guid|null $CultureEventId
      */
     protected $CultureEventId;
 
@@ -81,16 +81,15 @@ class CultureEventSearchCriteria extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $CultureEventCategoryId
+     * @var SimpleType\Guid|null $CultureEventCategoryId
      */
     protected $CultureEventCategoryId;
 
-
     /**
-     * @param SimpleType\guid|null $cultureActivityId
+     * @param  SimpleType\Guid|null       $cultureActivityId
      * @return CultureEventSearchCriteria
      */
-    public function setCultureActivityId(SimpleType\guid $cultureActivityId = null)
+    public function setCultureActivityId(SimpleType\Guid $cultureActivityId = null)
     {
         $this->CultureActivityId = $cultureActivityId;
 
@@ -98,7 +97,7 @@ class CultureEventSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getCultureActivityId()
     {
@@ -106,10 +105,10 @@ class CultureEventSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $cultureEventId
+     * @param  SimpleType\Guid|null       $cultureEventId
      * @return CultureEventSearchCriteria
      */
-    public function setCultureEventId(SimpleType\guid $cultureEventId = null)
+    public function setCultureEventId(SimpleType\Guid $cultureEventId = null)
     {
         $this->CultureEventId = $cultureEventId;
 
@@ -117,7 +116,7 @@ class CultureEventSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getCultureEventId()
     {
@@ -125,7 +124,7 @@ class CultureEventSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $from
+     * @param  string|null                $from
      * @return CultureEventSearchCriteria
      */
     public function setFrom($from)
@@ -144,7 +143,7 @@ class CultureEventSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param CultureEventIncludes|null $includes
+     * @param  CultureEventIncludes|null  $includes
      * @return CultureEventSearchCriteria
      */
     public function setIncludes(CultureEventIncludes $includes = null)
@@ -163,7 +162,7 @@ class CultureEventSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $name
+     * @param  string|null                $name
      * @return CultureEventSearchCriteria
      */
     public function setName($name)
@@ -182,7 +181,7 @@ class CultureEventSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param PagingCriteria|null $paging
+     * @param  PagingCriteria|null        $paging
      * @return CultureEventSearchCriteria
      */
     public function setPaging(PagingCriteria $paging = null)
@@ -201,7 +200,7 @@ class CultureEventSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $until
+     * @param  string|null                $until
      * @return CultureEventSearchCriteria
      */
     public function setUntil($until)
@@ -220,10 +219,10 @@ class CultureEventSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $cultureEventCategoryId
+     * @param  SimpleType\Guid|null       $cultureEventCategoryId
      * @return CultureEventSearchCriteria
      */
-    public function setCultureEventCategoryId(SimpleType\guid $cultureEventCategoryId = null)
+    public function setCultureEventCategoryId(SimpleType\Guid $cultureEventCategoryId = null)
     {
         $this->CultureEventCategoryId = $cultureEventCategoryId;
 
@@ -231,13 +230,10 @@ class CultureEventSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getCultureEventCategoryId()
     {
         return $this->CultureEventCategoryId;
     }
-
-
 }
-

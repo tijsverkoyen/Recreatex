@@ -27,7 +27,7 @@ class Subcategory extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $CategoryId
+     * @var SimpleType\Guid|null $CategoryId
      */
     protected $CategoryId;
 
@@ -45,7 +45,7 @@ class Subcategory extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $Id
+     * @var SimpleType\Guid|null $Id
      */
     protected $Id;
 
@@ -58,9 +58,8 @@ class Subcategory extends ComplexTypeAbstract
      */
     protected $Name;
 
-
     /**
-     * @param Category|null $category
+     * @param  Category|null $category
      * @return Subcategory
      */
     public function setCategory(Category $category = null)
@@ -79,10 +78,10 @@ class Subcategory extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $categoryId
+     * @param  SimpleType\Guid|null $categoryId
      * @return Subcategory
      */
-    public function setCategoryId(SimpleType\guid $categoryId = null)
+    public function setCategoryId(SimpleType\Guid $categoryId = null)
     {
         $this->CategoryId = $categoryId;
 
@@ -90,7 +89,7 @@ class Subcategory extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getCategoryId()
     {
@@ -98,7 +97,7 @@ class Subcategory extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $code
+     * @param  string|null $code
      * @return Subcategory
      */
     public function setCode($code)
@@ -117,10 +116,10 @@ class Subcategory extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $id
+     * @param  SimpleType\Guid|null $id
      * @return Subcategory
      */
-    public function setId(SimpleType\guid $id = null)
+    public function setId(SimpleType\Guid $id = null)
     {
         $this->Id = $id;
 
@@ -128,7 +127,7 @@ class Subcategory extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getId()
     {
@@ -136,7 +135,7 @@ class Subcategory extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $name
+     * @param  string|null $name
      * @return Subcategory
      */
     public function setName($name)
@@ -153,7 +152,4 @@ class Subcategory extends ComplexTypeAbstract
     {
         return $this->Name;
     }
-
-
 }
-

@@ -18,7 +18,7 @@ class ServiceContext extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $DivisionId
+     * @var SimpleType\Guid|null $DivisionId
      */
     protected $DivisionId;
 
@@ -36,16 +36,15 @@ class ServiceContext extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $ShopId
+     * @var SimpleType\Guid|null $ShopId
      */
     protected $ShopId;
 
-
     /**
-     * @param SimpleType\guid|null $divisionId
+     * @param  SimpleType\Guid|null $divisionId
      * @return ServiceContext
      */
-    public function setDivisionId(SimpleType\guid $divisionId = null)
+    public function setDivisionId(SimpleType\Guid $divisionId = null)
     {
         $this->DivisionId = $divisionId;
 
@@ -53,7 +52,7 @@ class ServiceContext extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getDivisionId()
     {
@@ -61,7 +60,7 @@ class ServiceContext extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $language
+     * @param  string|null    $language
      * @return ServiceContext
      */
     public function setLanguage($language)
@@ -80,10 +79,10 @@ class ServiceContext extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $shopId
+     * @param  SimpleType\Guid|null $shopId
      * @return ServiceContext
      */
-    public function setShopId(SimpleType\guid $shopId = null)
+    public function setShopId(SimpleType\Guid $shopId = null)
     {
         $this->ShopId = $shopId;
 
@@ -91,13 +90,10 @@ class ServiceContext extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getShopId()
     {
         return $this->ShopId;
     }
-
-
 }
-

@@ -81,7 +81,7 @@ class CultureEvent extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $Id
+     * @var SimpleType\Guid|null $Id
      */
     protected $Id;
 
@@ -202,9 +202,8 @@ class CultureEvent extends ComplexTypeAbstract
      */
     protected $UseReservationCost;
 
-
     /**
-     * @param AdministrativeCost|null $administrativeCost
+     * @param  AdministrativeCost|null $administrativeCost
      * @return CultureEvent
      */
     public function setAdministrativeCost(AdministrativeCost $administrativeCost = null)
@@ -223,7 +222,7 @@ class CultureEvent extends ComplexTypeAbstract
     }
 
     /**
-     * @param integer|null $availableSeats
+     * @param  integer|null $availableSeats
      * @return CultureEvent
      */
     public function setAvailableSeats($availableSeats)
@@ -242,7 +241,7 @@ class CultureEvent extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $code
+     * @param  string|null  $code
      * @return CultureEvent
      */
     public function setCode($code)
@@ -261,7 +260,7 @@ class CultureEvent extends ComplexTypeAbstract
     }
 
     /**
-     * @param CultureActivity|null $cultureActivity
+     * @param  CultureActivity|null $cultureActivity
      * @return CultureEvent
      */
     public function setCultureActivity(CultureActivity $cultureActivity = null)
@@ -280,7 +279,7 @@ class CultureEvent extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $description
+     * @param  string|null  $description
      * @return CultureEvent
      */
     public function setDescription($description)
@@ -299,7 +298,7 @@ class CultureEvent extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $from
+     * @param  string|null  $from
      * @return CultureEvent
      */
     public function setFrom($from)
@@ -318,7 +317,7 @@ class CultureEvent extends ComplexTypeAbstract
     }
 
     /**
-     * @param Hall|null $hall
+     * @param  Hall|null    $hall
      * @return CultureEvent
      */
     public function setHall(Hall $hall = null)
@@ -337,10 +336,10 @@ class CultureEvent extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $id
+     * @param  SimpleType\Guid|null $id
      * @return CultureEvent
      */
-    public function setId(SimpleType\guid $id = null)
+    public function setId(SimpleType\Guid $id = null)
     {
         $this->Id = $id;
 
@@ -348,7 +347,7 @@ class CultureEvent extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getId()
     {
@@ -356,7 +355,7 @@ class CultureEvent extends ComplexTypeAbstract
     }
 
     /**
-     * @param Picture|null $image
+     * @param  Picture|null $image
      * @return CultureEvent
      */
     public function setImage(Picture $image = null)
@@ -375,7 +374,7 @@ class CultureEvent extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $imageUri
+     * @param  string|null  $imageUri
      * @return CultureEvent
      */
     public function setImageUri($imageUri)
@@ -394,7 +393,7 @@ class CultureEvent extends ComplexTypeAbstract
     }
 
     /**
-     * @param IncassoCost|null $incassoCost
+     * @param  IncassoCost|null $incassoCost
      * @return CultureEvent
      */
     public function setIncassoCost(IncassoCost $incassoCost = null)
@@ -413,7 +412,7 @@ class CultureEvent extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $name
+     * @param  string|null  $name
      * @return CultureEvent
      */
     public function setName($name)
@@ -432,7 +431,7 @@ class CultureEvent extends ComplexTypeAbstract
     }
 
     /**
-     * @param ArrayOfCultureEventPrice|null $prices
+     * @param  ArrayOfCultureEventPrice|null $prices
      * @return CultureEvent
      */
     public function setPrices(ArrayOfCultureEventPrice $prices = null)
@@ -451,7 +450,7 @@ class CultureEvent extends ComplexTypeAbstract
     }
 
     /**
-     * @param ReservationCost|null $reservationCost
+     * @param  ReservationCost|null $reservationCost
      * @return CultureEvent
      */
     public function setReservationCost(ReservationCost $reservationCost = null)
@@ -470,7 +469,7 @@ class CultureEvent extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $salesFrom
+     * @param  string|null  $salesFrom
      * @return CultureEvent
      */
     public function setSalesFrom($salesFrom)
@@ -489,7 +488,7 @@ class CultureEvent extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $salesUntil
+     * @param  string|null  $salesUntil
      * @return CultureEvent
      */
     public function setSalesUntil($salesUntil)
@@ -508,7 +507,7 @@ class CultureEvent extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\CultureEventStatus|null $status
+     * @param  SimpleType\CultureEventStatus|null $status
      * @return CultureEvent
      */
     public function setStatus(SimpleType\CultureEventStatus $status = null)
@@ -527,7 +526,7 @@ class CultureEvent extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $until
+     * @param  string|null  $until
      * @return CultureEvent
      */
     public function setUntil($until)
@@ -546,7 +545,7 @@ class CultureEvent extends ComplexTypeAbstract
     }
 
     /**
-     * @param ArrayOfCultureEventOption|null $options
+     * @param  ArrayOfCultureEventOption|null $options
      * @return CultureEvent
      */
     public function setOptions(ArrayOfCultureEventOption $options = null)
@@ -565,7 +564,7 @@ class CultureEvent extends ComplexTypeAbstract
     }
 
     /**
-     * @param CultureEventCategory|null $cultureEventCategory
+     * @param  CultureEventCategory|null $cultureEventCategory
      * @return CultureEvent
      */
     public function setCultureEventCategory(CultureEventCategory $cultureEventCategory = null)
@@ -584,7 +583,7 @@ class CultureEvent extends ComplexTypeAbstract
     }
 
     /**
-     * @param boolean|null $useReservationCost
+     * @param  boolean|null $useReservationCost
      * @return CultureEvent
      */
     public function setUseReservationCost($useReservationCost)
@@ -601,7 +600,4 @@ class CultureEvent extends ComplexTypeAbstract
     {
         return $this->UseReservationCost;
     }
-
-
 }
-

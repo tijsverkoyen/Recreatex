@@ -2,8 +2,6 @@
 
 namespace TijsVerkoyen\Recreatex\ComplexType;
 
-use TijsVerkoyen\Recreatex\SimpleType;
-
 /**
  *
  * @link https://github.com/opensoft/php-wsdl-proxy-generator WSDL parser and Proxy class generator on PHP
@@ -31,9 +29,8 @@ class Credential extends ComplexTypeAbstract
      */
     protected $Username;
 
-
     /**
-     * @param string|null $password
+     * @param  string|null $password
      * @return Credential
      */
     public function setPassword($password)
@@ -52,7 +49,7 @@ class Credential extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $username
+     * @param  string|null $username
      * @return Credential
      */
     public function setUsername($username)
@@ -69,7 +66,4 @@ class Credential extends ComplexTypeAbstract
     {
         return $this->Username;
     }
-
-
 }
-

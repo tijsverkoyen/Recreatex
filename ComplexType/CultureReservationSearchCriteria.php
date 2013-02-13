@@ -18,7 +18,7 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $CultureEventId
+     * @var SimpleType\Guid|null $CultureEventId
      */
     protected $CultureEventId;
 
@@ -27,7 +27,7 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $CultureEventReservationId
+     * @var SimpleType\Guid|null $CultureEventReservationId
      */
     protected $CultureEventReservationId;
 
@@ -54,7 +54,7 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $PersonId
+     * @var SimpleType\Guid|null $PersonId
      */
     protected $PersonId;
 
@@ -67,12 +67,11 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
      */
     protected $Until;
 
-
     /**
-     * @param SimpleType\guid|null $cultureEventId
+     * @param  SimpleType\Guid|null             $cultureEventId
      * @return CultureReservationSearchCriteria
      */
-    public function setCultureEventId(SimpleType\guid $cultureEventId = null)
+    public function setCultureEventId(SimpleType\Guid $cultureEventId = null)
     {
         $this->CultureEventId = $cultureEventId;
 
@@ -80,7 +79,7 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getCultureEventId()
     {
@@ -88,10 +87,10 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $cultureEventReservationId
+     * @param  SimpleType\Guid|null             $cultureEventReservationId
      * @return CultureReservationSearchCriteria
      */
-    public function setCultureEventReservationId(SimpleType\guid $cultureEventReservationId = null)
+    public function setCultureEventReservationId(SimpleType\Guid $cultureEventReservationId = null)
     {
         $this->CultureEventReservationId = $cultureEventReservationId;
 
@@ -99,7 +98,7 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getCultureEventReservationId()
     {
@@ -107,7 +106,7 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $from
+     * @param  string|null                      $from
      * @return CultureReservationSearchCriteria
      */
     public function setFrom($from)
@@ -126,7 +125,7 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param PagingCriteria|null $paging
+     * @param  PagingCriteria|null              $paging
      * @return CultureReservationSearchCriteria
      */
     public function setPaging(PagingCriteria $paging = null)
@@ -145,10 +144,10 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $personId
+     * @param  SimpleType\Guid|null             $personId
      * @return CultureReservationSearchCriteria
      */
-    public function setPersonId(SimpleType\guid $personId = null)
+    public function setPersonId(SimpleType\Guid $personId = null)
     {
         $this->PersonId = $personId;
 
@@ -156,7 +155,7 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getPersonId()
     {
@@ -164,7 +163,7 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $until
+     * @param  string|null                      $until
      * @return CultureReservationSearchCriteria
      */
     public function setUntil($until)
@@ -181,7 +180,4 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     {
         return $this->Until;
     }
-
-
 }
-

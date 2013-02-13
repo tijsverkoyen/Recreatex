@@ -18,7 +18,7 @@ class Basket extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $CustomerId
+     * @var SimpleType\Guid|null $CustomerId
      */
     protected $CustomerId;
 
@@ -49,12 +49,11 @@ class Basket extends ComplexTypeAbstract
      */
     protected $Price;
 
-
     /**
-     * @param SimpleType\guid|null $customerId
+     * @param  SimpleType\Guid|null $customerId
      * @return Basket
      */
-    public function setCustomerId(SimpleType\guid $customerId = null)
+    public function setCustomerId(SimpleType\Guid $customerId = null)
     {
         $this->CustomerId = $customerId;
 
@@ -62,7 +61,7 @@ class Basket extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getCustomerId()
     {
@@ -70,7 +69,7 @@ class Basket extends ComplexTypeAbstract
     }
 
     /**
-     * @param ArrayOfBasketItem|null $items
+     * @param  ArrayOfBasketItem|null $items
      * @return Basket
      */
     public function setItems(ArrayOfBasketItem $items = null)
@@ -89,7 +88,7 @@ class Basket extends ComplexTypeAbstract
     }
 
     /**
-     * @param ArrayOfBasketPayment|null $payments
+     * @param  ArrayOfBasketPayment|null $payments
      * @return Basket
      */
     public function setPayments(ArrayOfBasketPayment $payments = null)
@@ -108,7 +107,7 @@ class Basket extends ComplexTypeAbstract
     }
 
     /**
-     * @param float|null $price
+     * @param  float|null $price
      * @return Basket
      */
     public function setPrice($price)
@@ -125,7 +124,4 @@ class Basket extends ComplexTypeAbstract
     {
         return $this->Price;
     }
-
-
 }
-

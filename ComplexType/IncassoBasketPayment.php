@@ -2,8 +2,6 @@
 
 namespace TijsVerkoyen\Recreatex\ComplexType;
 
-use TijsVerkoyen\Recreatex\SimpleType;
-
 /**
  *
  * @link https://github.com/opensoft/php-wsdl-proxy-generator WSDL parser and Proxy class generator on PHP
@@ -22,9 +20,8 @@ class IncassoBasketPayment extends ComplexTypeAbstract
      */
     protected $NumberOfIncassoPayments;
 
-
     /**
-     * @param integer|null $numberOfIncassoPayments
+     * @param  integer|null         $numberOfIncassoPayments
      * @return IncassoBasketPayment
      */
     public function setNumberOfIncassoPayments($numberOfIncassoPayments)
@@ -41,7 +38,4 @@ class IncassoBasketPayment extends ComplexTypeAbstract
     {
         return $this->NumberOfIncassoPayments;
     }
-
-
 }
-

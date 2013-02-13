@@ -54,7 +54,7 @@ class Hall extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $Id
+     * @var SimpleType\Guid|null $Id
      */
     protected $Id;
 
@@ -76,9 +76,8 @@ class Hall extends ComplexTypeAbstract
      */
     protected $Rows;
 
-
     /**
-     * @param Address|null $address
+     * @param  Address|null $address
      * @return Hall
      */
     public function setAddress(Address $address = null)
@@ -97,7 +96,7 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @param ArrayOfSeatBlock|null $blocks
+     * @param  ArrayOfSeatBlock|null $blocks
      * @return Hall
      */
     public function setBlocks(ArrayOfSeatBlock $blocks = null)
@@ -116,7 +115,7 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $code
+     * @param  string|null $code
      * @return Hall
      */
     public function setCode($code)
@@ -135,7 +134,7 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $description
+     * @param  string|null $description
      * @return Hall
      */
     public function setDescription($description)
@@ -154,10 +153,10 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $id
+     * @param  SimpleType\Guid|null $id
      * @return Hall
      */
-    public function setId(SimpleType\guid $id = null)
+    public function setId(SimpleType\Guid $id = null)
     {
         $this->Id = $id;
 
@@ -165,7 +164,7 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getId()
     {
@@ -173,7 +172,7 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $name
+     * @param  string|null $name
      * @return Hall
      */
     public function setName($name)
@@ -192,7 +191,7 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @param ArrayOfSeatRow|null $rows
+     * @param  ArrayOfSeatRow|null $rows
      * @return Hall
      */
     public function setRows(ArrayOfSeatRow $rows = null)
@@ -209,7 +208,4 @@ class Hall extends ComplexTypeAbstract
     {
         return $this->Rows;
     }
-
-
 }
-

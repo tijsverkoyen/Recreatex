@@ -2,8 +2,6 @@
 
 namespace TijsVerkoyen\Recreatex\ComplexType;
 
-use TijsVerkoyen\Recreatex\SimpleType;
-
 /**
  *
  * @link https://github.com/opensoft/php-wsdl-proxy-generator WSDL parser and Proxy class generator on PHP
@@ -31,9 +29,8 @@ class Period extends ComplexTypeAbstract
      */
     protected $Until;
 
-
     /**
-     * @param string|null $from
+     * @param  string|null $from
      * @return Period
      */
     public function setFrom($from)
@@ -52,7 +49,7 @@ class Period extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $until
+     * @param  string|null $until
      * @return Period
      */
     public function setUntil($until)
@@ -69,7 +66,4 @@ class Period extends ComplexTypeAbstract
     {
         return $this->Until;
     }
-
-
 }
-

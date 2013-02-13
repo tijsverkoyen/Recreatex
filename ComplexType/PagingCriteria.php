@@ -2,10 +2,8 @@
 
 namespace TijsVerkoyen\Recreatex\ComplexType;
 
-use TijsVerkoyen\Recreatex\SimpleType;
-
 /**
- * Determines how paging is applied to the search results 
+ * Determines how paging is applied to the search results
  *
  * @link https://github.com/opensoft/php-wsdl-proxy-generator WSDL parser and Proxy class generator on PHP
  * @author WSDL parser and Proxy class generator on PHP
@@ -15,7 +13,7 @@ class PagingCriteria extends ComplexTypeAbstract
     const CLASS_NAME = 'PagingCriteria';
 
     /**
-     * The index of the page. The index starts at zero (zero-based) 
+     * The index of the page. The index starts at zero (zero-based)
      * minOccurs = 0
      * maxOccurs = 1
      *
@@ -24,7 +22,7 @@ class PagingCriteria extends ComplexTypeAbstract
     protected $PageIndex;
 
     /**
-     * The number of items per page 
+     * The number of items per page
      * minOccurs = 0
      * maxOccurs = 1
      *
@@ -41,9 +39,8 @@ class PagingCriteria extends ComplexTypeAbstract
      */
     protected $Sorting;
 
-
     /**
-     * @param integer|null $pageIndex
+     * @param  integer|null   $pageIndex
      * @return PagingCriteria
      */
     public function setPageIndex($pageIndex)
@@ -62,7 +59,7 @@ class PagingCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param integer|null $pageSize
+     * @param  integer|null   $pageSize
      * @return PagingCriteria
      */
     public function setPageSize($pageSize)
@@ -81,7 +78,7 @@ class PagingCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param SortingCriteria|null $sorting
+     * @param  SortingCriteria|null $sorting
      * @return PagingCriteria
      */
     public function setSorting(SortingCriteria $sorting = null)
@@ -98,7 +95,4 @@ class PagingCriteria extends ComplexTypeAbstract
     {
         return $this->Sorting;
     }
-
-
 }
-

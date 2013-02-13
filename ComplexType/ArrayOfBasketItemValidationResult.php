@@ -2,8 +2,6 @@
 
 namespace TijsVerkoyen\Recreatex\ComplexType;
 
-use TijsVerkoyen\Recreatex\SimpleType;
-
 /**
  *
  * @link https://github.com/opensoft/php-wsdl-proxy-generator WSDL parser and Proxy class generator on PHP
@@ -22,9 +20,8 @@ class ArrayOfBasketItemValidationResult extends ComplexTypeAbstract
      */
     protected $BasketItemValidationResult = array();
 
-
     /**
-     * @param BasketItemValidationResult[] $basketItemValidationResult
+     * @param  BasketItemValidationResult[]      $basketItemValidationResult
      * @return ArrayOfBasketItemValidationResult
      */
     public function setBasketItemValidationResult(array $basketItemValidationResult = array())
@@ -41,7 +38,4 @@ class ArrayOfBasketItemValidationResult extends ComplexTypeAbstract
     {
         return $this->BasketItemValidationResult;
     }
-
-
 }
-

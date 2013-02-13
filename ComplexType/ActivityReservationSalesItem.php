@@ -18,16 +18,15 @@ class ActivityReservationSalesItem extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $EntryId
+     * @var SimpleType\Guid|null $EntryId
      */
     protected $EntryId;
 
-
     /**
-     * @param SimpleType\guid|null $entryId
+     * @param  SimpleType\Guid|null         $entryId
      * @return ActivityReservationSalesItem
      */
-    public function setEntryId(SimpleType\guid $entryId = null)
+    public function setEntryId(SimpleType\Guid $entryId = null)
     {
         $this->EntryId = $entryId;
 
@@ -35,13 +34,10 @@ class ActivityReservationSalesItem extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getEntryId()
     {
         return $this->EntryId;
     }
-
-
 }
-

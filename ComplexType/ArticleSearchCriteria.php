@@ -18,7 +18,7 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $ArticleGroupId
+     * @var SimpleType\Guid|null $ArticleGroupId
      */
     protected $ArticleGroupId;
 
@@ -27,7 +27,7 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $ArticleId
+     * @var SimpleType\Guid|null $ArticleId
      */
     protected $ArticleId;
 
@@ -45,7 +45,7 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $BuyerId
+     * @var SimpleType\Guid|null $BuyerId
      */
     protected $BuyerId;
 
@@ -90,7 +90,7 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $StockLocationId
+     * @var SimpleType\Guid|null $StockLocationId
      */
     protected $StockLocationId;
 
@@ -99,16 +99,15 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $ArticleCategoryId
+     * @var SimpleType\Guid|null $ArticleCategoryId
      */
     protected $ArticleCategoryId;
 
-
     /**
-     * @param SimpleType\guid|null $articleGroupId
+     * @param  SimpleType\Guid|null  $articleGroupId
      * @return ArticleSearchCriteria
      */
-    public function setArticleGroupId(SimpleType\guid $articleGroupId = null)
+    public function setArticleGroupId(SimpleType\Guid $articleGroupId = null)
     {
         $this->ArticleGroupId = $articleGroupId;
 
@@ -116,7 +115,7 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getArticleGroupId()
     {
@@ -124,10 +123,10 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $articleId
+     * @param  SimpleType\Guid|null  $articleId
      * @return ArticleSearchCriteria
      */
-    public function setArticleId(SimpleType\guid $articleId = null)
+    public function setArticleId(SimpleType\Guid $articleId = null)
     {
         $this->ArticleId = $articleId;
 
@@ -135,7 +134,7 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getArticleId()
     {
@@ -143,7 +142,7 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\ArticleType|null $articleTypes
+     * @param  SimpleType\ArticleType|null $articleTypes
      * @return ArticleSearchCriteria
      */
     public function setArticleTypes(SimpleType\ArticleType $articleTypes = null)
@@ -162,10 +161,10 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $buyerId
+     * @param  SimpleType\Guid|null  $buyerId
      * @return ArticleSearchCriteria
      */
-    public function setBuyerId(SimpleType\guid $buyerId = null)
+    public function setBuyerId(SimpleType\Guid $buyerId = null)
     {
         $this->BuyerId = $buyerId;
 
@@ -173,7 +172,7 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getBuyerId()
     {
@@ -181,7 +180,7 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param boolean|null $includeDetail
+     * @param  boolean|null          $includeDetail
      * @return ArticleSearchCriteria
      */
     public function setIncludeDetail($includeDetail)
@@ -200,7 +199,7 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param ArticleIncludes|null $includes
+     * @param  ArticleIncludes|null  $includes
      * @return ArticleSearchCriteria
      */
     public function setIncludes(ArticleIncludes $includes = null)
@@ -219,7 +218,7 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $namePattern
+     * @param  string|null           $namePattern
      * @return ArticleSearchCriteria
      */
     public function setNamePattern($namePattern)
@@ -238,7 +237,7 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param PagingCriteria|null $paging
+     * @param  PagingCriteria|null   $paging
      * @return ArticleSearchCriteria
      */
     public function setPaging(PagingCriteria $paging = null)
@@ -257,10 +256,10 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $stockLocationId
+     * @param  SimpleType\Guid|null  $stockLocationId
      * @return ArticleSearchCriteria
      */
-    public function setStockLocationId(SimpleType\guid $stockLocationId = null)
+    public function setStockLocationId(SimpleType\Guid $stockLocationId = null)
     {
         $this->StockLocationId = $stockLocationId;
 
@@ -268,7 +267,7 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getStockLocationId()
     {
@@ -276,10 +275,10 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $articleCategoryId
+     * @param  SimpleType\Guid|null  $articleCategoryId
      * @return ArticleSearchCriteria
      */
-    public function setArticleCategoryId(SimpleType\guid $articleCategoryId = null)
+    public function setArticleCategoryId(SimpleType\Guid $articleCategoryId = null)
     {
         $this->ArticleCategoryId = $articleCategoryId;
 
@@ -287,13 +286,10 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getArticleCategoryId()
     {
         return $this->ArticleCategoryId;
     }
-
-
 }
-

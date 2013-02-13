@@ -18,7 +18,7 @@ class Person extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $ActivationId
+     * @var SimpleType\Guid|null $ActivationId
      */
     protected $ActivationId;
 
@@ -108,7 +108,7 @@ class Person extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $Id
+     * @var SimpleType\Guid|null $Id
      */
     protected $Id;
 
@@ -180,7 +180,7 @@ class Person extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $ResetPasswordId
+     * @var SimpleType\Guid|null $ResetPasswordId
      */
     protected $ResetPasswordId;
 
@@ -193,12 +193,11 @@ class Person extends ComplexTypeAbstract
      */
     protected $Settings;
 
-
     /**
-     * @param SimpleType\guid|null $activationId
+     * @param  SimpleType\Guid|null $activationId
      * @return Person
      */
-    public function setActivationId(SimpleType\guid $activationId = null)
+    public function setActivationId(SimpleType\Guid $activationId = null)
     {
         $this->ActivationId = $activationId;
 
@@ -206,7 +205,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getActivationId()
     {
@@ -214,7 +213,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param Address|null $address
+     * @param  Address|null $address
      * @return Person
      */
     public function setAddress(Address $address = null)
@@ -233,7 +232,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $bankAccount
+     * @param  string|null $bankAccount
      * @return Person
      */
     public function setBankAccount($bankAccount)
@@ -252,7 +251,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $birthDate
+     * @param  string|null $birthDate
      * @return Person
      */
     public function setBirthDate($birthDate)
@@ -271,7 +270,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $cellPhone
+     * @param  string|null $cellPhone
      * @return Person
      */
     public function setCellPhone($cellPhone)
@@ -290,7 +289,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $code
+     * @param  string|null $code
      * @return Person
      */
     public function setCode($code)
@@ -309,7 +308,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $comments
+     * @param  string|null $comments
      * @return Person
      */
     public function setComments($comments)
@@ -328,7 +327,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param Credential|null $credential
+     * @param  Credential|null $credential
      * @return Person
      */
     public function setCredential(Credential $credential = null)
@@ -347,7 +346,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $email
+     * @param  string|null $email
      * @return Person
      */
     public function setEmail($email)
@@ -366,7 +365,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\Gender|null $gender
+     * @param  SimpleType\Gender|null $gender
      * @return Person
      */
     public function setGender(SimpleType\Gender $gender = null)
@@ -385,10 +384,10 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $id
+     * @param  SimpleType\Guid|null $id
      * @return Person
      */
-    public function setId(SimpleType\guid $id = null)
+    public function setId(SimpleType\Guid $id = null)
     {
         $this->Id = $id;
 
@@ -396,7 +395,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getId()
     {
@@ -404,7 +403,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param boolean|null $isBlocked
+     * @param  boolean|null $isBlocked
      * @return Person
      */
     public function setIsBlocked($isBlocked)
@@ -423,7 +422,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $language
+     * @param  string|null $language
      * @return Person
      */
     public function setLanguage($language)
@@ -442,7 +441,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param PersonName|null $name
+     * @param  PersonName|null $name
      * @return Person
      */
     public function setName(PersonName $name = null)
@@ -461,7 +460,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $nationalNumber
+     * @param  string|null $nationalNumber
      * @return Person
      */
     public function setNationalNumber($nationalNumber)
@@ -480,7 +479,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $phone
+     * @param  string|null $phone
      * @return Person
      */
     public function setPhone($phone)
@@ -499,7 +498,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $picture
+     * @param  string|null $picture
      * @return Person
      */
     public function setPicture($picture)
@@ -518,7 +517,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param ArrayOfRelation|null $relations
+     * @param  ArrayOfRelation|null $relations
      * @return Person
      */
     public function setRelations(ArrayOfRelation $relations = null)
@@ -537,10 +536,10 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $resetPasswordId
+     * @param  SimpleType\Guid|null $resetPasswordId
      * @return Person
      */
-    public function setResetPasswordId(SimpleType\guid $resetPasswordId = null)
+    public function setResetPasswordId(SimpleType\Guid $resetPasswordId = null)
     {
         $this->ResetPasswordId = $resetPasswordId;
 
@@ -548,7 +547,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getResetPasswordId()
     {
@@ -556,7 +555,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param PersonSettings|null $settings
+     * @param  PersonSettings|null $settings
      * @return Person
      */
     public function setSettings(PersonSettings $settings = null)
@@ -573,7 +572,4 @@ class Person extends ComplexTypeAbstract
     {
         return $this->Settings;
     }
-
-
 }
-

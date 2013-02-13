@@ -2,8 +2,6 @@
 
 namespace TijsVerkoyen\Recreatex\ComplexType;
 
-use TijsVerkoyen\Recreatex\SimpleType;
-
 /**
  *
  * @link https://github.com/opensoft/php-wsdl-proxy-generator WSDL parser and Proxy class generator on PHP
@@ -31,9 +29,8 @@ class Occupancy extends ComplexTypeAbstract
      */
     protected $Maximum;
 
-
     /**
-     * @param integer|null $current
+     * @param  integer|null $current
      * @return Occupancy
      */
     public function setCurrent($current)
@@ -52,7 +49,7 @@ class Occupancy extends ComplexTypeAbstract
     }
 
     /**
-     * @param integer|null $maximum
+     * @param  integer|null $maximum
      * @return Occupancy
      */
     public function setMaximum($maximum)
@@ -69,7 +66,4 @@ class Occupancy extends ComplexTypeAbstract
     {
         return $this->Maximum;
     }
-
-
 }
-

@@ -2,8 +2,6 @@
 
 namespace TijsVerkoyen\Recreatex\ComplexType;
 
-use TijsVerkoyen\Recreatex\SimpleType;
-
 /**
  *
  * @link https://github.com/opensoft/php-wsdl-proxy-generator WSDL parser and Proxy class generator on PHP
@@ -31,9 +29,8 @@ class ExtendedLocks extends ComplexTypeAbstract
      */
     protected $Failed;
 
-
     /**
-     * @param ArrayOfLockTicket|null $succeeded
+     * @param  ArrayOfLockTicket|null $succeeded
      * @return ExtendedLocks
      */
     public function setSucceeded(ArrayOfLockTicket $succeeded = null)
@@ -52,7 +49,7 @@ class ExtendedLocks extends ComplexTypeAbstract
     }
 
     /**
-     * @param ArrayOfLockTicket|null $failed
+     * @param  ArrayOfLockTicket|null $failed
      * @return ExtendedLocks
      */
     public function setFailed(ArrayOfLockTicket $failed = null)
@@ -69,7 +66,4 @@ class ExtendedLocks extends ComplexTypeAbstract
     {
         return $this->Failed;
     }
-
-
 }
-

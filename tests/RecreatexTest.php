@@ -25,7 +25,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
     {
         parent::setUp();
         $this->recreatex = new Recreatex(SERVER, PORT);
-	    $this->recreatex->createServiceContext(SHOP_ID, DIVISION_ID, LANGUAGE);
+        $this->recreatex->createServiceContext(SHOP_ID, DIVISION_ID, LANGUAGE);
     }
 
     /**
@@ -58,26 +58,26 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
         );
     }
 
-	/**
-	 * Tests Recreatex->AuthenticateUser()
-	 */
-	public function testAuthenticateUser()
-	{
-		$credential = new \TijsVerkoyen\Recreatex\ComplexType\Credential();
-		$credential->setUsername(USERNAME);
-		$credential->setPassword(PASSWORD);
-		$response = $this->recreatex->AuthenticateUser($credential);
+    /**
+     * Tests Recreatex->AuthenticateUser()
+     */
+    public function testAuthenticateUser()
+    {
+        $credential = new \TijsVerkoyen\Recreatex\ComplexType\Credential();
+        $credential->setUsername(USERNAME);
+        $credential->setPassword(PASSWORD);
+        $response = $this->recreatex->authenticateUser($credential);
 
-		$this->assertNotInternalType('\TijsVerkoyen\Recreatex\ComplexType\AuthenticationResult', $response);
-		$this->assertTrue($response->getHasSucceeded());
-	}
+        $this->assertNotInternalType('\TijsVerkoyen\Recreatex\ComplexType\AuthenticationResult', $response);
+        $this->assertTrue($response->getHasSucceeded());
+    }
 
-	/**
-	 * Tests Recreatex->IsAvailable()
-	 */
-	public function testIsAvailable()
-	{
-		$response = $this->recreatex->IsAvailable();
-		$this->assertTrue($response);
-	}
+    /**
+     * Tests Recreatex->IsAvailable()
+     */
+    public function testIsAvailable()
+    {
+        $response = $this->recreatex->isAvailable();
+        $this->assertTrue($response);
+    }
 }

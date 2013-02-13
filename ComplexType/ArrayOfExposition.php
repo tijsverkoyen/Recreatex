@@ -2,8 +2,6 @@
 
 namespace TijsVerkoyen\Recreatex\ComplexType;
 
-use TijsVerkoyen\Recreatex\SimpleType;
-
 /**
  *
  * @link https://github.com/opensoft/php-wsdl-proxy-generator WSDL parser and Proxy class generator on PHP
@@ -22,9 +20,8 @@ class ArrayOfExposition extends ComplexTypeAbstract
      */
     protected $Exposition = array();
 
-
     /**
-     * @param Exposition[] $exposition
+     * @param  Exposition[]      $exposition
      * @return ArrayOfExposition
      */
     public function setExposition(array $exposition = array())
@@ -41,7 +38,4 @@ class ArrayOfExposition extends ComplexTypeAbstract
     {
         return $this->Exposition;
     }
-
-
 }
-

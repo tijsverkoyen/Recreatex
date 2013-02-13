@@ -5,7 +5,7 @@ namespace TijsVerkoyen\Recreatex\ComplexType;
 use TijsVerkoyen\Recreatex\SimpleType;
 
 /**
- * How many participants per price group will register for this culture event 
+ * How many participants per price group will register for this culture event
  *
  * @link https://github.com/opensoft/php-wsdl-proxy-generator WSDL parser and Proxy class generator on PHP
  * @author WSDL parser and Proxy class generator on PHP
@@ -28,7 +28,7 @@ class BestAvailableSeatsCultureEventReservationEntry extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $SeatBlockId
+     * @var SimpleType\Guid|null $SeatBlockId
      */
     protected $SeatBlockId;
 
@@ -37,7 +37,7 @@ class BestAvailableSeatsCultureEventReservationEntry extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $SeatRowId
+     * @var SimpleType\Guid|null $SeatRowId
      */
     protected $SeatRowId;
 
@@ -46,13 +46,12 @@ class BestAvailableSeatsCultureEventReservationEntry extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $SeatRangeId
+     * @var SimpleType\Guid|null $SeatRangeId
      */
     protected $SeatRangeId;
 
-
     /**
-     * @param integer $participantCount
+     * @param  integer                                        $participantCount
      * @return BestAvailableSeatsCultureEventReservationEntry
      */
     public function setParticipantCount($participantCount)
@@ -71,10 +70,10 @@ class BestAvailableSeatsCultureEventReservationEntry extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $seatBlockId
+     * @param  SimpleType\Guid|null                           $seatBlockId
      * @return BestAvailableSeatsCultureEventReservationEntry
      */
-    public function setSeatBlockId(SimpleType\guid $seatBlockId = null)
+    public function setSeatBlockId(SimpleType\Guid $seatBlockId = null)
     {
         $this->SeatBlockId = $seatBlockId;
 
@@ -82,7 +81,7 @@ class BestAvailableSeatsCultureEventReservationEntry extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getSeatBlockId()
     {
@@ -90,10 +89,10 @@ class BestAvailableSeatsCultureEventReservationEntry extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $seatRowId
+     * @param  SimpleType\Guid|null                           $seatRowId
      * @return BestAvailableSeatsCultureEventReservationEntry
      */
-    public function setSeatRowId(SimpleType\guid $seatRowId = null)
+    public function setSeatRowId(SimpleType\Guid $seatRowId = null)
     {
         $this->SeatRowId = $seatRowId;
 
@@ -101,7 +100,7 @@ class BestAvailableSeatsCultureEventReservationEntry extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getSeatRowId()
     {
@@ -109,10 +108,10 @@ class BestAvailableSeatsCultureEventReservationEntry extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $seatRangeId
+     * @param  SimpleType\Guid|null                           $seatRangeId
      * @return BestAvailableSeatsCultureEventReservationEntry
      */
-    public function setSeatRangeId(SimpleType\guid $seatRangeId = null)
+    public function setSeatRangeId(SimpleType\Guid $seatRangeId = null)
     {
         $this->SeatRangeId = $seatRangeId;
 
@@ -120,13 +119,10 @@ class BestAvailableSeatsCultureEventReservationEntry extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getSeatRangeId()
     {
         return $this->SeatRangeId;
     }
-
-
 }
-

@@ -2,8 +2,6 @@
 
 namespace TijsVerkoyen\Recreatex\ComplexType;
 
-use TijsVerkoyen\Recreatex\SimpleType;
-
 /**
  *
  * @link https://github.com/opensoft/php-wsdl-proxy-generator WSDL parser and Proxy class generator on PHP
@@ -22,9 +20,8 @@ class SeatAllocationPerBlockSummary extends ComplexTypeAbstract
      */
     protected $Block;
 
-
     /**
-     * @param SeatBlock|null $block
+     * @param  SeatBlock|null                $block
      * @return SeatAllocationPerBlockSummary
      */
     public function setBlock(SeatBlock $block = null)
@@ -41,7 +38,4 @@ class SeatAllocationPerBlockSummary extends ComplexTypeAbstract
     {
         return $this->Block;
     }
-
-
 }
-

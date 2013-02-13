@@ -2,8 +2,6 @@
 
 namespace TijsVerkoyen\Recreatex\ComplexType;
 
-use TijsVerkoyen\Recreatex\SimpleType;
-
 /**
  *
  * @link https://github.com/opensoft/php-wsdl-proxy-generator WSDL parser and Proxy class generator on PHP
@@ -76,9 +74,8 @@ class ActivityReservation extends ComplexTypeAbstract
      */
     protected $TotalPrice;
 
-
     /**
-     * @param Activity|null $activity
+     * @param  Activity|null       $activity
      * @return ActivityReservation
      */
     public function setActivity(Activity $activity = null)
@@ -97,7 +94,7 @@ class ActivityReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $comments
+     * @param  string|null         $comments
      * @return ActivityReservation
      */
     public function setComments($comments)
@@ -116,7 +113,7 @@ class ActivityReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param LockTicket|null $lockTicket
+     * @param  LockTicket|null     $lockTicket
      * @return ActivityReservation
      */
     public function setLockTicket(LockTicket $lockTicket = null)
@@ -135,7 +132,7 @@ class ActivityReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param float|null $optionPrice
+     * @param  float|null          $optionPrice
      * @return ActivityReservation
      */
     public function setOptionPrice($optionPrice)
@@ -154,7 +151,7 @@ class ActivityReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param Person|null $participant
+     * @param  Person|null         $participant
      * @return ActivityReservation
      */
     public function setParticipant(Person $participant = null)
@@ -173,7 +170,7 @@ class ActivityReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param ArrayOfActivityPartReservation|null $presentActivityParts
+     * @param  ArrayOfActivityPartReservation|null $presentActivityParts
      * @return ActivityReservation
      */
     public function setPresentActivityParts(ArrayOfActivityPartReservation $presentActivityParts = null)
@@ -192,7 +189,7 @@ class ActivityReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param float|null $totalPrice
+     * @param  float|null          $totalPrice
      * @return ActivityReservation
      */
     public function setTotalPrice($totalPrice)
@@ -209,7 +206,4 @@ class ActivityReservation extends ComplexTypeAbstract
     {
         return $this->TotalPrice;
     }
-
-
 }
-

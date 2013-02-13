@@ -27,7 +27,7 @@ class SeatBlock extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $Id
+     * @var SimpleType\Guid|null $Id
      */
     protected $Id;
 
@@ -58,9 +58,8 @@ class SeatBlock extends ComplexTypeAbstract
      */
     protected $Rows;
 
-
     /**
-     * @param string|null $code
+     * @param  string|null $code
      * @return SeatBlock
      */
     public function setCode($code)
@@ -79,10 +78,10 @@ class SeatBlock extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $id
+     * @param  SimpleType\Guid|null $id
      * @return SeatBlock
      */
-    public function setId(SimpleType\guid $id = null)
+    public function setId(SimpleType\Guid $id = null)
     {
         $this->Id = $id;
 
@@ -90,7 +89,7 @@ class SeatBlock extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getId()
     {
@@ -98,7 +97,7 @@ class SeatBlock extends ComplexTypeAbstract
     }
 
     /**
-     * @param Location|null $location
+     * @param  Location|null $location
      * @return SeatBlock
      */
     public function setLocation(Location $location = null)
@@ -117,7 +116,7 @@ class SeatBlock extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $name
+     * @param  string|null $name
      * @return SeatBlock
      */
     public function setName($name)
@@ -136,7 +135,7 @@ class SeatBlock extends ComplexTypeAbstract
     }
 
     /**
-     * @param ArrayOfSeatRow|null $rows
+     * @param  ArrayOfSeatRow|null $rows
      * @return SeatBlock
      */
     public function setRows(ArrayOfSeatRow $rows = null)
@@ -153,7 +152,4 @@ class SeatBlock extends ComplexTypeAbstract
     {
         return $this->Rows;
     }
-
-
 }
-

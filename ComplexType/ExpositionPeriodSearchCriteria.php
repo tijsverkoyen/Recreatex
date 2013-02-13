@@ -18,7 +18,7 @@ class ExpositionPeriodSearchCriteria extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $ExpositionId
+     * @var SimpleType\Guid|null $ExpositionId
      */
     protected $ExpositionId;
 
@@ -49,12 +49,11 @@ class ExpositionPeriodSearchCriteria extends ComplexTypeAbstract
      */
     protected $Until;
 
-
     /**
-     * @param SimpleType\guid|null $expositionId
+     * @param  SimpleType\Guid|null           $expositionId
      * @return ExpositionPeriodSearchCriteria
      */
-    public function setExpositionId(SimpleType\guid $expositionId = null)
+    public function setExpositionId(SimpleType\Guid $expositionId = null)
     {
         $this->ExpositionId = $expositionId;
 
@@ -62,7 +61,7 @@ class ExpositionPeriodSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getExpositionId()
     {
@@ -70,7 +69,7 @@ class ExpositionPeriodSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param PagingCriteria|null $paging
+     * @param  PagingCriteria|null            $paging
      * @return ExpositionPeriodSearchCriteria
      */
     public function setPaging(PagingCriteria $paging = null)
@@ -89,7 +88,7 @@ class ExpositionPeriodSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $from
+     * @param  string|null                    $from
      * @return ExpositionPeriodSearchCriteria
      */
     public function setFrom($from)
@@ -108,7 +107,7 @@ class ExpositionPeriodSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $until
+     * @param  string|null                    $until
      * @return ExpositionPeriodSearchCriteria
      */
     public function setUntil($until)
@@ -125,7 +124,4 @@ class ExpositionPeriodSearchCriteria extends ComplexTypeAbstract
     {
         return $this->Until;
     }
-
-
 }
-

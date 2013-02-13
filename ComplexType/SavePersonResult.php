@@ -2,8 +2,6 @@
 
 namespace TijsVerkoyen\Recreatex\ComplexType;
 
-use TijsVerkoyen\Recreatex\SimpleType;
-
 /**
  *
  * @link https://github.com/opensoft/php-wsdl-proxy-generator WSDL parser and Proxy class generator on PHP
@@ -31,9 +29,8 @@ class SavePersonResult extends ComplexTypeAbstract
      */
     protected $ValidationResults;
 
-
     /**
-     * @param Person|null $person
+     * @param  Person|null      $person
      * @return SavePersonResult
      */
     public function setPerson(Person $person = null)
@@ -52,7 +49,7 @@ class SavePersonResult extends ComplexTypeAbstract
     }
 
     /**
-     * @param ArrayOfValidationResult|null $validationResults
+     * @param  ArrayOfValidationResult|null $validationResults
      * @return SavePersonResult
      */
     public function setValidationResults(ArrayOfValidationResult $validationResults = null)
@@ -69,7 +66,4 @@ class SavePersonResult extends ComplexTypeAbstract
     {
         return $this->ValidationResults;
     }
-
-
 }
-

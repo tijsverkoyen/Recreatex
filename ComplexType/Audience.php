@@ -27,7 +27,7 @@ class Audience extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $Id
+     * @var SimpleType\Guid|null $Id
      */
     protected $Id;
 
@@ -40,9 +40,8 @@ class Audience extends ComplexTypeAbstract
      */
     protected $Name;
 
-
     /**
-     * @param string|null $description
+     * @param  string|null $description
      * @return Audience
      */
     public function setDescription($description)
@@ -61,10 +60,10 @@ class Audience extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $id
+     * @param  SimpleType\Guid|null $id
      * @return Audience
      */
-    public function setId(SimpleType\guid $id = null)
+    public function setId(SimpleType\Guid $id = null)
     {
         $this->Id = $id;
 
@@ -72,7 +71,7 @@ class Audience extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getId()
     {
@@ -80,7 +79,7 @@ class Audience extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $name
+     * @param  string|null $name
      * @return Audience
      */
     public function setName($name)
@@ -97,7 +96,4 @@ class Audience extends ComplexTypeAbstract
     {
         return $this->Name;
     }
-
-
 }
-

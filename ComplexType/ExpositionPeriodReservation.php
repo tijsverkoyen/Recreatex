@@ -27,7 +27,7 @@ class ExpositionPeriodReservation extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $ExpositionPeriodId
+     * @var SimpleType\Guid|null $ExpositionPeriodId
      */
     protected $ExpositionPeriodId;
 
@@ -40,9 +40,8 @@ class ExpositionPeriodReservation extends ComplexTypeAbstract
      */
     protected $LockTicket;
 
-
     /**
-     * @param ArrayOfExpositionPeriodReservationEntry|null $entries
+     * @param  ArrayOfExpositionPeriodReservationEntry|null $entries
      * @return ExpositionPeriodReservation
      */
     public function setEntries(ArrayOfExpositionPeriodReservationEntry $entries = null)
@@ -61,10 +60,10 @@ class ExpositionPeriodReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $expositionPeriodId
+     * @param  SimpleType\Guid|null        $expositionPeriodId
      * @return ExpositionPeriodReservation
      */
-    public function setExpositionPeriodId(SimpleType\guid $expositionPeriodId = null)
+    public function setExpositionPeriodId(SimpleType\Guid $expositionPeriodId = null)
     {
         $this->ExpositionPeriodId = $expositionPeriodId;
 
@@ -72,7 +71,7 @@ class ExpositionPeriodReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getExpositionPeriodId()
     {
@@ -80,7 +79,7 @@ class ExpositionPeriodReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param LockTicket|null $lockTicket
+     * @param  LockTicket|null             $lockTicket
      * @return ExpositionPeriodReservation
      */
     public function setLockTicket(LockTicket $lockTicket = null)
@@ -97,7 +96,4 @@ class ExpositionPeriodReservation extends ComplexTypeAbstract
     {
         return $this->LockTicket;
     }
-
-
 }
-

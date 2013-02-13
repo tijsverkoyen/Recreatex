@@ -9,6 +9,4 @@ namespace TijsVerkoyen\Recreatex\SimpleType;
  */
 class Guid extends SimpleTypeAbstract
 {
-
 }
-

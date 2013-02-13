@@ -2,8 +2,6 @@
 
 namespace TijsVerkoyen\Recreatex\ComplexType;
 
-use TijsVerkoyen\Recreatex\SimpleType;
-
 /**
  *
  * @link https://github.com/opensoft/php-wsdl-proxy-generator WSDL parser and Proxy class generator on PHP
@@ -31,9 +29,8 @@ class SortingCriteria extends ComplexTypeAbstract
      */
     protected $PropertyName;
 
-
     /**
-     * @param boolean|null $isAscending
+     * @param  boolean|null    $isAscending
      * @return SortingCriteria
      */
     public function setIsAscending($isAscending)
@@ -52,7 +49,7 @@ class SortingCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $propertyName
+     * @param  string|null     $propertyName
      * @return SortingCriteria
      */
     public function setPropertyName($propertyName)
@@ -69,7 +66,4 @@ class SortingCriteria extends ComplexTypeAbstract
     {
         return $this->PropertyName;
     }
-
-
 }
-

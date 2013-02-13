@@ -18,7 +18,7 @@ class CultureEventOption extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $ArticleId
+     * @var SimpleType\Guid|null $ArticleId
      */
     protected $ArticleId;
 
@@ -54,7 +54,7 @@ class CultureEventOption extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $Id
+     * @var SimpleType\Guid|null $Id
      */
     protected $Id;
 
@@ -85,12 +85,11 @@ class CultureEventOption extends ComplexTypeAbstract
      */
     protected $Price;
 
-
     /**
-     * @param SimpleType\guid|null $articleId
+     * @param  SimpleType\Guid|null $articleId
      * @return CultureEventOption
      */
-    public function setArticleId(SimpleType\guid $articleId = null)
+    public function setArticleId(SimpleType\Guid $articleId = null)
     {
         $this->ArticleId = $articleId;
 
@@ -98,7 +97,7 @@ class CultureEventOption extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getArticleId()
     {
@@ -106,7 +105,7 @@ class CultureEventOption extends ComplexTypeAbstract
     }
 
     /**
-     * @param integer|null $available
+     * @param  integer|null       $available
      * @return CultureEventOption
      */
     public function setAvailable($available)
@@ -125,7 +124,7 @@ class CultureEventOption extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $code
+     * @param  string|null        $code
      * @return CultureEventOption
      */
     public function setCode($code)
@@ -144,7 +143,7 @@ class CultureEventOption extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $description
+     * @param  string|null        $description
      * @return CultureEventOption
      */
     public function setDescription($description)
@@ -163,10 +162,10 @@ class CultureEventOption extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $id
+     * @param  SimpleType\Guid|null $id
      * @return CultureEventOption
      */
-    public function setId(SimpleType\guid $id = null)
+    public function setId(SimpleType\Guid $id = null)
     {
         $this->Id = $id;
 
@@ -174,7 +173,7 @@ class CultureEventOption extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getId()
     {
@@ -182,7 +181,7 @@ class CultureEventOption extends ComplexTypeAbstract
     }
 
     /**
-     * @param integer|null $maxQuantity
+     * @param  integer|null       $maxQuantity
      * @return CultureEventOption
      */
     public function setMaxQuantity($maxQuantity)
@@ -201,7 +200,7 @@ class CultureEventOption extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $name
+     * @param  string|null        $name
      * @return CultureEventOption
      */
     public function setName($name)
@@ -220,7 +219,7 @@ class CultureEventOption extends ComplexTypeAbstract
     }
 
     /**
-     * @param float|null $price
+     * @param  float|null         $price
      * @return CultureEventOption
      */
     public function setPrice($price)
@@ -237,7 +236,4 @@ class CultureEventOption extends ComplexTypeAbstract
     {
         return $this->Price;
     }
-
-
 }
-

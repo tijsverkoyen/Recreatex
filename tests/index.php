@@ -6,27 +6,29 @@ require_once 'config.php';
 session_start();
 
 use \TijsVerkoyen\Recreatex\Recreatex;
+use \TijsVerkoyen\Recreatex\ComplexType\Credential;
 
 // create instance
 $recreatex = new Recreatex(SERVER, PORT);
 $recreatex->createServiceContext(SHOP_ID, DIVISION_ID, LANGUAGE);
 
 try {
-	// AuthenticateUser
-	$credential = new \TijsVerkoyen\Recreatex\ComplexType\Credential();
-	$credential->setUsername(USERNAME);
-	$credential->setPassword(PASSWORD);
-	$response = $recreatex->AuthenticateUser($credential);
+    // AuthenticateUser
+//    $credential = new Credential();
+//    $credential->setUsername(USERNAME);
+//    $credential->setPassword(PASSWORD);
+//    $response = $recreatex->authenticateUser($credential);
+//    $response = $recreatex->authenticateUser(new Credential());
 
-	// IsAvailable
-	$response = $recreatex->IsAvailable();
+    // IsAvailable
+//    $response = $recreatex->isAvailable();
 
-	// FindPerson
-	$criteria = new \TijsVerkoyen\Recreatex\ComplexType\FindPersonsCriteria();
-	$criteria->setEmail('php-recreatex@verkoyen.eu');
-	$response = $recreatex->FindPerson($criteria);
+    // FindPerson
+//    $criteria = new \TijsVerkoyen\Recreatex\ComplexType\FindPersonsCriteria();
+//    $criteria->setEmail('php-recreatex@verkoyen.eu');
+//    $response = $recreatex->findPerson($criteria);
 } catch (Exception $e) {
-  var_dump($e);
+    var_dump($e);
 }
 
 // output

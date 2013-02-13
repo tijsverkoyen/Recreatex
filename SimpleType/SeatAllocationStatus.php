@@ -10,15 +10,8 @@ namespace TijsVerkoyen\Recreatex\SimpleType;
 class SeatAllocationStatus extends SimpleTypeAbstract
 {
     const AVAILABLE = 'Available';
-
     const RESERVED = 'Reserved';
-
     const BLOCKED = 'Blocked';
-
     const LOCKED = 'Locked';
-
     const OPTION = 'Option';
-
-
 }
-

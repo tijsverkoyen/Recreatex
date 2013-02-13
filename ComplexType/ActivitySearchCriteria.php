@@ -18,7 +18,7 @@ class ActivitySearchCriteria extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $ActivityId
+     * @var SimpleType\Guid|null $ActivityId
      */
     protected $ActivityId;
 
@@ -27,7 +27,7 @@ class ActivitySearchCriteria extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $ActivityTypeId
+     * @var SimpleType\Guid|null $ActivityTypeId
      */
     protected $ActivityTypeId;
 
@@ -90,16 +90,15 @@ class ActivitySearchCriteria extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $PersonId
+     * @var SimpleType\Guid|null $PersonId
      */
     protected $PersonId;
 
-
     /**
-     * @param SimpleType\guid|null $activityId
+     * @param  SimpleType\Guid|null   $activityId
      * @return ActivitySearchCriteria
      */
-    public function setActivityId(SimpleType\guid $activityId = null)
+    public function setActivityId(SimpleType\Guid $activityId = null)
     {
         $this->ActivityId = $activityId;
 
@@ -107,7 +106,7 @@ class ActivitySearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getActivityId()
     {
@@ -115,10 +114,10 @@ class ActivitySearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $activityTypeId
+     * @param  SimpleType\Guid|null   $activityTypeId
      * @return ActivitySearchCriteria
      */
-    public function setActivityTypeId(SimpleType\guid $activityTypeId = null)
+    public function setActivityTypeId(SimpleType\Guid $activityTypeId = null)
     {
         $this->ActivityTypeId = $activityTypeId;
 
@@ -126,7 +125,7 @@ class ActivitySearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getActivityTypeId()
     {
@@ -134,7 +133,7 @@ class ActivitySearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param integer|null $ageFrom
+     * @param  integer|null           $ageFrom
      * @return ActivitySearchCriteria
      */
     public function setAgeFrom($ageFrom)
@@ -153,7 +152,7 @@ class ActivitySearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param integer|null $ageTo
+     * @param  integer|null           $ageTo
      * @return ActivitySearchCriteria
      */
     public function setAgeTo($ageTo)
@@ -172,7 +171,7 @@ class ActivitySearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param ActivityIncludes|null $includes
+     * @param  ActivityIncludes|null  $includes
      * @return ActivitySearchCriteria
      */
     public function setIncludes(ActivityIncludes $includes = null)
@@ -191,7 +190,7 @@ class ActivitySearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $keyword
+     * @param  string|null            $keyword
      * @return ActivitySearchCriteria
      */
     public function setKeyword($keyword)
@@ -210,7 +209,7 @@ class ActivitySearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param PagingCriteria|null $paging
+     * @param  PagingCriteria|null    $paging
      * @return ActivitySearchCriteria
      */
     public function setPaging(PagingCriteria $paging = null)
@@ -229,7 +228,7 @@ class ActivitySearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param Period|null $period
+     * @param  Period|null            $period
      * @return ActivitySearchCriteria
      */
     public function setPeriod(Period $period = null)
@@ -248,10 +247,10 @@ class ActivitySearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $personId
+     * @param  SimpleType\Guid|null   $personId
      * @return ActivitySearchCriteria
      */
-    public function setPersonId(SimpleType\guid $personId = null)
+    public function setPersonId(SimpleType\Guid $personId = null)
     {
         $this->PersonId = $personId;
 
@@ -259,13 +258,10 @@ class ActivitySearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getPersonId()
     {
         return $this->PersonId;
     }
-
-
 }
-

@@ -5,7 +5,7 @@ namespace TijsVerkoyen\Recreatex\ComplexType;
 use TijsVerkoyen\Recreatex\SimpleType;
 
 /**
- * How many participants per price group will register for this expostion period 
+ * How many participants per price group will register for this expostion period
  *
  * @link https://github.com/opensoft/php-wsdl-proxy-generator WSDL parser and Proxy class generator on PHP
  * @author WSDL parser and Proxy class generator on PHP
@@ -28,13 +28,12 @@ class ExpositionPeriodReservationEntry extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $PriceGroupId
+     * @var SimpleType\Guid|null $PriceGroupId
      */
     protected $PriceGroupId;
 
-
     /**
-     * @param integer|null $participantCount
+     * @param  integer|null                     $participantCount
      * @return ExpositionPeriodReservationEntry
      */
     public function setParticipantCount($participantCount)
@@ -53,10 +52,10 @@ class ExpositionPeriodReservationEntry extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $priceGroupId
+     * @param  SimpleType\Guid|null             $priceGroupId
      * @return ExpositionPeriodReservationEntry
      */
-    public function setPriceGroupId(SimpleType\guid $priceGroupId = null)
+    public function setPriceGroupId(SimpleType\Guid $priceGroupId = null)
     {
         $this->PriceGroupId = $priceGroupId;
 
@@ -64,13 +63,10 @@ class ExpositionPeriodReservationEntry extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getPriceGroupId()
     {
         return $this->PriceGroupId;
     }
-
-
 }
-

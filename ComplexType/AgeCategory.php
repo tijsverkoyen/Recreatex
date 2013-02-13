@@ -27,7 +27,7 @@ class AgeCategory extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $Id
+     * @var SimpleType\Guid|null $Id
      */
     protected $Id;
 
@@ -49,9 +49,8 @@ class AgeCategory extends ComplexTypeAbstract
      */
     protected $UntilAge;
 
-
     /**
-     * @param integer|null $fromAge
+     * @param  integer|null $fromAge
      * @return AgeCategory
      */
     public function setFromAge($fromAge)
@@ -70,10 +69,10 @@ class AgeCategory extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $id
+     * @param  SimpleType\Guid|null $id
      * @return AgeCategory
      */
-    public function setId(SimpleType\guid $id = null)
+    public function setId(SimpleType\Guid $id = null)
     {
         $this->Id = $id;
 
@@ -81,7 +80,7 @@ class AgeCategory extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getId()
     {
@@ -89,7 +88,7 @@ class AgeCategory extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $name
+     * @param  string|null $name
      * @return AgeCategory
      */
     public function setName($name)
@@ -108,7 +107,7 @@ class AgeCategory extends ComplexTypeAbstract
     }
 
     /**
-     * @param integer|null $untilAge
+     * @param  integer|null $untilAge
      * @return AgeCategory
      */
     public function setUntilAge($untilAge)
@@ -125,7 +124,4 @@ class AgeCategory extends ComplexTypeAbstract
     {
         return $this->UntilAge;
     }
-
-
 }
-

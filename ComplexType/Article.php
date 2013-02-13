@@ -36,7 +36,7 @@ class Article extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $DivisionId
+     * @var SimpleType\Guid|null $DivisionId
      */
     protected $DivisionId;
 
@@ -54,7 +54,7 @@ class Article extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $Id
+     * @var SimpleType\Guid|null $Id
      */
     protected $Id;
 
@@ -157,9 +157,8 @@ class Article extends ComplexTypeAbstract
      */
     protected $Categories;
 
-
     /**
-     * @param string|null $code
+     * @param  string|null $code
      * @return Article
      */
     public function setCode($code)
@@ -178,7 +177,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $description
+     * @param  string|null $description
      * @return Article
      */
     public function setDescription($description)
@@ -197,10 +196,10 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $divisionId
+     * @param  SimpleType\Guid|null $divisionId
      * @return Article
      */
-    public function setDivisionId(SimpleType\guid $divisionId = null)
+    public function setDivisionId(SimpleType\Guid $divisionId = null)
     {
         $this->DivisionId = $divisionId;
 
@@ -208,7 +207,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getDivisionId()
     {
@@ -216,7 +215,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @param ArticleGroup|null $group
+     * @param  ArticleGroup|null $group
      * @return Article
      */
     public function setGroup(ArticleGroup $group = null)
@@ -235,10 +234,10 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $id
+     * @param  SimpleType\Guid|null $id
      * @return Article
      */
-    public function setId(SimpleType\guid $id = null)
+    public function setId(SimpleType\Guid $id = null)
     {
         $this->Id = $id;
 
@@ -246,7 +245,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getId()
     {
@@ -254,7 +253,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @param Picture|null $image
+     * @param  Picture|null $image
      * @return Article
      */
     public function setImage(Picture $image = null)
@@ -273,7 +272,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $imageUrl
+     * @param  string|null $imageUrl
      * @return Article
      */
     public function setImageUrl($imageUrl)
@@ -292,7 +291,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @param ArrayOfArticleIngredient|null $ingredients
+     * @param  ArrayOfArticleIngredient|null $ingredients
      * @return Article
      */
     public function setIngredients(ArrayOfArticleIngredient $ingredients = null)
@@ -311,7 +310,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @param boolean|null $isRental
+     * @param  boolean|null $isRental
      * @return Article
      */
     public function setIsRental($isRental)
@@ -330,7 +329,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $name
+     * @param  string|null $name
      * @return Article
      */
     public function setName($name)
@@ -349,7 +348,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @param ArrayOfArticleOption|null $options
+     * @param  ArrayOfArticleOption|null $options
      * @return Article
      */
     public function setOptions(ArrayOfArticleOption $options = null)
@@ -368,7 +367,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @param float|null $price
+     * @param  float|null $price
      * @return Article
      */
     public function setPrice($price)
@@ -387,7 +386,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @param float|null $stock
+     * @param  float|null $stock
      * @return Article
      */
     public function setStock($stock)
@@ -406,7 +405,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @param ArrayOfStockLocation|null $stockLocations
+     * @param  ArrayOfStockLocation|null $stockLocations
      * @return Article
      */
     public function setStockLocations(ArrayOfStockLocation $stockLocations = null)
@@ -425,7 +424,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @param boolean|null $isStockItem
+     * @param  boolean|null $isStockItem
      * @return Article
      */
     public function setIsStockItem($isStockItem)
@@ -444,7 +443,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @param ArrayOfguid|null $categories
+     * @param  ArrayOfguid|null $categories
      * @return Article
      */
     public function setCategories(ArrayOfguid $categories = null)
@@ -461,7 +460,4 @@ class Article extends ComplexTypeAbstract
     {
         return $this->Categories;
     }
-
-
 }
-

@@ -10,11 +10,6 @@ namespace TijsVerkoyen\Recreatex\SimpleType;
 class Gender extends SimpleTypeAbstract
 {
     const MALE = 'Male';
-
     const FEMALE = 'Female';
-
     const UNKNOWN = 'Unknown';
-
-
 }
-

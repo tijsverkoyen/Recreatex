@@ -27,7 +27,7 @@ class Relation extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $Id
+     * @var SimpleType\Guid|null $Id
      */
     protected $Id;
 
@@ -40,9 +40,8 @@ class Relation extends ComplexTypeAbstract
      */
     protected $To;
 
-
     /**
-     * @param Person|null $from
+     * @param  Person|null $from
      * @return Relation
      */
     public function setFrom(Person $from = null)
@@ -61,10 +60,10 @@ class Relation extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $id
+     * @param  SimpleType\Guid|null $id
      * @return Relation
      */
-    public function setId(SimpleType\guid $id = null)
+    public function setId(SimpleType\Guid $id = null)
     {
         $this->Id = $id;
 
@@ -72,7 +71,7 @@ class Relation extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getId()
     {
@@ -80,7 +79,7 @@ class Relation extends ComplexTypeAbstract
     }
 
     /**
-     * @param Person|null $to
+     * @param  Person|null $to
      * @return Relation
      */
     public function setTo(Person $to = null)
@@ -97,7 +96,4 @@ class Relation extends ComplexTypeAbstract
     {
         return $this->To;
     }
-
-
 }
-

@@ -5,7 +5,7 @@ namespace TijsVerkoyen\Recreatex\ComplexType;
 use TijsVerkoyen\Recreatex\SimpleType;
 
 /**
- * Exposition Domain Object 
+ * Exposition Domain Object
  *
  * @link https://github.com/opensoft/php-wsdl-proxy-generator WSDL parser and Proxy class generator on PHP
  * @author WSDL parser and Proxy class generator on PHP
@@ -46,7 +46,7 @@ class Exposition extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $DivisionId
+     * @var SimpleType\Guid|null $DivisionId
      */
     protected $DivisionId;
 
@@ -69,11 +69,11 @@ class Exposition extends ComplexTypeAbstract
     protected $From;
 
     /**
-     * Exposition Unique Identifier 
+     * Exposition Unique Identifier
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $Id
+     * @var SimpleType\Guid|null $Id
      */
     protected $Id;
 
@@ -140,9 +140,8 @@ class Exposition extends ComplexTypeAbstract
      */
     protected $VAT;
 
-
     /**
-     * @param ArrayOfAudience|null $audiences
+     * @param  ArrayOfAudience|null $audiences
      * @return Exposition
      */
     public function setAudiences(ArrayOfAudience $audiences = null)
@@ -161,7 +160,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $code
+     * @param  string|null $code
      * @return Exposition
      */
     public function setCode($code)
@@ -180,7 +179,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $description
+     * @param  string|null $description
      * @return Exposition
      */
     public function setDescription($description)
@@ -199,10 +198,10 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $divisionId
+     * @param  SimpleType\Guid|null $divisionId
      * @return Exposition
      */
-    public function setDivisionId(SimpleType\guid $divisionId = null)
+    public function setDivisionId(SimpleType\Guid $divisionId = null)
     {
         $this->DivisionId = $divisionId;
 
@@ -210,7 +209,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getDivisionId()
     {
@@ -218,7 +217,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param ExpositionType|null $expositionType
+     * @param  ExpositionType|null $expositionType
      * @return Exposition
      */
     public function setExpositionType(ExpositionType $expositionType = null)
@@ -237,7 +236,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $from
+     * @param  string|null $from
      * @return Exposition
      */
     public function setFrom($from)
@@ -256,10 +255,10 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $id
+     * @param  SimpleType\Guid|null $id
      * @return Exposition
      */
-    public function setId(SimpleType\guid $id = null)
+    public function setId(SimpleType\Guid $id = null)
     {
         $this->Id = $id;
 
@@ -267,7 +266,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getId()
     {
@@ -275,7 +274,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param Picture|null $image
+     * @param  Picture|null $image
      * @return Exposition
      */
     public function setImage(Picture $image = null)
@@ -294,7 +293,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $location
+     * @param  string|null $location
      * @return Exposition
      */
     public function setLocation($location)
@@ -313,7 +312,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $name
+     * @param  string|null $name
      * @return Exposition
      */
     public function setName($name)
@@ -332,7 +331,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param ArrayOfExpositionPeriod|null $periods
+     * @param  ArrayOfExpositionPeriod|null $periods
      * @return Exposition
      */
     public function setPeriods(ArrayOfExpositionPeriod $periods = null)
@@ -351,7 +350,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param ArrayOfExpositionPrice|null $prices
+     * @param  ArrayOfExpositionPrice|null $prices
      * @return Exposition
      */
     public function setPrices(ArrayOfExpositionPrice $prices = null)
@@ -370,7 +369,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $until
+     * @param  string|null $until
      * @return Exposition
      */
     public function setUntil($until)
@@ -389,7 +388,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param Vat|null $vAT
+     * @param  Vat|null   $vAT
      * @return Exposition
      */
     public function setVAT(Vat $vAT = null)
@@ -406,7 +405,4 @@ class Exposition extends ComplexTypeAbstract
     {
         return $this->VAT;
     }
-
-
 }
-

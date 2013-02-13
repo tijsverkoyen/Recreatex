@@ -40,9 +40,8 @@ class ArticleGroupSearchCriteria extends ComplexTypeAbstract
      */
     protected $IncludeImageUrl;
 
-
     /**
-     * @param SimpleType\ArticleType|null $articleTypes
+     * @param  SimpleType\ArticleType|null $articleTypes
      * @return ArticleGroupSearchCriteria
      */
     public function setArticleTypes(SimpleType\ArticleType $articleTypes = null)
@@ -61,7 +60,7 @@ class ArticleGroupSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param boolean|null $includeImage
+     * @param  boolean|null               $includeImage
      * @return ArticleGroupSearchCriteria
      */
     public function setIncludeImage($includeImage)
@@ -80,7 +79,7 @@ class ArticleGroupSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param boolean|null $includeImageUrl
+     * @param  boolean|null               $includeImageUrl
      * @return ArticleGroupSearchCriteria
      */
     public function setIncludeImageUrl($includeImageUrl)
@@ -97,7 +96,4 @@ class ArticleGroupSearchCriteria extends ComplexTypeAbstract
     {
         return $this->IncludeImageUrl;
     }
-
-
 }
-

@@ -2,8 +2,6 @@
 
 namespace TijsVerkoyen\Recreatex\ComplexType;
 
-use TijsVerkoyen\Recreatex\SimpleType;
-
 /**
  *
  * @link https://github.com/opensoft/php-wsdl-proxy-generator WSDL parser and Proxy class generator on PHP
@@ -22,9 +20,8 @@ class ArrayOfCultureEventOption extends ComplexTypeAbstract
      */
     protected $CultureEventOption = array();
 
-
     /**
-     * @param CultureEventOption[] $cultureEventOption
+     * @param  CultureEventOption[]      $cultureEventOption
      * @return ArrayOfCultureEventOption
      */
     public function setCultureEventOption(array $cultureEventOption = array())
@@ -41,7 +38,4 @@ class ArrayOfCultureEventOption extends ComplexTypeAbstract
     {
         return $this->CultureEventOption;
     }
-
-
 }
-

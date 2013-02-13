@@ -2,8 +2,6 @@
 
 namespace TijsVerkoyen\Recreatex\ComplexType;
 
-use TijsVerkoyen\Recreatex\SimpleType;
-
 /**
  *
  * @link https://github.com/opensoft/php-wsdl-proxy-generator WSDL parser and Proxy class generator on PHP
@@ -22,9 +20,8 @@ class ArrayOfRelation extends ComplexTypeAbstract
      */
     protected $Relation = array();
 
-
     /**
-     * @param Relation[] $relation
+     * @param  Relation[]      $relation
      * @return ArrayOfRelation
      */
     public function setRelation(array $relation = array())
@@ -41,7 +38,4 @@ class ArrayOfRelation extends ComplexTypeAbstract
     {
         return $this->Relation;
     }
-
-
 }
-

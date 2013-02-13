@@ -10,11 +10,6 @@ namespace TijsVerkoyen\Recreatex\SimpleType;
 class ArticleType extends SimpleTypeAbstract
 {
     const SALE = 'Sale';
-
     const RENTAL = 'Rental';
-
     const ALL = 'All';
-
-
 }
-

@@ -5,7 +5,7 @@ namespace TijsVerkoyen\Recreatex\ComplexType;
 use TijsVerkoyen\Recreatex\SimpleType;
 
 /**
- * The search criteria that will be applied to the search query 
+ * The search criteria that will be applied to the search query
  *
  * @link https://github.com/opensoft/php-wsdl-proxy-generator WSDL parser and Proxy class generator on PHP
  * @author WSDL parser and Proxy class generator on PHP
@@ -15,34 +15,34 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     const CLASS_NAME = 'ExpositionSearchCriteria';
 
     /**
-     * Only include expositions for this target audience 
+     * Only include expositions for this target audience
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $AudienceId
+     * @var SimpleType\Guid|null $AudienceId
      */
     protected $AudienceId;
 
     /**
-     * The ID of a specific exposition that you want to find 
+     * The ID of a specific exposition that you want to find
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $ExpositionId
+     * @var SimpleType\Guid|null $ExpositionId
      */
     protected $ExpositionId;
 
     /**
-     * Only include expositions of this type 
+     * Only include expositions of this type
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $ExpositionTypeId
+     * @var SimpleType\Guid|null $ExpositionTypeId
      */
     protected $ExpositionTypeId;
 
     /**
-     * Ignore expositions that end before this time 
+     * Ignore expositions that end before this time
      * minOccurs = 0
      * maxOccurs = 1
      *
@@ -60,7 +60,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     protected $Includes;
 
     /**
-     * Part of the name of the exposition to find. Use an asteriks (*) as the wildcard. 
+     * Part of the name of the exposition to find. Use an asteriks (*) as the wildcard.
      * minOccurs = 0
      * maxOccurs = 1
      *
@@ -78,7 +78,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     protected $Paging;
 
     /**
-     * Ignore expositions that begin after this time 
+     * Ignore expositions that begin after this time
      * minOccurs = 0
      * maxOccurs = 1
      *
@@ -87,7 +87,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     protected $Until;
 
     /**
-     * Only include expositions which have a translation in the requested language 
+     * Only include expositions which have a translation in the requested language
      * minOccurs = 0
      * maxOccurs = 1
      *
@@ -95,12 +95,11 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
      */
     protected $TranslationRequired;
 
-
     /**
-     * @param SimpleType\guid|null $audienceId
+     * @param  SimpleType\Guid|null     $audienceId
      * @return ExpositionSearchCriteria
      */
-    public function setAudienceId(SimpleType\guid $audienceId = null)
+    public function setAudienceId(SimpleType\Guid $audienceId = null)
     {
         $this->AudienceId = $audienceId;
 
@@ -108,7 +107,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getAudienceId()
     {
@@ -116,10 +115,10 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $expositionId
+     * @param  SimpleType\Guid|null     $expositionId
      * @return ExpositionSearchCriteria
      */
-    public function setExpositionId(SimpleType\guid $expositionId = null)
+    public function setExpositionId(SimpleType\Guid $expositionId = null)
     {
         $this->ExpositionId = $expositionId;
 
@@ -127,7 +126,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getExpositionId()
     {
@@ -135,10 +134,10 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $expositionTypeId
+     * @param  SimpleType\Guid|null     $expositionTypeId
      * @return ExpositionSearchCriteria
      */
-    public function setExpositionTypeId(SimpleType\guid $expositionTypeId = null)
+    public function setExpositionTypeId(SimpleType\Guid $expositionTypeId = null)
     {
         $this->ExpositionTypeId = $expositionTypeId;
 
@@ -146,7 +145,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getExpositionTypeId()
     {
@@ -154,7 +153,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $from
+     * @param  string|null              $from
      * @return ExpositionSearchCriteria
      */
     public function setFrom($from)
@@ -173,7 +172,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param ExpositionIncludes|null $includes
+     * @param  ExpositionIncludes|null  $includes
      * @return ExpositionSearchCriteria
      */
     public function setIncludes(ExpositionIncludes $includes = null)
@@ -192,7 +191,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $namePattern
+     * @param  string|null              $namePattern
      * @return ExpositionSearchCriteria
      */
     public function setNamePattern($namePattern)
@@ -211,7 +210,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param PagingCriteria|null $paging
+     * @param  PagingCriteria|null      $paging
      * @return ExpositionSearchCriteria
      */
     public function setPaging(PagingCriteria $paging = null)
@@ -230,7 +229,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $until
+     * @param  string|null              $until
      * @return ExpositionSearchCriteria
      */
     public function setUntil($until)
@@ -249,7 +248,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param boolean|null $translationRequired
+     * @param  boolean|null             $translationRequired
      * @return ExpositionSearchCriteria
      */
     public function setTranslationRequired($translationRequired)
@@ -266,7 +265,4 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     {
         return $this->TranslationRequired;
     }
-
-
 }
-

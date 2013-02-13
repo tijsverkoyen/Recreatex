@@ -18,7 +18,7 @@ class PersonPriceGroup extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $Id
+     * @var SimpleType\Guid|null $Id
      */
     protected $Id;
 
@@ -85,12 +85,11 @@ class PersonPriceGroup extends ComplexTypeAbstract
      */
     protected $Till;
 
-
     /**
-     * @param SimpleType\guid|null $id
+     * @param  SimpleType\Guid|null $id
      * @return PersonPriceGroup
      */
-    public function setId(SimpleType\guid $id = null)
+    public function setId(SimpleType\Guid $id = null)
     {
         $this->Id = $id;
 
@@ -98,7 +97,7 @@ class PersonPriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getId()
     {
@@ -106,7 +105,7 @@ class PersonPriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\PersonPriceGroupType|null $type
+     * @param  SimpleType\PersonPriceGroupType|null $type
      * @return PersonPriceGroup
      */
     public function setType(SimpleType\PersonPriceGroupType $type = null)
@@ -125,7 +124,7 @@ class PersonPriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @param PriceGroup|null $priceGroup
+     * @param  PriceGroup|null  $priceGroup
      * @return PersonPriceGroup
      */
     public function setPriceGroup(PriceGroup $priceGroup = null)
@@ -144,7 +143,7 @@ class PersonPriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $startDate
+     * @param  string|null      $startDate
      * @return PersonPriceGroup
      */
     public function setStartDate($startDate)
@@ -163,7 +162,7 @@ class PersonPriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $endDate
+     * @param  string|null      $endDate
      * @return PersonPriceGroup
      */
     public function setEndDate($endDate)
@@ -182,7 +181,7 @@ class PersonPriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\WeekDay|null $weekDay
+     * @param  SimpleType\WeekDay|null $weekDay
      * @return PersonPriceGroup
      */
     public function setWeekDay(SimpleType\WeekDay $weekDay = null)
@@ -201,7 +200,7 @@ class PersonPriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $from
+     * @param  string|null      $from
      * @return PersonPriceGroup
      */
     public function setFrom($from)
@@ -220,7 +219,7 @@ class PersonPriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $till
+     * @param  string|null      $till
      * @return PersonPriceGroup
      */
     public function setTill($till)
@@ -237,7 +236,4 @@ class PersonPriceGroup extends ComplexTypeAbstract
     {
         return $this->Till;
     }
-
-
 }
-

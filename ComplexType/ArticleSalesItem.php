@@ -18,16 +18,15 @@ class ArticleSalesItem extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $ArticleId
+     * @var SimpleType\Guid|null $ArticleId
      */
     protected $ArticleId;
 
-
     /**
-     * @param SimpleType\guid|null $articleId
+     * @param  SimpleType\Guid|null $articleId
      * @return ArticleSalesItem
      */
-    public function setArticleId(SimpleType\guid $articleId = null)
+    public function setArticleId(SimpleType\Guid $articleId = null)
     {
         $this->ArticleId = $articleId;
 
@@ -35,13 +34,10 @@ class ArticleSalesItem extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getArticleId()
     {
         return $this->ArticleId;
     }
-
-
 }
-

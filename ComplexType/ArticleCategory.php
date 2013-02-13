@@ -18,7 +18,7 @@ class ArticleCategory extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $Id
+     * @var SimpleType\Guid|null $Id
      */
     protected $Id;
 
@@ -54,16 +54,15 @@ class ArticleCategory extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $ParentCategoryId
+     * @var SimpleType\Guid|null $ParentCategoryId
      */
     protected $ParentCategoryId;
 
-
     /**
-     * @param SimpleType\guid|null $id
+     * @param  SimpleType\Guid|null $id
      * @return ArticleCategory
      */
-    public function setId(SimpleType\guid $id = null)
+    public function setId(SimpleType\Guid $id = null)
     {
         $this->Id = $id;
 
@@ -71,7 +70,7 @@ class ArticleCategory extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getId()
     {
@@ -79,7 +78,7 @@ class ArticleCategory extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $shortName
+     * @param  string|null     $shortName
      * @return ArticleCategory
      */
     public function setShortName($shortName)
@@ -98,7 +97,7 @@ class ArticleCategory extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $description
+     * @param  string|null     $description
      * @return ArticleCategory
      */
     public function setDescription($description)
@@ -117,7 +116,7 @@ class ArticleCategory extends ComplexTypeAbstract
     }
 
     /**
-     * @param integer|null $level
+     * @param  integer|null    $level
      * @return ArticleCategory
      */
     public function setLevel($level)
@@ -136,10 +135,10 @@ class ArticleCategory extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $parentCategoryId
+     * @param  SimpleType\Guid|null $parentCategoryId
      * @return ArticleCategory
      */
-    public function setParentCategoryId(SimpleType\guid $parentCategoryId = null)
+    public function setParentCategoryId(SimpleType\Guid $parentCategoryId = null)
     {
         $this->ParentCategoryId = $parentCategoryId;
 
@@ -147,13 +146,10 @@ class ArticleCategory extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getParentCategoryId()
     {
         return $this->ParentCategoryId;
     }
-
-
 }
-

@@ -2,8 +2,6 @@
 
 namespace TijsVerkoyen\Recreatex\ComplexType;
 
-use TijsVerkoyen\Recreatex\SimpleType;
-
 /**
  *
  * @link https://github.com/opensoft/php-wsdl-proxy-generator WSDL parser and Proxy class generator on PHP
@@ -22,9 +20,8 @@ class ArrayOfActivityType extends ComplexTypeAbstract
      */
     protected $ActivityType = array();
 
-
     /**
-     * @param ActivityType[] $activityType
+     * @param  ActivityType[]      $activityType
      * @return ArrayOfActivityType
      */
     public function setActivityType(array $activityType = array())
@@ -41,7 +38,4 @@ class ArrayOfActivityType extends ComplexTypeAbstract
     {
         return $this->ActivityType;
     }
-
-
 }
-

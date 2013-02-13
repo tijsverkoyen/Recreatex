@@ -10,11 +10,6 @@ namespace TijsVerkoyen\Recreatex\SimpleType;
 class CheckoutResultState extends SimpleTypeAbstract
 {
     const NONE = 'None';
-
     const SUCCESS = 'Success';
-
     const FAILED = 'Failed';
-
-
 }
-

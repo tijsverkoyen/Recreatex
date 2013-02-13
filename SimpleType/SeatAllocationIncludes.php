@@ -10,11 +10,6 @@ namespace TijsVerkoyen\Recreatex\SimpleType;
 class SeatAllocationIncludes extends SimpleTypeAbstract
 {
     const NONE = 'None';
-
     const ALL = 'All';
-
     const SELECTEDAREA = 'SelectedArea';
-
-
 }
-

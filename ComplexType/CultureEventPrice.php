@@ -18,7 +18,7 @@ class CultureEventPrice extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $CustomerID
+     * @var SimpleType\Guid|null $CustomerID
      */
     protected $CustomerID;
 
@@ -76,12 +76,11 @@ class CultureEventPrice extends ComplexTypeAbstract
      */
     protected $MinimumQty;
 
-
     /**
-     * @param SimpleType\guid|null $customerID
+     * @param  SimpleType\Guid|null $customerID
      * @return CultureEventPrice
      */
-    public function setCustomerID(SimpleType\guid $customerID = null)
+    public function setCustomerID(SimpleType\Guid $customerID = null)
     {
         $this->CustomerID = $customerID;
 
@@ -89,7 +88,7 @@ class CultureEventPrice extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getCustomerID()
     {
@@ -97,7 +96,7 @@ class CultureEventPrice extends ComplexTypeAbstract
     }
 
     /**
-     * @param SeatBlock|null $seatBlock
+     * @param  SeatBlock|null    $seatBlock
      * @return CultureEventPrice
      */
     public function setSeatBlock(SeatBlock $seatBlock = null)
@@ -116,7 +115,7 @@ class CultureEventPrice extends ComplexTypeAbstract
     }
 
     /**
-     * @param SeatRow|null $seatRow
+     * @param  SeatRow|null      $seatRow
      * @return CultureEventPrice
      */
     public function setSeatRow(SeatRow $seatRow = null)
@@ -135,7 +134,7 @@ class CultureEventPrice extends ComplexTypeAbstract
     }
 
     /**
-     * @param Seat|null $seat
+     * @param  Seat|null         $seat
      * @return CultureEventPrice
      */
     public function setSeat(Seat $seat = null)
@@ -154,7 +153,7 @@ class CultureEventPrice extends ComplexTypeAbstract
     }
 
     /**
-     * @param SeatRange|null $seatRange
+     * @param  SeatRange|null    $seatRange
      * @return CultureEventPrice
      */
     public function setSeatRange(SeatRange $seatRange = null)
@@ -173,7 +172,7 @@ class CultureEventPrice extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $startDate
+     * @param  string|null       $startDate
      * @return CultureEventPrice
      */
     public function setStartDate($startDate)
@@ -192,7 +191,7 @@ class CultureEventPrice extends ComplexTypeAbstract
     }
 
     /**
-     * @param integer|null $minimumQty
+     * @param  integer|null      $minimumQty
      * @return CultureEventPrice
      */
     public function setMinimumQty($minimumQty)
@@ -209,7 +208,4 @@ class CultureEventPrice extends ComplexTypeAbstract
     {
         return $this->MinimumQty;
     }
-
-
 }
-

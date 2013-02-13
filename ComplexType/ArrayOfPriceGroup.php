@@ -2,8 +2,6 @@
 
 namespace TijsVerkoyen\Recreatex\ComplexType;
 
-use TijsVerkoyen\Recreatex\SimpleType;
-
 /**
  *
  * @link https://github.com/opensoft/php-wsdl-proxy-generator WSDL parser and Proxy class generator on PHP
@@ -22,9 +20,8 @@ class ArrayOfPriceGroup extends ComplexTypeAbstract
      */
     protected $PriceGroup = array();
 
-
     /**
-     * @param PriceGroup[] $priceGroup
+     * @param  PriceGroup[]      $priceGroup
      * @return ArrayOfPriceGroup
      */
     public function setPriceGroup(array $priceGroup = array())
@@ -41,7 +38,4 @@ class ArrayOfPriceGroup extends ComplexTypeAbstract
     {
         return $this->PriceGroup;
     }
-
-
 }
-

@@ -10,11 +10,6 @@ namespace TijsVerkoyen\Recreatex\SimpleType;
 class CultureEventStatus extends SimpleTypeAbstract
 {
     const OPEN = 'Open';
-
     const CLOSED = 'Closed';
-
     const NOTFORSALE = 'NotForSale';
-
-
 }
-

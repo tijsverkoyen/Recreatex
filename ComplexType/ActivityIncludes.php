@@ -2,8 +2,6 @@
 
 namespace TijsVerkoyen\Recreatex\ComplexType;
 
-use TijsVerkoyen\Recreatex\SimpleType;
-
 /**
  *
  * @link https://github.com/opensoft/php-wsdl-proxy-generator WSDL parser and Proxy class generator on PHP
@@ -67,9 +65,8 @@ class ActivityIncludes extends ComplexTypeAbstract
      */
     protected $Type;
 
-
     /**
-     * @param boolean|null $dayParts
+     * @param  boolean|null     $dayParts
      * @return ActivityIncludes
      */
     public function setDayParts($dayParts)
@@ -88,7 +85,7 @@ class ActivityIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param boolean|null $image
+     * @param  boolean|null     $image
      * @return ActivityIncludes
      */
     public function setImage($image)
@@ -107,7 +104,7 @@ class ActivityIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param boolean|null $imageUrl
+     * @param  boolean|null     $imageUrl
      * @return ActivityIncludes
      */
     public function setImageUrl($imageUrl)
@@ -126,7 +123,7 @@ class ActivityIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param boolean|null $options
+     * @param  boolean|null     $options
      * @return ActivityIncludes
      */
     public function setOptions($options)
@@ -145,7 +142,7 @@ class ActivityIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param boolean|null $price
+     * @param  boolean|null     $price
      * @return ActivityIncludes
      */
     public function setPrice($price)
@@ -164,7 +161,7 @@ class ActivityIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param boolean|null $type
+     * @param  boolean|null     $type
      * @return ActivityIncludes
      */
     public function setType($type)
@@ -181,7 +178,4 @@ class ActivityIncludes extends ComplexTypeAbstract
     {
         return $this->Type;
     }
-
-
 }
-

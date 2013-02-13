@@ -18,16 +18,15 @@ class CultureEventReservationEntry extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $PriceGroupId
+     * @var SimpleType\Guid|null $PriceGroupId
      */
     protected $PriceGroupId;
 
-
     /**
-     * @param SimpleType\guid|null $priceGroupId
+     * @param  SimpleType\Guid|null         $priceGroupId
      * @return CultureEventReservationEntry
      */
-    public function setPriceGroupId(SimpleType\guid $priceGroupId = null)
+    public function setPriceGroupId(SimpleType\Guid $priceGroupId = null)
     {
         $this->PriceGroupId = $priceGroupId;
 
@@ -35,13 +34,10 @@ class CultureEventReservationEntry extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getPriceGroupId()
     {
         return $this->PriceGroupId;
     }
-
-
 }
-

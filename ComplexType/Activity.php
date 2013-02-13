@@ -81,7 +81,7 @@ class Activity extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $Id
+     * @var SimpleType\Guid|null $Id
      */
     protected $Id;
 
@@ -148,9 +148,8 @@ class Activity extends ComplexTypeAbstract
      */
     protected $Type;
 
-
     /**
-     * @param AgeCategory|null $ageCategory
+     * @param  AgeCategory|null $ageCategory
      * @return Activity
      */
     public function setAgeCategory(AgeCategory $ageCategory = null)
@@ -169,7 +168,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $closingDate
+     * @param  string|null $closingDate
      * @return Activity
      */
     public function setClosingDate($closingDate)
@@ -188,7 +187,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $code
+     * @param  string|null $code
      * @return Activity
      */
     public function setCode($code)
@@ -207,7 +206,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $comments
+     * @param  string|null $comments
      * @return Activity
      */
     public function setComments($comments)
@@ -226,7 +225,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @param ArrayOfActivityPart|null $days
+     * @param  ArrayOfActivityPart|null $days
      * @return Activity
      */
     public function setDays(ArrayOfActivityPart $days = null)
@@ -245,7 +244,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $description
+     * @param  string|null $description
      * @return Activity
      */
     public function setDescription($description)
@@ -264,7 +263,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @param integer|null $freePlaces
+     * @param  integer|null $freePlaces
      * @return Activity
      */
     public function setFreePlaces($freePlaces)
@@ -283,10 +282,10 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $id
+     * @param  SimpleType\Guid|null $id
      * @return Activity
      */
-    public function setId(SimpleType\guid $id = null)
+    public function setId(SimpleType\Guid $id = null)
     {
         $this->Id = $id;
 
@@ -294,7 +293,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getId()
     {
@@ -302,7 +301,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $imageUrl
+     * @param  string|null $imageUrl
      * @return Activity
      */
     public function setImageUrl($imageUrl)
@@ -321,7 +320,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @param Address|null $location
+     * @param  Address|null $location
      * @return Activity
      */
     public function setLocation(Address $location = null)
@@ -340,7 +339,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $name
+     * @param  string|null $name
      * @return Activity
      */
     public function setName($name)
@@ -359,7 +358,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @param ArrayOfActivityOption|null $options
+     * @param  ArrayOfActivityOption|null $options
      * @return Activity
      */
     public function setOptions(ArrayOfActivityOption $options = null)
@@ -378,7 +377,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @param Period|null $period
+     * @param  Period|null $period
      * @return Activity
      */
     public function setPeriod(Period $period = null)
@@ -397,7 +396,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @param float|null $price
+     * @param  float|null $price
      * @return Activity
      */
     public function setPrice($price)
@@ -416,7 +415,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @param ActivityType|null $type
+     * @param  ActivityType|null $type
      * @return Activity
      */
     public function setType(ActivityType $type = null)
@@ -433,7 +432,4 @@ class Activity extends ComplexTypeAbstract
     {
         return $this->Type;
     }
-
-
 }
-

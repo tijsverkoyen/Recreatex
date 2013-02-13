@@ -27,7 +27,7 @@ class SalesItem extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $Id
+     * @var SimpleType\Guid|null $Id
      */
     protected $Id;
 
@@ -58,9 +58,8 @@ class SalesItem extends ComplexTypeAbstract
      */
     protected $UnitPrice;
 
-
     /**
-     * @param ArrayOfstring|null $barcodes
+     * @param  ArrayOfstring|null $barcodes
      * @return SalesItem
      */
     public function setBarcodes(ArrayOfstring $barcodes = null)
@@ -79,10 +78,10 @@ class SalesItem extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $id
+     * @param  SimpleType\Guid|null $id
      * @return SalesItem
      */
-    public function setId(SimpleType\guid $id = null)
+    public function setId(SimpleType\Guid $id = null)
     {
         $this->Id = $id;
 
@@ -90,7 +89,7 @@ class SalesItem extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getId()
     {
@@ -98,7 +97,7 @@ class SalesItem extends ComplexTypeAbstract
     }
 
     /**
-     * @param string|null $name
+     * @param  string|null $name
      * @return SalesItem
      */
     public function setName($name)
@@ -117,7 +116,7 @@ class SalesItem extends ComplexTypeAbstract
     }
 
     /**
-     * @param float|null $quantity
+     * @param  float|null $quantity
      * @return SalesItem
      */
     public function setQuantity($quantity)
@@ -136,7 +135,7 @@ class SalesItem extends ComplexTypeAbstract
     }
 
     /**
-     * @param float|null $unitPrice
+     * @param  float|null $unitPrice
      * @return SalesItem
      */
     public function setUnitPrice($unitPrice)
@@ -153,7 +152,4 @@ class SalesItem extends ComplexTypeAbstract
     {
         return $this->UnitPrice;
     }
-
-
 }
-

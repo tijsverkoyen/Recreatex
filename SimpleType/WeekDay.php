@@ -10,21 +10,11 @@ namespace TijsVerkoyen\Recreatex\SimpleType;
 class WeekDay extends SimpleTypeAbstract
 {
     const EVERYDAY = 'EveryDay';
-
     const MONDAY = 'Monday';
-
     const TUESDAY = 'Tuesday';
-
     const WEDNESDAY = 'Wednesday';
-
     const THURSDAY = 'Thursday';
-
     const FRIDAY = 'Friday';
-
     const SATURDAY = 'Saturday';
-
     const SUNDAY = 'Sunday';
-
-
 }
-

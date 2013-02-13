@@ -18,7 +18,7 @@ class ExpositionSalesItem extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $ExpositionId
+     * @var SimpleType\Guid|null $ExpositionId
      */
     protected $ExpositionId;
 
@@ -27,16 +27,15 @@ class ExpositionSalesItem extends ComplexTypeAbstract
      * minOccurs = 0
      * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $ExpositionPeriodId
+     * @var SimpleType\Guid|null $ExpositionPeriodId
      */
     protected $ExpositionPeriodId;
 
-
     /**
-     * @param SimpleType\guid|null $expositionId
+     * @param  SimpleType\Guid|null $expositionId
      * @return ExpositionSalesItem
      */
-    public function setExpositionId(SimpleType\guid $expositionId = null)
+    public function setExpositionId(SimpleType\Guid $expositionId = null)
     {
         $this->ExpositionId = $expositionId;
 
@@ -44,7 +43,7 @@ class ExpositionSalesItem extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getExpositionId()
     {
@@ -52,10 +51,10 @@ class ExpositionSalesItem extends ComplexTypeAbstract
     }
 
     /**
-     * @param SimpleType\guid|null $expositionPeriodId
+     * @param  SimpleType\Guid|null $expositionPeriodId
      * @return ExpositionSalesItem
      */
-    public function setExpositionPeriodId(SimpleType\guid $expositionPeriodId = null)
+    public function setExpositionPeriodId(SimpleType\Guid $expositionPeriodId = null)
     {
         $this->ExpositionPeriodId = $expositionPeriodId;
 
@@ -63,13 +62,10 @@ class ExpositionSalesItem extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid|null
      */
     public function getExpositionPeriodId()
     {
         return $this->ExpositionPeriodId;
     }
-
-
 }
-
