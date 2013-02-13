@@ -119,7 +119,7 @@ class Recreatex extends BaseSoapClient
 		'Guid' => 'TijsVerkoyen\Recreatex\SimpleType\Guid',
 		'ServiceContext' => 'TijsVerkoyen\Recreatex\ComplexType\ServiceContext',
 		'Credential' => 'TijsVerkoyen\Recreatex\ComplexType\Credential',
-		'AuthenticationResult' => 'Recreatex\ComplexType\AuthenticationResult',
+		'AuthenticationResult' => '\TijsVerkoyen\Recreatex\ComplexType\AuthenticationResult',
 		'Person' => 'TijsVerkoyen\Recreatex\ComplexType\Person',
 		'Address' => 'TijsVerkoyen\Recreatex\ComplexType\Address',
 		'PersonName' => 'TijsVerkoyen\Recreatex\ComplexType\PersonName',
@@ -466,9 +466,15 @@ class Recreatex extends BaseSoapClient
 	 * @param Credential $Credentials
 	 * @return AuthenticationResult
 	 */
-	public function AuthenticateUser(ServiceContext $Context, Credential $Credentials)
+	public function AuthenticateUser(Credential $Credentials)
 	{
-		return $this->getSoapClient()->AuthenticateUser(array($Context, $Credentials));
+		$response = $this->getSoapClient()->AuthenticateUser(
+			$this->getServiceContext(),
+			$Credentials
+		);
+
+		$this->isValidResponse($response);
+		return $response;
 	}
 
 	/**

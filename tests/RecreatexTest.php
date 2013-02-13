@@ -57,4 +57,27 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
             $this->recreatex->getUserAgent()
         );
     }
+
+	/**
+	 * Tests Recreatex->AuthenticateUser()
+	 */
+	public function testAuthenticateUser()
+	{
+		$credential = new \TijsVerkoyen\Recreatex\ComplexType\Credential();
+		$credential->setUsername(USERNAME);
+		$credential->setPassword(PASSWORD);
+		$response = $this->recreatex->AuthenticateUser($credential);
+
+		$this->assertNotInternalType('\TijsVerkoyen\Recreatex\ComplexType\AuthenticationResult', $response);
+		$this->assertTrue($response->getHasSucceeded());
+	}
+
+	/**
+	 * Tests Recreatex->IsAvailable()
+	 */
+	public function testIsAvailable()
+	{
+		$response = $this->recreatex->IsAvailable();
+		$this->assertTrue($response);
+	}
 }

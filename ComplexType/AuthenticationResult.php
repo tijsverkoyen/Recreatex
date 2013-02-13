@@ -97,7 +97,5 @@ class AuthenticationResult extends ComplexTypeAbstract
     {
         return $this->PersonId;
     }
-
-
 }
 

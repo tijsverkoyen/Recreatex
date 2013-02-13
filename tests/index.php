@@ -12,13 +12,19 @@ $recreatex = new Recreatex(SERVER, PORT);
 $recreatex->createServiceContext(SHOP_ID, DIVISION_ID, LANGUAGE);
 
 try {
-//	$response = $recreatex->IsAvailable();
+	// AuthenticateUser
+	$credential = new \TijsVerkoyen\Recreatex\ComplexType\Credential();
+	$credential->setUsername(USERNAME);
+	$credential->setPassword(PASSWORD);
+	$response = $recreatex->AuthenticateUser($credential);
 
+	// IsAvailable
+	$response = $recreatex->IsAvailable();
+
+	// FindPerson
 	$criteria = new \TijsVerkoyen\Recreatex\ComplexType\FindPersonsCriteria();
-	$criteria->setEmail('vorst@verkoyen.eu');
-
+	$criteria->setEmail('php-recreatex@verkoyen.eu');
 	$response = $recreatex->FindPerson($criteria);
-
 } catch (Exception $e) {
   var_dump($e);
 }
