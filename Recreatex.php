@@ -613,8 +613,7 @@ class Recreatex extends BaseSoapClient
 
     /**
      * @param  ArticleSearchCriteria $ArticleSearchCriteria
-     * @param  ServiceContext        $Context
-     * @return ArrayOfArticle
+     * @return array
      */
     public function findArticles(ArticleSearchCriteria $ArticleSearchCriteria)
     {
@@ -780,17 +779,19 @@ class Recreatex extends BaseSoapClient
     }
 
     /**
-     * @param  ServiceContext             $Context
      * @param  CultureEventSearchCriteria $CultureEventSearchCriteria
-     * @return ArrayOfCultureEvent
+     * @return array
      */
     public function findCultureEvents(
-        ServiceContext $Context,
         CultureEventSearchCriteria $CultureEventSearchCriteria
     ) {
-        return $this->getSoapClient()->FindCultureEvents(
-            array($Context, $CultureEventSearchCriteria)
+        $response = $this->getSoapClient()->FindCultureEvents(
+            $this->getServiceContext(),
+            $CultureEventSearchCriteria
         );
+        $this->isValidResponse($response);
+
+        return $response->getCultureEvent();
     }
 
     /**

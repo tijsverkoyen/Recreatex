@@ -14,70 +14,42 @@ class Hall extends ComplexTypeAbstract
     const CLASS_NAME = 'Hall';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var Address|null $Address
+     * @var Address
      */
     protected $Address;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfSeatBlock|null $Blocks
+     * @var ArrayOfSeatBlock
      */
     protected $Blocks;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Code
+     * @var string
      */
     protected $Code;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Description
+     * @var string
      */
     protected $Description;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $Id
+     * @var SimpleType\Guid
      */
     protected $Id;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Name
+     * @var string
      */
     protected $Name;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfSeatRow|null $Rows
+     * @var ArrayOfSeatRow
      */
     protected $Rows;
 
     /**
-     * @param  Address|null $address
+     * @param  Address[optional] $address
      * @return Hall
      */
     public function setAddress(Address $address = null)
@@ -88,7 +60,7 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @return Address|null
+     * @return Address
      */
     public function getAddress()
     {
@@ -96,7 +68,7 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfSeatBlock|null $blocks
+     * @param  ArrayOfSeatBlock[optional] $blocks
      * @return Hall
      */
     public function setBlocks(ArrayOfSeatBlock $blocks = null)
@@ -107,7 +79,7 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfSeatBlock|null
+     * @return ArrayOfSeatBlock
      */
     public function getBlocks()
     {
@@ -115,7 +87,7 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $code
+     * @param  string[optional] $code
      * @return Hall
      */
     public function setCode($code)
@@ -126,7 +98,7 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getCode()
     {
@@ -134,7 +106,7 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $description
+     * @param  string[optional] $description
      * @return Hall
      */
     public function setDescription($description)
@@ -145,7 +117,7 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getDescription()
     {
@@ -153,7 +125,7 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return Hall
      */
     public function setId(SimpleType\Guid $id = null)
@@ -164,7 +136,7 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -172,7 +144,7 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $name
+     * @param  string[optional] $name
      * @return Hall
      */
     public function setName($name)
@@ -183,7 +155,7 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -191,7 +163,7 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfSeatRow|null $rows
+     * @param  ArrayOfSeatRow[optional] $rows
      * @return Hall
      */
     public function setRows(ArrayOfSeatRow $rows = null)
@@ -202,7 +174,7 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfSeatRow|null
+     * @return ArrayOfSeatRow
      */
     public function getRows()
     {

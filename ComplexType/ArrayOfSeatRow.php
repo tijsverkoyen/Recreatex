@@ -12,16 +12,12 @@ class ArrayOfSeatRow extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfSeatRow';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = unbounded
-     *
-     * @var SeatRow[] $SeatRow
+     * @var array $SeatRow
      */
     protected $SeatRow = array();
 
     /**
-     * @param  SeatRow[]      $seatRow
+     * @param  array          $seatRow
      * @return ArrayOfSeatRow
      */
     public function setSeatRow(array $seatRow = array())
@@ -32,7 +28,7 @@ class ArrayOfSeatRow extends ComplexTypeAbstract
     }
 
     /**
-     * @return SeatRow[]
+     * @return array
      */
     public function getSeatRow()
     {

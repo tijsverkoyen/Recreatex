@@ -12,16 +12,12 @@ class ArrayOfCultureEventPrice extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfCultureEventPrice';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = unbounded
-     *
-     * @var CultureEventPrice[] $CultureEventPrice
+     * @var array $CultureEventPrice
      */
     protected $CultureEventPrice = array();
 
     /**
-     * @param  CultureEventPrice[]      $cultureEventPrice
+     * @param  array                    $cultureEventPrice
      * @return ArrayOfCultureEventPrice
      */
     public function setCultureEventPrice(array $cultureEventPrice = array())
@@ -32,7 +28,7 @@ class ArrayOfCultureEventPrice extends ComplexTypeAbstract
     }
 
     /**
-     * @return CultureEventPrice[]
+     * @return array
      */
     public function getCultureEventPrice()
     {

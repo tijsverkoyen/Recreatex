@@ -90,6 +90,23 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Tests Recreatex->FindCultureEvents()
+     */
+    public function testFindCultureEvents()
+    {
+        $paging = new \TijsVerkoyen\Recreatex\ComplexType\PagingCriteria();
+        $paging->setPageSize(10);
+        $criteria = new \TijsVerkoyen\Recreatex\ComplexType\CultureEventSearchCriteria();
+        $criteria->setPaging($paging);
+        $response = $this->recreatex->findCultureEvents($criteria);
+
+        $this->assertInternalType('array', $response);
+        foreach ($response as $row) {
+            $this->assertInstanceOf('TijsVerkoyen\Recreatex\ComplexType\CultureEvent', $row);
+        }
+    }
+
+    /**
      * Tests Recreatex->IsAvailable()
      */
     public function testIsAvailable()

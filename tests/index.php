@@ -38,6 +38,13 @@ try {
 //    $criteria->setPaging($paging);
 //    $response = $recreatex->findArticles($criteria);
 
+    // FindCultureEvents
+//    $paging = new \TijsVerkoyen\Recreatex\ComplexType\PagingCriteria();
+//    $paging->setPageSize(10);
+//    $criteria = new \TijsVerkoyen\Recreatex\ComplexType\CultureEventSearchCriteria();
+//    $criteria->setPaging($paging);
+//    $response = $recreatex->findCultureEvents($criteria);
+
     // IsAvailable
 //    $response = $recreatex->isAvailable();
 
