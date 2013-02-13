@@ -54,7 +54,7 @@ use TijsVerkoyen\Recreatex\ComplexType\ArrayOfCategory;
 
 class Recreatex extends BaseSoapClient
 {
-    const DEBUG = false;
+    const DEBUG = true;
     const VERSION = '2.0.0';
 
     /**
@@ -368,8 +368,15 @@ class Recreatex extends BaseSoapClient
                 'exceptions' => false,
                 'connection_timeout' => $this->getTimeout(),
                 'user_agent' => $this->getUserAgent(),
-                'cache_wsdl' => WSDL_CACHE_BOTH,
+                'cache_wsdl' => (self::DEBUG) ? WSDL_CACHE_NONE : WSDL_CACHE_BOTH,
                 'classmap' => $this->classMaps,
+                'typemap' => array(
+                    array(
+                        'type_ns' => 'http://schemas.microsoft.com/2003/10/Serialization/',
+                        'type_name' => 'guid',
+                        'from_xml' => array('TijsVerkoyen\Recreatex\SimpleType\Guid', 'fromXml'),
+                    ),
+                ),
             );
 
             $connectionString = $this->getServer() . ':' . $this->getPort();
@@ -474,7 +481,6 @@ class Recreatex extends BaseSoapClient
             $this->getServiceContext(),
             $Credentials
         );
-
         $this->isValidResponse($response);
 
         return $response;

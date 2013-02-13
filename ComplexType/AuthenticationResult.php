@@ -23,19 +23,11 @@ class AuthenticationResult extends ComplexTypeAbstract
     protected $Error;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
      * @var boolean|null $HasSucceeded
      */
     protected $HasSucceeded;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
      * @var SimpleType\Guid|null $PersonId
      */
     protected $PersonId;

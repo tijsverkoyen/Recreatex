@@ -68,7 +68,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
         $credential->setPassword(PASSWORD);
         $response = $this->recreatex->authenticateUser($credential);
 
-        $this->assertNotInternalType('\TijsVerkoyen\Recreatex\ComplexType\AuthenticationResult', $response);
+        $this->assertInstanceOf('\TijsVerkoyen\Recreatex\ComplexType\AuthenticationResult', $response);
         $this->assertTrue($response->getHasSucceeded());
     }
 
