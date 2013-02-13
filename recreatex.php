@@ -297,14 +297,14 @@ class Recreatex extends BaseSoapClient
         }
     }
 
-	/**
-	 * Create a service context
-	 *
-	 * @param string[optional] $shopId
-	 * @param string[optional] $divisionId
-	 * @param string[optional] $language
-	 */
-	public function createServiceContext($shopId = null, $divisionId = null, $language = null)
+    /**
+     * Create a service context
+     *
+     * @param string[optional] $shopId
+     * @param string[optional] $divisionId
+     * @param string[optional] $language
+     */
+    public function createServiceContext($shopId = null, $divisionId = null, $language = null)
     {
         $this->serviceContext = new ServiceContext();
         if ($shopId !== null) {
@@ -572,9 +572,15 @@ class Recreatex extends BaseSoapClient
      * @param  ServiceContext         $Context
      * @return ArrayOfActivity
      */
-    public function findActivities(ActivitySearchCriteria $ActivitySearchCriteria, ServiceContext $Context)
+    public function findActivities(ActivitySearchCriteria $ActivitySearchCriteria)
     {
-        return $this->getSoapClient()->FindActivities(array($ActivitySearchCriteria, $Context));
+        $response = $this->getSoapClient()->FindActivities(
+            $ActivitySearchCriteria,
+            $this->getServiceContext()
+        );
+        $this->isValidResponse($response);
+
+        return $response;
     }
 
     /**

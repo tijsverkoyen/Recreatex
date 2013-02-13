@@ -20,6 +20,12 @@ try {
 //    $response = $recreatex->authenticateUser($credential);
 //    $response = $recreatex->authenticateUser(new Credential());
 
+    // FindActivities   @remark: untested, because my RCX-instance hasn't any activities
+//    $paging = new \TijsVerkoyen\Recreatex\ComplexType\PagingCriteria();
+//    $paging->setPageSize(10);
+//    $criteria = new \TijsVerkoyen\Recreatex\ComplexType\ActivitySearchCriteria();
+//    $criteria->setPaging($paging);
+//    $response = $recreatex->findActivities($criteria);
 
     // IsAvailable
 //    $response = $recreatex->isAvailable();
