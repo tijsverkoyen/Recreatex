@@ -27,6 +27,10 @@ try {
 //    $criteria->setPaging($paging);
 //    $response = $recreatex->findActivities($criteria);
 
+    // FindArticleCategories   @remark: untested, because my RCX-instance hasn't any article categories
+//    $criteria = new \TijsVerkoyen\Recreatex\ComplexType\ArticleCategorySearchCriteria();
+//    $response = $recreatex->findArticleCategories($criteria);
+
     // IsAvailable
 //    $response = $recreatex->isAvailable();
 

@@ -12,11 +12,7 @@ class ArrayOfArticleCategory extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfArticleCategory';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = unbounded
-     *
-     * @var ArticleCategory[] $ArticleCategory
+     * @var array
      */
     protected $ArticleCategory = array();
 
@@ -32,7 +28,7 @@ class ArrayOfArticleCategory extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArticleCategory[]
+     * @return array
      */
     public function getArticleCategory()
     {
