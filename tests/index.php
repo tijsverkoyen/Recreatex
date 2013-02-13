@@ -20,12 +20,13 @@ try {
 //    $response = $recreatex->authenticateUser($credential);
 //    $response = $recreatex->authenticateUser(new Credential());
 
+
     // IsAvailable
 //    $response = $recreatex->isAvailable();
 
     // FindPerson
 //    $criteria = new \TijsVerkoyen\Recreatex\ComplexType\FindPersonsCriteria();
-//    $criteria->setEmail('php-recreatex@verkoyen.eu');
+//    $criteria->setEmail('vorst@verkoyen.eu');
 //    $response = $recreatex->findPerson($criteria);
 } catch (Exception $e) {
     var_dump($e);

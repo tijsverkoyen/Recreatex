@@ -297,11 +297,24 @@ class Recreatex extends BaseSoapClient
         }
     }
 
-    public function createServiceContext($shopId = null, $divisionId = null, $language = null)
+	/**
+	 * Create a service context
+	 *
+	 * @param string[optional] $shopId
+	 * @param string[optional] $divisionId
+	 * @param string[optional] $language
+	 */
+	public function createServiceContext($shopId = null, $divisionId = null, $language = null)
     {
         $this->serviceContext = new ServiceContext();
         if ($shopId !== null) {
             $this->serviceContext->setShopId(new Guid($shopId));
+        }
+        if ($divisionId !== null) {
+            $this->serviceContext->setDivisionId(new Guid($divisionId));
+        }
+        if ($language !== null) {
+            $this->serviceContext->setLanguage($language);
         }
     }
 
