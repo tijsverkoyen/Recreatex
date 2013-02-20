@@ -29,7 +29,7 @@ class ExpositionType extends ComplexTypeAbstract
     protected $Name;
 
     /**
-     * @param  string|null    $description
+     * @param  string[optional] $description
      * @return ExpositionType
      */
     public function setDescription($description)
@@ -40,7 +40,7 @@ class ExpositionType extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getDescription()
     {
@@ -48,7 +48,7 @@ class ExpositionType extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return ExpositionType
      */
     public function setId(SimpleType\Guid $id = null)
@@ -59,7 +59,7 @@ class ExpositionType extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -67,7 +67,7 @@ class ExpositionType extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null    $name
+     * @param  string[optional] $name
      * @return ExpositionType
      */
     public function setName($name)
@@ -78,7 +78,7 @@ class ExpositionType extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getName()
     {

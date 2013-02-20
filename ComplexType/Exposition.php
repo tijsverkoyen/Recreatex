@@ -87,7 +87,7 @@ class Exposition extends ComplexTypeAbstract
     protected $VAT;
 
     /**
-     * @param  ArrayOfAudience|null $audiences
+     * @param  ArrayOfAudience[optional] $audiences
      * @return Exposition
      */
     public function setAudiences(ArrayOfAudience $audiences = null)
@@ -98,7 +98,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfAudience|null
+     * @return ArrayOfAudience
      */
     public function getAudiences()
     {
@@ -106,7 +106,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $code
+     * @param  string[optional] $code
      * @return Exposition
      */
     public function setCode($code)
@@ -117,7 +117,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getCode()
     {
@@ -125,7 +125,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $description
+     * @param  string[optional] $description
      * @return Exposition
      */
     public function setDescription($description)
@@ -136,7 +136,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getDescription()
     {
@@ -144,7 +144,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null $divisionId
+     * @param  SimpleType\Guid[optional] $divisionId
      * @return Exposition
      */
     public function setDivisionId(SimpleType\Guid $divisionId = null)
@@ -155,7 +155,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getDivisionId()
     {
@@ -163,7 +163,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ExpositionType|null $expositionType
+     * @param  ExpositionType[optional] $expositionType
      * @return Exposition
      */
     public function setExpositionType(ExpositionType $expositionType = null)
@@ -174,7 +174,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @return ExpositionType|null
+     * @return ExpositionType
      */
     public function getExpositionType()
     {
@@ -182,7 +182,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $from
+     * @param  string[optional] $from
      * @return Exposition
      */
     public function setFrom($from)
@@ -193,7 +193,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getFrom()
     {
@@ -201,7 +201,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return Exposition
      */
     public function setId(SimpleType\Guid $id = null)
@@ -212,7 +212,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -220,7 +220,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param  Picture|null $image
+     * @param  Picture[optional] $image
      * @return Exposition
      */
     public function setImage(Picture $image = null)
@@ -231,7 +231,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @return Picture|null
+     * @return Picture
      */
     public function getImage()
     {
@@ -239,7 +239,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $location
+     * @param  string[optional] $location
      * @return Exposition
      */
     public function setLocation($location)
@@ -250,7 +250,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getLocation()
     {
@@ -258,7 +258,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $name
+     * @param  string[optional] $name
      * @return Exposition
      */
     public function setName($name)
@@ -269,7 +269,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -277,7 +277,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfExpositionPeriod|null $periods
+     * @param  ArrayOfExpositionPeriod[optional] $periods
      * @return Exposition
      */
     public function setPeriods(ArrayOfExpositionPeriod $periods = null)
@@ -288,7 +288,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfExpositionPeriod|null
+     * @return ArrayOfExpositionPeriod
      */
     public function getPeriods()
     {
@@ -296,7 +296,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfExpositionPrice|null $prices
+     * @param  ArrayOfExpositionPrice[optional] $prices
      * @return Exposition
      */
     public function setPrices(ArrayOfExpositionPrice $prices = null)
@@ -307,7 +307,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfExpositionPrice|null
+     * @return ArrayOfExpositionPrice
      */
     public function getPrices()
     {
@@ -315,7 +315,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $until
+     * @param  string[optional] $until
      * @return Exposition
      */
     public function setUntil($until)
@@ -326,7 +326,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getUntil()
     {
@@ -334,7 +334,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param  Vat|null   $vAT
+     * @param  Vat[optional] $vAT
      * @return Exposition
      */
     public function setVAT(Vat $vAT = null)
@@ -345,7 +345,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @return Vat|null
+     * @return Vat
      */
     public function getVAT()
     {

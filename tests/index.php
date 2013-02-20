@@ -45,13 +45,19 @@ try {
 //    $criteria->setPaging($paging);
 //    $response = $recreatex->findCultureEvents($criteria);
 
-	// FindCultureReservations
+    // FindCultureReservations
 //    $paging = new \TijsVerkoyen\Recreatex\ComplexType\PagingCriteria();
 //    $paging->setPageSize(10);
 //    $criteria = new \TijsVerkoyen\Recreatex\ComplexType\CultureReservationSearchCriteria();
 //    $criteria->setPersonId(new \TijsVerkoyen\Recreatex\SimpleType\Guid('65c4e699-ddd8-4fb4-997f-d1c54e09c1ec'));
 //    $criteria->setPaging($paging);
 //    $response = $recreatex->findCultureReservations($criteria);
+
+    // FindExpositions  @remark: untested, because my RCX-instance hasn't any expositions
+//    $paging = new \TijsVerkoyen\Recreatex\ComplexType\PagingCriteria();
+//    $paging->setPageSize(10);
+//    $criteria->setPaging($paging);
+//    $response = $recreatex->findExpositions($criteria);
 
     // IsAvailable
 //    $response = $recreatex->isAvailable();

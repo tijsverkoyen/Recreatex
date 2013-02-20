@@ -29,7 +29,7 @@ class Vat extends ComplexTypeAbstract
     protected $Value;
 
     /**
-     * @param  SimpleType\Guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return Vat
      */
     public function setId(SimpleType\Guid $id = null)
@@ -40,7 +40,7 @@ class Vat extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -48,7 +48,7 @@ class Vat extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $name
+     * @param  string[optional] $name
      * @return Vat
      */
     public function setName($name)
@@ -59,7 +59,7 @@ class Vat extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -67,7 +67,7 @@ class Vat extends ComplexTypeAbstract
     }
 
     /**
-     * @param  float|null $value
+     * @param  float[optional] $value
      * @return Vat
      */
     public function setValue($value)
@@ -78,7 +78,7 @@ class Vat extends ComplexTypeAbstract
     }
 
     /**
-     * @return float|null
+     * @return float
      */
     public function getValue()
     {

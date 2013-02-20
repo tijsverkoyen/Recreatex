@@ -650,17 +650,19 @@ class Recreatex extends BaseSoapClient
     }
 
     /**
-     * @param  ServiceContext           $Context
      * @param  ExpositionSearchCriteria $ExpositionSearchCriteria
-     * @return ArrayOfExposition
+     * @return array
      */
     public function findExpositions(
-        ServiceContext $Context,
         ExpositionSearchCriteria $ExpositionSearchCriteria
     ) {
-        return $this->getSoapClient()->FindExpositions(
-            array($Context, $ExpositionSearchCriteria)
+        $response = $this->getSoapClient()->FindExpositions(
+            $this->getServiceContext(),
+            $ExpositionSearchCriteria
         );
+        $this->isValidResponse($response);
+
+        return $response->getExposition();
     }
 
     /**
