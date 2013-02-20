@@ -17,7 +17,7 @@ class ArrayOfActivityOption extends ComplexTypeAbstract
     protected $ActivityOption = array();
 
     /**
-     * @param  array      $activityOption
+     * @param  array                 $activityOption
      * @return ArrayOfActivityOption
      */
     public function setActivityOption(array $activityOption = array())

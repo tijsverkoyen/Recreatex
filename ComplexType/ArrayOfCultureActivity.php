@@ -17,7 +17,7 @@ class ArrayOfCultureActivity extends ComplexTypeAbstract
     protected $CultureActivity = array();
 
     /**
-     * @param  array      $cultureActivity
+     * @param  array                  $cultureActivity
      * @return ArrayOfCultureActivity
      */
     public function setCultureActivity(array $cultureActivity = array())

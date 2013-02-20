@@ -17,7 +17,7 @@ class ArrayOfSeatAllocationPerBlockSummary extends ComplexTypeAbstract
     protected $SeatAllocationPerBlockSummary = array();
 
     /**
-     * @param  array      $seatAllocationPerBlockSummary
+     * @param  array                                $seatAllocationPerBlockSummary
      * @return ArrayOfSeatAllocationPerBlockSummary
      */
     public function setSeatAllocationPerBlockSummary(array $seatAllocationPerBlockSummary = array())

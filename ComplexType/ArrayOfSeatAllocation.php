@@ -17,7 +17,7 @@ class ArrayOfSeatAllocation extends ComplexTypeAbstract
     protected $SeatAllocation = array();
 
     /**
-     * @param  array      $seatAllocation
+     * @param  array                 $seatAllocation
      * @return ArrayOfSeatAllocation
      */
     public function setSeatAllocation(array $seatAllocation = array())

@@ -17,7 +17,7 @@ class ArrayOfBasketItemValidationResult extends ComplexTypeAbstract
     protected $BasketItemValidationResult = array();
 
     /**
-     * @param  array      $basketItemValidationResult
+     * @param  array                             $basketItemValidationResult
      * @return ArrayOfBasketItemValidationResult
      */
     public function setBasketItemValidationResult(array $basketItemValidationResult = array())

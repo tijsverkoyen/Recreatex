@@ -17,7 +17,7 @@ class ArrayOfSeat extends ComplexTypeAbstract
     protected $Seat = array();
 
     /**
-     * @param  array      $seat
+     * @param  array       $seat
      * @return ArrayOfSeat
      */
     public function setSeat(array $seat = array())

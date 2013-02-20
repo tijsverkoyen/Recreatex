@@ -17,7 +17,7 @@ class ArrayOfAudience extends ComplexTypeAbstract
     protected $Audience = array();
 
     /**
-     * @param  array      $audience
+     * @param  array           $audience
      * @return ArrayOfAudience
      */
     public function setAudience(array $audience = array())

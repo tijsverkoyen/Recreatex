@@ -17,7 +17,7 @@ class ArrayOfActivityPartReservation extends ComplexTypeAbstract
     protected $ActivityPartReservation = array();
 
     /**
-     * @param  array      $activityPartReservation
+     * @param  array                          $activityPartReservation
      * @return ArrayOfActivityPartReservation
      */
     public function setActivityPartReservation(array $activityPartReservation = array())

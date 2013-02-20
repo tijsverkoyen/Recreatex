@@ -17,7 +17,7 @@ class ArrayOfLockTicket extends ComplexTypeAbstract
     protected $LockTicket = array();
 
     /**
-     * @param  array      $lockTicket
+     * @param  array             $lockTicket
      * @return ArrayOfLockTicket
      */
     public function setLockTicket(array $lockTicket = array())

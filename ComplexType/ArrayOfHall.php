@@ -17,7 +17,7 @@ class ArrayOfHall extends ComplexTypeAbstract
     protected $Hall = array();
 
     /**
-     * @param  array      $hall
+     * @param  array       $hall
      * @return ArrayOfHall
      */
     public function setHall(array $hall = array())

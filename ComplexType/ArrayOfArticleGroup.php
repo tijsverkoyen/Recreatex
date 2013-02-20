@@ -17,7 +17,7 @@ class ArrayOfArticleGroup extends ComplexTypeAbstract
     protected $ArticleGroup = array();
 
     /**
-     * @param  array      $articleGroup
+     * @param  array               $articleGroup
      * @return ArrayOfArticleGroup
      */
     public function setArticleGroup(array $articleGroup = array())

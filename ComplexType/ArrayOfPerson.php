@@ -17,7 +17,7 @@ class ArrayOfPerson extends ComplexTypeAbstract
     protected $Person = array();
 
     /**
-     * @param  array      $person
+     * @param  array         $person
      * @return ArrayOfPerson
      */
     public function setPerson(array $person = array())

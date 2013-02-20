@@ -17,7 +17,7 @@ class ArrayOfPriceGroup extends ComplexTypeAbstract
     protected $PriceGroup = array();
 
     /**
-     * @param  array      $priceGroup
+     * @param  array             $priceGroup
      * @return ArrayOfPriceGroup
      */
     public function setPriceGroup(array $priceGroup = array())

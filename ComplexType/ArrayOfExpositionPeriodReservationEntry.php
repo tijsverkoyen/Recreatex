@@ -17,7 +17,7 @@ class ArrayOfExpositionPeriodReservationEntry extends ComplexTypeAbstract
     protected $ExpositionPeriodReservationEntry = array();
 
     /**
-     * @param  array      $expositionPeriodReservationEntry
+     * @param  array                                   $expositionPeriodReservationEntry
      * @return ArrayOfExpositionPeriodReservationEntry
      */
     public function setExpositionPeriodReservationEntry(array $expositionPeriodReservationEntry = array())

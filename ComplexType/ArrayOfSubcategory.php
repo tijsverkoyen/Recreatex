@@ -17,7 +17,7 @@ class ArrayOfSubcategory extends ComplexTypeAbstract
     protected $Subcategory = array();
 
     /**
-     * @param  array      $subcategory
+     * @param  array              $subcategory
      * @return ArrayOfSubcategory
      */
     public function setSubcategory(array $subcategory = array())

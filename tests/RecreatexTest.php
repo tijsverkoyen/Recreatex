@@ -107,6 +107,24 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Tests Recreatex->FindCultureReservations()
+     */
+    public function testFindCultureReservations()
+    {
+        $paging = new \TijsVerkoyen\Recreatex\ComplexType\PagingCriteria();
+        $paging->setPageSize(10);
+        $criteria = new \TijsVerkoyen\Recreatex\ComplexType\CultureReservationSearchCriteria();
+        $criteria->setPersonId(new \TijsVerkoyen\Recreatex\SimpleType\Guid('65c4e699-ddd8-4fb4-997f-d1c54e09c1ec'));
+        $criteria->setPaging($paging);
+        $response = $this->recreatex->findCultureReservations($criteria);
+
+        $this->assertInternalType('array', $response);
+        foreach ($response as $row) {
+            $this->assertInstanceOf('TijsVerkoyen\Recreatex\ComplexType\CultureReservation', $row);
+        }
+    }
+
+    /**
      * Tests Recreatex->IsAvailable()
      */
     public function testIsAvailable()

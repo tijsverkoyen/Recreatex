@@ -17,7 +17,7 @@ class ArrayOfBasketPaymentMethod extends ComplexTypeAbstract
     protected $BasketPaymentMethod = array();
 
     /**
-     * @param  array      $basketPaymentMethod
+     * @param  array                      $basketPaymentMethod
      * @return ArrayOfBasketPaymentMethod
      */
     public function setBasketPaymentMethod(array $basketPaymentMethod = array())

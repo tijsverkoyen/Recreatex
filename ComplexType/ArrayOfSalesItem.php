@@ -17,7 +17,7 @@ class ArrayOfSalesItem extends ComplexTypeAbstract
     protected $SalesItem = array();
 
     /**
-     * @param  array      $salesItem
+     * @param  array            $salesItem
      * @return ArrayOfSalesItem
      */
     public function setSalesItem(array $salesItem = array())

@@ -17,7 +17,7 @@ class ArrayOfArticleOptionValue extends ComplexTypeAbstract
     protected $ArticleOptionValue = array();
 
     /**
-     * @param  array      $articleOptionValue
+     * @param  array                     $articleOptionValue
      * @return ArrayOfArticleOptionValue
      */
     public function setArticleOptionValue(array $articleOptionValue = array())

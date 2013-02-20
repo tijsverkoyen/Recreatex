@@ -17,7 +17,7 @@ class ArrayOfExpositionPeriod extends ComplexTypeAbstract
     protected $ExpositionPeriod = array();
 
     /**
-     * @param  array      $expositionPeriod
+     * @param  array                   $expositionPeriod
      * @return ArrayOfExpositionPeriod
      */
     public function setExpositionPeriod(array $expositionPeriod = array())

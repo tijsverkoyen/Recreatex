@@ -17,7 +17,7 @@ class ArrayOfActivity extends ComplexTypeAbstract
     protected $Activity = array();
 
     /**
-     * @param  array      $activity
+     * @param  array           $activity
      * @return ArrayOfActivity
      */
     public function setActivity(array $activity = array())

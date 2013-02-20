@@ -17,7 +17,7 @@ class ArrayOfCultureEventReservationEntry extends ComplexTypeAbstract
     protected $CultureEventReservationEntry = array();
 
     /**
-     * @param  array      $cultureEventReservationEntry
+     * @param  array                               $cultureEventReservationEntry
      * @return ArrayOfCultureEventReservationEntry
      */
     public function setCultureEventReservationEntry(array $cultureEventReservationEntry = array())

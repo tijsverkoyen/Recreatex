@@ -17,7 +17,7 @@ class ArrayOfExposition extends ComplexTypeAbstract
     protected $Exposition = array();
 
     /**
-     * @param  array      $exposition
+     * @param  array             $exposition
      * @return ArrayOfExposition
      */
     public function setExposition(array $exposition = array())

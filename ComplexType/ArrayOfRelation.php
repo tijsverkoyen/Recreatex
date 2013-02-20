@@ -17,7 +17,7 @@ class ArrayOfRelation extends ComplexTypeAbstract
     protected $Relation = array();
 
     /**
-     * @param  array      $relation
+     * @param  array           $relation
      * @return ArrayOfRelation
      */
     public function setRelation(array $relation = array())

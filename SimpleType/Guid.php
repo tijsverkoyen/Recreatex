@@ -17,6 +17,7 @@ class Guid extends SimpleTypeAbstract
     public static function fromXml($var)
     {
         $var = strip_tags($var);
+
         return new Guid($var);
     }
 }

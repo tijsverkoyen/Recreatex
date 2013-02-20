@@ -17,7 +17,7 @@ class ArrayOfCultureEventCategory extends ComplexTypeAbstract
     protected $CultureEventCategory = array();
 
     /**
-     * @param  array      $cultureEventCategory
+     * @param  array                       $cultureEventCategory
      * @return ArrayOfCultureEventCategory
      */
     public function setCultureEventCategory(array $cultureEventCategory = array())

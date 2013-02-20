@@ -17,7 +17,7 @@ class ArrayOfArticleCategory extends ComplexTypeAbstract
     protected $ArticleCategory = array();
 
     /**
-     * @param  array      $articleCategory
+     * @param  array                  $articleCategory
      * @return ArrayOfArticleCategory
      */
     public function setArticleCategory(array $articleCategory = array())

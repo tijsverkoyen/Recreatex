@@ -832,17 +832,19 @@ class Recreatex extends BaseSoapClient
     }
 
     /**
-     * @param  ServiceContext                   $Context
      * @param  CultureReservationSearchCriteria $CultureReservationSearchCriteria
-     * @return ArrayOfCultureReservation
+     * @return array
      */
     public function findCultureReservations(
-        ServiceContext $Context,
         CultureReservationSearchCriteria $CultureReservationSearchCriteria
     ) {
-        return $this->getSoapClient()->FindCultureReservations(
-            array($Context, $CultureReservationSearchCriteria)
+        $response = $this->getSoapClient()->FindCultureReservations(
+            $this->getServiceContext(),
+            $CultureReservationSearchCriteria
         );
+        $this->isValidResponse($response);
+
+        return $response->getCultureReservation();
     }
 
     /**

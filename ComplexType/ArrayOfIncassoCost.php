@@ -17,7 +17,7 @@ class ArrayOfIncassoCost extends ComplexTypeAbstract
     protected $IncassoCost = array();
 
     /**
-     * @param  array      $incassoCost
+     * @param  array              $incassoCost
      * @return ArrayOfIncassoCost
      */
     public function setIncassoCost(array $incassoCost = array())

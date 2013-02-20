@@ -17,7 +17,7 @@ class ArrayOfArticle extends ComplexTypeAbstract
     protected $Article = array();
 
     /**
-     * @param  array      $article
+     * @param  array          $article
      * @return ArrayOfArticle
      */
     public function setArticle(array $article = array())

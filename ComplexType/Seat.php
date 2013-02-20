@@ -44,7 +44,7 @@ class Seat extends ComplexTypeAbstract
     protected $Range;
 
     /**
-     * @param  string|null $code
+     * @param  string[optional] $code
      * @return Seat
      */
     public function setCode($code)
@@ -55,7 +55,7 @@ class Seat extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getCode()
     {
@@ -63,7 +63,7 @@ class Seat extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return Seat
      */
     public function setId(SimpleType\Guid $id = null)
@@ -74,7 +74,7 @@ class Seat extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -82,7 +82,7 @@ class Seat extends ComplexTypeAbstract
     }
 
     /**
-     * @param  Location|null $location
+     * @param  Location[optional] $location
      * @return Seat
      */
     public function setLocation(Location $location = null)
@@ -93,7 +93,7 @@ class Seat extends ComplexTypeAbstract
     }
 
     /**
-     * @return Location|null
+     * @return Location
      */
     public function getLocation()
     {
@@ -101,7 +101,7 @@ class Seat extends ComplexTypeAbstract
     }
 
     /**
-     * @param  integer|null $sequence
+     * @param  integer[optional] $sequence
      * @return Seat
      */
     public function setSequence($sequence)
@@ -112,7 +112,7 @@ class Seat extends ComplexTypeAbstract
     }
 
     /**
-     * @return integer|null
+     * @return integer
      */
     public function getSequence()
     {
@@ -120,7 +120,7 @@ class Seat extends ComplexTypeAbstract
     }
 
     /**
-     * @param  integer|null $number
+     * @param  integer[optional] $number
      * @return Seat
      */
     public function setNumber($number)
@@ -131,7 +131,7 @@ class Seat extends ComplexTypeAbstract
     }
 
     /**
-     * @return integer|null
+     * @return integer
      */
     public function getNumber()
     {
@@ -139,7 +139,7 @@ class Seat extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SeatRange|null $range
+     * @param  SeatRange[optional] $range
      * @return Seat
      */
     public function setRange(SeatRange $range = null)
@@ -150,7 +150,7 @@ class Seat extends ComplexTypeAbstract
     }
 
     /**
-     * @return SeatRange|null
+     * @return SeatRange
      */
     public function getRange()
     {

@@ -17,7 +17,7 @@ class ArrayOfExpositionPrice extends ComplexTypeAbstract
     protected $ExpositionPrice = array();
 
     /**
-     * @param  array      $expositionPrice
+     * @param  array                  $expositionPrice
      * @return ArrayOfExpositionPrice
      */
     public function setExpositionPrice(array $expositionPrice = array())

@@ -17,7 +17,7 @@ class ArrayOfstring extends ComplexTypeAbstract
     protected $string = array();
 
     /**
-     * @param  array      $string
+     * @param  array         $string
      * @return ArrayOfstring
      */
     public function setString(array $string = array())

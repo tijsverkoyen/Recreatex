@@ -17,7 +17,7 @@ class ArrayOfValidationResult extends ComplexTypeAbstract
     protected $ValidationResult = array();
 
     /**
-     * @param  array      $validationResult
+     * @param  array                   $validationResult
      * @return ArrayOfValidationResult
      */
     public function setValidationResult(array $validationResult = array())

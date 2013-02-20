@@ -17,7 +17,7 @@ class ArrayOfCultureReservationSeat extends ComplexTypeAbstract
     protected $CultureReservationSeat = array();
 
     /**
-     * @param  array      $cultureReservationSeat
+     * @param  array                         $cultureReservationSeat
      * @return ArrayOfCultureReservationSeat
      */
     public function setCultureReservationSeat(array $cultureReservationSeat = array())

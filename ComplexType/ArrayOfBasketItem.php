@@ -17,7 +17,7 @@ class ArrayOfBasketItem extends ComplexTypeAbstract
     protected $BasketItem = array();
 
     /**
-     * @param  array      $basketItem
+     * @param  array             $basketItem
      * @return ArrayOfBasketItem
      */
     public function setBasketItem(array $basketItem = array())
