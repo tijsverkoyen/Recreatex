@@ -22,12 +22,12 @@ class PersonSettings extends ComplexTypeAbstract
     protected $SubscribeMailingList;
 
     /**
-     * @var ArrayOfPersonPriceGroup|null $PriceGroups
+     * @var ArrayOfPersonPriceGroup[optional] $PriceGroups
      */
     protected $PriceGroups;
 
     /**
-     * @param  ArrayOfSubcategory|null $subcategories
+     * @param  ArrayOfSubcategory[optional] $subcategories
      * @return PersonSettings
      */
     public function setSubcategories(ArrayOfSubcategory $subcategories = null)
@@ -38,7 +38,7 @@ class PersonSettings extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfSubcategory|null
+     * @return ArrayOfSubcategory
      */
     public function getSubcategories()
     {
@@ -46,7 +46,7 @@ class PersonSettings extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null   $subscribeMailingList
+     * @param  boolean[optional] $subscribeMailingList
      * @return PersonSettings
      */
     public function setSubscribeMailingList($subscribeMailingList)
@@ -57,7 +57,7 @@ class PersonSettings extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getSubscribeMailingList()
     {
@@ -65,7 +65,7 @@ class PersonSettings extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfPersonPriceGroup|null $priceGroups
+     * @param  ArrayOfPersonPriceGroup[optional] $priceGroups
      * @return PersonSettings
      */
     public function setPriceGroups(ArrayOfPersonPriceGroup $priceGroups = null)
@@ -76,7 +76,7 @@ class PersonSettings extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfPersonPriceGroup|null
+     * @return ArrayOfPersonPriceGroup
      */
     public function getPriceGroups()
     {

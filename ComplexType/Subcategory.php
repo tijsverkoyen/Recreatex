@@ -39,7 +39,7 @@ class Subcategory extends ComplexTypeAbstract
     protected $Name;
 
     /**
-     * @param  Category|null $category
+     * @param  Category[optional] $category
      * @return Subcategory
      */
     public function setCategory(Category $category = null)
@@ -50,7 +50,7 @@ class Subcategory extends ComplexTypeAbstract
     }
 
     /**
-     * @return Category|null
+     * @return Category
      */
     public function getCategory()
     {
@@ -58,7 +58,7 @@ class Subcategory extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null $categoryId
+     * @param  SimpleType\Guid[optional] $categoryId
      * @return Subcategory
      */
     public function setCategoryId(SimpleType\Guid $categoryId = null)
@@ -69,7 +69,7 @@ class Subcategory extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getCategoryId()
     {
@@ -77,7 +77,7 @@ class Subcategory extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $code
+     * @param  string[optional] $code
      * @return Subcategory
      */
     public function setCode($code)
@@ -88,7 +88,7 @@ class Subcategory extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getCode()
     {
@@ -96,7 +96,7 @@ class Subcategory extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return Subcategory
      */
     public function setId(SimpleType\Guid $id = null)
@@ -107,7 +107,7 @@ class Subcategory extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -115,7 +115,7 @@ class Subcategory extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $name
+     * @param  string[optional] $name
      * @return Subcategory
      */
     public function setName($name)
@@ -126,7 +126,7 @@ class Subcategory extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getName()
     {

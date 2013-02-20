@@ -159,6 +159,18 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Tests Recreatex->FindPerson()
+     */
+    public function testFindPerson()
+    {
+        $criteria = new \TijsVerkoyen\Recreatex\ComplexType\FindPersonsCriteria();
+        $criteria->setEmail('vorst@verkoyen.eu');
+        $response = $this->recreatex->findPerson($criteria);
+
+        $this->assertInstanceOf('TijsVerkoyen\Recreatex\ComplexType\Person', $response);
+    }
+
+    /**
      * Tests Recreatex->IsAvailable()
      */
     public function testIsAvailable()

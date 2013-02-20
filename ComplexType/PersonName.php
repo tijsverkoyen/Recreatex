@@ -27,7 +27,7 @@ class PersonName extends ComplexTypeAbstract
     protected $Middle;
 
     /**
-     * @param  string|null $first
+     * @param  string[optional] $first
      * @return PersonName
      */
     public function setFirst($first)
@@ -38,7 +38,7 @@ class PersonName extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getFirst()
     {
@@ -46,7 +46,7 @@ class PersonName extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $last
+     * @param  string[optional] $last
      * @return PersonName
      */
     public function setLast($last)
@@ -57,7 +57,7 @@ class PersonName extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getLast()
     {
@@ -65,7 +65,7 @@ class PersonName extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $middle
+     * @param  string[optional] $middle
      * @return PersonName
      */
     public function setMiddle($middle)
@@ -76,7 +76,7 @@ class PersonName extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getMiddle()
     {

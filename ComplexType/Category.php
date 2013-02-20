@@ -34,7 +34,7 @@ class Category extends ComplexTypeAbstract
     protected $Subcategories;
 
     /**
-     * @param  string|null $code
+     * @param  string[optional] $code
      * @return Category
      */
     public function setCode($code)
@@ -45,7 +45,7 @@ class Category extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getCode()
     {
@@ -53,7 +53,7 @@ class Category extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return Category
      */
     public function setId(SimpleType\Guid $id = null)
@@ -64,7 +64,7 @@ class Category extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -72,7 +72,7 @@ class Category extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $name
+     * @param  string[optional] $name
      * @return Category
      */
     public function setName($name)
@@ -83,7 +83,7 @@ class Category extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -91,7 +91,7 @@ class Category extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfSubcategory|null $subcategories
+     * @param  ArrayOfSubcategory[optional] $subcategories
      * @return Category
      */
     public function setSubcategories(ArrayOfSubcategory $subcategories = null)
@@ -102,7 +102,7 @@ class Category extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfSubcategory|null
+     * @return ArrayOfSubcategory
      */
     public function getSubcategories()
     {

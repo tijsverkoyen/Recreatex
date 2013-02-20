@@ -19,12 +19,12 @@ class PersonPriceGroup extends ComplexTypeAbstract
     protected $Id;
 
     /**
-     * @var SimpleType\PersonPriceGroupType|null $Type
+     * @var SimpleType\PersonPriceGroupType[optional] $Type
      */
     protected $Type;
 
     /**
-     * @var PriceGroup|null $PriceGroup
+     * @var PriceGroup[optional] $PriceGroup
      */
     protected $PriceGroup;
 
@@ -39,7 +39,7 @@ class PersonPriceGroup extends ComplexTypeAbstract
     protected $EndDate;
 
     /**
-     * @var SimpleType\WeekDay|null $WeekDay
+     * @var SimpleType\WeekDay[optional] $WeekDay
      */
     protected $WeekDay;
 
@@ -54,7 +54,7 @@ class PersonPriceGroup extends ComplexTypeAbstract
     protected $Till;
 
     /**
-     * @param  SimpleType\Guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return PersonPriceGroup
      */
     public function setId(SimpleType\Guid $id = null)
@@ -65,7 +65,7 @@ class PersonPriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -73,7 +73,7 @@ class PersonPriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\PersonPriceGroupType|null $type
+     * @param  SimpleType\PersonPriceGroupType[optional] $type
      * @return PersonPriceGroup
      */
     public function setType(SimpleType\PersonPriceGroupType $type = null)
@@ -84,7 +84,7 @@ class PersonPriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\PersonPriceGroupType|null
+     * @return SimpleType\PersonPriceGroupType
      */
     public function getType()
     {
@@ -92,7 +92,7 @@ class PersonPriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @param  PriceGroup|null  $priceGroup
+     * @param  PriceGroup[optional] $priceGroup
      * @return PersonPriceGroup
      */
     public function setPriceGroup(PriceGroup $priceGroup = null)
@@ -103,7 +103,7 @@ class PersonPriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @return PriceGroup|null
+     * @return PriceGroup
      */
     public function getPriceGroup()
     {
@@ -111,7 +111,7 @@ class PersonPriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null      $startDate
+     * @param  string[optional] $startDate
      * @return PersonPriceGroup
      */
     public function setStartDate($startDate)
@@ -122,7 +122,7 @@ class PersonPriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getStartDate()
     {
@@ -130,7 +130,7 @@ class PersonPriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null      $endDate
+     * @param  string[optional] $endDate
      * @return PersonPriceGroup
      */
     public function setEndDate($endDate)
@@ -141,7 +141,7 @@ class PersonPriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getEndDate()
     {
@@ -149,7 +149,7 @@ class PersonPriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\WeekDay|null $weekDay
+     * @param  SimpleType\WeekDay[optional] $weekDay
      * @return PersonPriceGroup
      */
     public function setWeekDay(SimpleType\WeekDay $weekDay = null)
@@ -160,7 +160,7 @@ class PersonPriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\WeekDay|null
+     * @return SimpleType\WeekDay
      */
     public function getWeekDay()
     {
@@ -168,7 +168,7 @@ class PersonPriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null      $from
+     * @param  string[optional] $from
      * @return PersonPriceGroup
      */
     public function setFrom($from)
@@ -179,7 +179,7 @@ class PersonPriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getFrom()
     {
@@ -187,7 +187,7 @@ class PersonPriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null      $till
+     * @param  string[optional] $till
      * @return PersonPriceGroup
      */
     public function setTill($till)
@@ -198,7 +198,7 @@ class PersonPriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getTill()
     {

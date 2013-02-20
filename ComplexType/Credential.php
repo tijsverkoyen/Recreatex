@@ -22,8 +22,8 @@ class Credential extends ComplexTypeAbstract
     protected $Username;
 
     /**
-     * @param  string|null $password
-     * @return Credential
+     * @param string[optional] $password
+     *  Credential
      */
     public function setPassword($password)
     {
@@ -33,7 +33,7 @@ class Credential extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getPassword()
     {
@@ -41,7 +41,7 @@ class Credential extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $username
+     * @param  string[optional] $username
      * @return Credential
      */
     public function setUsername($username)
@@ -52,7 +52,7 @@ class Credential extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getUsername()
     {

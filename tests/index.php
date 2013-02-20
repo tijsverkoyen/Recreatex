@@ -60,20 +60,21 @@ try {
 //    $criteria->setPaging($paging);
 //    $response = $recreatex->findExpositions($criteria);
 
-	// FindExpositionTypes  @remark: untested, because my RCX-instance hasn't any expositions
+    // FindExpositionTypes  @remark: untested, because my RCX-instance hasn't any expositions
 //    $paging = new \TijsVerkoyen\Recreatex\ComplexType\PagingCriteria();
 //    $paging->setPageSize(10);
 //    $criteria = new \TijsVerkoyen\Recreatex\ComplexType\ExpositionTypeSearchCriteria();
 //    $criteria->setPaging($paging);
 //    $response = $recreatex->findExpositionTypes($criteria);
 
-    // IsAvailable
-//    $response = $recreatex->isAvailable();
-
     // FindPerson
 //    $criteria = new \TijsVerkoyen\Recreatex\ComplexType\FindPersonsCriteria();
 //    $criteria->setEmail('vorst@verkoyen.eu');
 //    $response = $recreatex->findPerson($criteria);
+
+    // IsAvailable
+//    $response = $recreatex->isAvailable();
+
 } catch (Exception $e) {
     var_dump($e);
 }
