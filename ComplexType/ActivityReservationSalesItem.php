@@ -19,7 +19,7 @@ class ActivityReservationSalesItem extends ComplexTypeAbstract
     protected $EntryId;
 
     /**
-     * @param  SimpleType\Guid|null         $entryId
+     * @param  SimpleType\Guid[optional]    $entryId
      * @return ActivityReservationSalesItem
      */
     public function setEntryId(SimpleType\Guid $entryId = null)
@@ -30,7 +30,7 @@ class ActivityReservationSalesItem extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getEntryId()
     {

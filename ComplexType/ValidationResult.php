@@ -27,7 +27,7 @@ class ValidationResult extends ComplexTypeAbstract
     protected $brokenRuleName;
 
     /**
-     * @param  boolean|null     $isValid
+     * @param  boolean[optional] $isValid
      * @return ValidationResult
      */
     public function setIsValid($isValid)
@@ -38,7 +38,7 @@ class ValidationResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getIsValid()
     {
@@ -46,7 +46,7 @@ class ValidationResult extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null      $message
+     * @param  string[optional] $message
      * @return ValidationResult
      */
     public function setMessage($message)
@@ -57,7 +57,7 @@ class ValidationResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getMessage()
     {
@@ -65,7 +65,7 @@ class ValidationResult extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null      $brokenRuleName
+     * @param  string[optional] $brokenRuleName
      * @return ValidationResult
      */
     public function setBrokenRuleName($brokenRuleName)
@@ -76,7 +76,7 @@ class ValidationResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getBrokenRuleName()
     {

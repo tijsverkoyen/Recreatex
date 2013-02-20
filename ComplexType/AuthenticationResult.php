@@ -29,7 +29,7 @@ class AuthenticationResult extends ComplexTypeAbstract
     protected $PersonId;
 
     /**
-     * @param  SimpleType\AuthenticationError|null $error
+     * @param  SimpleType\AuthenticationError[optional] $error
      * @return AuthenticationResult
      */
     public function setError(SimpleType\AuthenticationError $error = null)
@@ -40,7 +40,7 @@ class AuthenticationResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\AuthenticationError|null
+     * @return SimpleType\AuthenticationError
      */
     public function getError()
     {
@@ -48,7 +48,7 @@ class AuthenticationResult extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null         $hasSucceeded
+     * @param  boolean[optional]    $hasSucceeded
      * @return AuthenticationResult
      */
     public function setHasSucceeded($hasSucceeded)
@@ -59,7 +59,7 @@ class AuthenticationResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getHasSucceeded()
     {
@@ -67,7 +67,7 @@ class AuthenticationResult extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null $personId
+     * @param  SimpleType\Guid[optional] $personId
      * @return AuthenticationResult
      */
     public function setPersonId(SimpleType\Guid $personId = null)
@@ -78,7 +78,7 @@ class AuthenticationResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getPersonId()
     {

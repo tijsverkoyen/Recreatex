@@ -39,7 +39,7 @@ class ArticleOption extends ComplexTypeAbstract
     protected $Sequence;
 
     /**
-     * @param  string|null   $code
+     * @param  string[optional] $code
      * @return ArticleOption
      */
     public function setCode($code)
@@ -50,7 +50,7 @@ class ArticleOption extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getCode()
     {
@@ -58,7 +58,7 @@ class ArticleOption extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null   $description
+     * @param  string[optional] $description
      * @return ArticleOption
      */
     public function setDescription($description)
@@ -69,7 +69,7 @@ class ArticleOption extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getDescription()
     {
@@ -77,7 +77,7 @@ class ArticleOption extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return ArticleOption
      */
     public function setId(SimpleType\Guid $id = null)
@@ -88,7 +88,7 @@ class ArticleOption extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -96,7 +96,7 @@ class ArticleOption extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfArticleOptionValue|null $possibleValues
+     * @param  ArrayOfArticleOptionValue[optional] $possibleValues
      * @return ArticleOption
      */
     public function setPossibleValues(ArrayOfArticleOptionValue $possibleValues = null)
@@ -107,7 +107,7 @@ class ArticleOption extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfArticleOptionValue|null
+     * @return ArrayOfArticleOptionValue
      */
     public function getPossibleValues()
     {
@@ -115,7 +115,7 @@ class ArticleOption extends ComplexTypeAbstract
     }
 
     /**
-     * @param  integer|null  $sequence
+     * @param  integer[optional] $sequence
      * @return ArticleOption
      */
     public function setSequence($sequence)
@@ -126,7 +126,7 @@ class ArticleOption extends ComplexTypeAbstract
     }
 
     /**
-     * @return integer|null
+     * @return integer
      */
     public function getSequence()
     {

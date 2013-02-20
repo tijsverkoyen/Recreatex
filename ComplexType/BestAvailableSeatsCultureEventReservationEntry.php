@@ -54,7 +54,7 @@ class BestAvailableSeatsCultureEventReservationEntry extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null                           $seatBlockId
+     * @param  SimpleType\Guid[optional]                      $seatBlockId
      * @return BestAvailableSeatsCultureEventReservationEntry
      */
     public function setSeatBlockId(SimpleType\Guid $seatBlockId = null)
@@ -65,7 +65,7 @@ class BestAvailableSeatsCultureEventReservationEntry extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getSeatBlockId()
     {
@@ -73,7 +73,7 @@ class BestAvailableSeatsCultureEventReservationEntry extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null                           $seatRowId
+     * @param  SimpleType\Guid[optional]                      $seatRowId
      * @return BestAvailableSeatsCultureEventReservationEntry
      */
     public function setSeatRowId(SimpleType\Guid $seatRowId = null)
@@ -84,7 +84,7 @@ class BestAvailableSeatsCultureEventReservationEntry extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getSeatRowId()
     {
@@ -92,7 +92,7 @@ class BestAvailableSeatsCultureEventReservationEntry extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null                           $seatRangeId
+     * @param  SimpleType\Guid[optional]                      $seatRangeId
      * @return BestAvailableSeatsCultureEventReservationEntry
      */
     public function setSeatRangeId(SimpleType\Guid $seatRangeId = null)
@@ -103,7 +103,7 @@ class BestAvailableSeatsCultureEventReservationEntry extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getSeatRangeId()
     {

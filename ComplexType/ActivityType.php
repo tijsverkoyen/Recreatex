@@ -29,7 +29,7 @@ class ActivityType extends ComplexTypeAbstract
     protected $Name;
 
     /**
-     * @param  string|null  $code
+     * @param  string[optional] $code
      * @return ActivityType
      */
     public function setCode($code)
@@ -40,7 +40,7 @@ class ActivityType extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getCode()
     {
@@ -48,7 +48,7 @@ class ActivityType extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return ActivityType
      */
     public function setId(SimpleType\Guid $id = null)
@@ -59,7 +59,7 @@ class ActivityType extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -67,7 +67,7 @@ class ActivityType extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null  $name
+     * @param  string[optional] $name
      * @return ActivityType
      */
     public function setName($name)
@@ -78,7 +78,7 @@ class ActivityType extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getName()
     {

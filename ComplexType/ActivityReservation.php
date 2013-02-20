@@ -47,7 +47,7 @@ class ActivityReservation extends ComplexTypeAbstract
     protected $TotalPrice;
 
     /**
-     * @param  Activity|null       $activity
+     * @param  Activity[optional]  $activity
      * @return ActivityReservation
      */
     public function setActivity(Activity $activity = null)
@@ -58,7 +58,7 @@ class ActivityReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return Activity|null
+     * @return Activity
      */
     public function getActivity()
     {
@@ -66,7 +66,7 @@ class ActivityReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null         $comments
+     * @param  string[optional]    $comments
      * @return ActivityReservation
      */
     public function setComments($comments)
@@ -77,7 +77,7 @@ class ActivityReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getComments()
     {
@@ -85,7 +85,7 @@ class ActivityReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  LockTicket|null     $lockTicket
+     * @param  LockTicket[optional] $lockTicket
      * @return ActivityReservation
      */
     public function setLockTicket(LockTicket $lockTicket = null)
@@ -96,7 +96,7 @@ class ActivityReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return LockTicket|null
+     * @return LockTicket
      */
     public function getLockTicket()
     {
@@ -104,7 +104,7 @@ class ActivityReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  float|null          $optionPrice
+     * @param  float[optional]     $optionPrice
      * @return ActivityReservation
      */
     public function setOptionPrice($optionPrice)
@@ -115,7 +115,7 @@ class ActivityReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return float|null
+     * @return float
      */
     public function getOptionPrice()
     {
@@ -123,7 +123,7 @@ class ActivityReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  Person|null         $participant
+     * @param  Person[optional]    $participant
      * @return ActivityReservation
      */
     public function setParticipant(Person $participant = null)
@@ -134,7 +134,7 @@ class ActivityReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return Person|null
+     * @return Person
      */
     public function getParticipant()
     {
@@ -142,7 +142,7 @@ class ActivityReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfActivityPartReservation|null $presentActivityParts
+     * @param  ArrayOfActivityPartReservation[optional] $presentActivityParts
      * @return ActivityReservation
      */
     public function setPresentActivityParts(ArrayOfActivityPartReservation $presentActivityParts = null)
@@ -153,7 +153,7 @@ class ActivityReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfActivityPartReservation|null
+     * @return ArrayOfActivityPartReservation
      */
     public function getPresentActivityParts()
     {
@@ -161,7 +161,7 @@ class ActivityReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  float|null          $totalPrice
+     * @param  float[optional]     $totalPrice
      * @return ActivityReservation
      */
     public function setTotalPrice($totalPrice)
@@ -172,7 +172,7 @@ class ActivityReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return float|null
+     * @return float
      */
     public function getTotalPrice()
     {

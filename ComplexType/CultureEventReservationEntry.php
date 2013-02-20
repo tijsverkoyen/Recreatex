@@ -19,7 +19,7 @@ class CultureEventReservationEntry extends ComplexTypeAbstract
     protected $PriceGroupId;
 
     /**
-     * @param  SimpleType\Guid|null         $priceGroupId
+     * @param  SimpleType\Guid[optional]    $priceGroupId
      * @return CultureEventReservationEntry
      */
     public function setPriceGroupId(SimpleType\Guid $priceGroupId = null)
@@ -30,7 +30,7 @@ class CultureEventReservationEntry extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getPriceGroupId()
     {

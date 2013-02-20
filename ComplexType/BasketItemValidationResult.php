@@ -17,7 +17,7 @@ class BasketItemValidationResult extends ComplexTypeAbstract
     protected $ValidatedBasketItem;
 
     /**
-     * @param  BasketItem|null            $validatedBasketItem
+     * @param  BasketItem[optional]       $validatedBasketItem
      * @return BasketItemValidationResult
      */
     public function setValidatedBasketItem(BasketItem $validatedBasketItem = null)
@@ -28,7 +28,7 @@ class BasketItemValidationResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return BasketItem|null
+     * @return BasketItem
      */
     public function getValidatedBasketItem()
     {

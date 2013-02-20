@@ -42,7 +42,7 @@ class ActivityIncludes extends ComplexTypeAbstract
     protected $Type;
 
     /**
-     * @param  boolean|null     $dayParts
+     * @param  boolean[optional] $dayParts
      * @return ActivityIncludes
      */
     public function setDayParts($dayParts)
@@ -53,7 +53,7 @@ class ActivityIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getDayParts()
     {
@@ -61,7 +61,7 @@ class ActivityIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null     $image
+     * @param  boolean[optional] $image
      * @return ActivityIncludes
      */
     public function setImage($image)
@@ -72,7 +72,7 @@ class ActivityIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getImage()
     {
@@ -80,7 +80,7 @@ class ActivityIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null     $imageUrl
+     * @param  boolean[optional] $imageUrl
      * @return ActivityIncludes
      */
     public function setImageUrl($imageUrl)
@@ -91,7 +91,7 @@ class ActivityIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getImageUrl()
     {
@@ -99,7 +99,7 @@ class ActivityIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null     $options
+     * @param  boolean[optional] $options
      * @return ActivityIncludes
      */
     public function setOptions($options)
@@ -110,7 +110,7 @@ class ActivityIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getOptions()
     {
@@ -118,7 +118,7 @@ class ActivityIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null     $price
+     * @param  boolean[optional] $price
      * @return ActivityIncludes
      */
     public function setPrice($price)
@@ -129,7 +129,7 @@ class ActivityIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getPrice()
     {
@@ -137,7 +137,7 @@ class ActivityIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null     $type
+     * @param  boolean[optional] $type
      * @return ActivityIncludes
      */
     public function setType($type)
@@ -148,7 +148,7 @@ class ActivityIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getType()
     {

@@ -17,7 +17,7 @@ class ArticleSale extends ComplexTypeAbstract
     protected $Article;
 
     /**
-     * @param  Article|null $article
+     * @param  Article[optional] $article
      * @return ArticleSale
      */
     public function setArticle(Article $article = null)
@@ -28,7 +28,7 @@ class ArticleSale extends ComplexTypeAbstract
     }
 
     /**
-     * @return Article|null
+     * @return Article
      */
     public function getArticle()
     {

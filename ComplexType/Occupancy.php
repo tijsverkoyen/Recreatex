@@ -22,7 +22,7 @@ class Occupancy extends ComplexTypeAbstract
     protected $Maximum;
 
     /**
-     * @param  integer|null $current
+     * @param  integer[optional] $current
      * @return Occupancy
      */
     public function setCurrent($current)
@@ -33,7 +33,7 @@ class Occupancy extends ComplexTypeAbstract
     }
 
     /**
-     * @return integer|null
+     * @return integer
      */
     public function getCurrent()
     {
@@ -41,7 +41,7 @@ class Occupancy extends ComplexTypeAbstract
     }
 
     /**
-     * @param  integer|null $maximum
+     * @param  integer[optional] $maximum
      * @return Occupancy
      */
     public function setMaximum($maximum)
@@ -52,7 +52,7 @@ class Occupancy extends ComplexTypeAbstract
     }
 
     /**
-     * @return integer|null
+     * @return integer
      */
     public function getMaximum()
     {

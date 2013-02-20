@@ -17,12 +17,12 @@ class Price extends ComplexTypeAbstract
     protected $Amount;
 
     /**
-     * @var PriceGroup|null $Group
+     * @var PriceGroup[optional] $Group
      */
     protected $Group;
 
     /**
-     * @param  float|null $amount
+     * @param  float[optional] $amount
      * @return Price
      */
     public function setAmount($amount)
@@ -33,7 +33,7 @@ class Price extends ComplexTypeAbstract
     }
 
     /**
-     * @return float|null
+     * @return float
      */
     public function getAmount()
     {
@@ -41,7 +41,7 @@ class Price extends ComplexTypeAbstract
     }
 
     /**
-     * @param  PriceGroup|null $group
+     * @param  PriceGroup[optional] $group
      * @return Price
      */
     public function setGroup(PriceGroup $group = null)
@@ -52,7 +52,7 @@ class Price extends ComplexTypeAbstract
     }
 
     /**
-     * @return PriceGroup|null
+     * @return PriceGroup
      */
     public function getGroup()
     {

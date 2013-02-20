@@ -49,7 +49,7 @@ class Person extends ComplexTypeAbstract
     protected $Comments;
 
     /**
-     * @var Credential|null $Credential
+     * @var Credential[optional] $Credential
      */
     protected $Credential;
 
@@ -59,7 +59,7 @@ class Person extends ComplexTypeAbstract
     protected $Email;
 
     /**
-     * @var SimpleType\Gender|null $Gender
+     * @var SimpleType\Gender[optional] $Gender
      */
     protected $Gender;
 
@@ -79,7 +79,7 @@ class Person extends ComplexTypeAbstract
     protected $Language;
 
     /**
-     * @var PersonName|null $Name
+     * @var PersonName[optional] $Name
      */
     protected $Name;
 
@@ -99,7 +99,7 @@ class Person extends ComplexTypeAbstract
     protected $Picture;
 
     /**
-     * @var ArrayOfRelation|null $Relations
+     * @var ArrayOfRelation[optional] $Relations
      */
     protected $Relations;
 
@@ -109,12 +109,12 @@ class Person extends ComplexTypeAbstract
     protected $ResetPasswordId;
 
     /**
-     * @var PersonSettings|null $Settings
+     * @var PersonSettings[optional] $Settings
      */
     protected $Settings;
 
     /**
-     * @param  SimpleType\Guid|null $activationId
+     * @param  SimpleType\Guid[optional] $activationId
      * @return Person
      */
     public function setActivationId(SimpleType\Guid $activationId = null)
@@ -125,7 +125,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getActivationId()
     {
@@ -133,7 +133,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param  Address|null $address
+     * @param  Address[optional] $address
      * @return Person
      */
     public function setAddress(Address $address = null)
@@ -144,7 +144,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @return Address|null
+     * @return Address
      */
     public function getAddress()
     {
@@ -152,7 +152,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $bankAccount
+     * @param  string[optional] $bankAccount
      * @return Person
      */
     public function setBankAccount($bankAccount)
@@ -163,7 +163,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getBankAccount()
     {
@@ -171,7 +171,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $birthDate
+     * @param  string[optional] $birthDate
      * @return Person
      */
     public function setBirthDate($birthDate)
@@ -182,7 +182,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getBirthDate()
     {
@@ -190,7 +190,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $cellPhone
+     * @param  string[optional] $cellPhone
      * @return Person
      */
     public function setCellPhone($cellPhone)
@@ -201,7 +201,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getCellPhone()
     {
@@ -209,7 +209,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $code
+     * @param  string[optional] $code
      * @return Person
      */
     public function setCode($code)
@@ -220,7 +220,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getCode()
     {
@@ -228,7 +228,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $comments
+     * @param  string[optional] $comments
      * @return Person
      */
     public function setComments($comments)
@@ -239,7 +239,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getComments()
     {
@@ -247,7 +247,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param  Credential|null $credential
+     * @param  Credential[optional] $credential
      * @return Person
      */
     public function setCredential(Credential $credential = null)
@@ -258,7 +258,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @return Credential|null
+     * @return Credential
      */
     public function getCredential()
     {
@@ -266,7 +266,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $email
+     * @param  string[optional] $email
      * @return Person
      */
     public function setEmail($email)
@@ -277,7 +277,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getEmail()
     {
@@ -285,7 +285,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Gender|null $gender
+     * @param  SimpleType\Gender[optional] $gender
      * @return Person
      */
     public function setGender(SimpleType\Gender $gender = null)
@@ -296,7 +296,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Gender|null
+     * @return SimpleType\Gender
      */
     public function getGender()
     {
@@ -304,7 +304,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return Person
      */
     public function setId(SimpleType\Guid $id = null)
@@ -315,7 +315,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -323,7 +323,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null $isBlocked
+     * @param  boolean[optional] $isBlocked
      * @return Person
      */
     public function setIsBlocked($isBlocked)
@@ -334,7 +334,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getIsBlocked()
     {
@@ -342,7 +342,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $language
+     * @param  string[optional] $language
      * @return Person
      */
     public function setLanguage($language)
@@ -353,7 +353,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getLanguage()
     {
@@ -361,7 +361,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param  PersonName|null $name
+     * @param  PersonName[optional] $name
      * @return Person
      */
     public function setName(PersonName $name = null)
@@ -372,7 +372,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @return PersonName|null
+     * @return PersonName
      */
     public function getName()
     {
@@ -380,7 +380,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $nationalNumber
+     * @param  string[optional] $nationalNumber
      * @return Person
      */
     public function setNationalNumber($nationalNumber)
@@ -391,7 +391,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getNationalNumber()
     {
@@ -399,7 +399,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $phone
+     * @param  string[optional] $phone
      * @return Person
      */
     public function setPhone($phone)
@@ -410,7 +410,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getPhone()
     {
@@ -418,7 +418,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $picture
+     * @param  string[optional] $picture
      * @return Person
      */
     public function setPicture($picture)
@@ -429,7 +429,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getPicture()
     {
@@ -437,7 +437,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfRelation|null $relations
+     * @param  ArrayOfRelation[optional] $relations
      * @return Person
      */
     public function setRelations(ArrayOfRelation $relations = null)
@@ -448,7 +448,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfRelation|null
+     * @return ArrayOfRelation
      */
     public function getRelations()
     {
@@ -456,7 +456,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null $resetPasswordId
+     * @param  SimpleType\Guid[optional] $resetPasswordId
      * @return Person
      */
     public function setResetPasswordId(SimpleType\Guid $resetPasswordId = null)
@@ -467,7 +467,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getResetPasswordId()
     {
@@ -475,7 +475,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @param  PersonSettings|null $settings
+     * @param  PersonSettings[optional] $settings
      * @return Person
      */
     public function setSettings(PersonSettings $settings = null)
@@ -486,7 +486,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @return PersonSettings|null
+     * @return PersonSettings
      */
     public function getSettings()
     {

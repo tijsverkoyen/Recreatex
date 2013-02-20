@@ -29,7 +29,7 @@ class BasketPayment extends ComplexTypeAbstract
     protected $PaymentMethodId;
 
     /**
-     * @param  float|null    $amount
+     * @param  float[optional] $amount
      * @return BasketPayment
      */
     public function setAmount($amount)
@@ -40,7 +40,7 @@ class BasketPayment extends ComplexTypeAbstract
     }
 
     /**
-     * @return float|null
+     * @return float
      */
     public function getAmount()
     {
@@ -48,7 +48,7 @@ class BasketPayment extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null   $currency
+     * @param  string[optional] $currency
      * @return BasketPayment
      */
     public function setCurrency($currency)
@@ -59,7 +59,7 @@ class BasketPayment extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getCurrency()
     {
@@ -67,7 +67,7 @@ class BasketPayment extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null $paymentMethodId
+     * @param  SimpleType\Guid[optional] $paymentMethodId
      * @return BasketPayment
      */
     public function setPaymentMethodId(SimpleType\Guid $paymentMethodId = null)
@@ -78,7 +78,7 @@ class BasketPayment extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getPaymentMethodId()
     {

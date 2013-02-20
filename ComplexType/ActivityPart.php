@@ -29,7 +29,7 @@ class ActivityPart extends ComplexTypeAbstract
     protected $Period;
 
     /**
-     * @param  string|null  $comments
+     * @param  string[optional] $comments
      * @return ActivityPart
      */
     public function setComments($comments)
@@ -40,7 +40,7 @@ class ActivityPart extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getComments()
     {
@@ -48,7 +48,7 @@ class ActivityPart extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return ActivityPart
      */
     public function setId(SimpleType\Guid $id = null)
@@ -59,7 +59,7 @@ class ActivityPart extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -67,7 +67,7 @@ class ActivityPart extends ComplexTypeAbstract
     }
 
     /**
-     * @param  Period|null  $period
+     * @param  Period[optional] $period
      * @return ActivityPart
      */
     public function setPeriod(Period $period = null)
@@ -78,7 +78,7 @@ class ActivityPart extends ComplexTypeAbstract
     }
 
     /**
-     * @return Period|null
+     * @return Period
      */
     public function getPeriod()
     {

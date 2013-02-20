@@ -39,7 +39,7 @@ class ActivityOption extends ComplexTypeAbstract
     protected $Id;
 
     /**
-     * @param  integer|null   $amount
+     * @param  integer[optional] $amount
      * @return ActivityOption
      */
     public function setAmount($amount)
@@ -50,7 +50,7 @@ class ActivityOption extends ComplexTypeAbstract
     }
 
     /**
-     * @return integer|null
+     * @return integer
      */
     public function getAmount()
     {
@@ -58,7 +58,7 @@ class ActivityOption extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null $articleId
+     * @param  SimpleType\Guid[optional] $articleId
      * @return ActivityOption
      */
     public function setArticleId(SimpleType\Guid $articleId = null)
@@ -69,7 +69,7 @@ class ActivityOption extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getArticleId()
     {
@@ -77,7 +77,7 @@ class ActivityOption extends ComplexTypeAbstract
     }
 
     /**
-     * @param  float|null     $customPrice
+     * @param  float[optional] $customPrice
      * @return ActivityOption
      */
     public function setCustomPrice($customPrice)
@@ -88,7 +88,7 @@ class ActivityOption extends ComplexTypeAbstract
     }
 
     /**
-     * @return float|null
+     * @return float
      */
     public function getCustomPrice()
     {
@@ -96,7 +96,7 @@ class ActivityOption extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null    $description
+     * @param  string[optional] $description
      * @return ActivityOption
      */
     public function setDescription($description)
@@ -107,7 +107,7 @@ class ActivityOption extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getDescription()
     {
@@ -115,7 +115,7 @@ class ActivityOption extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return ActivityOption
      */
     public function setId(SimpleType\Guid $id = null)
@@ -126,7 +126,7 @@ class ActivityOption extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {

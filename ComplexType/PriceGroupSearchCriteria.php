@@ -19,12 +19,12 @@ class PriceGroupSearchCriteria extends ComplexTypeAbstract
     protected $Id;
 
     /**
-     * @var SimpleType\PriceGroupType|null $Type
+     * @var SimpleType\PriceGroupType[optional] $Type
      */
     protected $Type;
 
     /**
-     * @param  SimpleType\Guid|null     $id
+     * @param  SimpleType\Guid[optional] $id
      * @return PriceGroupSearchCriteria
      */
     public function setId(SimpleType\Guid $id = null)
@@ -35,7 +35,7 @@ class PriceGroupSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -43,7 +43,7 @@ class PriceGroupSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\PriceGroupType|null $type
+     * @param  SimpleType\PriceGroupType[optional] $type
      * @return PriceGroupSearchCriteria
      */
     public function setType(SimpleType\PriceGroupType $type = null)
@@ -54,7 +54,7 @@ class PriceGroupSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\PriceGroupType|null
+     * @return SimpleType\PriceGroupType
      */
     public function getType()
     {

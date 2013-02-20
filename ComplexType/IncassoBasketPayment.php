@@ -17,7 +17,7 @@ class IncassoBasketPayment extends ComplexTypeAbstract
     protected $NumberOfIncassoPayments;
 
     /**
-     * @param  integer|null         $numberOfIncassoPayments
+     * @param  integer[optional]    $numberOfIncassoPayments
      * @return IncassoBasketPayment
      */
     public function setNumberOfIncassoPayments($numberOfIncassoPayments)
@@ -28,7 +28,7 @@ class IncassoBasketPayment extends ComplexTypeAbstract
     }
 
     /**
-     * @return integer|null
+     * @return integer
      */
     public function getNumberOfIncassoPayments()
     {

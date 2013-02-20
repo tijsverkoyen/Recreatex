@@ -22,7 +22,7 @@ class ExpositionIncludes extends ComplexTypeAbstract
     protected $ImageUri;
 
     /**
-     * @param  boolean|null       $image
+     * @param  boolean[optional]  $image
      * @return ExpositionIncludes
      */
     public function setImage($image)
@@ -33,7 +33,7 @@ class ExpositionIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getImage()
     {
@@ -41,7 +41,7 @@ class ExpositionIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null       $imageUri
+     * @param  boolean[optional]  $imageUri
      * @return ExpositionIncludes
      */
     public function setImageUri($imageUri)
@@ -52,7 +52,7 @@ class ExpositionIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getImageUri()
     {

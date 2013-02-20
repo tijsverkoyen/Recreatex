@@ -19,7 +19,7 @@ class ExpositionPrice extends ComplexTypeAbstract
     protected $CalculationType;
 
     /**
-     * @param  SimpleType\CalculationType|null $calculationType
+     * @param  SimpleType\CalculationType[optional] $calculationType
      * @return ExpositionPrice
      */
     public function setCalculationType(SimpleType\CalculationType $calculationType = null)
@@ -30,7 +30,7 @@ class ExpositionPrice extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\CalculationType|null
+     * @return SimpleType\CalculationType
      */
     public function getCalculationType()
     {

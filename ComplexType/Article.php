@@ -238,7 +238,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfArticleIngredient[optional]
+     * @return ArrayOfArticleIngredient
      */
     public function getIngredients()
     {
@@ -257,7 +257,7 @@ class Article extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean[optional]
+     * @return boolean
      */
     public function getIsRental()
     {

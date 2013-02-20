@@ -29,7 +29,7 @@ class ServiceContext extends ComplexTypeAbstract
     protected $ShopId;
 
     /**
-     * @param  SimpleType\Guid|null $divisionId
+     * @param  SimpleType\Guid[optional] $divisionId
      * @return ServiceContext
      */
     public function setDivisionId(SimpleType\Guid $divisionId = null)
@@ -40,7 +40,7 @@ class ServiceContext extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getDivisionId()
     {
@@ -48,7 +48,7 @@ class ServiceContext extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null    $language
+     * @param  string[optional] $language
      * @return ServiceContext
      */
     public function setLanguage($language)
@@ -59,7 +59,7 @@ class ServiceContext extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getLanguage()
     {
@@ -67,7 +67,7 @@ class ServiceContext extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null $shopId
+     * @param  SimpleType\Guid[optional] $shopId
      * @return ServiceContext
      */
     public function setShopId(SimpleType\Guid $shopId = null)
@@ -78,7 +78,7 @@ class ServiceContext extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getShopId()
     {

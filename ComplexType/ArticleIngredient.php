@@ -34,7 +34,7 @@ class ArticleIngredient extends ComplexTypeAbstract
     protected $Quantity;
 
     /**
-     * @param  string|null       $code
+     * @param  string[optional]  $code
      * @return ArticleIngredient
      */
     public function setCode($code)
@@ -45,7 +45,7 @@ class ArticleIngredient extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getCode()
     {
@@ -53,7 +53,7 @@ class ArticleIngredient extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return ArticleIngredient
      */
     public function setId(SimpleType\Guid $id = null)
@@ -64,7 +64,7 @@ class ArticleIngredient extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -72,7 +72,7 @@ class ArticleIngredient extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null       $name
+     * @param  string[optional]  $name
      * @return ArticleIngredient
      */
     public function setName($name)
@@ -83,7 +83,7 @@ class ArticleIngredient extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -91,7 +91,7 @@ class ArticleIngredient extends ComplexTypeAbstract
     }
 
     /**
-     * @param  float|null        $quantity
+     * @param  float[optional]   $quantity
      * @return ArticleIngredient
      */
     public function setQuantity($quantity)
@@ -102,7 +102,7 @@ class ArticleIngredient extends ComplexTypeAbstract
     }
 
     /**
-     * @return float|null
+     * @return float
      */
     public function getQuantity()
     {

@@ -39,7 +39,7 @@ class SeatRow extends ComplexTypeAbstract
     protected $Seats;
 
     /**
-     * @param  string|null $code
+     * @param  string[optional] $code
      * @return SeatRow
      */
     public function setCode($code)
@@ -50,7 +50,7 @@ class SeatRow extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getCode()
     {
@@ -58,7 +58,7 @@ class SeatRow extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return SeatRow
      */
     public function setId(SimpleType\Guid $id = null)
@@ -69,7 +69,7 @@ class SeatRow extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -77,7 +77,7 @@ class SeatRow extends ComplexTypeAbstract
     }
 
     /**
-     * @param  Location|null $location
+     * @param  Location[optional] $location
      * @return SeatRow
      */
     public function setLocation(Location $location = null)
@@ -88,7 +88,7 @@ class SeatRow extends ComplexTypeAbstract
     }
 
     /**
-     * @return Location|null
+     * @return Location
      */
     public function getLocation()
     {
@@ -96,7 +96,7 @@ class SeatRow extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $name
+     * @param  string[optional] $name
      * @return SeatRow
      */
     public function setName($name)
@@ -107,7 +107,7 @@ class SeatRow extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -115,7 +115,7 @@ class SeatRow extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfSeat|null $seats
+     * @param  ArrayOfSeat[optional] $seats
      * @return SeatRow
      */
     public function setSeats(ArrayOfSeat $seats = null)
@@ -126,7 +126,7 @@ class SeatRow extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfSeat|null
+     * @return ArrayOfSeat
      */
     public function getSeats()
     {

@@ -77,7 +77,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     protected $ArticleCategories;
 
     /**
-     * @param  boolean|null    $freeArticles
+     * @param  boolean[optional] $freeArticles
      * @return ArticleIncludes
      */
     public function setFreeArticles($freeArticles)
@@ -88,7 +88,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getFreeArticles()
     {
@@ -96,7 +96,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null    $group
+     * @param  boolean[optional] $group
      * @return ArticleIncludes
      */
     public function setGroup($group)
@@ -107,7 +107,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getGroup()
     {
@@ -115,7 +115,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null    $image
+     * @param  boolean[optional] $image
      * @return ArticleIncludes
      */
     public function setImage($image)
@@ -126,7 +126,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getImage()
     {
@@ -134,7 +134,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null    $imageUrl
+     * @param  boolean[optional] $imageUrl
      * @return ArticleIncludes
      */
     public function setImageUrl($imageUrl)
@@ -145,7 +145,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getImageUrl()
     {
@@ -153,7 +153,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null    $ingredients
+     * @param  boolean[optional] $ingredients
      * @return ArticleIncludes
      */
     public function setIngredients($ingredients)
@@ -164,7 +164,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getIngredients()
     {
@@ -172,7 +172,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null    $locations
+     * @param  boolean[optional] $locations
      * @return ArticleIncludes
      */
     public function setLocations($locations)
@@ -183,7 +183,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getLocations()
     {
@@ -191,7 +191,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null    $options
+     * @param  boolean[optional] $options
      * @return ArticleIncludes
      */
     public function setOptions($options)
@@ -202,7 +202,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getOptions()
     {
@@ -210,7 +210,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null    $price
+     * @param  boolean[optional] $price
      * @return ArticleIncludes
      */
     public function setPrice($price)
@@ -221,7 +221,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getPrice()
     {
@@ -229,7 +229,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null    $rentArticles
+     * @param  boolean[optional] $rentArticles
      * @return ArticleIncludes
      */
     public function setRentArticles($rentArticles)
@@ -240,7 +240,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getRentArticles()
     {
@@ -248,7 +248,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null    $saleArticles
+     * @param  boolean[optional] $saleArticles
      * @return ArticleIncludes
      */
     public function setSaleArticles($saleArticles)
@@ -259,7 +259,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getSaleArticles()
     {
@@ -267,7 +267,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null    $soldOutArticles
+     * @param  boolean[optional] $soldOutArticles
      * @return ArticleIncludes
      */
     public function setSoldOutArticles($soldOutArticles)
@@ -278,7 +278,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getSoldOutArticles()
     {
@@ -286,7 +286,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null    $stock
+     * @param  boolean[optional] $stock
      * @return ArticleIncludes
      */
     public function setStock($stock)
@@ -297,7 +297,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getStock()
     {
@@ -305,7 +305,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null    $articleCategories
+     * @param  boolean[optional] $articleCategories
      * @return ArticleIncludes
      */
     public function setArticleCategories($articleCategories)
@@ -316,7 +316,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getArticleCategories()
     {

@@ -19,7 +19,7 @@ class ArticleSalesItem extends ComplexTypeAbstract
     protected $ArticleId;
 
     /**
-     * @param  SimpleType\Guid|null $articleId
+     * @param  SimpleType\Guid[optional] $articleId
      * @return ArticleSalesItem
      */
     public function setArticleId(SimpleType\Guid $articleId = null)
@@ -30,7 +30,7 @@ class ArticleSalesItem extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getArticleId()
     {

@@ -22,7 +22,7 @@ class PersonIncludes extends ComplexTypeAbstract
     protected $PriceGroups;
 
     /**
-     * @param  boolean|null   $categories
+     * @param  boolean[optional] $categories
      * @return PersonIncludes
      */
     public function setCategories($categories)
@@ -33,7 +33,7 @@ class PersonIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getCategories()
     {
@@ -41,7 +41,7 @@ class PersonIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null   $priceGroups
+     * @param  boolean[optional] $priceGroups
      * @return PersonIncludes
      */
     public function setPriceGroups($priceGroups)
@@ -52,7 +52,7 @@ class PersonIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getPriceGroups()
     {

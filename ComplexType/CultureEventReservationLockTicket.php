@@ -17,7 +17,7 @@ class CultureEventReservationLockTicket extends ComplexTypeAbstract
     protected $SeatAllocations;
 
     /**
-     * @param  ArrayOfSeatAllocation|null        $seatAllocations
+     * @param  ArrayOfSeatAllocation[optional]   $seatAllocations
      * @return CultureEventReservationLockTicket
      */
     public function setSeatAllocations(ArrayOfSeatAllocation $seatAllocations = null)
@@ -28,7 +28,7 @@ class CultureEventReservationLockTicket extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfSeatAllocation|null
+     * @return ArrayOfSeatAllocation
      */
     public function getSeatAllocations()
     {

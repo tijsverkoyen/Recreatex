@@ -67,7 +67,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     protected $TranslationRequired;
 
     /**
-     * @param  SimpleType\Guid|null     $audienceId
+     * @param  SimpleType\Guid[optional] $audienceId
      * @return ExpositionSearchCriteria
      */
     public function setAudienceId(SimpleType\Guid $audienceId = null)
@@ -78,7 +78,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getAudienceId()
     {
@@ -86,7 +86,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null     $expositionId
+     * @param  SimpleType\Guid[optional] $expositionId
      * @return ExpositionSearchCriteria
      */
     public function setExpositionId(SimpleType\Guid $expositionId = null)
@@ -97,7 +97,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getExpositionId()
     {
@@ -105,7 +105,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null     $expositionTypeId
+     * @param  SimpleType\Guid[optional] $expositionTypeId
      * @return ExpositionSearchCriteria
      */
     public function setExpositionTypeId(SimpleType\Guid $expositionTypeId = null)
@@ -116,7 +116,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getExpositionTypeId()
     {
@@ -124,7 +124,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null              $from
+     * @param  string[optional]         $from
      * @return ExpositionSearchCriteria
      */
     public function setFrom($from)
@@ -135,7 +135,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getFrom()
     {
@@ -143,7 +143,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ExpositionIncludes|null  $includes
+     * @param  ExpositionIncludes[optional] $includes
      * @return ExpositionSearchCriteria
      */
     public function setIncludes(ExpositionIncludes $includes = null)
@@ -154,7 +154,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return ExpositionIncludes|null
+     * @return ExpositionIncludes
      */
     public function getIncludes()
     {
@@ -162,7 +162,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null              $namePattern
+     * @param  string[optional]         $namePattern
      * @return ExpositionSearchCriteria
      */
     public function setNamePattern($namePattern)
@@ -173,7 +173,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getNamePattern()
     {
@@ -181,7 +181,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  PagingCriteria|null      $paging
+     * @param  PagingCriteria[optional] $paging
      * @return ExpositionSearchCriteria
      */
     public function setPaging(PagingCriteria $paging = null)
@@ -192,7 +192,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return PagingCriteria|null
+     * @return PagingCriteria
      */
     public function getPaging()
     {
@@ -200,7 +200,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null              $until
+     * @param  string[optional]         $until
      * @return ExpositionSearchCriteria
      */
     public function setUntil($until)
@@ -211,7 +211,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getUntil()
     {
@@ -219,7 +219,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null             $translationRequired
+     * @param  boolean[optional]        $translationRequired
      * @return ExpositionSearchCriteria
      */
     public function setTranslationRequired($translationRequired)
@@ -230,7 +230,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getTranslationRequired()
     {

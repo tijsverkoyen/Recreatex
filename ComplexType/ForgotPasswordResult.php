@@ -22,7 +22,7 @@ class ForgotPasswordResult extends ComplexTypeAbstract
     protected $Password;
 
     /**
-     * @param  string|null          $emailAddress
+     * @param  string[optional]     $emailAddress
      * @return ForgotPasswordResult
      */
     public function setEmailAddress($emailAddress)
@@ -33,7 +33,7 @@ class ForgotPasswordResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getEmailAddress()
     {
@@ -41,7 +41,7 @@ class ForgotPasswordResult extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null          $password
+     * @param  string[optional]     $password
      * @return ForgotPasswordResult
      */
     public function setPassword($password)
@@ -52,7 +52,7 @@ class ForgotPasswordResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getPassword()
     {

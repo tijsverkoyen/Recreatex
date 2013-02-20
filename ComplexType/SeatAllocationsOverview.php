@@ -22,7 +22,7 @@ class SeatAllocationsOverview extends ComplexTypeAbstract
     protected $Summary;
 
     /**
-     * @param  ArrayOfSeatAllocation|null $allocations
+     * @param  ArrayOfSeatAllocation[optional] $allocations
      * @return SeatAllocationsOverview
      */
     public function setAllocations(ArrayOfSeatAllocation $allocations = null)
@@ -33,7 +33,7 @@ class SeatAllocationsOverview extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfSeatAllocation|null
+     * @return ArrayOfSeatAllocation
      */
     public function getAllocations()
     {
@@ -41,7 +41,7 @@ class SeatAllocationsOverview extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SeatAllocationPerHallSummary|null $summary
+     * @param  SeatAllocationPerHallSummary[optional] $summary
      * @return SeatAllocationsOverview
      */
     public function setSummary(SeatAllocationPerHallSummary $summary = null)
@@ -52,7 +52,7 @@ class SeatAllocationsOverview extends ComplexTypeAbstract
     }
 
     /**
-     * @return SeatAllocationPerHallSummary|null
+     * @return SeatAllocationPerHallSummary
      */
     public function getSummary()
     {

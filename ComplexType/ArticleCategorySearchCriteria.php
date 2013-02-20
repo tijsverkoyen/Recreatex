@@ -29,8 +29,8 @@ class ArticleCategorySearchCriteria extends ComplexTypeAbstract
     protected $Paging;
 
     /**
-     * @param  SimpleType\Guid|null          $articleCategoryId
-     * @return ArticleCategorySearchCriteria
+     * @param SimpleType\Guid[optional] $articleCategoryId
+     *  ArticleCategorySearchCriteria
      */
     public function setArticleCategoryId(SimpleType\Guid $articleCategoryId = null)
     {
@@ -40,7 +40,7 @@ class ArticleCategorySearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getArticleCategoryId()
     {
@@ -48,7 +48,7 @@ class ArticleCategorySearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null                   $namePattern
+     * @param  string[optional]              $namePattern
      * @return ArticleCategorySearchCriteria
      */
     public function setNamePattern($namePattern)
@@ -59,7 +59,7 @@ class ArticleCategorySearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getNamePattern()
     {
@@ -67,7 +67,7 @@ class ArticleCategorySearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  PagingCriteria|null           $paging
+     * @param  PagingCriteria[optional]      $paging
      * @return ArticleCategorySearchCriteria
      */
     public function setPaging(PagingCriteria $paging = null)
@@ -78,7 +78,7 @@ class ArticleCategorySearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return PagingCriteria|null
+     * @return PagingCriteria
      */
     public function getPaging()
     {

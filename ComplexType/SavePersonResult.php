@@ -22,7 +22,7 @@ class SavePersonResult extends ComplexTypeAbstract
     protected $ValidationResults;
 
     /**
-     * @param  Person|null      $person
+     * @param  Person[optional] $person
      * @return SavePersonResult
      */
     public function setPerson(Person $person = null)
@@ -33,7 +33,7 @@ class SavePersonResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return Person|null
+     * @return Person
      */
     public function getPerson()
     {
@@ -41,7 +41,7 @@ class SavePersonResult extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfValidationResult|null $validationResults
+     * @param  ArrayOfValidationResult[optional] $validationResults
      * @return SavePersonResult
      */
     public function setValidationResults(ArrayOfValidationResult $validationResults = null)
@@ -52,7 +52,7 @@ class SavePersonResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfValidationResult|null
+     * @return ArrayOfValidationResult
      */
     public function getValidationResults()
     {

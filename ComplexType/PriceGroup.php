@@ -24,12 +24,12 @@ class PriceGroup extends ComplexTypeAbstract
     protected $Name;
 
     /**
-     * @var SimpleType\PriceGroupType|null $Type
+     * @var SimpleType\PriceGroupType[optional] $Type
      */
     protected $Type;
 
     /**
-     * @param  SimpleType\Guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return PriceGroup
      */
     public function setId(SimpleType\Guid $id = null)
@@ -40,7 +40,7 @@ class PriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -48,7 +48,7 @@ class PriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $name
+     * @param  string[optional] $name
      * @return PriceGroup
      */
     public function setName($name)
@@ -59,7 +59,7 @@ class PriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -67,7 +67,7 @@ class PriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\PriceGroupType|null $type
+     * @param  SimpleType\PriceGroupType[optional] $type
      * @return PriceGroup
      */
     public function setType(SimpleType\PriceGroupType $type = null)
@@ -78,7 +78,7 @@ class PriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\PriceGroupType|null
+     * @return SimpleType\PriceGroupType
      */
     public function getType()
     {

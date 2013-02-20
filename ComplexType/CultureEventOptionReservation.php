@@ -29,7 +29,7 @@ class CultureEventOptionReservation extends ComplexTypeAbstract
     protected $Quantity;
 
     /**
-     * @param  SimpleType\Guid|null          $cultureEventId
+     * @param  SimpleType\Guid[optional]     $cultureEventId
      * @return CultureEventOptionReservation
      */
     public function setCultureEventId(SimpleType\Guid $cultureEventId = null)
@@ -40,7 +40,7 @@ class CultureEventOptionReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getCultureEventId()
     {
@@ -48,7 +48,7 @@ class CultureEventOptionReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null          $cultureEventOptionId
+     * @param  SimpleType\Guid[optional]     $cultureEventOptionId
      * @return CultureEventOptionReservation
      */
     public function setCultureEventOptionId(SimpleType\Guid $cultureEventOptionId = null)
@@ -59,7 +59,7 @@ class CultureEventOptionReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getCultureEventOptionId()
     {
@@ -67,7 +67,7 @@ class CultureEventOptionReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  integer|null                  $quantity
+     * @param  integer[optional]             $quantity
      * @return CultureEventOptionReservation
      */
     public function setQuantity($quantity)
@@ -78,7 +78,7 @@ class CultureEventOptionReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return integer|null
+     * @return integer
      */
     public function getQuantity()
     {

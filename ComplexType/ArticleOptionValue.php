@@ -24,7 +24,7 @@ class ArticleOptionValue extends ComplexTypeAbstract
     protected $Value;
 
     /**
-     * @param  SimpleType\Guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return ArticleOptionValue
      */
     public function setId(SimpleType\Guid $id = null)
@@ -35,7 +35,7 @@ class ArticleOptionValue extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -43,7 +43,7 @@ class ArticleOptionValue extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null        $value
+     * @param  string[optional]   $value
      * @return ArticleOptionValue
      */
     public function setValue($value)
@@ -54,7 +54,7 @@ class ArticleOptionValue extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getValue()
     {

@@ -34,7 +34,7 @@ class Basket extends ComplexTypeAbstract
     protected $Price;
 
     /**
-     * @param  SimpleType\Guid|null $customerId
+     * @param  SimpleType\Guid[optional] $customerId
      * @return Basket
      */
     public function setCustomerId(SimpleType\Guid $customerId = null)
@@ -45,7 +45,7 @@ class Basket extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getCustomerId()
     {
@@ -53,7 +53,7 @@ class Basket extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfBasketItem|null $items
+     * @param  ArrayOfBasketItem[optional] $items
      * @return Basket
      */
     public function setItems(ArrayOfBasketItem $items = null)
@@ -64,7 +64,7 @@ class Basket extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfBasketItem|null
+     * @return ArrayOfBasketItem
      */
     public function getItems()
     {
@@ -72,7 +72,7 @@ class Basket extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfBasketPayment|null $payments
+     * @param  ArrayOfBasketPayment[optional] $payments
      * @return Basket
      */
     public function setPayments(ArrayOfBasketPayment $payments = null)
@@ -83,7 +83,7 @@ class Basket extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfBasketPayment|null
+     * @return ArrayOfBasketPayment
      */
     public function getPayments()
     {
@@ -91,7 +91,7 @@ class Basket extends ComplexTypeAbstract
     }
 
     /**
-     * @param  float|null $price
+     * @param  float[optional] $price
      * @return Basket
      */
     public function setPrice($price)
@@ -102,7 +102,7 @@ class Basket extends ComplexTypeAbstract
     }
 
     /**
-     * @return float|null
+     * @return float
      */
     public function getPrice()
     {

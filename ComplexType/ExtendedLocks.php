@@ -22,7 +22,7 @@ class ExtendedLocks extends ComplexTypeAbstract
     protected $Failed;
 
     /**
-     * @param  ArrayOfLockTicket|null $succeeded
+     * @param  ArrayOfLockTicket[optional] $succeeded
      * @return ExtendedLocks
      */
     public function setSucceeded(ArrayOfLockTicket $succeeded = null)
@@ -33,7 +33,7 @@ class ExtendedLocks extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfLockTicket|null
+     * @return ArrayOfLockTicket
      */
     public function getSucceeded()
     {
@@ -41,7 +41,7 @@ class ExtendedLocks extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfLockTicket|null $failed
+     * @param  ArrayOfLockTicket[optional] $failed
      * @return ExtendedLocks
      */
     public function setFailed(ArrayOfLockTicket $failed = null)
@@ -52,7 +52,7 @@ class ExtendedLocks extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfLockTicket|null
+     * @return ArrayOfLockTicket
      */
     public function getFailed()
     {

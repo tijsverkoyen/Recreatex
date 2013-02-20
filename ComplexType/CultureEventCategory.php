@@ -29,7 +29,7 @@ class CultureEventCategory extends ComplexTypeAbstract
     protected $Name;
 
     /**
-     * @param  SimpleType\Guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return CultureEventCategory
      */
     public function setId(SimpleType\Guid $id = null)
@@ -40,7 +40,7 @@ class CultureEventCategory extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -48,7 +48,7 @@ class CultureEventCategory extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null          $code
+     * @param  string[optional]     $code
      * @return CultureEventCategory
      */
     public function setCode($code)
@@ -59,7 +59,7 @@ class CultureEventCategory extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getCode()
     {
@@ -67,7 +67,7 @@ class CultureEventCategory extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null          $name
+     * @param  string[optional]     $name
      * @return CultureEventCategory
      */
     public function setName($name)
@@ -78,7 +78,7 @@ class CultureEventCategory extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getName()
     {

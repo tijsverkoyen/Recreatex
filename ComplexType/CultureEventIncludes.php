@@ -27,7 +27,7 @@ class CultureEventIncludes extends ComplexTypeAbstract
     protected $Options;
 
     /**
-     * @param  boolean|null         $image
+     * @param  boolean[optional]    $image
      * @return CultureEventIncludes
      */
     public function setImage($image)
@@ -38,7 +38,7 @@ class CultureEventIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getImage()
     {
@@ -46,7 +46,7 @@ class CultureEventIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null         $imageUri
+     * @param  boolean[optional]    $imageUri
      * @return CultureEventIncludes
      */
     public function setImageUri($imageUri)
@@ -57,7 +57,7 @@ class CultureEventIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getImageUri()
     {
@@ -65,7 +65,7 @@ class CultureEventIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null         $options
+     * @param  boolean[optional]    $options
      * @return CultureEventIncludes
      */
     public function setOptions($options)
@@ -76,7 +76,7 @@ class CultureEventIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getOptions()
     {

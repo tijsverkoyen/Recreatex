@@ -44,7 +44,7 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     protected $Until;
 
     /**
-     * @param  SimpleType\Guid|null             $cultureEventId
+     * @param  SimpleType\Guid[optional]        $cultureEventId
      * @return CultureReservationSearchCriteria
      */
     public function setCultureEventId(SimpleType\Guid $cultureEventId = null)
@@ -55,7 +55,7 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getCultureEventId()
     {
@@ -63,7 +63,7 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null             $cultureEventReservationId
+     * @param  SimpleType\Guid[optional]        $cultureEventReservationId
      * @return CultureReservationSearchCriteria
      */
     public function setCultureEventReservationId(SimpleType\Guid $cultureEventReservationId = null)
@@ -74,7 +74,7 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getCultureEventReservationId()
     {
@@ -82,7 +82,7 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null                      $from
+     * @param  string[optional]                 $from
      * @return CultureReservationSearchCriteria
      */
     public function setFrom($from)
@@ -93,7 +93,7 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getFrom()
     {
@@ -101,7 +101,7 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  PagingCriteria|null              $paging
+     * @param  PagingCriteria[optional]         $paging
      * @return CultureReservationSearchCriteria
      */
     public function setPaging(PagingCriteria $paging = null)
@@ -112,7 +112,7 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return PagingCriteria|null
+     * @return PagingCriteria
      */
     public function getPaging()
     {
@@ -120,7 +120,7 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null             $personId
+     * @param  SimpleType\Guid[optional]        $personId
      * @return CultureReservationSearchCriteria
      */
     public function setPersonId(SimpleType\Guid $personId = null)
@@ -131,7 +131,7 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getPersonId()
     {
@@ -139,7 +139,7 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null                      $until
+     * @param  string[optional]                 $until
      * @return CultureReservationSearchCriteria
      */
     public function setUntil($until)
@@ -150,7 +150,7 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getUntil()
     {

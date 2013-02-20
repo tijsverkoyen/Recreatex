@@ -32,7 +32,7 @@ class Location extends ComplexTypeAbstract
     protected $Y;
 
     /**
-     * @param  float|null $dx
+     * @param  float[optional] $dx
      * @return Location
      */
     public function setDx($dx)
@@ -43,7 +43,7 @@ class Location extends ComplexTypeAbstract
     }
 
     /**
-     * @return float|null
+     * @return float
      */
     public function getDx()
     {
@@ -51,7 +51,7 @@ class Location extends ComplexTypeAbstract
     }
 
     /**
-     * @param  float|null $dy
+     * @param  float[optional] $dy
      * @return Location
      */
     public function setDy($dy)
@@ -62,7 +62,7 @@ class Location extends ComplexTypeAbstract
     }
 
     /**
-     * @return float|null
+     * @return float
      */
     public function getDy()
     {
@@ -70,7 +70,7 @@ class Location extends ComplexTypeAbstract
     }
 
     /**
-     * @param  float|null $x
+     * @param  float[optional] $x
      * @return Location
      */
     public function setX($x)
@@ -81,7 +81,7 @@ class Location extends ComplexTypeAbstract
     }
 
     /**
-     * @return float|null
+     * @return float
      */
     public function getX()
     {
@@ -89,7 +89,7 @@ class Location extends ComplexTypeAbstract
     }
 
     /**
-     * @param  float|null $y
+     * @param  float[optional] $y
      * @return Location
      */
     public function setY($y)
@@ -100,7 +100,7 @@ class Location extends ComplexTypeAbstract
     }
 
     /**
-     * @return float|null
+     * @return float
      */
     public function getY()
     {

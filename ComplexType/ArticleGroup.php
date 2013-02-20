@@ -49,7 +49,7 @@ class ArticleGroup extends ComplexTypeAbstract
     protected $Name;
 
     /**
-     * @param  ArrayOfArticle|null $articles
+     * @param  ArrayOfArticle[optional] $articles
      * @return ArticleGroup
      */
     public function setArticles(ArrayOfArticle $articles = null)
@@ -60,7 +60,7 @@ class ArticleGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfArticle|null
+     * @return ArrayOfArticle
      */
     public function getArticles()
     {
@@ -68,7 +68,7 @@ class ArticleGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null  $code
+     * @param  string[optional] $code
      * @return ArticleGroup
      */
     public function setCode($code)
@@ -79,7 +79,7 @@ class ArticleGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getCode()
     {
@@ -87,7 +87,7 @@ class ArticleGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null  $description
+     * @param  string[optional] $description
      * @return ArticleGroup
      */
     public function setDescription($description)
@@ -98,7 +98,7 @@ class ArticleGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getDescription()
     {
@@ -106,7 +106,7 @@ class ArticleGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return ArticleGroup
      */
     public function setId(SimpleType\Guid $id = null)
@@ -117,7 +117,7 @@ class ArticleGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -125,7 +125,7 @@ class ArticleGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @param  Picture|null $image
+     * @param  Picture[optional] $image
      * @return ArticleGroup
      */
     public function setImage(Picture $image = null)
@@ -136,7 +136,7 @@ class ArticleGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @return Picture|null
+     * @return Picture
      */
     public function getImage()
     {
@@ -144,7 +144,7 @@ class ArticleGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null  $imageUrl
+     * @param  string[optional] $imageUrl
      * @return ArticleGroup
      */
     public function setImageUrl($imageUrl)
@@ -155,7 +155,7 @@ class ArticleGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getImageUrl()
     {
@@ -163,7 +163,7 @@ class ArticleGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null  $name
+     * @param  string[optional] $name
      * @return ArticleGroup
      */
     public function setName($name)
@@ -174,7 +174,7 @@ class ArticleGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getName()
     {

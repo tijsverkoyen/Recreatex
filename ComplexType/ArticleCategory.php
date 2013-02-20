@@ -39,7 +39,7 @@ class ArticleCategory extends ComplexTypeAbstract
     protected $ParentCategoryId;
 
     /**
-     * @param  SimpleType\Guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return ArticleCategory
      */
     public function setId(SimpleType\Guid $id = null)
@@ -50,7 +50,7 @@ class ArticleCategory extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -58,7 +58,7 @@ class ArticleCategory extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null     $shortName
+     * @param  string[optional] $shortName
      * @return ArticleCategory
      */
     public function setShortName($shortName)
@@ -69,7 +69,7 @@ class ArticleCategory extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getShortName()
     {
@@ -77,7 +77,7 @@ class ArticleCategory extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null     $description
+     * @param  string[optional] $description
      * @return ArticleCategory
      */
     public function setDescription($description)
@@ -88,7 +88,7 @@ class ArticleCategory extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getDescription()
     {
@@ -96,7 +96,7 @@ class ArticleCategory extends ComplexTypeAbstract
     }
 
     /**
-     * @param  integer|null    $level
+     * @param  integer[optional] $level
      * @return ArticleCategory
      */
     public function setLevel($level)
@@ -107,7 +107,7 @@ class ArticleCategory extends ComplexTypeAbstract
     }
 
     /**
-     * @return integer|null
+     * @return integer
      */
     public function getLevel()
     {
@@ -115,7 +115,7 @@ class ArticleCategory extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null $parentCategoryId
+     * @param  SimpleType\Guid[optional] $parentCategoryId
      * @return ArticleCategory
      */
     public function setParentCategoryId(SimpleType\Guid $parentCategoryId = null)
@@ -126,7 +126,7 @@ class ArticleCategory extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getParentCategoryId()
     {

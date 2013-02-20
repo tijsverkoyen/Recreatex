@@ -17,7 +17,7 @@ class SeatAllocationPerBlockSummary extends ComplexTypeAbstract
     protected $Block;
 
     /**
-     * @param  SeatBlock|null                $block
+     * @param  SeatBlock[optional]           $block
      * @return SeatAllocationPerBlockSummary
      */
     public function setBlock(SeatBlock $block = null)
@@ -28,7 +28,7 @@ class SeatAllocationPerBlockSummary extends ComplexTypeAbstract
     }
 
     /**
-     * @return SeatBlock|null
+     * @return SeatBlock
      */
     public function getBlock()
     {

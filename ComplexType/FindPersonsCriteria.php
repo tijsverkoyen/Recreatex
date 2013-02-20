@@ -59,7 +59,7 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     protected $UserName;
 
     /**
-     * @param  SimpleType\Guid|null $activationId
+     * @param  SimpleType\Guid[optional] $activationId
      * @return FindPersonsCriteria
      */
     public function setActivationId(SimpleType\Guid $activationId = null)
@@ -70,7 +70,7 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getActivationId()
     {
@@ -78,7 +78,7 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null         $email
+     * @param  string[optional]    $email
      * @return FindPersonsCriteria
      */
     public function setEmail($email)
@@ -89,7 +89,7 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getEmail()
     {
@@ -97,7 +97,7 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return FindPersonsCriteria
      */
     public function setId(SimpleType\Guid $id = null)
@@ -108,7 +108,7 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -116,7 +116,7 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  PersonIncludes|null $includes
+     * @param  PersonIncludes[optional] $includes
      * @return FindPersonsCriteria
      */
     public function setIncludes(PersonIncludes $includes = null)
@@ -127,7 +127,7 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return PersonIncludes|null
+     * @return PersonIncludes
      */
     public function getIncludes()
     {
@@ -135,7 +135,7 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null        $isBlocked
+     * @param  boolean[optional]   $isBlocked
      * @return FindPersonsCriteria
      */
     public function setIsBlocked($isBlocked)
@@ -146,7 +146,7 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getIsBlocked()
     {
@@ -154,7 +154,7 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null         $nationalNumber
+     * @param  string[optional]    $nationalNumber
      * @return FindPersonsCriteria
      */
     public function setNationalNumber($nationalNumber)
@@ -165,7 +165,7 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getNationalNumber()
     {
@@ -173,7 +173,7 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  PagingCriteria|null $paging
+     * @param  PagingCriteria[optional] $paging
      * @return FindPersonsCriteria
      */
     public function setPaging(PagingCriteria $paging = null)
@@ -184,7 +184,7 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return PagingCriteria|null
+     * @return PagingCriteria
      */
     public function getPaging()
     {
@@ -192,7 +192,7 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null $resetPasswordId
+     * @param  SimpleType\Guid[optional] $resetPasswordId
      * @return FindPersonsCriteria
      */
     public function setResetPasswordId(SimpleType\Guid $resetPasswordId = null)
@@ -203,7 +203,7 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getResetPasswordId()
     {
@@ -211,7 +211,7 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null         $userName
+     * @param  string[optional]    $userName
      * @return FindPersonsCriteria
      */
     public function setUserName($userName)
@@ -222,7 +222,7 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getUserName()
     {

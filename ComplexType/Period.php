@@ -22,7 +22,7 @@ class Period extends ComplexTypeAbstract
     protected $Until;
 
     /**
-     * @param  string|null $from
+     * @param  string[optional] $from
      * @return Period
      */
     public function setFrom($from)
@@ -33,7 +33,7 @@ class Period extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getFrom()
     {
@@ -41,7 +41,7 @@ class Period extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $until
+     * @param  string[optional] $until
      * @return Period
      */
     public function setUntil($until)
@@ -52,7 +52,7 @@ class Period extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getUntil()
     {

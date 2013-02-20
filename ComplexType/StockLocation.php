@@ -29,7 +29,7 @@ class StockLocation extends ComplexTypeAbstract
     protected $Id;
 
     /**
-     * @param  string|null   $code
+     * @param  string[optional] $code
      * @return StockLocation
      */
     public function setCode($code)
@@ -40,7 +40,7 @@ class StockLocation extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getCode()
     {
@@ -48,7 +48,7 @@ class StockLocation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null   $description
+     * @param  string[optional] $description
      * @return StockLocation
      */
     public function setDescription($description)
@@ -59,7 +59,7 @@ class StockLocation extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getDescription()
     {
@@ -67,7 +67,7 @@ class StockLocation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return StockLocation
      */
     public function setId(SimpleType\Guid $id = null)
@@ -78,7 +78,7 @@ class StockLocation extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {

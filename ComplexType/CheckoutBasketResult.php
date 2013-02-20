@@ -29,7 +29,7 @@ class CheckoutBasketResult extends ComplexTypeAbstract
     protected $SalesItems;
 
     /**
-     * @param  BasketValidationResult|null $basketValidationResult
+     * @param  BasketValidationResult[optional] $basketValidationResult
      * @return CheckoutBasketResult
      */
     public function setBasketValidationResult(BasketValidationResult $basketValidationResult = null)
@@ -40,7 +40,7 @@ class CheckoutBasketResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return BasketValidationResult|null
+     * @return BasketValidationResult
      */
     public function getBasketValidationResult()
     {
@@ -48,7 +48,7 @@ class CheckoutBasketResult extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\CheckoutResultState|null $resultState
+     * @param  SimpleType\CheckoutResultState[optional] $resultState
      * @return CheckoutBasketResult
      */
     public function setResultState(SimpleType\CheckoutResultState $resultState = null)
@@ -59,7 +59,7 @@ class CheckoutBasketResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\CheckoutResultState|null
+     * @return SimpleType\CheckoutResultState
      */
     public function getResultState()
     {
@@ -67,7 +67,7 @@ class CheckoutBasketResult extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfSalesItem|null $salesItems
+     * @param  ArrayOfSalesItem[optional] $salesItems
      * @return CheckoutBasketResult
      */
     public function setSalesItems(ArrayOfSalesItem $salesItems = null)
@@ -78,7 +78,7 @@ class CheckoutBasketResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfSalesItem|null
+     * @return ArrayOfSalesItem
      */
     public function getSalesItems()
     {

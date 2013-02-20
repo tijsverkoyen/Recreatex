@@ -27,7 +27,7 @@ class ActivityPartReservation extends ComplexTypeAbstract
     protected $IsSelected;
 
     /**
-     * @param  ArrayOfActivityOption|null $activityOptions
+     * @param  ArrayOfActivityOption[optional] $activityOptions
      * @return ActivityPartReservation
      */
     public function setActivityOptions(ArrayOfActivityOption $activityOptions = null)
@@ -38,7 +38,7 @@ class ActivityPartReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfActivityOption|null
+     * @return ArrayOfActivityOption
      */
     public function getActivityOptions()
     {
@@ -46,7 +46,7 @@ class ActivityPartReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ActivityPart|null       $activityPart
+     * @param  ActivityPart[optional]  $activityPart
      * @return ActivityPartReservation
      */
     public function setActivityPart(ActivityPart $activityPart = null)
@@ -57,7 +57,7 @@ class ActivityPartReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return ActivityPart|null
+     * @return ActivityPart
      */
     public function getActivityPart()
     {
@@ -65,7 +65,7 @@ class ActivityPartReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null            $isSelected
+     * @param  boolean[optional]       $isSelected
      * @return ActivityPartReservation
      */
     public function setIsSelected($isSelected)
@@ -76,7 +76,7 @@ class ActivityPartReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getIsSelected()
     {

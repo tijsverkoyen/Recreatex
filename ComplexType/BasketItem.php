@@ -41,7 +41,7 @@ class BasketItem extends ComplexTypeAbstract
     protected $UnitPrice;
 
     /**
-     * @param  SimpleType\Guid|null $divisionId
+     * @param  SimpleType\Guid[optional] $divisionId
      * @return BasketItem
      */
     public function setDivisionId(SimpleType\Guid $divisionId = null)
@@ -52,7 +52,7 @@ class BasketItem extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getDivisionId()
     {
@@ -60,7 +60,7 @@ class BasketItem extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return BasketItem
      */
     public function setId(SimpleType\Guid $id = null)
@@ -71,7 +71,7 @@ class BasketItem extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -79,7 +79,7 @@ class BasketItem extends ComplexTypeAbstract
     }
 
     /**
-     * @param  integer|null $quantity
+     * @param  integer[optional] $quantity
      * @return BasketItem
      */
     public function setQuantity($quantity)
@@ -90,7 +90,7 @@ class BasketItem extends ComplexTypeAbstract
     }
 
     /**
-     * @return integer|null
+     * @return integer
      */
     public function getQuantity()
     {
@@ -98,7 +98,7 @@ class BasketItem extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfstring|null $ruleNamesToIgnore
+     * @param  ArrayOfstring[optional] $ruleNamesToIgnore
      * @return BasketItem
      */
     public function setRuleNamesToIgnore(ArrayOfstring $ruleNamesToIgnore = null)
@@ -109,7 +109,7 @@ class BasketItem extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfstring|null
+     * @return ArrayOfstring
      */
     public function getRuleNamesToIgnore()
     {
@@ -117,7 +117,7 @@ class BasketItem extends ComplexTypeAbstract
     }
 
     /**
-     * @param  float|null $unitPrice
+     * @param  float[optional] $unitPrice
      * @return BasketItem
      */
     public function setUnitPrice($unitPrice)
@@ -128,7 +128,7 @@ class BasketItem extends ComplexTypeAbstract
     }
 
     /**
-     * @return float|null
+     * @return float
      */
     public function getUnitPrice()
     {

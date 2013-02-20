@@ -34,7 +34,7 @@ class ExpositionPeriodSearchCriteria extends ComplexTypeAbstract
     protected $Until;
 
     /**
-     * @param  SimpleType\Guid|null           $expositionId
+     * @param  SimpleType\Guid[optional]      $expositionId
      * @return ExpositionPeriodSearchCriteria
      */
     public function setExpositionId(SimpleType\Guid $expositionId = null)
@@ -45,7 +45,7 @@ class ExpositionPeriodSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getExpositionId()
     {
@@ -53,7 +53,7 @@ class ExpositionPeriodSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  PagingCriteria|null            $paging
+     * @param  PagingCriteria[optional]       $paging
      * @return ExpositionPeriodSearchCriteria
      */
     public function setPaging(PagingCriteria $paging = null)
@@ -64,7 +64,7 @@ class ExpositionPeriodSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return PagingCriteria|null
+     * @return PagingCriteria
      */
     public function getPaging()
     {
@@ -72,7 +72,7 @@ class ExpositionPeriodSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null                    $from
+     * @param  string[optional]               $from
      * @return ExpositionPeriodSearchCriteria
      */
     public function setFrom($from)
@@ -83,7 +83,7 @@ class ExpositionPeriodSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getFrom()
     {
@@ -91,7 +91,7 @@ class ExpositionPeriodSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null                    $until
+     * @param  string[optional]               $until
      * @return ExpositionPeriodSearchCriteria
      */
     public function setUntil($until)
@@ -102,7 +102,7 @@ class ExpositionPeriodSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getUntil()
     {

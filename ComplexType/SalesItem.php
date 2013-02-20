@@ -39,7 +39,7 @@ class SalesItem extends ComplexTypeAbstract
     protected $UnitPrice;
 
     /**
-     * @param  ArrayOfstring|null $barcodes
+     * @param  ArrayOfstring[optional] $barcodes
      * @return SalesItem
      */
     public function setBarcodes(ArrayOfstring $barcodes = null)
@@ -50,7 +50,7 @@ class SalesItem extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfstring|null
+     * @return ArrayOfstring
      */
     public function getBarcodes()
     {
@@ -58,7 +58,7 @@ class SalesItem extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return SalesItem
      */
     public function setId(SimpleType\Guid $id = null)
@@ -69,7 +69,7 @@ class SalesItem extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -77,7 +77,7 @@ class SalesItem extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $name
+     * @param  string[optional] $name
      * @return SalesItem
      */
     public function setName($name)
@@ -88,7 +88,7 @@ class SalesItem extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -96,7 +96,7 @@ class SalesItem extends ComplexTypeAbstract
     }
 
     /**
-     * @param  float|null $quantity
+     * @param  float[optional] $quantity
      * @return SalesItem
      */
     public function setQuantity($quantity)
@@ -107,7 +107,7 @@ class SalesItem extends ComplexTypeAbstract
     }
 
     /**
-     * @return float|null
+     * @return float
      */
     public function getQuantity()
     {
@@ -115,7 +115,7 @@ class SalesItem extends ComplexTypeAbstract
     }
 
     /**
-     * @param  float|null $unitPrice
+     * @param  float[optional] $unitPrice
      * @return SalesItem
      */
     public function setUnitPrice($unitPrice)
@@ -126,7 +126,7 @@ class SalesItem extends ComplexTypeAbstract
     }
 
     /**
-     * @return float|null
+     * @return float
      */
     public function getUnitPrice()
     {

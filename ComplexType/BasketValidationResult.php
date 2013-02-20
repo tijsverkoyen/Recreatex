@@ -17,7 +17,7 @@ class BasketValidationResult extends ComplexTypeAbstract
     protected $BasketItemValidationResults;
 
     /**
-     * @param  ArrayOfBasketItemValidationResult|null $basketItemValidationResults
+     * @param  ArrayOfBasketItemValidationResult[optional] $basketItemValidationResults
      * @return BasketValidationResult
      */
     public function setBasketItemValidationResults(
@@ -29,7 +29,7 @@ class BasketValidationResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfBasketItemValidationResult|null
+     * @return ArrayOfBasketItemValidationResult
      */
     public function getBasketItemValidationResults()
     {

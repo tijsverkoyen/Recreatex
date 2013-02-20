@@ -43,7 +43,7 @@ class ExpositionTypeSearchCriteria extends ComplexTypeAbstract
     protected $Paging;
 
     /**
-     * @param  SimpleType\Guid|null         $audienceId
+     * @param  SimpleType\Guid[optional]    $audienceId
      * @return ExpositionTypeSearchCriteria
      */
     public function setAudienceId(SimpleType\Guid $audienceId = null)
@@ -54,7 +54,7 @@ class ExpositionTypeSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getAudienceId()
     {
@@ -62,7 +62,7 @@ class ExpositionTypeSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null         $expositionTypeId
+     * @param  SimpleType\Guid[optional]    $expositionTypeId
      * @return ExpositionTypeSearchCriteria
      */
     public function setExpositionTypeId(SimpleType\Guid $expositionTypeId = null)
@@ -73,7 +73,7 @@ class ExpositionTypeSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getExpositionTypeId()
     {
@@ -81,7 +81,7 @@ class ExpositionTypeSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null                  $namePattern
+     * @param  string[optional]             $namePattern
      * @return ExpositionTypeSearchCriteria
      */
     public function setNamePattern($namePattern)
@@ -92,7 +92,7 @@ class ExpositionTypeSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getNamePattern()
     {
@@ -100,7 +100,7 @@ class ExpositionTypeSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ExpositionTypeIncludes|null  $includes
+     * @param  ExpositionTypeIncludes[optional] $includes
      * @return ExpositionTypeSearchCriteria
      */
     public function setIncludes(ExpositionTypeIncludes $includes = null)
@@ -111,7 +111,7 @@ class ExpositionTypeSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return ExpositionTypeIncludes|null
+     * @return ExpositionTypeIncludes
      */
     public function getIncludes()
     {
@@ -119,7 +119,7 @@ class ExpositionTypeSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  PagingCriteria|null          $paging
+     * @param  PagingCriteria[optional]     $paging
      * @return ExpositionTypeSearchCriteria
      */
     public function setPaging(PagingCriteria $paging = null)
@@ -130,7 +130,7 @@ class ExpositionTypeSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return PagingCriteria|null
+     * @return PagingCriteria
      */
     public function getPaging()
     {

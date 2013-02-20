@@ -17,7 +17,7 @@ class IncassoBasketPaymentMethod extends ComplexTypeAbstract
     protected $AdditionalIncassoCosts;
 
     /**
-     * @param  ArrayOfIncassoCost|null    $additionalIncassoCosts
+     * @param  ArrayOfIncassoCost[optional] $additionalIncassoCosts
      * @return IncassoBasketPaymentMethod
      */
     public function setAdditionalIncassoCosts(ArrayOfIncassoCost $additionalIncassoCosts = null)
@@ -28,7 +28,7 @@ class IncassoBasketPaymentMethod extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfIncassoCost|null
+     * @return ArrayOfIncassoCost
      */
     public function getAdditionalIncassoCosts()
     {

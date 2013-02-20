@@ -29,7 +29,7 @@ class Relation extends ComplexTypeAbstract
     protected $To;
 
     /**
-     * @param  Person|null $from
+     * @param  Person[optional] $from
      * @return Relation
      */
     public function setFrom(Person $from = null)
@@ -40,7 +40,7 @@ class Relation extends ComplexTypeAbstract
     }
 
     /**
-     * @return Person|null
+     * @return Person
      */
     public function getFrom()
     {
@@ -48,7 +48,7 @@ class Relation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return Relation
      */
     public function setId(SimpleType\Guid $id = null)
@@ -59,7 +59,7 @@ class Relation extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -67,7 +67,7 @@ class Relation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  Person|null $to
+     * @param  Person[optional] $to
      * @return Relation
      */
     public function setTo(Person $to = null)
@@ -78,7 +78,7 @@ class Relation extends ComplexTypeAbstract
     }
 
     /**
-     * @return Person|null
+     * @return Person
      */
     public function getTo()
     {
