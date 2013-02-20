@@ -142,6 +142,23 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Tests Recreatex->FindExpositionTypes()
+     */
+    public function testFindExpositionTypes()
+    {
+        $paging = new \TijsVerkoyen\Recreatex\ComplexType\PagingCriteria();
+        $paging->setPageSize(10);
+        $criteria = new \TijsVerkoyen\Recreatex\ComplexType\ExpositionTypeSearchCriteria();
+        $criteria->setPaging($paging);
+        $response = $this->recreatex->FindExpositionTypes($criteria);
+
+        $this->assertInternalType('array', $response);
+//		foreach ($response as $row) {
+//			$this->assertInstanceOf('TijsVerkoyen\Recreatex\ComplexType\ExpositionType', $row);
+//		}
+    }
+
+    /**
      * Tests Recreatex->IsAvailable()
      */
     public function testIsAvailable()

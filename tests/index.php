@@ -56,8 +56,16 @@ try {
     // FindExpositions  @remark: untested, because my RCX-instance hasn't any expositions
 //    $paging = new \TijsVerkoyen\Recreatex\ComplexType\PagingCriteria();
 //    $paging->setPageSize(10);
+//    $criteria = new \TijsVerkoyen\Recreatex\ComplexType\ExpositionSearchCriteria();
 //    $criteria->setPaging($paging);
 //    $response = $recreatex->findExpositions($criteria);
+
+	// FindExpositionTypes  @remark: untested, because my RCX-instance hasn't any expositions
+//    $paging = new \TijsVerkoyen\Recreatex\ComplexType\PagingCriteria();
+//    $paging->setPageSize(10);
+//    $criteria = new \TijsVerkoyen\Recreatex\ComplexType\ExpositionTypeSearchCriteria();
+//    $criteria->setPaging($paging);
+//    $response = $recreatex->findExpositionTypes($criteria);
 
     // IsAvailable
 //    $response = $recreatex->isAvailable();
