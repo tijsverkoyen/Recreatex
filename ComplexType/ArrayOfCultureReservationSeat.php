@@ -12,16 +12,12 @@ class ArrayOfCultureReservationSeat extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfCultureReservationSeat';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = unbounded
-     *
-     * @var CultureReservationSeat[] $CultureReservationSeat
+     * @var array
      */
     protected $CultureReservationSeat = array();
 
     /**
-     * @param  CultureReservationSeat[]      $cultureReservationSeat
+     * @param  array      $cultureReservationSeat
      * @return ArrayOfCultureReservationSeat
      */
     public function setCultureReservationSeat(array $cultureReservationSeat = array())
@@ -32,7 +28,7 @@ class ArrayOfCultureReservationSeat extends ComplexTypeAbstract
     }
 
     /**
-     * @return CultureReservationSeat[]
+     * @return array
      */
     public function getCultureReservationSeat()
     {

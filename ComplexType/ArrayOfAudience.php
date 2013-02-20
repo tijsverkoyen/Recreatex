@@ -12,16 +12,12 @@ class ArrayOfAudience extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfAudience';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = unbounded
-     *
-     * @var Audience[] $Audience
+     * @var array
      */
     protected $Audience = array();
 
     /**
-     * @param  Audience[]      $audience
+     * @param  array      $audience
      * @return ArrayOfAudience
      */
     public function setAudience(array $audience = array())
@@ -32,7 +28,7 @@ class ArrayOfAudience extends ComplexTypeAbstract
     }
 
     /**
-     * @return Audience[]
+     * @return array
      */
     public function getAudience()
     {

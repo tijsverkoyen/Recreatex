@@ -14,38 +14,22 @@ class Basket extends ComplexTypeAbstract
     const CLASS_NAME = 'Basket';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $CustomerId
+     * @var SimpleType\Guid
      */
     protected $CustomerId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfBasketItem|null $Items
+     * @var ArrayOfBasketItem
      */
     protected $Items;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfBasketPayment|null $Payments
+     * @var ArrayOfBasketPayment
      */
     protected $Payments;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var float|null $Price
+     * @var float
      */
     protected $Price;
 

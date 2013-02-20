@@ -12,16 +12,12 @@ class ArrayOfRelation extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfRelation';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = unbounded
-     *
-     * @var Relation[] $Relation
+     * @var array
      */
     protected $Relation = array();
 
     /**
-     * @param  Relation[]      $relation
+     * @param  array      $relation
      * @return ArrayOfRelation
      */
     public function setRelation(array $relation = array())
@@ -32,7 +28,7 @@ class ArrayOfRelation extends ComplexTypeAbstract
     }
 
     /**
-     * @return Relation[]
+     * @return array
      */
     public function getRelation()
     {

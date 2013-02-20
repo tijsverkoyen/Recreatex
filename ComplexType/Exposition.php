@@ -15,128 +15,74 @@ class Exposition extends ComplexTypeAbstract
     const CLASS_NAME = 'Exposition';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfAudience|null $Audiences
+     * @var ArrayOfAudience
      */
     protected $Audiences;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Code
+     * @var string
      */
     protected $Code;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Description
+     * @var string
      */
     protected $Description;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $DivisionId
+     * @var SimpleType\Guid
      */
     protected $DivisionId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ExpositionType|null $ExpositionType
+     * @var ExpositionType
      */
     protected $ExpositionType;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $From
+     * @var string
      */
     protected $From;
 
     /**
      * Exposition Unique Identifier
-     * minOccurs = 0
-     * maxOccurs = 1
      *
-     * @var SimpleType\Guid|null $Id
+     * @var SimpleType\Guid
      */
     protected $Id;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var Picture|null $Image
+     * @var Picture
      */
     protected $Image;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Location
+     * @var string
      */
     protected $Location;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Name
+     * @var string
      */
     protected $Name;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfExpositionPeriod|null $Periods
+     * @var ArrayOfExpositionPeriod
      */
     protected $Periods;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfExpositionPrice|null $Prices
+     * @var ArrayOfExpositionPrice
      */
     protected $Prices;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Until
+     * @var string
      */
     protected $Until;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var Vat|null $VAT
+     * @var Vat
      */
     protected $VAT;
 

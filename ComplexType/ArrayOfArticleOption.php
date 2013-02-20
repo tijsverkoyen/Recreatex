@@ -12,7 +12,7 @@ class ArrayOfArticleOption extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfArticleOption';
 
     /**
-     * @var array $ArticleOption
+     * @var array
      */
     protected $ArticleOption = array();
 

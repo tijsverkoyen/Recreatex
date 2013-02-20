@@ -14,21 +14,17 @@ class AuthenticationResult extends ComplexTypeAbstract
     const CLASS_NAME = 'AuthenticationResult';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\AuthenticationError|null $Error
+     * @var SimpleTypeAuthenticationError
      */
     protected $Error;
 
     /**
-     * @var boolean|null $HasSucceeded
+     * @var boolean
      */
     protected $HasSucceeded;
 
     /**
-     * @var SimpleType\Guid|null $PersonId
+     * @var SimpleType\Guid
      */
     protected $PersonId;
 

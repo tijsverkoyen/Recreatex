@@ -14,20 +14,12 @@ class ArticleOptionValue extends ComplexTypeAbstract
     const CLASS_NAME = 'ArticleOptionValue';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $Id
+     * @var SimpleType\Guid
      */
     protected $Id;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Value
+     * @var string
      */
     protected $Value;
 

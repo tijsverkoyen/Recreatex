@@ -12,29 +12,17 @@ class PersonName extends ComplexTypeAbstract
     const CLASS_NAME = 'PersonName';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $First
+     * @var string
      */
     protected $First;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Last
+     * @var string
      */
     protected $Last;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Middle
+     * @var string
      */
     protected $Middle;
 

@@ -12,20 +12,12 @@ class AdditionalCost extends ComplexTypeAbstract
     const CLASS_NAME = 'AdditionalCost';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var float|null $Cost
+     * @var float
      */
     protected $Cost;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Name
+     * @var string
      */
     protected $Name;
 

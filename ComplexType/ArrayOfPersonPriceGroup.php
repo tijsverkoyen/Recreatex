@@ -12,16 +12,12 @@ class ArrayOfPersonPriceGroup extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfPersonPriceGroup';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = unbounded
-     *
-     * @var PersonPriceGroup[] $PersonPriceGroup
+     * @var array
      */
     protected $PersonPriceGroup = array();
 
     /**
-     * @param  PersonPriceGroup[]      $personPriceGroup
+     * @param  array      $personPriceGroup
      * @return ArrayOfPersonPriceGroup
      */
     public function setPersonPriceGroup(array $personPriceGroup = array())
@@ -32,7 +28,7 @@ class ArrayOfPersonPriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @return PersonPriceGroup[]
+     * @return array
      */
     public function getPersonPriceGroup()
     {

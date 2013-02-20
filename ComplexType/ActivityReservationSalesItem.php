@@ -14,11 +14,7 @@ class ActivityReservationSalesItem extends ComplexTypeAbstract
     const CLASS_NAME = 'ActivityReservationSalesItem';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $EntryId
+     * @var SimpleType\Guid
      */
     protected $EntryId;
 

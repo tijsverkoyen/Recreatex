@@ -14,19 +14,11 @@ class PriceGroupSearchCriteria extends ComplexTypeAbstract
     const CLASS_NAME = 'PriceGroupSearchCriteria';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $Id
+     * @var SimpleType\Guid
      */
     protected $Id;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
      * @var SimpleType\PriceGroupType|null $Type
      */
     protected $Type;

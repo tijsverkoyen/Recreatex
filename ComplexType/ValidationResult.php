@@ -12,29 +12,17 @@ class ValidationResult extends ComplexTypeAbstract
     const CLASS_NAME = 'ValidationResult';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $IsValid
+     * @var boolean
      */
     protected $IsValid;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Message
+     * @var string
      */
     protected $Message;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $brokenRuleName
+     * @var string
      */
     protected $brokenRuleName;
 

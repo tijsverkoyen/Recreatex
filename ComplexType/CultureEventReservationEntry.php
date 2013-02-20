@@ -14,11 +14,7 @@ class CultureEventReservationEntry extends ComplexTypeAbstract
     const CLASS_NAME = 'CultureEventReservationEntry';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $PriceGroupId
+     * @var SimpleType\Guid
      */
     protected $PriceGroupId;
 

@@ -12,11 +12,7 @@ class IncassoBasketPayment extends ComplexTypeAbstract
     const CLASS_NAME = 'IncassoBasketPayment';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var integer|null $NumberOfIncassoPayments
+     * @var integer
      */
     protected $NumberOfIncassoPayments;
 

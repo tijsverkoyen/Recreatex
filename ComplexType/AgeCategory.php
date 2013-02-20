@@ -14,38 +14,22 @@ class AgeCategory extends ComplexTypeAbstract
     const CLASS_NAME = 'AgeCategory';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var integer|null $FromAge
+     * @var integer
      */
     protected $FromAge;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $Id
+     * @var SimpleType\Guid
      */
     protected $Id;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Name
+     * @var string
      */
     protected $Name;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var integer|null $UntilAge
+     * @var integer
      */
     protected $UntilAge;
 

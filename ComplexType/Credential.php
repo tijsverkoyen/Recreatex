@@ -12,20 +12,12 @@ class Credential extends ComplexTypeAbstract
     const CLASS_NAME = 'Credential';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Password
+     * @var string
      */
     protected $Password;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Username
+     * @var string
      */
     protected $Username;
 

@@ -12,20 +12,12 @@ class SeatAllocationPerHallSummary extends ComplexTypeAbstract
     const CLASS_NAME = 'SeatAllocationPerHallSummary';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfSeatAllocationPerBlockSummary|null $BlockSummaries
+     * @var ArrayOfSeatAllocationPerBlockSummary
      */
     protected $BlockSummaries;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var Hall|null $Hall
+     * @var Hall
      */
     protected $Hall;
 

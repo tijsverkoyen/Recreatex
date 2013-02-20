@@ -12,28 +12,16 @@ class PersonSettings extends ComplexTypeAbstract
     const CLASS_NAME = 'PersonSettings';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfSubcategory|null $Subcategories
+     * @var ArrayOfSubcategory
      */
     protected $Subcategories;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $SubscribeMailingList
+     * @var boolean
      */
     protected $SubscribeMailingList;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
      * @var ArrayOfPersonPriceGroup|null $PriceGroups
      */
     protected $PriceGroups;

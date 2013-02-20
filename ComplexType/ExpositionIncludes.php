@@ -12,20 +12,12 @@ class ExpositionIncludes extends ComplexTypeAbstract
     const CLASS_NAME = 'ExpositionIncludes';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $Image
+     * @var boolean
      */
     protected $Image;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $ImageUri
+     * @var boolean
      */
     protected $ImageUri;
 

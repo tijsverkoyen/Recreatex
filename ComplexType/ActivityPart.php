@@ -14,29 +14,17 @@ class ActivityPart extends ComplexTypeAbstract
     const CLASS_NAME = 'ActivityPart';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Comments
+     * @var string
      */
     protected $Comments;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $Id
+     * @var SimpleType\Guid
      */
     protected $Id;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var Period|null $Period
+     * @var Period
      */
     protected $Period;
 

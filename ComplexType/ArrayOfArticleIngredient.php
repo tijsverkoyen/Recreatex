@@ -12,7 +12,7 @@ class ArrayOfArticleIngredient extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfArticleIngredient';
 
     /**
-     * @var array $ArticleIngredient
+     * @var array
      */
     protected $ArticleIngredient = array();
 

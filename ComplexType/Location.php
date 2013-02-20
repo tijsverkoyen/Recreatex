@@ -12,38 +12,22 @@ class Location extends ComplexTypeAbstract
     const CLASS_NAME = 'Location';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var float|null $Dx
+     * @var float
      */
     protected $Dx;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var float|null $Dy
+     * @var float
      */
     protected $Dy;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var float|null $X
+     * @var float
      */
     protected $X;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var float|null $Y
+     * @var float
      */
     protected $Y;
 

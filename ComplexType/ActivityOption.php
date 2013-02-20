@@ -14,47 +14,27 @@ class ActivityOption extends ComplexTypeAbstract
     const CLASS_NAME = 'ActivityOption';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var integer|null $Amount
+     * @var integer
      */
     protected $Amount;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $ArticleId
+     * @var SimpleType\Guid
      */
     protected $ArticleId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var float|null $CustomPrice
+     * @var float
      */
     protected $CustomPrice;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Description
+     * @var string
      */
     protected $Description;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $Id
+     * @var SimpleType\Guid
      */
     protected $Id;
 

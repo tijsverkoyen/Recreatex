@@ -14,119 +14,67 @@ class CultureReservation extends ComplexTypeAbstract
     const CLASS_NAME = 'CultureReservation';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $Id
+     * @var SimpleType\Guid
      */
     protected $Id;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var integer|null $ReservationNumber
+     * @var integer
      */
     protected $ReservationNumber;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $ReservationDate
+     * @var string
      */
     protected $ReservationDate;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfCultureReservationSeat|null $ReservationSeats
+     * @var ArrayOfCultureReservationSeat
      */
     protected $ReservationSeats;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $PaymentMethodName
+     * @var string
      */
     protected $PaymentMethodName;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $PaymentMethodId
+     * @var SimpleType\Guid
      */
     protected $PaymentMethodId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var BasketPaymentMethod|null $PaymentMethod
+     * @var BasketPaymentMethod
      */
     protected $PaymentMethod;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $CultureEventId
+     * @var SimpleType\Guid
      */
     protected $CultureEventId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var CultureEvent|null $CultureEvent
+     * @var CultureEvent
      */
     protected $CultureEvent;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $CustomerId
+     * @var SimpleType\Guid
      */
     protected $CustomerId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var Person|null $Customer
+     * @var Person
      */
     protected $Customer;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $Payed
+     * @var boolean
      */
     protected $Payed;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $SalesLineId
+     * @var SimpleType\Guid
      */
     protected $SalesLineId;
 

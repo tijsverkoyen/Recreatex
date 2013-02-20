@@ -12,11 +12,7 @@ class ArticleSale extends ComplexTypeAbstract
     const CLASS_NAME = 'ArticleSale';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var Article|null $Article
+     * @var Article
      */
     protected $Article;
 

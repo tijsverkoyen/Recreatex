@@ -14,181 +14,101 @@ class Person extends ComplexTypeAbstract
     const CLASS_NAME = 'Person';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $ActivationId
+     * @var SimpleType\Guid
      */
     protected $ActivationId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var Address|null $Address
+     * @var Address
      */
     protected $Address;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $BankAccount
+     * @var string
      */
     protected $BankAccount;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $BirthDate
+     * @var string
      */
     protected $BirthDate;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $CellPhone
+     * @var string
      */
     protected $CellPhone;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Code
+     * @var string
      */
     protected $Code;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Comments
+     * @var string
      */
     protected $Comments;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
      * @var Credential|null $Credential
      */
     protected $Credential;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Email
+     * @var string
      */
     protected $Email;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
      * @var SimpleType\Gender|null $Gender
      */
     protected $Gender;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $Id
+     * @var SimpleType\Guid
      */
     protected $Id;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $IsBlocked
+     * @var boolean
      */
     protected $IsBlocked;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Language
+     * @var string
      */
     protected $Language;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
      * @var PersonName|null $Name
      */
     protected $Name;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $NationalNumber
+     * @var string
      */
     protected $NationalNumber;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Phone
+     * @var string
      */
     protected $Phone;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Picture
+     * @var string
      */
     protected $Picture;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
      * @var ArrayOfRelation|null $Relations
      */
     protected $Relations;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $ResetPasswordId
+     * @var SimpleType\Guid
      */
     protected $ResetPasswordId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
      * @var PersonSettings|null $Settings
      */
     protected $Settings;

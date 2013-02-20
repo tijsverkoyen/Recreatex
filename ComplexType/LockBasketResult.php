@@ -12,29 +12,17 @@ class LockBasketResult extends ComplexTypeAbstract
     const CLASS_NAME = 'LockBasketResult';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfBasketItem|null $BasketItems
+     * @var ArrayOfBasketItem
      */
     protected $BasketItems;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $IsLocked
+     * @var boolean
      */
     protected $IsLocked;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ValidationResult|null $ValidationResult
+     * @var ValidationResult
      */
     protected $ValidationResult;
 

@@ -14,74 +14,42 @@ class PersonPriceGroup extends ComplexTypeAbstract
     const CLASS_NAME = 'PersonPriceGroup';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $Id
+     * @var SimpleType\Guid
      */
     protected $Id;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
      * @var SimpleType\PersonPriceGroupType|null $Type
      */
     protected $Type;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
      * @var PriceGroup|null $PriceGroup
      */
     protected $PriceGroup;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $StartDate
+     * @var string
      */
     protected $StartDate;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $EndDate
+     * @var string
      */
     protected $EndDate;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
      * @var SimpleType\WeekDay|null $WeekDay
      */
     protected $WeekDay;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $From
+     * @var string
      */
     protected $From;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Till
+     * @var string
      */
     protected $Till;
 

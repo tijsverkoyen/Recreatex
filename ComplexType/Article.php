@@ -54,7 +54,6 @@ class Article extends ComplexTypeAbstract
     protected $Ingredients;
 
     /**
-     *
      * @var boolean
      */
     protected $IsRental;

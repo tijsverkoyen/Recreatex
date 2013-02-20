@@ -12,11 +12,7 @@ class BasketItemValidationResult extends ComplexTypeAbstract
     const CLASS_NAME = 'BasketItemValidationResult';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var BasketItem|null $ValidatedBasketItem
+     * @var BasketItem
      */
     protected $ValidatedBasketItem;
 

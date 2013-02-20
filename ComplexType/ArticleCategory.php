@@ -14,47 +14,27 @@ class ArticleCategory extends ComplexTypeAbstract
     const CLASS_NAME = 'ArticleCategory';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $Id
+     * @var SimpleType\Guid
      */
     protected $Id;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $ShortName
+     * @var string
      */
     protected $ShortName;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Description
+     * @var string
      */
     protected $Description;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var integer|null $Level
+     * @var integer
      */
     protected $Level;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $ParentCategoryId
+     * @var SimpleType\Guid
      */
     protected $ParentCategoryId;
 

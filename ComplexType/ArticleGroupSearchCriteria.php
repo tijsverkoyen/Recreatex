@@ -14,29 +14,17 @@ class ArticleGroupSearchCriteria extends ComplexTypeAbstract
     const CLASS_NAME = 'ArticleGroupSearchCriteria';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\ArticleType|null $ArticleTypes
+     * @var SimpleType\ArticleType
      */
     protected $ArticleTypes;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $IncludeImage
+     * @var boolean
      */
     protected $IncludeImage;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $IncludeImageUrl
+     * @var boolean
      */
     protected $IncludeImageUrl;
 

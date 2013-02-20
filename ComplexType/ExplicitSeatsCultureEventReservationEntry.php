@@ -15,11 +15,7 @@ class ExplicitSeatsCultureEventReservationEntry extends ComplexTypeAbstract
     const CLASS_NAME = 'ExplicitSeatsCultureEventReservationEntry';
 
     /**
-
-     * minOccurs = 1
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid $SeatId
+     * @var SimpleType\Guid
      */
     protected $SeatId;
 

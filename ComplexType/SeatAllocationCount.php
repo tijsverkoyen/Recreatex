@@ -12,47 +12,27 @@ class SeatAllocationCount extends ComplexTypeAbstract
     const CLASS_NAME = 'SeatAllocationCount';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var integer|null $Available
+     * @var integer
      */
     protected $Available;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var integer|null $Blocked
+     * @var integer
      */
     protected $Blocked;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var integer|null $Locked
+     * @var integer
      */
     protected $Locked;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var integer|null $Option
+     * @var integer
      */
     protected $Option;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var integer|null $Reserved
+     * @var integer
      */
     protected $Reserved;
 

@@ -12,7 +12,7 @@ class ArrayOfSeatBlock extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfSeatBlock';
 
     /**
-     * @var array $SeatBlock
+     * @var array
      */
     protected $SeatBlock = array();
 

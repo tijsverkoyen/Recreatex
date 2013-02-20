@@ -12,11 +12,7 @@ class IncassoBasketPaymentMethod extends ComplexTypeAbstract
     const CLASS_NAME = 'IncassoBasketPaymentMethod';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfIncassoCost|null $AdditionalIncassoCosts
+     * @var ArrayOfIncassoCost
      */
     protected $AdditionalIncassoCosts;
 

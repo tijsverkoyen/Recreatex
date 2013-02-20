@@ -14,28 +14,16 @@ class PriceGroup extends ComplexTypeAbstract
     const CLASS_NAME = 'PriceGroup';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $Id
+     * @var SimpleType\Guid
      */
     protected $Id;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Name
+     * @var string
      */
     protected $Name;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
      * @var SimpleType\PriceGroupType|null $Type
      */
     protected $Type;

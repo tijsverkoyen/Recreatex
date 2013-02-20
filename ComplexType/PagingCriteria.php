@@ -14,28 +14,18 @@ class PagingCriteria extends ComplexTypeAbstract
 
     /**
      * The index of the page. The index starts at zero (zero-based)
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var integer|null $PageIndex
+     * @var integer
      */
     protected $PageIndex;
 
     /**
      * The number of items per page
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var integer|null $PageSize
+     * @var integer
      */
     protected $PageSize;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SortingCriteria|null $Sorting
+     * @var SortingCriteria
      */
     protected $Sorting;
 

@@ -14,83 +14,47 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     const CLASS_NAME = 'FindPersonsCriteria';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $ActivationId
+     * @var SimpleType\Guid
      */
     protected $ActivationId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Email
+     * @var string
      */
     protected $Email;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $Id
+     * @var SimpleType\Guid
      */
     protected $Id;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var PersonIncludes|null $Includes
+     * @var PersonIncludes
      */
     protected $Includes;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $IsBlocked
+     * @var boolean
      */
     protected $IsBlocked;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $NationalNumber
+     * @var string
      */
     protected $NationalNumber;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var PagingCriteria|null $Paging
+     * @var PagingCriteria
      */
     protected $Paging;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $ResetPasswordId
+     * @var SimpleType\Guid
      */
     protected $ResetPasswordId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $UserName
+     * @var string
      */
     protected $UserName;
 

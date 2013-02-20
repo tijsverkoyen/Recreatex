@@ -14,20 +14,12 @@ class CultureEventReservationSalesItem extends ComplexTypeAbstract
     const CLASS_NAME = 'CultureEventReservationSalesItem';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $CultureEventReservationId
+     * @var SimpleType\Guid
      */
     protected $CultureEventReservationId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfSeatAllocation|null $Seats
+     * @var ArrayOfSeatAllocation
      */
     protected $Seats;
 

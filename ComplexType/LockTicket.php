@@ -14,20 +14,12 @@ class LockTicket extends ComplexTypeAbstract
     const CLASS_NAME = 'LockTicket';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $ExpirationTime
+     * @var string
      */
     protected $ExpirationTime;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $Id
+     * @var SimpleType\Guid
      */
     protected $Id;
 

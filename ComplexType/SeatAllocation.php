@@ -14,56 +14,32 @@ class SeatAllocation extends ComplexTypeAbstract
     const CLASS_NAME = 'SeatAllocation';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $CardNumber
+     * @var string
      */
     protected $CardNumber;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $CultureEventId
+     * @var SimpleType\Guid
      */
     protected $CultureEventId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $CultureEventReservationId
+     * @var SimpleType\Guid
      */
     protected $CultureEventReservationId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $CustomerId
+     * @var SimpleType\Guid
      */
     protected $CustomerId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var float|null $Price
+     * @var float
      */
     protected $Price;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $SeatBlockCode
+     * @var string
      */
     protected $SeatBlockCode;
 
@@ -81,7 +57,7 @@ class SeatAllocation extends ComplexTypeAbstract
      * minOccurs = 1
      * maxOccurs = 1
      *
-     * @var SimpleType\Guid $SeatId
+     * @var SimpleType\Guid
      */
     protected $SeatId;
 

@@ -12,16 +12,12 @@ class ArrayOfArticle extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfArticle';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = unbounded
-     *
-     * @var Article[] $Article
+     * @var array
      */
     protected $Article = array();
 
     /**
-     * @param  Article[]      $article
+     * @param  array      $article
      * @return ArrayOfArticle
      */
     public function setArticle(array $article = array())
@@ -32,7 +28,7 @@ class ArrayOfArticle extends ComplexTypeAbstract
     }
 
     /**
-     * @return Article[]
+     * @return array
      */
     public function getArticle()
     {

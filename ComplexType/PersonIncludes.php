@@ -12,20 +12,12 @@ class PersonIncludes extends ComplexTypeAbstract
     const CLASS_NAME = 'PersonIncludes';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $Categories
+     * @var boolean
      */
     protected $Categories;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $PriceGroups
+     * @var boolean
      */
     protected $PriceGroups;
 

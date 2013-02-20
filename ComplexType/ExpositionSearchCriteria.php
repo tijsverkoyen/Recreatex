@@ -16,82 +16,53 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
 
     /**
      * Only include expositions for this target audience
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $AudienceId
+     * @var SimpleType\Guid
      */
     protected $AudienceId;
 
     /**
      * The ID of a specific exposition that you want to find
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $ExpositionId
+     * @var SimpleType\Guid
      */
     protected $ExpositionId;
 
     /**
      * Only include expositions of this type
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $ExpositionTypeId
+     * @var SimpleType\Guid
      */
     protected $ExpositionTypeId;
 
     /**
      * Ignore expositions that end before this time
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $From
+     * @var string
      */
     protected $From;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ExpositionIncludes|null $Includes
+     * @var ExpositionIncludes
      */
     protected $Includes;
 
     /**
      * Part of the name of the exposition to find. Use an asteriks (*) as the wildcard.
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $NamePattern
+     * @var string
      */
     protected $NamePattern;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var PagingCriteria|null $Paging
+     * @var PagingCriteria
      */
     protected $Paging;
 
     /**
      * Ignore expositions that begin after this time
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Until
+     * @var string
      */
     protected $Until;
 
     /**
      * Only include expositions which have a translation in the requested language
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $TranslationRequired
+     * @var boolean
      */
     protected $TranslationRequired;
 

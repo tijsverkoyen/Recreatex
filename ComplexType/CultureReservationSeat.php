@@ -14,74 +14,42 @@ class CultureReservationSeat extends ComplexTypeAbstract
     const CLASS_NAME = 'CultureReservationSeat';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var CultureEvent|null $CultureEvent
+     * @var CultureEvent
      */
     protected $CultureEvent;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $CultureEventId
+     * @var SimpleType\Guid
      */
     protected $CultureEventId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $Id
+     * @var SimpleType\Guid
      */
     protected $Id;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var float|null $Price
+     * @var float
      */
     protected $Price;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var Price|null $PriceGroup
+     * @var Price
      */
     protected $PriceGroup;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $PriceGroupName
+     * @var string
      */
     protected $PriceGroupName;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var Seat|null $Seat
+     * @var Seat
      */
     protected $Seat;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $SeatId
+     * @var SimpleType\Guid
      */
     protected $SeatId;
 

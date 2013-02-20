@@ -14,11 +14,7 @@ class ArticleSalesItem extends ComplexTypeAbstract
     const CLASS_NAME = 'ArticleSalesItem';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $ArticleId
+     * @var SimpleType\Guid
      */
     protected $ArticleId;
 

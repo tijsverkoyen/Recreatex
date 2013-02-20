@@ -14,65 +14,37 @@ class CultureEventPrice extends ComplexTypeAbstract
     const CLASS_NAME = 'CultureEventPrice';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $CustomerID
+     * @var SimpleType\Guid
      */
     protected $CustomerID;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SeatBlock|null $SeatBlock
+     * @var Seat
      */
     protected $SeatBlock;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SeatRow|null $SeatRow
+     * @var Seat
      */
     protected $SeatRow;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var Seat|null $Seat
+     * @var Seat
      */
     protected $Seat;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SeatRange|null $SeatRange
+     * @var Seat
      */
     protected $SeatRange;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $StartDate
+     * @var string
      */
     protected $StartDate;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var integer|null $MinimumQty
+     * @var integer
      */
     protected $MinimumQty;
 

@@ -12,20 +12,12 @@ class ForgotPasswordResult extends ComplexTypeAbstract
     const CLASS_NAME = 'ForgotPasswordResult';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $EmailAddress
+     * @var string
      */
     protected $EmailAddress;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Password
+     * @var string
      */
     protected $Password;
 

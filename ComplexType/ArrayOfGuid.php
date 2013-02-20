@@ -14,16 +14,12 @@ class ArrayOfGuid extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfguid';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = unbounded
-     *
-     * @var SimpleType\Guid[] $guid
+     * @var array
      */
     protected $guid = array();
 
     /**
-     * @param  SimpleType\Guid[] $guid
+     * @param  array $guid
      * @return ArrayOfGuid
      */
     public function setGuid(array $guid = array())
@@ -34,7 +30,7 @@ class ArrayOfGuid extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid[]
+     * @return array
      */
     public function getGuid()
     {

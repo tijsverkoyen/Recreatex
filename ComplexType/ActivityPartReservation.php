@@ -12,29 +12,17 @@ class ActivityPartReservation extends ComplexTypeAbstract
     const CLASS_NAME = 'ActivityPartReservation';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfActivityOption|null $ActivityOptions
+     * @var ArrayOfActivityOption
      */
     protected $ActivityOptions;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ActivityPart|null $ActivityPart
+     * @var ActivityPart
      */
     protected $ActivityPart;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $IsSelected
+     * @var boolean
      */
     protected $IsSelected;
 

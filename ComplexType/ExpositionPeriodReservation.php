@@ -14,29 +14,17 @@ class ExpositionPeriodReservation extends ComplexTypeAbstract
     const CLASS_NAME = 'ExpositionPeriodReservation';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfExpositionPeriodReservationEntry|null $Entries
+     * @var ArrayOfExpositionPeriodReservationEntry
      */
     protected $Entries;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $ExpositionPeriodId
+     * @var SimpleType\Guid
      */
     protected $ExpositionPeriodId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var LockTicket|null $LockTicket
+     * @var LockTicket
      */
     protected $LockTicket;
 

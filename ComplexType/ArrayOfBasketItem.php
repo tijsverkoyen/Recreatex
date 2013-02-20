@@ -12,16 +12,12 @@ class ArrayOfBasketItem extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfBasketItem';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = unbounded
-     *
-     * @var BasketItem[] $BasketItem
+     * @var array
      */
     protected $BasketItem = array();
 
     /**
-     * @param  BasketItem[]      $basketItem
+     * @param  array      $basketItem
      * @return ArrayOfBasketItem
      */
     public function setBasketItem(array $basketItem = array())
@@ -32,7 +28,7 @@ class ArrayOfBasketItem extends ComplexTypeAbstract
     }
 
     /**
-     * @return BasketItem[]
+     * @return array
      */
     public function getBasketItem()
     {

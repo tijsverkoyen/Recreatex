@@ -14,29 +14,17 @@ class ServiceContext extends ComplexTypeAbstract
     const CLASS_NAME = 'ServiceContext';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $DivisionId
+     * @var SimpleType\Guid
      */
     protected $DivisionId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Language
+     * @var string
      */
     protected $Language;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $ShopId
+     * @var SimpleType\Guid
      */
     protected $ShopId;
 

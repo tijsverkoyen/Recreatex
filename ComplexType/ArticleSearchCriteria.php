@@ -14,92 +14,52 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     const CLASS_NAME = 'ArticleSearchCriteria';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $ArticleGroupId
+     * @var SimpleType\Guid
      */
     protected $ArticleGroupId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $ArticleId
+     * @var SimpleType\Guid
      */
     protected $ArticleId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\ArticleType|null $ArticleTypes
+     * @var SimpleType\ArticleType
      */
     protected $ArticleTypes;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $BuyerId
+     * @var SimpleType\Guid
      */
     protected $BuyerId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $IncludeDetail
+     * @var boolean
      */
     protected $IncludeDetail;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArticleIncludes|null $Includes
+     * @var ArticleIncludes
      */
     protected $Includes;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $NamePattern
+     * @var string
      */
     protected $NamePattern;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var PagingCriteria|null $Paging
+     * @var PagingCriteria
      */
     protected $Paging;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $StockLocationId
+     * @var SimpleType\Guid
      */
     protected $StockLocationId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $ArticleCategoryId
+     * @var SimpleType\Guid
      */
     protected $ArticleCategoryId;
 

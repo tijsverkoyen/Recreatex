@@ -14,47 +14,27 @@ class SalesItem extends ComplexTypeAbstract
     const CLASS_NAME = 'SalesItem';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfstring|null $Barcodes
+     * @var ArrayOfstring
      */
     protected $Barcodes;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $Id
+     * @var SimpleType\Guid
      */
     protected $Id;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Name
+     * @var string
      */
     protected $Name;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var float|null $Quantity
+     * @var float
      */
     protected $Quantity;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var float|null $UnitPrice
+     * @var float
      */
     protected $UnitPrice;
 

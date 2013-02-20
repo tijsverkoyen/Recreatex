@@ -14,11 +14,7 @@ class ExpositionPrice extends ComplexTypeAbstract
     const CLASS_NAME = 'ExpositionPrice';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\CalculationType|null $CalculationType
+     * @var SimpleTypeCalculationType
      */
     protected $CalculationType;
 

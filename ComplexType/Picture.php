@@ -12,20 +12,12 @@ class Picture extends ComplexTypeAbstract
     const CLASS_NAME = 'Picture';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Bytes
+     * @var string
      */
     protected $Bytes;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $ContentType
+     * @var string
      */
     protected $ContentType;
 

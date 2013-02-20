@@ -12,19 +12,11 @@ class Price extends ComplexTypeAbstract
     const CLASS_NAME = 'Price';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var float|null $Amount
+     * @var float
      */
     protected $Amount;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
      * @var PriceGroup|null $Group
      */
     protected $Group;

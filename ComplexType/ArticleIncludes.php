@@ -12,119 +12,67 @@ class ArticleIncludes extends ComplexTypeAbstract
     const CLASS_NAME = 'ArticleIncludes';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $FreeArticles
+     * @var boolean
      */
     protected $FreeArticles;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $Group
+     * @var boolean
      */
     protected $Group;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $Image
+     * @var boolean
      */
     protected $Image;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $ImageUrl
+     * @var boolean
      */
     protected $ImageUrl;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $Ingrediënts
+     * @var boolean
      */
     protected $Ingredients;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $Locations
+     * @var boolean
      */
     protected $Locations;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $Options
+     * @var boolean
      */
     protected $Options;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $Price
+     * @var boolean
      */
     protected $Price;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $RentArticles
+     * @var boolean
      */
     protected $RentArticles;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $SaleArticles
+     * @var boolean
      */
     protected $SaleArticles;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $SoldOutArticles
+     * @var boolean
      */
     protected $SoldOutArticles;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $Stock
+     * @var boolean
      */
     protected $Stock;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $ArticleCategories
+     * @var boolean
      */
     protected $ArticleCategories;
 

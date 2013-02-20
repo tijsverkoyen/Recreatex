@@ -15,38 +15,22 @@ class BestAvailableSeatsCultureEventReservationEntry extends ComplexTypeAbstract
     const CLASS_NAME = 'BestAvailableSeatsCultureEventReservationEntry';
 
     /**
-
-     * minOccurs = 1
-     * maxOccurs = 1
-     *
-     * @var integer $ParticipantCount
+     * @var integer
      */
     protected $ParticipantCount;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $SeatBlockId
+     * @var SimpleType\Guid
      */
     protected $SeatBlockId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $SeatRowId
+     * @var SimpleType\Guid
      */
     protected $SeatRowId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $SeatRangeId
+     * @var SimpleType\Guid
      */
     protected $SeatRangeId;
 

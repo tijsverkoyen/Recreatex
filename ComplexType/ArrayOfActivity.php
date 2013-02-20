@@ -12,16 +12,12 @@ class ArrayOfActivity extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfActivity';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = unbounded
-     *
-     * @var Activity[] $Activity
+     * @var array
      */
     protected $Activity = array();
 
     /**
-     * @param  Activity[]      $activity
+     * @param  array      $activity
      * @return ArrayOfActivity
      */
     public function setActivity(array $activity = array())
@@ -32,7 +28,7 @@ class ArrayOfActivity extends ComplexTypeAbstract
     }
 
     /**
-     * @return Activity[]
+     * @return array
      */
     public function getActivity()
     {

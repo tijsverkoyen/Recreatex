@@ -14,20 +14,12 @@ class ExpositionSalesItem extends ComplexTypeAbstract
     const CLASS_NAME = 'ExpositionSalesItem';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $ExpositionId
+     * @var SimpleType\Guid
      */
     protected $ExpositionId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $ExpositionPeriodId
+     * @var SimpleType\Guid
      */
     protected $ExpositionPeriodId;
 

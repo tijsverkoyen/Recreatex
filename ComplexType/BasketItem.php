@@ -16,47 +16,27 @@ class BasketItem extends ComplexTypeAbstract
     const CLASS_NAME = 'BasketItem';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $DivisionId
+     * @var SimpleType\Guid
      */
     protected $DivisionId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $Id
+     * @var SimpleType\Guid
      */
     protected $Id;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var integer|null $Quantity
+     * @var integer
      */
     protected $Quantity;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfstring|null $RuleNamesToIgnore
+     * @var ArrayOfstring
      */
     protected $RuleNamesToIgnore;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var float|null $UnitPrice
+     * @var float
      */
     protected $UnitPrice;
 

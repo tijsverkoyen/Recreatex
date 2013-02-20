@@ -12,20 +12,12 @@ class ExtendedLocks extends ComplexTypeAbstract
     const CLASS_NAME = 'ExtendedLocks';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfLockTicket|null $Succeeded
+     * @var ArrayOfLockTicket
      */
     protected $Succeeded;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfLockTicket|null $Failed
+     * @var ArrayOfLockTicket
      */
     protected $Failed;
 

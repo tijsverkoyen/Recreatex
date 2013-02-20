@@ -12,20 +12,12 @@ class SeatAllocationsOverview extends ComplexTypeAbstract
     const CLASS_NAME = 'SeatAllocationsOverview';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfSeatAllocation|null $Allocations
+     * @var ArrayOfSeatAllocation
      */
     protected $Allocations;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SeatAllocationPerHallSummary|null $Summary
+     * @var Seat
      */
     protected $Summary;
 

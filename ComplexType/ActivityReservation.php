@@ -12,65 +12,37 @@ class ActivityReservation extends ComplexTypeAbstract
     const CLASS_NAME = 'ActivityReservation';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var Activity|null $Activity
+     * @var Activity
      */
     protected $Activity;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Comments
+     * @var string
      */
     protected $Comments;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var LockTicket|null $LockTicket
+     * @var LockTicket
      */
     protected $LockTicket;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var float|null $OptionPrice
+     * @var float
      */
     protected $OptionPrice;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var Person|null $Participant
+     * @var Person
      */
     protected $Participant;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfActivityPartReservation|null $PresentActivityParts
+     * @var ArrayOfActivityPartReservation
      */
     protected $PresentActivityParts;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var float|null $TotalPrice
+     * @var float
      */
     protected $TotalPrice;
 

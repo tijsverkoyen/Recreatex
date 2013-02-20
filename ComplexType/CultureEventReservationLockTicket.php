@@ -12,11 +12,7 @@ class CultureEventReservationLockTicket extends ComplexTypeAbstract
     const CLASS_NAME = 'CultureEventReservationLockTicket';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfSeatAllocation|null $SeatAllocations
+     * @var ArrayOfSeatAllocation
      */
     protected $SeatAllocations;
 

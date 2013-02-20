@@ -14,29 +14,17 @@ class ArticleCategorySearchCriteria extends ComplexTypeAbstract
     const CLASS_NAME = 'ArticleCategorySearchCriteria';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $ArticleCategoryId
+     * @var SimpleType\Guid
      */
     protected $ArticleCategoryId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $NamePattern
+     * @var string
      */
     protected $NamePattern;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var PagingCriteria|null $Paging
+     * @var PagingCriteria
      */
     protected $Paging;
 

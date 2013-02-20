@@ -12,7 +12,7 @@ class ArrayOfStockLocation extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfStockLocation';
 
     /**
-     * @var array $StockLocation
+     * @var array
      */
     protected $StockLocation = array();
 

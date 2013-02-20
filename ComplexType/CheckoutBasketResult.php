@@ -14,29 +14,17 @@ class CheckoutBasketResult extends ComplexTypeAbstract
     const CLASS_NAME = 'CheckoutBasketResult';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var BasketValidationResult|null $BasketValidationResult
+     * @var BasketValidationResult
      */
     protected $BasketValidationResult;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\CheckoutResultState|null $ResultState
+     * @var SimpleTypeCheckoutResultState
      */
     protected $ResultState;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfSalesItem|null $SalesItems
+     * @var SimpleTypeCheckoutResultState
      */
     protected $SalesItems;
 

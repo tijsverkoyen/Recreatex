@@ -12,11 +12,7 @@ class IncassoCost extends ComplexTypeAbstract
     const CLASS_NAME = 'IncassoCost';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var integer|null $NumberOfPayments
+     * @var integer
      */
     protected $NumberOfPayments;
 

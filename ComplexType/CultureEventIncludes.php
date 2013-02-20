@@ -12,29 +12,17 @@ class CultureEventIncludes extends ComplexTypeAbstract
     const CLASS_NAME = 'CultureEventIncludes';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $Image
+     * @var boolean
      */
     protected $Image;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $ImageUri
+     * @var boolean
      */
     protected $ImageUri;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $Options
+     * @var boolean
      */
     protected $Options;
 

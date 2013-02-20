@@ -12,20 +12,12 @@ class Occupancy extends ComplexTypeAbstract
     const CLASS_NAME = 'Occupancy';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var integer|null $Current
+     * @var integer
      */
     protected $Current;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var integer|null $Maximum
+     * @var integer
      */
     protected $Maximum;
 

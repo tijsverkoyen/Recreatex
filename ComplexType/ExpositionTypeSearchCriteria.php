@@ -16,47 +16,29 @@ class ExpositionTypeSearchCriteria extends ComplexTypeAbstract
 
     /**
      * Only include exposition types for this target audience
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $AudienceId
+     * @var SimpleType\Guid
      */
     protected $AudienceId;
 
     /**
      * The ID of a specific exposition type that you want to find
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid|null $ExpositionTypeId
+     * @var SimpleType\Guid
      */
     protected $ExpositionTypeId;
 
     /**
      * Part of the name of the exposition type to find. Use an asteriks (*) as the wildcard.
-     *
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $NamePattern
+     * @var string
      */
     protected $NamePattern;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ExpositionTypeIncludes|null $Includes
+     * @var ExpositionTypeIncludes
      */
     protected $Includes;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var PagingCriteria|null $Paging
+     * @var PagingCriteria
      */
     protected $Paging;
 

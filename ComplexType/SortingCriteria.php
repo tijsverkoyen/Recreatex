@@ -12,20 +12,12 @@ class SortingCriteria extends ComplexTypeAbstract
     const CLASS_NAME = 'SortingCriteria';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $IsAscending
+     * @var boolean
      */
     protected $IsAscending;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $PropertyName
+     * @var string
      */
     protected $PropertyName;
 

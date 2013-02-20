@@ -12,7 +12,7 @@ class ArrayOfCultureEventPrice extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfCultureEventPrice';
 
     /**
-     * @var array $CultureEventPrice
+     * @var array
      */
     protected $CultureEventPrice = array();
 

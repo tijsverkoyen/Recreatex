@@ -12,20 +12,12 @@ class SavePersonResult extends ComplexTypeAbstract
     const CLASS_NAME = 'SavePersonResult';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var Person|null $Person
+     * @var Person
      */
     protected $Person;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfValidationResult|null $ValidationResults
+     * @var ArrayOfValidationResult
      */
     protected $ValidationResults;
 
