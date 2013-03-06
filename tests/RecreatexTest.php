@@ -68,6 +68,17 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 		$this->assertInternalType('array', $response);
 	}
 
+	/**
+	 * Tests Recreatex->ValidateUsername()
+	 */
+	public function testValidateUsername()
+	{
+		$response = $this->recreatex->validateUsername(USERNAME);
+
+		$this->assertInstanceOf('\TijsVerkoyen\Recreatex\ComplexType\AuthenticationResult', $response);
+		$this->assertFalse($response->getHasSucceeded());
+	}
+
     /**
      * Tests Recreatex->AuthenticateUser()
      */

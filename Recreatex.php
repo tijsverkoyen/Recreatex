@@ -784,6 +784,22 @@ class Recreatex extends BaseSoapClient
         return $response->getRcxWsdlModules();
     }
 
+	/**
+	 * @param string $username
+	 * @return AuthenticationResult
+	 */
+	public function validateUsername($username)
+	{
+		$response = $this->getSoapClient()->ValidateUserName(
+			$this->getServiceContext(),
+			$username
+		);
+
+		return $response;
+	}
+
+
+
     /**
      * Check if the service is available     * @return bool
      */
