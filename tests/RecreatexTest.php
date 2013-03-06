@@ -118,6 +118,18 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 		$this->assertFalse($response->getHasSucceeded());
 	}
 
+	/**
+	 * Tests Recreatex->ForgotPassword()
+	 */
+	public function testForgotPassword()
+	{
+		$response = $this->recreatex->forgotPassword(USERNAME);
+
+		$this->assertInstanceOf('\TijsVerkoyen\Recreatex\ComplexType\ForgotPasswordResult', $response);
+		$this->assertEquals(PASSWORD, $response->getPassword());
+	}
+
+
 
     /**
      * Tests Recreatex->FindActivities();

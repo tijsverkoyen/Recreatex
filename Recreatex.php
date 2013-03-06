@@ -842,7 +842,19 @@ class Recreatex extends BaseSoapClient
 		return $response;
 	}
 
+	/**
+	 * @param string $username
+	 * @return ForgotPasswordResult
+	 */
+	public function forgotPassword($username)
+	{
+		$response = $this->getSoapClient()->ForgotPassword(
+			$this->getServiceContext(),
+			$username
+		);
 
+		return $response;
+	}
 
     /**
      * Check if the service is available     * @return bool
@@ -873,16 +885,6 @@ class Recreatex extends BaseSoapClient
     public function savePersonSubcategories(ServiceContext $Context, Person $Person)
     {
         return $this->getSoapClient()->SavePersonSubcategories(array($Context, $Person));
-    }
-
-    /**
-     * @param  ServiceContext       $Context
-     * @param  string               $Login
-     * @return ForgotPasswordResult
-     */
-    public function forgotPassword(ServiceContext $Context, string $Login)
-    {
-        return $this->getSoapClient()->ForgotPassword(array($Context, $Login));
     }
 
     /**

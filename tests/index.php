@@ -34,6 +34,9 @@ try {
 //    $credential->setPassword(PASSWORD);
 //    $response = $recreatex->authenticateManager($credential);
 
+	// ForgotPassword
+//	$response = $recreatex->forgotPassword(USERNAME);
+
     // FindActivities   @remark: untested, because my RCX-instance hasn't any activities
 //    $paging = new \TijsVerkoyen\Recreatex\ComplexType\PagingCriteria();
 //    $paging->setPageSize(10);
