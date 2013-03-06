@@ -58,6 +58,16 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
         );
     }
 
+	// Authentication methods
+	/**
+	 * Tests Recreates->ListLicenseModules()
+	 */
+	public function testListLicenseModules()
+	{
+		$response = $this->recreatex->listLicenseModules();
+		$this->assertInternalType('array', $response);
+	}
+
     /**
      * Tests Recreatex->AuthenticateUser()
      */

@@ -14,7 +14,7 @@ $recreatex->createServiceContext(SHOP_ID, DIVISION_ID, LANGUAGE);
 
 try {
     // Authentication
-    $response = $recreatex->listLicenseModules();
+//    $response = $recreatex->listLicenseModules();
 
     // AuthenticateUser
 //    $credential = new Credential();
