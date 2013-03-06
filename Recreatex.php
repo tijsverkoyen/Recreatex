@@ -54,7 +54,7 @@ use TijsVerkoyen\Recreatex\ComplexType\ArrayOfCategory;
 
 class Recreatex extends BaseSoapClient
 {
-    const DEBUG = true;
+    const DEBUG = false;
     const VERSION = '2.0.0';
 
     /**
