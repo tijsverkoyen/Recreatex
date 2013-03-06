@@ -69,8 +69,12 @@ try {
 
     // FindPerson
 //    $criteria = new \TijsVerkoyen\Recreatex\ComplexType\FindPersonsCriteria();
-//    $criteria->setEmail('vorst@verkoyen.eu');
+//    $criteria->setUserName(USERNAME);
 //    $response = $recreatex->findPerson($criteria);
+
+    // FindPriceGroups
+//    $criteria = new \TijsVerkoyen\Recreatex\ComplexType\PriceGroupSearchCriteria();
+//	$response = $recreatex->findPriceGroups($criteria);
 
     // IsAvailable
 //    $response = $recreatex->isAvailable();
