@@ -12,16 +12,12 @@ class ArrayOfArticleGroup extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfArticleGroup';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = unbounded
-     *
-     * @var ArticleGroup[] $ArticleGroup
+     * @var array
      */
     protected $ArticleGroup = array();
 
     /**
-     * @param  ArticleGroup[]      $articleGroup
+     * @param  array               $articleGroup
      * @return ArrayOfArticleGroup
      */
     public function setArticleGroup(array $articleGroup = array())
@@ -32,11 +28,13 @@ class ArrayOfArticleGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArticleGroup[]
+     * @return array
      */
     public function getArticleGroup()
     {
-        return $this->ArticleGroup;
+	    if(!is_array($this->ArticleGroup)) {
+		    return array($this->ArticleGroup);
+	    }
+	    return $this->ArticleGroup;
     }
-
 }

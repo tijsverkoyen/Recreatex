@@ -12,34 +12,22 @@ class LockBasketResult extends ComplexTypeAbstract
     const CLASS_NAME = 'LockBasketResult';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfBasketItem|null $BasketItems
+     * @var ArrayOfBasketItem
      */
     protected $BasketItems;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $IsLocked
+     * @var boolean
      */
     protected $IsLocked;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ValidationResult|null $ValidationResult
+     * @var ValidationResult
      */
     protected $ValidationResult;
 
     /**
-     * @param  ArrayOfBasketItem|null $basketItems
+     * @param  ArrayOfBasketItem[optional] $basketItems
      * @return LockBasketResult
      */
     public function setBasketItems(ArrayOfBasketItem $basketItems = null)
@@ -50,7 +38,7 @@ class LockBasketResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfBasketItem|null
+     * @return ArrayOfBasketItem
      */
     public function getBasketItems()
     {
@@ -58,7 +46,7 @@ class LockBasketResult extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null     $isLocked
+     * @param  boolean[optional] $isLocked
      * @return LockBasketResult
      */
     public function setIsLocked($isLocked)
@@ -69,7 +57,7 @@ class LockBasketResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getIsLocked()
     {
@@ -77,7 +65,7 @@ class LockBasketResult extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ValidationResult|null $validationResult
+     * @param  ValidationResult[optional] $validationResult
      * @return LockBasketResult
      */
     public function setValidationResult(ValidationResult $validationResult = null)
@@ -88,11 +76,10 @@ class LockBasketResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return ValidationResult|null
+     * @return ValidationResult
      */
     public function getValidationResult()
     {
         return $this->ValidationResult;
     }
-
 }

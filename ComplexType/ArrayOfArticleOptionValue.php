@@ -12,16 +12,12 @@ class ArrayOfArticleOptionValue extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfArticleOptionValue';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = unbounded
-     *
-     * @var ArticleOptionValue[] $ArticleOptionValue
+     * @var array
      */
     protected $ArticleOptionValue = array();
 
     /**
-     * @param  ArticleOptionValue[]      $articleOptionValue
+     * @param  array                     $articleOptionValue
      * @return ArrayOfArticleOptionValue
      */
     public function setArticleOptionValue(array $articleOptionValue = array())
@@ -32,11 +28,13 @@ class ArrayOfArticleOptionValue extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArticleOptionValue[]
+     * @return array
      */
     public function getArticleOptionValue()
     {
-        return $this->ArticleOptionValue;
+	    if(!is_array($this->ArticleOptionValue)) {
+		    return array($this->ArticleOptionValue);
+	    }
+	    return $this->ArticleOptionValue;
     }
-
 }

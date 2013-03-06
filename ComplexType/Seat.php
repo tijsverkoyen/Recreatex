@@ -14,61 +14,37 @@ class Seat extends ComplexTypeAbstract
     const CLASS_NAME = 'Seat';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Code
+     * @var string
      */
     protected $Code;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\guid|null $Id
+     * @var SimpleType\Guid
      */
     protected $Id;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var Location|null $Location
+     * @var Location
      */
     protected $Location;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var integer|null $Sequence
+     * @var integer
      */
     protected $Sequence;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var integer|null $Number
+     * @var integer
      */
     protected $Number;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SeatRange|null $Range
+     * @var Seat
      */
     protected $Range;
 
     /**
-     * @param  string|null $code
+     * @param  string[optional] $code
      * @return Seat
      */
     public function setCode($code)
@@ -79,7 +55,7 @@ class Seat extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getCode()
     {
@@ -87,10 +63,10 @@ class Seat extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return Seat
      */
-    public function setId(SimpleType\guid $id = null)
+    public function setId(SimpleType\Guid $id = null)
     {
         $this->Id = $id;
 
@@ -98,7 +74,7 @@ class Seat extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -106,7 +82,7 @@ class Seat extends ComplexTypeAbstract
     }
 
     /**
-     * @param  Location|null $location
+     * @param  Location[optional] $location
      * @return Seat
      */
     public function setLocation(Location $location = null)
@@ -117,7 +93,7 @@ class Seat extends ComplexTypeAbstract
     }
 
     /**
-     * @return Location|null
+     * @return Location
      */
     public function getLocation()
     {
@@ -125,7 +101,7 @@ class Seat extends ComplexTypeAbstract
     }
 
     /**
-     * @param  integer|null $sequence
+     * @param  integer[optional] $sequence
      * @return Seat
      */
     public function setSequence($sequence)
@@ -136,7 +112,7 @@ class Seat extends ComplexTypeAbstract
     }
 
     /**
-     * @return integer|null
+     * @return integer
      */
     public function getSequence()
     {
@@ -144,7 +120,7 @@ class Seat extends ComplexTypeAbstract
     }
 
     /**
-     * @param  integer|null $number
+     * @param  integer[optional] $number
      * @return Seat
      */
     public function setNumber($number)
@@ -155,7 +131,7 @@ class Seat extends ComplexTypeAbstract
     }
 
     /**
-     * @return integer|null
+     * @return integer
      */
     public function getNumber()
     {
@@ -163,7 +139,7 @@ class Seat extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SeatRange|null $range
+     * @param  SeatRange[optional] $range
      * @return Seat
      */
     public function setRange(SeatRange $range = null)
@@ -174,11 +150,10 @@ class Seat extends ComplexTypeAbstract
     }
 
     /**
-     * @return SeatRange|null
+     * @return SeatRange
      */
     public function getRange()
     {
         return $this->Range;
     }
-
 }

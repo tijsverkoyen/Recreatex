@@ -14,44 +14,23 @@ class ArticleGroupSearchCriteria extends ComplexTypeAbstract
     const CLASS_NAME = 'ArticleGroupSearchCriteria';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\ArticleType|null $ArticleTypes
+     * @var SimpleType\ArticleType
      */
     protected $ArticleTypes;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $IncludeImage
+     * @var boolean
      */
     protected $IncludeImage;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $IncludeImageUrl
+     * @var boolean
      */
     protected $IncludeImageUrl;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\guid|null $EmployeeId
-     */
-    protected $EmployeeId;
-
-    /**
-     * @param  SimpleType\ArticleType|null $articleTypes
-     * @return ArticleGroupSearchCriteria
+     * @param SimpleType\ArticleType[optional] $articleTypes
+     *  ArticleGroupSearchCriteria
      */
     public function setArticleTypes(SimpleType\ArticleType $articleTypes = null)
     {
@@ -61,7 +40,7 @@ class ArticleGroupSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\ArticleType|null
+     * @return SimpleType\ArticleType
      */
     public function getArticleTypes()
     {
@@ -69,7 +48,7 @@ class ArticleGroupSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null               $includeImage
+     * @param  boolean[optional]          $includeImage
      * @return ArticleGroupSearchCriteria
      */
     public function setIncludeImage($includeImage)
@@ -80,7 +59,7 @@ class ArticleGroupSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getIncludeImage()
     {
@@ -88,7 +67,7 @@ class ArticleGroupSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null               $includeImageUrl
+     * @param  boolean[optional]          $includeImageUrl
      * @return ArticleGroupSearchCriteria
      */
     public function setIncludeImageUrl($includeImageUrl)
@@ -99,30 +78,10 @@ class ArticleGroupSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getIncludeImageUrl()
     {
         return $this->IncludeImageUrl;
     }
-
-    /**
-     * @param  SimpleType\guid|null       $employeeId
-     * @return ArticleGroupSearchCriteria
-     */
-    public function setEmployeeId(SimpleType\guid $employeeId = null)
-    {
-        $this->EmployeeId = $employeeId;
-
-        return $this;
-    }
-
-    /**
-     * @return SimpleType\guid|null
-     */
-    public function getEmployeeId()
-    {
-        return $this->EmployeeId;
-    }
-
 }

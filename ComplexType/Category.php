@@ -14,43 +14,27 @@ class Category extends ComplexTypeAbstract
     const CLASS_NAME = 'Category';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Code
+     * @var string
      */
     protected $Code;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\guid|null $Id
+     * @var SimpleType\Guid
      */
     protected $Id;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Name
+     * @var string
      */
     protected $Name;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfSubcategory|null $Subcategories
+     * @var ArrayOfSubcategory
      */
     protected $Subcategories;
 
     /**
-     * @param  string|null $code
+     * @param  string[optional] $code
      * @return Category
      */
     public function setCode($code)
@@ -61,7 +45,7 @@ class Category extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getCode()
     {
@@ -69,10 +53,10 @@ class Category extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return Category
      */
-    public function setId(SimpleType\guid $id = null)
+    public function setId(SimpleType\Guid $id = null)
     {
         $this->Id = $id;
 
@@ -80,7 +64,7 @@ class Category extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -88,7 +72,7 @@ class Category extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $name
+     * @param  string[optional] $name
      * @return Category
      */
     public function setName($name)
@@ -99,7 +83,7 @@ class Category extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -107,7 +91,7 @@ class Category extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfSubcategory|null $subcategories
+     * @param  ArrayOfSubcategory[optional] $subcategories
      * @return Category
      */
     public function setSubcategories(ArrayOfSubcategory $subcategories = null)
@@ -118,11 +102,10 @@ class Category extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfSubcategory|null
+     * @return ArrayOfSubcategory
      */
     public function getSubcategories()
     {
         return $this->Subcategories;
     }
-
 }

@@ -16,55 +16,37 @@ class ExpositionTypeSearchCriteria extends ComplexTypeAbstract
 
     /**
      * Only include exposition types for this target audience
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\guid|null $AudienceId
+     * @var SimpleType\Guid
      */
     protected $AudienceId;
 
     /**
      * The ID of a specific exposition type that you want to find
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\guid|null $ExpositionTypeId
+     * @var SimpleType\Guid
      */
     protected $ExpositionTypeId;
 
     /**
      * Part of the name of the exposition type to find. Use an asteriks (*) as the wildcard.
-     *
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $NamePattern
+     * @var string
      */
     protected $NamePattern;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ExpositionTypeIncludes|null $Includes
+     * @var ExpositionTypeIncludes
      */
     protected $Includes;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var PagingCriteria|null $Paging
+     * @var PagingCriteria
      */
     protected $Paging;
 
     /**
-     * @param  SimpleType\guid|null         $audienceId
+     * @param  SimpleType\Guid[optional]    $audienceId
      * @return ExpositionTypeSearchCriteria
      */
-    public function setAudienceId(SimpleType\guid $audienceId = null)
+    public function setAudienceId(SimpleType\Guid $audienceId = null)
     {
         $this->AudienceId = $audienceId;
 
@@ -72,7 +54,7 @@ class ExpositionTypeSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid
      */
     public function getAudienceId()
     {
@@ -80,10 +62,10 @@ class ExpositionTypeSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\guid|null         $expositionTypeId
+     * @param  SimpleType\Guid[optional]    $expositionTypeId
      * @return ExpositionTypeSearchCriteria
      */
-    public function setExpositionTypeId(SimpleType\guid $expositionTypeId = null)
+    public function setExpositionTypeId(SimpleType\Guid $expositionTypeId = null)
     {
         $this->ExpositionTypeId = $expositionTypeId;
 
@@ -91,7 +73,7 @@ class ExpositionTypeSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid
      */
     public function getExpositionTypeId()
     {
@@ -99,7 +81,7 @@ class ExpositionTypeSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null                  $namePattern
+     * @param  string[optional]             $namePattern
      * @return ExpositionTypeSearchCriteria
      */
     public function setNamePattern($namePattern)
@@ -110,7 +92,7 @@ class ExpositionTypeSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getNamePattern()
     {
@@ -118,7 +100,7 @@ class ExpositionTypeSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ExpositionTypeIncludes|null  $includes
+     * @param  ExpositionTypeIncludes[optional] $includes
      * @return ExpositionTypeSearchCriteria
      */
     public function setIncludes(ExpositionTypeIncludes $includes = null)
@@ -129,7 +111,7 @@ class ExpositionTypeSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return ExpositionTypeIncludes|null
+     * @return ExpositionTypeIncludes
      */
     public function getIncludes()
     {
@@ -137,7 +119,7 @@ class ExpositionTypeSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  PagingCriteria|null          $paging
+     * @param  PagingCriteria[optional]     $paging
      * @return ExpositionTypeSearchCriteria
      */
     public function setPaging(PagingCriteria $paging = null)
@@ -148,11 +130,10 @@ class ExpositionTypeSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return PagingCriteria|null
+     * @return PagingCriteria
      */
     public function getPaging()
     {
         return $this->Paging;
     }
-
 }

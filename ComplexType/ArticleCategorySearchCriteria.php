@@ -14,37 +14,25 @@ class ArticleCategorySearchCriteria extends ComplexTypeAbstract
     const CLASS_NAME = 'ArticleCategorySearchCriteria';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\guid|null $ArticleCategoryId
+     * @var SimpleType\Guid
      */
     protected $ArticleCategoryId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $NamePattern
+     * @var string
      */
     protected $NamePattern;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var PagingCriteria|null $Paging
+     * @var PagingCriteria
      */
     protected $Paging;
 
     /**
-     * @param  SimpleType\guid|null          $articleCategoryId
-     * @return ArticleCategorySearchCriteria
+     * @param SimpleType\Guid[optional] $articleCategoryId
+     *  ArticleCategorySearchCriteria
      */
-    public function setArticleCategoryId(SimpleType\guid $articleCategoryId = null)
+    public function setArticleCategoryId(SimpleType\Guid $articleCategoryId = null)
     {
         $this->ArticleCategoryId = $articleCategoryId;
 
@@ -52,7 +40,7 @@ class ArticleCategorySearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid
      */
     public function getArticleCategoryId()
     {
@@ -60,7 +48,7 @@ class ArticleCategorySearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null                   $namePattern
+     * @param  string[optional]              $namePattern
      * @return ArticleCategorySearchCriteria
      */
     public function setNamePattern($namePattern)
@@ -71,7 +59,7 @@ class ArticleCategorySearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getNamePattern()
     {
@@ -79,7 +67,7 @@ class ArticleCategorySearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  PagingCriteria|null           $paging
+     * @param  PagingCriteria[optional]      $paging
      * @return ArticleCategorySearchCriteria
      */
     public function setPaging(PagingCriteria $paging = null)
@@ -90,11 +78,10 @@ class ArticleCategorySearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return PagingCriteria|null
+     * @return PagingCriteria
      */
     public function getPaging()
     {
         return $this->Paging;
     }
-
 }

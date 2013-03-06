@@ -10,5 +10,4 @@ namespace TijsVerkoyen\Recreatex\ComplexType;
 class ArticleSaleLockTicket extends ComplexTypeAbstract
 {
     const CLASS_NAME = 'ArticleSaleLockTicket';
-
 }

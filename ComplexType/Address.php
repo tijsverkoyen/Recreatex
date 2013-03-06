@@ -12,70 +12,37 @@ class Address extends ComplexTypeAbstract
     const CLASS_NAME = 'Address';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Box
+     * @var string
      */
     protected $Box;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Country
+     * @var string
      */
     protected $Country;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Number
+     * @var string
      */
     protected $Number;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Street
+     * @var string
      */
     protected $Street;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Town
+     * @var string
      */
     protected $Town;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $ZipCode
+     * @var string
      */
     protected $ZipCode;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $LocationName
-     */
-    protected $LocationName;
-
-    /**
-     * @param  string|null $box
+     * @param  string[optional] $box
      * @return Address
      */
     public function setBox($box)
@@ -86,7 +53,7 @@ class Address extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getBox()
     {
@@ -94,7 +61,7 @@ class Address extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $country
+     * @param  string[optional] $country
      * @return Address
      */
     public function setCountry($country)
@@ -105,7 +72,7 @@ class Address extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getCountry()
     {
@@ -113,7 +80,7 @@ class Address extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $number
+     * @param  string[optional] $number
      * @return Address
      */
     public function setNumber($number)
@@ -124,7 +91,7 @@ class Address extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getNumber()
     {
@@ -132,7 +99,7 @@ class Address extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $street
+     * @param  string[optional] $street
      * @return Address
      */
     public function setStreet($street)
@@ -143,7 +110,7 @@ class Address extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getStreet()
     {
@@ -151,7 +118,7 @@ class Address extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $town
+     * @param  string[optional] $town
      * @return Address
      */
     public function setTown($town)
@@ -162,7 +129,7 @@ class Address extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getTown()
     {
@@ -170,7 +137,7 @@ class Address extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $zipCode
+     * @param  string[optional] $zipCode
      * @return Address
      */
     public function setZipCode($zipCode)
@@ -181,30 +148,10 @@ class Address extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getZipCode()
     {
         return $this->ZipCode;
     }
-
-    /**
-     * @param  string|null $locationName
-     * @return Address
-     */
-    public function setLocationName($locationName)
-    {
-        $this->LocationName = $locationName;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getLocationName()
-    {
-        return $this->LocationName;
-    }
-
 }

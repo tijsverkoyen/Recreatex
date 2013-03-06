@@ -14,61 +14,37 @@ class CultureEventReservation extends ComplexTypeAbstract
     const CLASS_NAME = 'CultureEventReservation';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Comments
+     * @var string
      */
     protected $Comments;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\guid|null $CultureEventId
+     * @var SimpleType\Guid
      */
     protected $CultureEventId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfCultureEventReservationEntry|null $Entries
+     * @var ArrayOfCultureEventReservationEntry
      */
     protected $Entries;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var LockTicket|null $LockTicket
+     * @var LockTicket
      */
     protected $LockTicket;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfCultureEventOptionReservation|null $Options
+     * @var ArrayOfCultureEventOptionReservation
      */
     protected $Options;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $ReservationDate
+     * @var string
      */
     protected $ReservationDate;
 
     /**
-     * @param  string|null             $comments
+     * @param  string[optional]        $comments
      * @return CultureEventReservation
      */
     public function setComments($comments)
@@ -79,7 +55,7 @@ class CultureEventReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getComments()
     {
@@ -87,10 +63,10 @@ class CultureEventReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\guid|null    $cultureEventId
+     * @param  SimpleType\Guid[optional] $cultureEventId
      * @return CultureEventReservation
      */
-    public function setCultureEventId(SimpleType\guid $cultureEventId = null)
+    public function setCultureEventId(SimpleType\Guid $cultureEventId = null)
     {
         $this->CultureEventId = $cultureEventId;
 
@@ -98,7 +74,7 @@ class CultureEventReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid
      */
     public function getCultureEventId()
     {
@@ -106,7 +82,7 @@ class CultureEventReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfCultureEventReservationEntry|null $entries
+     * @param  ArrayOfCultureEventReservationEntry[optional] $entries
      * @return CultureEventReservation
      */
     public function setEntries(ArrayOfCultureEventReservationEntry $entries = null)
@@ -117,7 +93,7 @@ class CultureEventReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfCultureEventReservationEntry|null
+     * @return ArrayOfCultureEventReservationEntry
      */
     public function getEntries()
     {
@@ -125,7 +101,7 @@ class CultureEventReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  LockTicket|null         $lockTicket
+     * @param  LockTicket[optional]    $lockTicket
      * @return CultureEventReservation
      */
     public function setLockTicket(LockTicket $lockTicket = null)
@@ -136,7 +112,7 @@ class CultureEventReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return LockTicket|null
+     * @return LockTicket
      */
     public function getLockTicket()
     {
@@ -144,7 +120,7 @@ class CultureEventReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfCultureEventOptionReservation|null $options
+     * @param  ArrayOfCultureEventOptionReservation[optional] $options
      * @return CultureEventReservation
      */
     public function setOptions(ArrayOfCultureEventOptionReservation $options = null)
@@ -155,7 +131,7 @@ class CultureEventReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfCultureEventOptionReservation|null
+     * @return ArrayOfCultureEventOptionReservation
      */
     public function getOptions()
     {
@@ -163,7 +139,7 @@ class CultureEventReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null             $reservationDate
+     * @param  string[optional]        $reservationDate
      * @return CultureEventReservation
      */
     public function setReservationDate($reservationDate)
@@ -174,11 +150,10 @@ class CultureEventReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getReservationDate()
     {
         return $this->ReservationDate;
     }
-
 }

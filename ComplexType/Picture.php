@@ -12,25 +12,17 @@ class Picture extends ComplexTypeAbstract
     const CLASS_NAME = 'Picture';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Bytes
+     * @var string
      */
     protected $Bytes;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $ContentType
+     * @var string
      */
     protected $ContentType;
 
     /**
-     * @param  string|null $bytes
+     * @param  string[optional] $bytes
      * @return Picture
      */
     public function setBytes($bytes)
@@ -41,7 +33,7 @@ class Picture extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getBytes()
     {
@@ -49,7 +41,7 @@ class Picture extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $contentType
+     * @param  string[optional] $contentType
      * @return Picture
      */
     public function setContentType($contentType)
@@ -60,11 +52,10 @@ class Picture extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getContentType()
     {
         return $this->ContentType;
     }
-
 }

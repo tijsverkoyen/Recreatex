@@ -12,16 +12,12 @@ class BasketItemValidationResult extends ComplexTypeAbstract
     const CLASS_NAME = 'BasketItemValidationResult';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var BasketItem|null $ValidatedBasketItem
+     * @var BasketItem
      */
     protected $ValidatedBasketItem;
 
     /**
-     * @param  BasketItem|null            $validatedBasketItem
+     * @param  BasketItem[optional]       $validatedBasketItem
      * @return BasketItemValidationResult
      */
     public function setValidatedBasketItem(BasketItem $validatedBasketItem = null)
@@ -32,11 +28,10 @@ class BasketItemValidationResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return BasketItem|null
+     * @return BasketItem
      */
     public function getValidatedBasketItem()
     {
         return $this->ValidatedBasketItem;
     }
-
 }

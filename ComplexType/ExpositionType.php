@@ -14,34 +14,22 @@ class ExpositionType extends ComplexTypeAbstract
     const CLASS_NAME = 'ExpositionType';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Description
+     * @var string
      */
     protected $Description;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\guid|null $Id
+     * @var SimpleType\Guid
      */
     protected $Id;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Name
+     * @var string
      */
     protected $Name;
 
     /**
-     * @param  string|null    $description
+     * @param  string[optional] $description
      * @return ExpositionType
      */
     public function setDescription($description)
@@ -52,7 +40,7 @@ class ExpositionType extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getDescription()
     {
@@ -60,10 +48,10 @@ class ExpositionType extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return ExpositionType
      */
-    public function setId(SimpleType\guid $id = null)
+    public function setId(SimpleType\Guid $id = null)
     {
         $this->Id = $id;
 
@@ -71,7 +59,7 @@ class ExpositionType extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -79,7 +67,7 @@ class ExpositionType extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null    $name
+     * @param  string[optional] $name
      * @return ExpositionType
      */
     public function setName($name)
@@ -90,11 +78,10 @@ class ExpositionType extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
         return $this->Name;
     }
-
 }

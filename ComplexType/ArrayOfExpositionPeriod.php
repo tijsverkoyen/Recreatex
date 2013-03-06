@@ -12,16 +12,12 @@ class ArrayOfExpositionPeriod extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfExpositionPeriod';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = unbounded
-     *
-     * @var ExpositionPeriod[] $ExpositionPeriod
+     * @var array
      */
     protected $ExpositionPeriod = array();
 
     /**
-     * @param  ExpositionPeriod[]      $expositionPeriod
+     * @param  array                   $expositionPeriod
      * @return ArrayOfExpositionPeriod
      */
     public function setExpositionPeriod(array $expositionPeriod = array())
@@ -32,11 +28,13 @@ class ArrayOfExpositionPeriod extends ComplexTypeAbstract
     }
 
     /**
-     * @return ExpositionPeriod[]
+     * @return array
      */
     public function getExpositionPeriod()
     {
-        return $this->ExpositionPeriod;
+	    if(!is_array($this->ExpositionPeriod)) {
+		    return array($this->ExpositionPeriod);
+	    }
+	    return $this->ExpositionPeriod;
     }
-
 }

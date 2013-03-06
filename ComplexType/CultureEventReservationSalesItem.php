@@ -14,37 +14,20 @@ class CultureEventReservationSalesItem extends ComplexTypeAbstract
     const CLASS_NAME = 'CultureEventReservationSalesItem';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\guid|null $CultureEventReservationId
+     * @var SimpleType\Guid
      */
     protected $CultureEventReservationId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfSeatAllocation|null $Seats
+     * @var ArrayOfSeatAllocation
      */
     protected $Seats;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfSiteAllocation|null $Sites
-     */
-    protected $Sites;
-
-    /**
-     * @param  SimpleType\guid|null             $cultureEventReservationId
+     * @param  SimpleType\Guid[optional]        $cultureEventReservationId
      * @return CultureEventReservationSalesItem
      */
-    public function setCultureEventReservationId(SimpleType\guid $cultureEventReservationId = null)
+    public function setCultureEventReservationId(SimpleType\Guid $cultureEventReservationId = null)
     {
         $this->CultureEventReservationId = $cultureEventReservationId;
 
@@ -52,7 +35,7 @@ class CultureEventReservationSalesItem extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid
      */
     public function getCultureEventReservationId()
     {
@@ -60,7 +43,7 @@ class CultureEventReservationSalesItem extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfSeatAllocation|null       $seats
+     * @param  ArrayOfSeatAllocation[optional]  $seats
      * @return CultureEventReservationSalesItem
      */
     public function setSeats(ArrayOfSeatAllocation $seats = null)
@@ -71,30 +54,10 @@ class CultureEventReservationSalesItem extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfSeatAllocation|null
+     * @return ArrayOfSeatAllocation
      */
     public function getSeats()
     {
         return $this->Seats;
     }
-
-    /**
-     * @param  ArrayOfSiteAllocation|null       $sites
-     * @return CultureEventReservationSalesItem
-     */
-    public function setSites(ArrayOfSiteAllocation $sites = null)
-    {
-        $this->Sites = $sites;
-
-        return $this;
-    }
-
-    /**
-     * @return ArrayOfSiteAllocation|null
-     */
-    public function getSites()
-    {
-        return $this->Sites;
-    }
-
 }

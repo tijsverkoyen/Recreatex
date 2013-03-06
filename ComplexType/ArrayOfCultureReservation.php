@@ -12,16 +12,12 @@ class ArrayOfCultureReservation extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfCultureReservation';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = unbounded
-     *
-     * @var CultureReservation[] $CultureReservation
+     * @var array
      */
     protected $CultureReservation = array();
 
     /**
-     * @param  CultureReservation[]      $cultureReservation
+     * @param  array                     $cultureReservation
      * @return ArrayOfCultureReservation
      */
     public function setCultureReservation(array $cultureReservation = array())
@@ -32,11 +28,13 @@ class ArrayOfCultureReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return CultureReservation[]
+     * @return array
      */
     public function getCultureReservation()
     {
-        return $this->CultureReservation;
+	    if(!is_array($this->CultureReservation)) {
+		    return array($this->CultureReservation);
+	    }
+	    return $this->CultureReservation;
     }
-
 }

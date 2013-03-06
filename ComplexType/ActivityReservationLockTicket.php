@@ -10,5 +10,4 @@ namespace TijsVerkoyen\Recreatex\ComplexType;
 class ActivityReservationLockTicket extends ComplexTypeAbstract
 {
     const CLASS_NAME = 'ActivityReservationLockTicket';
-
 }

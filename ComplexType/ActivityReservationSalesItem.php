@@ -14,19 +14,15 @@ class ActivityReservationSalesItem extends ComplexTypeAbstract
     const CLASS_NAME = 'ActivityReservationSalesItem';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\guid|null $EntryId
+     * @var SimpleType\Guid
      */
     protected $EntryId;
 
     /**
-     * @param  SimpleType\guid|null         $entryId
+     * @param  SimpleType\Guid[optional]    $entryId
      * @return ActivityReservationSalesItem
      */
-    public function setEntryId(SimpleType\guid $entryId = null)
+    public function setEntryId(SimpleType\Guid $entryId = null)
     {
         $this->EntryId = $entryId;
 
@@ -34,11 +30,10 @@ class ActivityReservationSalesItem extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid
      */
     public function getEntryId()
     {
         return $this->EntryId;
     }
-
 }

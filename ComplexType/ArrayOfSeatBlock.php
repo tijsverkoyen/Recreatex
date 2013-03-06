@@ -12,16 +12,12 @@ class ArrayOfSeatBlock extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfSeatBlock';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = unbounded
-     *
-     * @var SeatBlock[] $SeatBlock
+     * @var array
      */
     protected $SeatBlock = array();
 
     /**
-     * @param  SeatBlock[]      $seatBlock
+     * @param  array            $seatBlock
      * @return ArrayOfSeatBlock
      */
     public function setSeatBlock(array $seatBlock = array())
@@ -32,11 +28,13 @@ class ArrayOfSeatBlock extends ComplexTypeAbstract
     }
 
     /**
-     * @return SeatBlock[]
+     * @return array
      */
     public function getSeatBlock()
     {
-        return $this->SeatBlock;
+	    if(!is_array($this->SeatBlock)) {
+		    return array($this->SeatBlock);
+	    }
+	    return $this->SeatBlock;
     }
-
 }

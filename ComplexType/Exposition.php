@@ -15,160 +15,79 @@ class Exposition extends ComplexTypeAbstract
     const CLASS_NAME = 'Exposition';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfAudience|null $Audiences
+     * @var ArrayOfAudience
      */
     protected $Audiences;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Code
+     * @var string
      */
     protected $Code;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Description
+     * @var string
      */
     protected $Description;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\guid|null $DivisionId
+     * @var SimpleType\Guid
      */
     protected $DivisionId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ExpositionType|null $ExpositionType
+     * @var ExpositionType
      */
     protected $ExpositionType;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $From
+     * @var string
      */
     protected $From;
 
     /**
      * Exposition Unique Identifier
-     * minOccurs = 0
-     * maxOccurs = 1
      *
-     * @var SimpleType\guid|null $Id
+     * @var SimpleType\Guid
      */
     protected $Id;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var Picture|null $Image
+     * @var Picture
      */
     protected $Image;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Location
+     * @var string
      */
     protected $Location;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Name
+     * @var string
      */
     protected $Name;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfExpositionPeriod|null $Periods
+     * @var ArrayOfExpositionPeriod
      */
     protected $Periods;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfExpositionPrice|null $Prices
+     * @var ArrayOfExpositionPrice
      */
     protected $Prices;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Until
+     * @var string
      */
     protected $Until;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var Vat|null $VAT
+     * @var Vat
      */
     protected $VAT;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfExpositionSubcategory|null $SubCategories
-     */
-    protected $SubCategories;
-
-    /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var AddressLocation|null $AddressLocation
-     */
-    protected $AddressLocation;
-
-    /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $ImageUri
-     */
-    protected $ImageUri;
-
-    /**
-     * @param  ArrayOfAudience|null $audiences
+     * @param  ArrayOfAudience[optional] $audiences
      * @return Exposition
      */
     public function setAudiences(ArrayOfAudience $audiences = null)
@@ -179,7 +98,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfAudience|null
+     * @return ArrayOfAudience
      */
     public function getAudiences()
     {
@@ -187,7 +106,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $code
+     * @param  string[optional] $code
      * @return Exposition
      */
     public function setCode($code)
@@ -198,7 +117,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getCode()
     {
@@ -206,7 +125,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $description
+     * @param  string[optional] $description
      * @return Exposition
      */
     public function setDescription($description)
@@ -217,7 +136,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getDescription()
     {
@@ -225,10 +144,10 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\guid|null $divisionId
+     * @param  SimpleType\Guid[optional] $divisionId
      * @return Exposition
      */
-    public function setDivisionId(SimpleType\guid $divisionId = null)
+    public function setDivisionId(SimpleType\Guid $divisionId = null)
     {
         $this->DivisionId = $divisionId;
 
@@ -236,7 +155,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid
      */
     public function getDivisionId()
     {
@@ -244,7 +163,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ExpositionType|null $expositionType
+     * @param  ExpositionType[optional] $expositionType
      * @return Exposition
      */
     public function setExpositionType(ExpositionType $expositionType = null)
@@ -255,7 +174,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @return ExpositionType|null
+     * @return ExpositionType
      */
     public function getExpositionType()
     {
@@ -263,7 +182,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $from
+     * @param  string[optional] $from
      * @return Exposition
      */
     public function setFrom($from)
@@ -274,7 +193,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getFrom()
     {
@@ -282,10 +201,10 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return Exposition
      */
-    public function setId(SimpleType\guid $id = null)
+    public function setId(SimpleType\Guid $id = null)
     {
         $this->Id = $id;
 
@@ -293,7 +212,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -301,7 +220,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param  Picture|null $image
+     * @param  Picture[optional] $image
      * @return Exposition
      */
     public function setImage(Picture $image = null)
@@ -312,7 +231,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @return Picture|null
+     * @return Picture
      */
     public function getImage()
     {
@@ -320,7 +239,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $location
+     * @param  string[optional] $location
      * @return Exposition
      */
     public function setLocation($location)
@@ -331,7 +250,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getLocation()
     {
@@ -339,7 +258,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $name
+     * @param  string[optional] $name
      * @return Exposition
      */
     public function setName($name)
@@ -350,7 +269,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -358,7 +277,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfExpositionPeriod|null $periods
+     * @param  ArrayOfExpositionPeriod[optional] $periods
      * @return Exposition
      */
     public function setPeriods(ArrayOfExpositionPeriod $periods = null)
@@ -369,7 +288,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfExpositionPeriod|null
+     * @return ArrayOfExpositionPeriod
      */
     public function getPeriods()
     {
@@ -377,7 +296,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfExpositionPrice|null $prices
+     * @param  ArrayOfExpositionPrice[optional] $prices
      * @return Exposition
      */
     public function setPrices(ArrayOfExpositionPrice $prices = null)
@@ -388,7 +307,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfExpositionPrice|null
+     * @return ArrayOfExpositionPrice
      */
     public function getPrices()
     {
@@ -396,7 +315,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $until
+     * @param  string[optional] $until
      * @return Exposition
      */
     public function setUntil($until)
@@ -407,7 +326,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getUntil()
     {
@@ -415,7 +334,7 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @param  Vat|null   $vAT
+     * @param  Vat[optional] $vAT
      * @return Exposition
      */
     public function setVAT(Vat $vAT = null)
@@ -426,68 +345,10 @@ class Exposition extends ComplexTypeAbstract
     }
 
     /**
-     * @return Vat|null
+     * @return Vat
      */
     public function getVAT()
     {
         return $this->VAT;
     }
-
-    /**
-     * @param  ArrayOfExpositionSubcategory|null $subCategories
-     * @return Exposition
-     */
-    public function setSubCategories(ArrayOfExpositionSubcategory $subCategories = null)
-    {
-        $this->SubCategories = $subCategories;
-
-        return $this;
-    }
-
-    /**
-     * @return ArrayOfExpositionSubcategory|null
-     */
-    public function getSubCategories()
-    {
-        return $this->SubCategories;
-    }
-
-    /**
-     * @param  AddressLocation|null $addressLocation
-     * @return Exposition
-     */
-    public function setAddressLocation(AddressLocation $addressLocation = null)
-    {
-        $this->AddressLocation = $addressLocation;
-
-        return $this;
-    }
-
-    /**
-     * @return AddressLocation|null
-     */
-    public function getAddressLocation()
-    {
-        return $this->AddressLocation;
-    }
-
-    /**
-     * @param  string|null $imageUri
-     * @return Exposition
-     */
-    public function setImageUri($imageUri)
-    {
-        $this->ImageUri = $imageUri;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getImageUri()
-    {
-        return $this->ImageUri;
-    }
-
 }

@@ -14,205 +14,82 @@ class Activity extends ComplexTypeAbstract
     const CLASS_NAME = 'Activity';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var AgeCategory|null $AgeCategory
+     * @var AgeCategory
      */
     protected $AgeCategory;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $ClosingDate
+     * @var string
      */
     protected $ClosingDate;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Code
+     * @var string
      */
     protected $Code;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Comments
+     * @var string
      */
     protected $Comments;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfActivityPart|null $Days
+     * @var ArrayOfActivityPart
      */
     protected $Days;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Description
+     * @var string
      */
     protected $Description;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var integer|null $FreePlaces
+     * @var integer
      */
     protected $FreePlaces;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\guid|null $Id
+     * @var SimpleType\Guid
      */
     protected $Id;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $ImageUrl
+     * @var string
      */
     protected $ImageUrl;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var Address|null $Location
+     * @var Address
      */
     protected $Location;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Name
+     * @var string
      */
     protected $Name;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfActivityOption|null $Options
+     * @var ArrayOfActivityOption
      */
     protected $Options;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var Period|null $Period
+     * @var Period
      */
     protected $Period;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var float|null $Price
+     * @var float
      */
     protected $Price;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ActivityType|null $Type
+     * @var ActivityType
      */
     protected $Type;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $EntryMethod
-     */
-    protected $EntryMethod;
-
-    /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var integer|null $TotalPlaces
-     */
-    protected $TotalPlaces;
-
-    /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Agreements
-     */
-    protected $Agreements;
-
-    /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Utilities
-     */
-    protected $Utilities;
-
-    /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $WebSalesStart
-     */
-    protected $WebSalesStart;
-
-    /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $WebSalesStop
-     */
-    protected $WebSalesStop;
-
-    /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var Picture|null $Image
-     */
-    protected $Image;
-
-    /**
-     * @param  AgeCategory|null $ageCategory
+     * @param  AgeCategory[optional] $ageCategory
      * @return Activity
      */
     public function setAgeCategory(AgeCategory $ageCategory = null)
@@ -223,7 +100,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @return AgeCategory|null
+     *  AgeCategory[optional]
      */
     public function getAgeCategory()
     {
@@ -231,7 +108,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $closingDate
+     * @param  string[optional] $closingDate
      * @return Activity
      */
     public function setClosingDate($closingDate)
@@ -242,7 +119,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getClosingDate()
     {
@@ -250,7 +127,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $code
+     * @param  string[optional] $code
      * @return Activity
      */
     public function setCode($code)
@@ -261,7 +138,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getCode()
     {
@@ -269,7 +146,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $comments
+     * @param  string[optional] $comments
      * @return Activity
      */
     public function setComments($comments)
@@ -280,7 +157,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getComments()
     {
@@ -288,7 +165,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfActivityPart|null $days
+     * @param  ArrayOfActivityPart[optional] $days
      * @return Activity
      */
     public function setDays(ArrayOfActivityPart $days = null)
@@ -299,7 +176,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfActivityPart|null
+     * @return ArrayOfActivityPart
      */
     public function getDays()
     {
@@ -307,7 +184,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $description
+     * @param  string[optional] $description
      * @return Activity
      */
     public function setDescription($description)
@@ -318,7 +195,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getDescription()
     {
@@ -326,7 +203,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @param  integer|null $freePlaces
+     * @param  integer[optional] $freePlaces
      * @return Activity
      */
     public function setFreePlaces($freePlaces)
@@ -337,7 +214,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @return integer|null
+     * @return integer
      */
     public function getFreePlaces()
     {
@@ -345,10 +222,10 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return Activity
      */
-    public function setId(SimpleType\guid $id = null)
+    public function setId(SimpleType\Guid $id = null)
     {
         $this->Id = $id;
 
@@ -356,7 +233,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -364,7 +241,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $imageUrl
+     * @param  string[optional] $imageUrl
      * @return Activity
      */
     public function setImageUrl($imageUrl)
@@ -375,7 +252,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getImageUrl()
     {
@@ -383,7 +260,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @param  Address|null $location
+     * @param  Address[optional] $location
      * @return Activity
      */
     public function setLocation(Address $location = null)
@@ -394,7 +271,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @return Address|null
+     * @return Address
      */
     public function getLocation()
     {
@@ -402,7 +279,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $name
+     * @param  string[optional] $name
      * @return Activity
      */
     public function setName($name)
@@ -413,7 +290,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -421,7 +298,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfActivityOption|null $options
+     * @param  ArrayOfActivityOption[optional] $options
      * @return Activity
      */
     public function setOptions(ArrayOfActivityOption $options = null)
@@ -432,7 +309,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfActivityOption|null
+     * @return ArrayOfActivityOption
      */
     public function getOptions()
     {
@@ -440,7 +317,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @param  Period|null $period
+     * @param  Period[optional] $period
      * @return Activity
      */
     public function setPeriod(Period $period = null)
@@ -451,7 +328,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @return Period|null
+     * @return Period
      */
     public function getPeriod()
     {
@@ -459,7 +336,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @param  float|null $price
+     * @param  float[optional] $price
      * @return Activity
      */
     public function setPrice($price)
@@ -470,7 +347,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @return float|null
+     * @return float
      */
     public function getPrice()
     {
@@ -478,7 +355,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ActivityType|null $type
+     * @param  ActivityType[optional] $type
      * @return Activity
      */
     public function setType(ActivityType $type = null)
@@ -489,144 +366,10 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     * @return ActivityType|null
+     * @return ActivityType
      */
     public function getType()
     {
         return $this->Type;
     }
-
-    /**
-     * @param  boolean|null $entryMethod
-     * @return Activity
-     */
-    public function setEntryMethod($entryMethod)
-    {
-        $this->EntryMethod = $entryMethod;
-
-        return $this;
-    }
-
-    /**
-     * @return boolean|null
-     */
-    public function getEntryMethod()
-    {
-        return $this->EntryMethod;
-    }
-
-    /**
-     * @param  integer|null $totalPlaces
-     * @return Activity
-     */
-    public function setTotalPlaces($totalPlaces)
-    {
-        $this->TotalPlaces = $totalPlaces;
-
-        return $this;
-    }
-
-    /**
-     * @return integer|null
-     */
-    public function getTotalPlaces()
-    {
-        return $this->TotalPlaces;
-    }
-
-    /**
-     * @param  string|null $agreements
-     * @return Activity
-     */
-    public function setAgreements($agreements)
-    {
-        $this->Agreements = $agreements;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getAgreements()
-    {
-        return $this->Agreements;
-    }
-
-    /**
-     * @param  string|null $utilities
-     * @return Activity
-     */
-    public function setUtilities($utilities)
-    {
-        $this->Utilities = $utilities;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getUtilities()
-    {
-        return $this->Utilities;
-    }
-
-    /**
-     * @param  string|null $webSalesStart
-     * @return Activity
-     */
-    public function setWebSalesStart($webSalesStart)
-    {
-        $this->WebSalesStart = $webSalesStart;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getWebSalesStart()
-    {
-        return $this->WebSalesStart;
-    }
-
-    /**
-     * @param  string|null $webSalesStop
-     * @return Activity
-     */
-    public function setWebSalesStop($webSalesStop)
-    {
-        $this->WebSalesStop = $webSalesStop;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getWebSalesStop()
-    {
-        return $this->WebSalesStop;
-    }
-
-    /**
-     * @param  Picture|null $image
-     * @return Activity
-     */
-    public function setImage(Picture $image = null)
-    {
-        $this->Image = $image;
-
-        return $this;
-    }
-
-    /**
-     * @return Picture|null
-     */
-    public function getImage()
-    {
-        return $this->Image;
-    }
-
 }

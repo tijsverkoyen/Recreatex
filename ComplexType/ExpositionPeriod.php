@@ -14,64 +14,40 @@ class ExpositionPeriod extends ComplexTypeAbstract
     const CLASS_NAME = 'ExpositionPeriod';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\guid|null $ExpositionId
+     * @var SimpleType\Guid
      */
     protected $ExpositionId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $FinalSubscriptionDate
+     * @var string
      */
     protected $FinalSubscriptionDate;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $From
+     * @var string
      */
     protected $From;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\guid|null $Id
+     * @var SimpleType\Guid
      */
     protected $Id;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var Occupancy|null $Occupancy
+     * @var Occupancy
      */
     protected $Occupancy;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Until
+     * @var string
      */
     protected $Until;
 
     /**
-     * @param  SimpleType\guid|null $expositionId
+     * @param  SimpleType\Guid[optional] $expositionId
      * @return ExpositionPeriod
      */
-    public function setExpositionId(SimpleType\guid $expositionId = null)
+    public function setExpositionId(SimpleType\Guid $expositionId = null)
     {
         $this->ExpositionId = $expositionId;
 
@@ -79,7 +55,7 @@ class ExpositionPeriod extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid
      */
     public function getExpositionId()
     {
@@ -87,7 +63,7 @@ class ExpositionPeriod extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null      $finalSubscriptionDate
+     * @param  string[optional] $finalSubscriptionDate
      * @return ExpositionPeriod
      */
     public function setFinalSubscriptionDate($finalSubscriptionDate)
@@ -98,7 +74,7 @@ class ExpositionPeriod extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getFinalSubscriptionDate()
     {
@@ -106,7 +82,7 @@ class ExpositionPeriod extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null      $from
+     * @param  string[optional] $from
      * @return ExpositionPeriod
      */
     public function setFrom($from)
@@ -117,7 +93,7 @@ class ExpositionPeriod extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getFrom()
     {
@@ -125,10 +101,10 @@ class ExpositionPeriod extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return ExpositionPeriod
      */
-    public function setId(SimpleType\guid $id = null)
+    public function setId(SimpleType\Guid $id = null)
     {
         $this->Id = $id;
 
@@ -136,7 +112,7 @@ class ExpositionPeriod extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -144,7 +120,7 @@ class ExpositionPeriod extends ComplexTypeAbstract
     }
 
     /**
-     * @param  Occupancy|null   $occupancy
+     * @param  Occupancy[optional] $occupancy
      * @return ExpositionPeriod
      */
     public function setOccupancy(Occupancy $occupancy = null)
@@ -155,7 +131,7 @@ class ExpositionPeriod extends ComplexTypeAbstract
     }
 
     /**
-     * @return Occupancy|null
+     * @return Occupancy
      */
     public function getOccupancy()
     {
@@ -163,7 +139,7 @@ class ExpositionPeriod extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null      $until
+     * @param  string[optional] $until
      * @return ExpositionPeriod
      */
     public function setUntil($until)
@@ -174,11 +150,10 @@ class ExpositionPeriod extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getUntil()
     {
         return $this->Until;
     }
-
 }

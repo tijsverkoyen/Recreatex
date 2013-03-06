@@ -12,34 +12,22 @@ class CultureEventIncludes extends ComplexTypeAbstract
     const CLASS_NAME = 'CultureEventIncludes';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $Image
+     * @var boolean
      */
     protected $Image;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $ImageUri
+     * @var boolean
      */
     protected $ImageUri;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $Options
+     * @var boolean
      */
     protected $Options;
 
     /**
-     * @param  boolean|null         $image
+     * @param  boolean[optional]    $image
      * @return CultureEventIncludes
      */
     public function setImage($image)
@@ -50,7 +38,7 @@ class CultureEventIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getImage()
     {
@@ -58,7 +46,7 @@ class CultureEventIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null         $imageUri
+     * @param  boolean[optional]    $imageUri
      * @return CultureEventIncludes
      */
     public function setImageUri($imageUri)
@@ -69,7 +57,7 @@ class CultureEventIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getImageUri()
     {
@@ -77,7 +65,7 @@ class CultureEventIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null         $options
+     * @param  boolean[optional]    $options
      * @return CultureEventIncludes
      */
     public function setOptions($options)
@@ -88,11 +76,10 @@ class CultureEventIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getOptions()
     {
         return $this->Options;
     }
-
 }

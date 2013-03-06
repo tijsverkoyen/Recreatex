@@ -14,25 +14,17 @@ class LockTicket extends ComplexTypeAbstract
     const CLASS_NAME = 'LockTicket';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $ExpirationTime
+     * @var string
      */
     protected $ExpirationTime;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\guid|null $Id
+     * @var SimpleType\Guid
      */
     protected $Id;
 
     /**
-     * @param  string|null $expirationTime
+     * @param  string[optional] $expirationTime
      * @return LockTicket
      */
     public function setExpirationTime($expirationTime)
@@ -43,7 +35,7 @@ class LockTicket extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getExpirationTime()
     {
@@ -51,10 +43,10 @@ class LockTicket extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return LockTicket
      */
-    public function setId(SimpleType\guid $id = null)
+    public function setId(SimpleType\Guid $id = null)
     {
         $this->Id = $id;
 
@@ -62,11 +54,10 @@ class LockTicket extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
         return $this->Id;
     }
-
 }

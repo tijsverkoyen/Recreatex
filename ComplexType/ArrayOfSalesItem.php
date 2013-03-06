@@ -12,16 +12,12 @@ class ArrayOfSalesItem extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfSalesItem';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = unbounded
-     *
-     * @var SalesItem[] $SalesItem
+     * @var array
      */
     protected $SalesItem = array();
 
     /**
-     * @param  SalesItem[]      $salesItem
+     * @param  array            $salesItem
      * @return ArrayOfSalesItem
      */
     public function setSalesItem(array $salesItem = array())
@@ -32,11 +28,13 @@ class ArrayOfSalesItem extends ComplexTypeAbstract
     }
 
     /**
-     * @return SalesItem[]
+     * @return array
      */
     public function getSalesItem()
     {
-        return $this->SalesItem;
+	    if(!is_array($this->SalesItem)) {
+		    return array($this->SalesItem);
+	    }
+	    return $this->SalesItem;
     }
-
 }

@@ -12,16 +12,12 @@ class ArrayOfCultureEventOptionReservation extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfCultureEventOptionReservation';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = unbounded
-     *
-     * @var CultureEventOptionReservation[] $CultureEventOptionReservation
+     * @var array
      */
     protected $CultureEventOptionReservation = array();
 
     /**
-     * @param  CultureEventOptionReservation[]      $cultureEventOptionReservation
+     * @param  array                                $cultureEventOptionReservation
      * @return ArrayOfCultureEventOptionReservation
      */
     public function setCultureEventOptionReservation(array $cultureEventOptionReservation = array())
@@ -32,11 +28,13 @@ class ArrayOfCultureEventOptionReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return CultureEventOptionReservation[]
+     * @return array
      */
     public function getCultureEventOptionReservation()
     {
-        return $this->CultureEventOptionReservation;
+	    if(!is_array($this->CultureEventOptionReservation)) {
+		    return array($this->CultureEventOptionReservation);
+	    }
+	    return $this->CultureEventOptionReservation;
     }
-
 }

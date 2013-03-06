@@ -14,46 +14,25 @@ class ServiceContext extends ComplexTypeAbstract
     const CLASS_NAME = 'ServiceContext';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\guid|null $DivisionId
+     * @var SimpleType\Guid
      */
     protected $DivisionId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Language
+     * @var string
      */
     protected $Language;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\guid|null $ShopId
+     * @var SimpleType\Guid
      */
     protected $ShopId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\guid|null $SessionId
-     */
-    protected $SessionId;
-
-    /**
-     * @param  SimpleType\guid|null $divisionId
+     * @param  SimpleType\Guid[optional] $divisionId
      * @return ServiceContext
      */
-    public function setDivisionId(SimpleType\guid $divisionId = null)
+    public function setDivisionId(SimpleType\Guid $divisionId = null)
     {
         $this->DivisionId = $divisionId;
 
@@ -61,7 +40,7 @@ class ServiceContext extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid
      */
     public function getDivisionId()
     {
@@ -69,7 +48,7 @@ class ServiceContext extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null    $language
+     * @param  string[optional] $language
      * @return ServiceContext
      */
     public function setLanguage($language)
@@ -80,7 +59,7 @@ class ServiceContext extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getLanguage()
     {
@@ -88,10 +67,10 @@ class ServiceContext extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\guid|null $shopId
+     * @param  SimpleType\Guid[optional] $shopId
      * @return ServiceContext
      */
-    public function setShopId(SimpleType\guid $shopId = null)
+    public function setShopId(SimpleType\Guid $shopId = null)
     {
         $this->ShopId = $shopId;
 
@@ -99,30 +78,10 @@ class ServiceContext extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid
      */
     public function getShopId()
     {
         return $this->ShopId;
     }
-
-    /**
-     * @param  SimpleType\guid|null $sessionId
-     * @return ServiceContext
-     */
-    public function setSessionId(SimpleType\guid $sessionId = null)
-    {
-        $this->SessionId = $sessionId;
-
-        return $this;
-    }
-
-    /**
-     * @return SimpleType\guid|null
-     */
-    public function getSessionId()
-    {
-        return $this->SessionId;
-    }
-
 }

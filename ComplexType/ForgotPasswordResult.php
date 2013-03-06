@@ -12,25 +12,17 @@ class ForgotPasswordResult extends ComplexTypeAbstract
     const CLASS_NAME = 'ForgotPasswordResult';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $EmailAddress
+     * @var string
      */
     protected $EmailAddress;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Password
+     * @var string
      */
     protected $Password;
 
     /**
-     * @param  string|null          $emailAddress
+     * @param  string[optional]     $emailAddress
      * @return ForgotPasswordResult
      */
     public function setEmailAddress($emailAddress)
@@ -41,7 +33,7 @@ class ForgotPasswordResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getEmailAddress()
     {
@@ -49,7 +41,7 @@ class ForgotPasswordResult extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null          $password
+     * @param  string[optional]     $password
      * @return ForgotPasswordResult
      */
     public function setPassword($password)
@@ -60,11 +52,10 @@ class ForgotPasswordResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getPassword()
     {
         return $this->Password;
     }
-
 }

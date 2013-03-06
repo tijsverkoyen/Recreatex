@@ -12,16 +12,12 @@ class ArrayOfActivityPart extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfActivityPart';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = unbounded
-     *
-     * @var ActivityPart[] $ActivityPart
+     * @var array
      */
     protected $ActivityPart = array();
 
     /**
-     * @param  ActivityPart[]      $activityPart
+     * @param  array               $activityPart
      * @return ArrayOfActivityPart
      */
     public function setActivityPart(array $activityPart = array())
@@ -32,11 +28,13 @@ class ArrayOfActivityPart extends ComplexTypeAbstract
     }
 
     /**
-     * @return ActivityPart[]
+     * @return array
      */
     public function getActivityPart()
     {
-        return $this->ActivityPart;
+	    if(!is_array($this->ActivityPart)) {
+		    return array($this->ActivityPart);
+	    }
+	    return $this->ActivityPart;
     }
-
 }

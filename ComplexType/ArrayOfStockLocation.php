@@ -12,16 +12,12 @@ class ArrayOfStockLocation extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfStockLocation';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = unbounded
-     *
-     * @var StockLocation[] $StockLocation
+     * @var array
      */
     protected $StockLocation = array();
 
     /**
-     * @param  StockLocation[]      $stockLocation
+     * @param  array                $stockLocation
      * @return ArrayOfStockLocation
      */
     public function setStockLocation(array $stockLocation = array())
@@ -32,11 +28,13 @@ class ArrayOfStockLocation extends ComplexTypeAbstract
     }
 
     /**
-     * @return StockLocation[]
+     * @return array
      */
     public function getStockLocation()
     {
-        return $this->StockLocation;
+	    if(!is_array($this->StockLocation)) {
+		    return array($this->StockLocation);
+	    }
+	    return $this->StockLocation;
     }
-
 }

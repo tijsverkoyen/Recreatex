@@ -12,52 +12,27 @@ class Location extends ComplexTypeAbstract
     const CLASS_NAME = 'Location';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var float|null $Dx
+     * @var float
      */
     protected $Dx;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var float|null $Dy
+     * @var float
      */
     protected $Dy;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var float|null $X
+     * @var float
      */
     protected $X;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var float|null $Y
+     * @var float
      */
     protected $Y;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var float|null $Angle
-     */
-    protected $Angle;
-
-    /**
-     * @param  float|null $dx
+     * @param  float[optional] $dx
      * @return Location
      */
     public function setDx($dx)
@@ -68,7 +43,7 @@ class Location extends ComplexTypeAbstract
     }
 
     /**
-     * @return float|null
+     * @return float
      */
     public function getDx()
     {
@@ -76,7 +51,7 @@ class Location extends ComplexTypeAbstract
     }
 
     /**
-     * @param  float|null $dy
+     * @param  float[optional] $dy
      * @return Location
      */
     public function setDy($dy)
@@ -87,7 +62,7 @@ class Location extends ComplexTypeAbstract
     }
 
     /**
-     * @return float|null
+     * @return float
      */
     public function getDy()
     {
@@ -95,7 +70,7 @@ class Location extends ComplexTypeAbstract
     }
 
     /**
-     * @param  float|null $x
+     * @param  float[optional] $x
      * @return Location
      */
     public function setX($x)
@@ -106,7 +81,7 @@ class Location extends ComplexTypeAbstract
     }
 
     /**
-     * @return float|null
+     * @return float
      */
     public function getX()
     {
@@ -114,7 +89,7 @@ class Location extends ComplexTypeAbstract
     }
 
     /**
-     * @param  float|null $y
+     * @param  float[optional] $y
      * @return Location
      */
     public function setY($y)
@@ -125,30 +100,10 @@ class Location extends ComplexTypeAbstract
     }
 
     /**
-     * @return float|null
+     * @return float
      */
     public function getY()
     {
         return $this->Y;
     }
-
-    /**
-     * @param  float|null $angle
-     * @return Location
-     */
-    public function setAngle($angle)
-    {
-        $this->Angle = $angle;
-
-        return $this;
-    }
-
-    /**
-     * @return float|null
-     */
-    public function getAngle()
-    {
-        return $this->Angle;
-    }
-
 }

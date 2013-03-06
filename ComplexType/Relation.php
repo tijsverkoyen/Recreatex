@@ -14,46 +14,44 @@ class Relation extends ComplexTypeAbstract
     const CLASS_NAME = 'Relation';
 
     /**
+     * @var Person
+     */
+    protected $From;
 
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\guid|null $Id
+    /**
+     * @var SimpleType\Guid
      */
     protected $Id;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var Person|null $Person
+     * @var Person
      */
-    protected $Person;
+    protected $To;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\RelationType|null $Type
-     */
-    protected $Type;
-
-    /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Comment
-     */
-    protected $Comment;
-
-    /**
-     * @param  SimpleType\guid|null $id
+     * @param  Person[optional] $from
      * @return Relation
      */
-    public function setId(SimpleType\guid $id = null)
+    public function setFrom(Person $from = null)
+    {
+        $this->From = $from;
+
+        return $this;
+    }
+
+    /**
+     * @return Person
+     */
+    public function getFrom()
+    {
+        return $this->From;
+    }
+
+    /**
+     * @param  SimpleType\Guid[optional] $id
+     * @return Relation
+     */
+    public function setId(SimpleType\Guid $id = null)
     {
         $this->Id = $id;
 
@@ -61,7 +59,7 @@ class Relation extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -69,60 +67,21 @@ class Relation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  Person|null $person
+     * @param  Person[optional] $to
      * @return Relation
      */
-    public function setPerson(Person $person = null)
+    public function setTo(Person $to = null)
     {
-        $this->Person = $person;
+        $this->To = $to;
 
         return $this;
     }
 
     /**
-     * @return Person|null
+     * @return Person
      */
-    public function getPerson()
+    public function getTo()
     {
-        return $this->Person;
+        return $this->To;
     }
-
-    /**
-     * @param  SimpleType\RelationType|null $type
-     * @return Relation
-     */
-    public function setType(SimpleType\RelationType $type = null)
-    {
-        $this->Type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return SimpleType\RelationType|null
-     */
-    public function getType()
-    {
-        return $this->Type;
-    }
-
-    /**
-     * @param  string|null $comment
-     * @return Relation
-     */
-    public function setComment($comment)
-    {
-        $this->Comment = $comment;
-
-        return $this;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getComment()
-    {
-        return $this->Comment;
-    }
-
 }

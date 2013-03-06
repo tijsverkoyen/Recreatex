@@ -12,25 +12,17 @@ class Price extends ComplexTypeAbstract
     const CLASS_NAME = 'Price';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var float|null $Amount
+     * @var float
      */
     protected $Amount;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var PriceGroup|null $Group
+     * @var PriceGroup[optional] $Group
      */
     protected $Group;
 
     /**
-     * @param  float|null $amount
+     * @param  float[optional] $amount
      * @return Price
      */
     public function setAmount($amount)
@@ -41,7 +33,7 @@ class Price extends ComplexTypeAbstract
     }
 
     /**
-     * @return float|null
+     * @return float
      */
     public function getAmount()
     {
@@ -49,7 +41,7 @@ class Price extends ComplexTypeAbstract
     }
 
     /**
-     * @param  PriceGroup|null $group
+     * @param  PriceGroup[optional] $group
      * @return Price
      */
     public function setGroup(PriceGroup $group = null)
@@ -60,11 +52,10 @@ class Price extends ComplexTypeAbstract
     }
 
     /**
-     * @return PriceGroup|null
+     * @return PriceGroup
      */
     public function getGroup()
     {
         return $this->Group;
     }
-
 }

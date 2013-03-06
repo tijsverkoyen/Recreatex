@@ -14,34 +14,22 @@ class ActivityType extends ComplexTypeAbstract
     const CLASS_NAME = 'ActivityType';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Code
+     * @var string
      */
     protected $Code;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\guid|null $Id
+     * @var SimpleType\Guid
      */
     protected $Id;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Name
+     * @var string
      */
     protected $Name;
 
     /**
-     * @param  string|null  $code
+     * @param  string[optional] $code
      * @return ActivityType
      */
     public function setCode($code)
@@ -52,7 +40,7 @@ class ActivityType extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getCode()
     {
@@ -60,10 +48,10 @@ class ActivityType extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return ActivityType
      */
-    public function setId(SimpleType\guid $id = null)
+    public function setId(SimpleType\Guid $id = null)
     {
         $this->Id = $id;
 
@@ -71,7 +59,7 @@ class ActivityType extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -79,7 +67,7 @@ class ActivityType extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null  $name
+     * @param  string[optional] $name
      * @return ActivityType
      */
     public function setName($name)
@@ -90,11 +78,10 @@ class ActivityType extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
         return $this->Name;
     }
-
 }

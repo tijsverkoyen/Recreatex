@@ -14,136 +14,75 @@ class CultureReservation extends ComplexTypeAbstract
     const CLASS_NAME = 'CultureReservation';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\guid|null $Id
+     * @var SimpleType\Guid
      */
     protected $Id;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var integer|null $ReservationNumber
+     * @var integer
      */
     protected $ReservationNumber;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $ReservationDate
+     * @var string
      */
     protected $ReservationDate;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfCultureReservationSeat|null $ReservationSeats
+     * @var ArrayOfCultureReservationSeat
      */
     protected $ReservationSeats;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $PaymentMethodName
+     * @var string
      */
     protected $PaymentMethodName;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\guid|null $PaymentMethodId
+     * @var SimpleType\Guid
      */
     protected $PaymentMethodId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var BasketPaymentMethod|null $PaymentMethod
+     * @var BasketPaymentMethod
      */
     protected $PaymentMethod;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\guid|null $CultureEventId
+     * @var SimpleType\Guid
      */
     protected $CultureEventId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var CultureEvent|null $CultureEvent
+     * @var CultureEvent
      */
     protected $CultureEvent;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\guid|null $CustomerId
+     * @var SimpleType\Guid
      */
     protected $CustomerId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var Person|null $Customer
+     * @var Person
      */
     protected $Customer;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var boolean|null $Payed
+     * @var boolean
      */
     protected $Payed;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\guid|null $SalesLineId
+     * @var SimpleType\Guid
      */
     protected $SalesLineId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var ArrayOfCultureReservationSite|null $ReservationSites
-     */
-    protected $ReservationSites;
-
-    /**
-     * @param  SimpleType\guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return CultureReservation
      */
-    public function setId(SimpleType\guid $id = null)
+    public function setId(SimpleType\Guid $id = null)
     {
         $this->Id = $id;
 
@@ -151,7 +90,7 @@ class CultureReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -159,7 +98,7 @@ class CultureReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  integer|null       $reservationNumber
+     * @param  integer[optional]  $reservationNumber
      * @return CultureReservation
      */
     public function setReservationNumber($reservationNumber)
@@ -170,7 +109,7 @@ class CultureReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return integer|null
+     * @return integer
      */
     public function getReservationNumber()
     {
@@ -178,7 +117,7 @@ class CultureReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null        $reservationDate
+     * @param  string[optional]   $reservationDate
      * @return CultureReservation
      */
     public function setReservationDate($reservationDate)
@@ -189,7 +128,7 @@ class CultureReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getReservationDate()
     {
@@ -197,7 +136,7 @@ class CultureReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfCultureReservationSeat|null $reservationSeats
+     * @param  ArrayOfCultureReservationSeat[optional] $reservationSeats
      * @return CultureReservation
      */
     public function setReservationSeats(ArrayOfCultureReservationSeat $reservationSeats = null)
@@ -208,7 +147,7 @@ class CultureReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfCultureReservationSeat|null
+     * @return ArrayOfCultureReservationSeat
      */
     public function getReservationSeats()
     {
@@ -216,7 +155,7 @@ class CultureReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null        $paymentMethodName
+     * @param  string[optional]   $paymentMethodName
      * @return CultureReservation
      */
     public function setPaymentMethodName($paymentMethodName)
@@ -227,7 +166,7 @@ class CultureReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getPaymentMethodName()
     {
@@ -235,10 +174,10 @@ class CultureReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\guid|null $paymentMethodId
+     * @param  SimpleType\Guid[optional] $paymentMethodId
      * @return CultureReservation
      */
-    public function setPaymentMethodId(SimpleType\guid $paymentMethodId = null)
+    public function setPaymentMethodId(SimpleType\Guid $paymentMethodId = null)
     {
         $this->PaymentMethodId = $paymentMethodId;
 
@@ -246,7 +185,7 @@ class CultureReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid
      */
     public function getPaymentMethodId()
     {
@@ -254,7 +193,7 @@ class CultureReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  BasketPaymentMethod|null $paymentMethod
+     * @param  BasketPaymentMethod[optional] $paymentMethod
      * @return CultureReservation
      */
     public function setPaymentMethod(BasketPaymentMethod $paymentMethod = null)
@@ -265,7 +204,7 @@ class CultureReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return BasketPaymentMethod|null
+     * @return BasketPaymentMethod
      */
     public function getPaymentMethod()
     {
@@ -273,10 +212,10 @@ class CultureReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\guid|null $cultureEventId
+     * @param  SimpleType\Guid[optional] $cultureEventId
      * @return CultureReservation
      */
-    public function setCultureEventId(SimpleType\guid $cultureEventId = null)
+    public function setCultureEventId(SimpleType\Guid $cultureEventId = null)
     {
         $this->CultureEventId = $cultureEventId;
 
@@ -284,7 +223,7 @@ class CultureReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid
      */
     public function getCultureEventId()
     {
@@ -292,7 +231,7 @@ class CultureReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  CultureEvent|null  $cultureEvent
+     * @param  CultureEvent[optional] $cultureEvent
      * @return CultureReservation
      */
     public function setCultureEvent(CultureEvent $cultureEvent = null)
@@ -303,7 +242,7 @@ class CultureReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return CultureEvent|null
+     * @return CultureEvent
      */
     public function getCultureEvent()
     {
@@ -311,10 +250,10 @@ class CultureReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\guid|null $customerId
+     * @param  SimpleType\Guid[optional] $customerId
      * @return CultureReservation
      */
-    public function setCustomerId(SimpleType\guid $customerId = null)
+    public function setCustomerId(SimpleType\Guid $customerId = null)
     {
         $this->CustomerId = $customerId;
 
@@ -322,7 +261,7 @@ class CultureReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid
      */
     public function getCustomerId()
     {
@@ -330,7 +269,7 @@ class CultureReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  Person|null        $customer
+     * @param  Person[optional]   $customer
      * @return CultureReservation
      */
     public function setCustomer(Person $customer = null)
@@ -341,7 +280,7 @@ class CultureReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return Person|null
+     * @return Person
      */
     public function getCustomer()
     {
@@ -349,7 +288,7 @@ class CultureReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean|null       $payed
+     * @param  boolean[optional]  $payed
      * @return CultureReservation
      */
     public function setPayed($payed)
@@ -360,7 +299,7 @@ class CultureReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean|null
+     * @return boolean
      */
     public function getPayed()
     {
@@ -368,10 +307,10 @@ class CultureReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\guid|null $salesLineId
+     * @param  SimpleType\Guid[optional] $salesLineId
      * @return CultureReservation
      */
-    public function setSalesLineId(SimpleType\guid $salesLineId = null)
+    public function setSalesLineId(SimpleType\Guid $salesLineId = null)
     {
         $this->SalesLineId = $salesLineId;
 
@@ -379,30 +318,10 @@ class CultureReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid
      */
     public function getSalesLineId()
     {
         return $this->SalesLineId;
     }
-
-    /**
-     * @param  ArrayOfCultureReservationSite|null $reservationSites
-     * @return CultureReservation
-     */
-    public function setReservationSites(ArrayOfCultureReservationSite $reservationSites = null)
-    {
-        $this->ReservationSites = $reservationSites;
-
-        return $this;
-    }
-
-    /**
-     * @return ArrayOfCultureReservationSite|null
-     */
-    public function getReservationSites()
-    {
-        return $this->ReservationSites;
-    }
-
 }

@@ -12,16 +12,12 @@ class ArrayOfExpositionPrice extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfExpositionPrice';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = unbounded
-     *
-     * @var ExpositionPrice[] $ExpositionPrice
+     * @var array
      */
     protected $ExpositionPrice = array();
 
     /**
-     * @param  ExpositionPrice[]      $expositionPrice
+     * @param  array                  $expositionPrice
      * @return ArrayOfExpositionPrice
      */
     public function setExpositionPrice(array $expositionPrice = array())
@@ -32,11 +28,13 @@ class ArrayOfExpositionPrice extends ComplexTypeAbstract
     }
 
     /**
-     * @return ExpositionPrice[]
+     * @return array
      */
     public function getExpositionPrice()
     {
-        return $this->ExpositionPrice;
+	    if(!is_array($this->ExpositionPrice)) {
+		    return array($this->ExpositionPrice);
+	    }
+	    return $this->ExpositionPrice;
     }
-
 }

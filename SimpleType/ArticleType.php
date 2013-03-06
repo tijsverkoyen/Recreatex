@@ -12,5 +12,4 @@ class ArticleType extends SimpleTypeAbstract
     const SALE = 'Sale';
     const RENTAL = 'Rental';
     const ALL = 'All';
-    const NONE = 'None';
 }

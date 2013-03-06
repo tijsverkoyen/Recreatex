@@ -14,37 +14,25 @@ class PriceGroup extends ComplexTypeAbstract
     const CLASS_NAME = 'PriceGroup';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\guid|null $Id
+     * @var SimpleType\Guid
      */
     protected $Id;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Name
+     * @var string
      */
     protected $Name;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\PriceGroupType|null $Type
+     * @var SimpleType\PriceGroupType[optional] $Type
      */
     protected $Type;
 
     /**
-     * @param  SimpleType\guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return PriceGroup
      */
-    public function setId(SimpleType\guid $id = null)
+    public function setId(SimpleType\Guid $id = null)
     {
         $this->Id = $id;
 
@@ -52,7 +40,7 @@ class PriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
@@ -60,7 +48,7 @@ class PriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null $name
+     * @param  string[optional] $name
      * @return PriceGroup
      */
     public function setName($name)
@@ -71,7 +59,7 @@ class PriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -79,7 +67,7 @@ class PriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\PriceGroupType|null $type
+     * @param  SimpleType\PriceGroupType[optional] $type
      * @return PriceGroup
      */
     public function setType(SimpleType\PriceGroupType $type = null)
@@ -90,11 +78,10 @@ class PriceGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\PriceGroupType|null
+     * @return SimpleType\PriceGroupType
      */
     public function getType()
     {
         return $this->Type;
     }
-
 }

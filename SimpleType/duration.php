@@ -9,5 +9,4 @@ namespace TijsVerkoyen\Recreatex\SimpleType;
  */
 class Duration extends SimpleTypeAbstract
 {
-
 }

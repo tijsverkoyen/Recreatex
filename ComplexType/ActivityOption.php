@@ -14,52 +14,32 @@ class ActivityOption extends ComplexTypeAbstract
     const CLASS_NAME = 'ActivityOption';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var integer|null $Amount
+     * @var integer
      */
     protected $Amount;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\guid|null $ArticleId
+     * @var SimpleType\Guid
      */
     protected $ArticleId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var float|null $CustomPrice
+     * @var float
      */
     protected $CustomPrice;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Description
+     * @var string
      */
     protected $Description;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\guid|null $Id
+     * @var SimpleType\Guid
      */
     protected $Id;
 
     /**
-     * @param  integer|null   $amount
+     * @param  integer[optional] $amount
      * @return ActivityOption
      */
     public function setAmount($amount)
@@ -70,7 +50,7 @@ class ActivityOption extends ComplexTypeAbstract
     }
 
     /**
-     * @return integer|null
+     * @return integer
      */
     public function getAmount()
     {
@@ -78,10 +58,10 @@ class ActivityOption extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\guid|null $articleId
+     * @param  SimpleType\Guid[optional] $articleId
      * @return ActivityOption
      */
-    public function setArticleId(SimpleType\guid $articleId = null)
+    public function setArticleId(SimpleType\Guid $articleId = null)
     {
         $this->ArticleId = $articleId;
 
@@ -89,7 +69,7 @@ class ActivityOption extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid
      */
     public function getArticleId()
     {
@@ -97,7 +77,7 @@ class ActivityOption extends ComplexTypeAbstract
     }
 
     /**
-     * @param  float|null     $customPrice
+     * @param  float[optional] $customPrice
      * @return ActivityOption
      */
     public function setCustomPrice($customPrice)
@@ -108,7 +88,7 @@ class ActivityOption extends ComplexTypeAbstract
     }
 
     /**
-     * @return float|null
+     * @return float
      */
     public function getCustomPrice()
     {
@@ -116,7 +96,7 @@ class ActivityOption extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null    $description
+     * @param  string[optional] $description
      * @return ActivityOption
      */
     public function setDescription($description)
@@ -127,7 +107,7 @@ class ActivityOption extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getDescription()
     {
@@ -135,10 +115,10 @@ class ActivityOption extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\guid|null $id
+     * @param  SimpleType\Guid[optional] $id
      * @return ActivityOption
      */
-    public function setId(SimpleType\guid $id = null)
+    public function setId(SimpleType\Guid $id = null)
     {
         $this->Id = $id;
 
@@ -146,11 +126,10 @@ class ActivityOption extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid
      */
     public function getId()
     {
         return $this->Id;
     }
-
 }

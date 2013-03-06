@@ -14,46 +14,30 @@ class ExpositionPeriodSearchCriteria extends ComplexTypeAbstract
     const CLASS_NAME = 'ExpositionPeriodSearchCriteria';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var SimpleType\guid|null $ExpositionId
+     * @var SimpleType\Guid
      */
     protected $ExpositionId;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var PagingCriteria|null $Paging
+     * @var PagingCriteria
      */
     protected $Paging;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $From
+     * @var string
      */
     protected $From;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var string|null $Until
+     * @var string
      */
     protected $Until;
 
     /**
-     * @param  SimpleType\guid|null           $expositionId
+     * @param  SimpleType\Guid[optional]      $expositionId
      * @return ExpositionPeriodSearchCriteria
      */
-    public function setExpositionId(SimpleType\guid $expositionId = null)
+    public function setExpositionId(SimpleType\Guid $expositionId = null)
     {
         $this->ExpositionId = $expositionId;
 
@@ -61,7 +45,7 @@ class ExpositionPeriodSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\guid|null
+     * @return SimpleType\Guid
      */
     public function getExpositionId()
     {
@@ -69,7 +53,7 @@ class ExpositionPeriodSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  PagingCriteria|null            $paging
+     * @param  PagingCriteria[optional]       $paging
      * @return ExpositionPeriodSearchCriteria
      */
     public function setPaging(PagingCriteria $paging = null)
@@ -80,7 +64,7 @@ class ExpositionPeriodSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return PagingCriteria|null
+     * @return PagingCriteria
      */
     public function getPaging()
     {
@@ -88,7 +72,7 @@ class ExpositionPeriodSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null                    $from
+     * @param  string[optional]               $from
      * @return ExpositionPeriodSearchCriteria
      */
     public function setFrom($from)
@@ -99,7 +83,7 @@ class ExpositionPeriodSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getFrom()
     {
@@ -107,7 +91,7 @@ class ExpositionPeriodSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string|null                    $until
+     * @param  string[optional]               $until
      * @return ExpositionPeriodSearchCriteria
      */
     public function setUntil($until)
@@ -118,11 +102,10 @@ class ExpositionPeriodSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getUntil()
     {
         return $this->Until;
     }
-
 }

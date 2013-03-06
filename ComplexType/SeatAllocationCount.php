@@ -12,52 +12,32 @@ class SeatAllocationCount extends ComplexTypeAbstract
     const CLASS_NAME = 'SeatAllocationCount';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var integer|null $Available
+     * @var integer
      */
     protected $Available;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var integer|null $Blocked
+     * @var integer
      */
     protected $Blocked;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var integer|null $Locked
+     * @var integer
      */
     protected $Locked;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var integer|null $Option
+     * @var integer
      */
     protected $Option;
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = 1
-     *
-     * @var integer|null $Reserved
+     * @var integer
      */
     protected $Reserved;
 
     /**
-     * @param  integer|null        $available
+     * @param  integer[optional]   $available
      * @return SeatAllocationCount
      */
     public function setAvailable($available)
@@ -68,7 +48,7 @@ class SeatAllocationCount extends ComplexTypeAbstract
     }
 
     /**
-     * @return integer|null
+     * @return integer
      */
     public function getAvailable()
     {
@@ -76,7 +56,7 @@ class SeatAllocationCount extends ComplexTypeAbstract
     }
 
     /**
-     * @param  integer|null        $blocked
+     * @param  integer[optional]   $blocked
      * @return SeatAllocationCount
      */
     public function setBlocked($blocked)
@@ -87,7 +67,7 @@ class SeatAllocationCount extends ComplexTypeAbstract
     }
 
     /**
-     * @return integer|null
+     * @return integer
      */
     public function getBlocked()
     {
@@ -95,7 +75,7 @@ class SeatAllocationCount extends ComplexTypeAbstract
     }
 
     /**
-     * @param  integer|null        $locked
+     * @param  integer[optional]   $locked
      * @return SeatAllocationCount
      */
     public function setLocked($locked)
@@ -106,7 +86,7 @@ class SeatAllocationCount extends ComplexTypeAbstract
     }
 
     /**
-     * @return integer|null
+     * @return integer
      */
     public function getLocked()
     {
@@ -114,7 +94,7 @@ class SeatAllocationCount extends ComplexTypeAbstract
     }
 
     /**
-     * @param  integer|null        $option
+     * @param  integer[optional]   $option
      * @return SeatAllocationCount
      */
     public function setOption($option)
@@ -125,7 +105,7 @@ class SeatAllocationCount extends ComplexTypeAbstract
     }
 
     /**
-     * @return integer|null
+     * @return integer
      */
     public function getOption()
     {
@@ -133,7 +113,7 @@ class SeatAllocationCount extends ComplexTypeAbstract
     }
 
     /**
-     * @param  integer|null        $reserved
+     * @param  integer[optional]   $reserved
      * @return SeatAllocationCount
      */
     public function setReserved($reserved)
@@ -144,11 +124,10 @@ class SeatAllocationCount extends ComplexTypeAbstract
     }
 
     /**
-     * @return integer|null
+     * @return integer
      */
     public function getReserved()
     {
         return $this->Reserved;
     }
-
 }

@@ -12,16 +12,12 @@ class ArrayOfArticleIngredient extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfArticleIngredient';
 
     /**
-
-     * minOccurs = 0
-     * maxOccurs = unbounded
-     *
-     * @var ArticleIngredient[] $ArticleIngredient
+     * @var array
      */
     protected $ArticleIngredient = array();
 
     /**
-     * @param  ArticleIngredient[]      $articleIngredient
+     * @param  array                    $articleIngredient
      * @return ArrayOfArticleIngredient
      */
     public function setArticleIngredient(array $articleIngredient = array())
@@ -32,11 +28,13 @@ class ArrayOfArticleIngredient extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArticleIngredient[]
+     * @return array
      */
     public function getArticleIngredient()
     {
-        return $this->ArticleIngredient;
+	    if(!is_array($this->ArticleIngredient)) {
+		    return array($this->ArticleIngredient);
+	    }
+	    return $this->ArticleIngredient;
     }
-
 }

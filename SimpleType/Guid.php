@@ -9,5 +9,15 @@ namespace TijsVerkoyen\Recreatex\SimpleType;
  */
 class Guid extends SimpleTypeAbstract
 {
+    /**
+     * Convert into a Guid
+     * @param  string $var
+     * @return Guid
+     */
+    public static function fromXml($var)
+    {
+        $var = strip_tags($var);
 
+        return new Guid($var);
+    }
 }
