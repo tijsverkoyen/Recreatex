@@ -32,6 +32,9 @@ class ArrayOfCultureEvent extends ComplexTypeAbstract
      */
     public function getCultureEvent()
     {
-        return $this->CultureEvent;
+	    if(!is_array($this->CultureEvent)) {
+		    return array($this->CultureEvent);
+	    }
+	    return $this->CultureEvent;
     }
 }

@@ -32,6 +32,9 @@ class ArrayOfSeatBlock extends ComplexTypeAbstract
      */
     public function getSeatBlock()
     {
-        return $this->SeatBlock;
+	    if(!is_array($this->SeatBlock)) {
+		    return array($this->SeatBlock);
+	    }
+	    return $this->SeatBlock;
     }
 }

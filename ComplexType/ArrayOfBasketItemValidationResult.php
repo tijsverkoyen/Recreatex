@@ -32,6 +32,9 @@ class ArrayOfBasketItemValidationResult extends ComplexTypeAbstract
      */
     public function getBasketItemValidationResult()
     {
-        return $this->BasketItemValidationResult;
+	    if(!is_array($this->BasketItemValidationResult)) {
+		    return array($this->BasketItemValidationResult);
+	    }
+	    return $this->BasketItemValidationResult;
     }
 }

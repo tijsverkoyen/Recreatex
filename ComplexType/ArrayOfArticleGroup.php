@@ -32,6 +32,9 @@ class ArrayOfArticleGroup extends ComplexTypeAbstract
      */
     public function getArticleGroup()
     {
-        return $this->ArticleGroup;
+	    if(!is_array($this->ArticleGroup)) {
+		    return array($this->ArticleGroup);
+	    }
+	    return $this->ArticleGroup;
     }
 }

@@ -32,6 +32,9 @@ class ArrayOfSeatRow extends ComplexTypeAbstract
      */
     public function getSeatRow()
     {
-        return $this->SeatRow;
+	    if(!is_array($this->SeatRow)) {
+		    return array($this->SeatRow);
+	    }
+	    return $this->SeatRow;
     }
 }

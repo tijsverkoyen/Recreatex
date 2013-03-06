@@ -32,6 +32,9 @@ class ArrayOfBasketItem extends ComplexTypeAbstract
      */
     public function getBasketItem()
     {
-        return $this->BasketItem;
+	    if(!is_array($this->BasketItem)) {
+		    return array($this->BasketItem);
+	    }
+	    return $this->BasketItem;
     }
 }

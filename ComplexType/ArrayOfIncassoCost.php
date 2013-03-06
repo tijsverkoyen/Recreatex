@@ -32,6 +32,9 @@ class ArrayOfIncassoCost extends ComplexTypeAbstract
      */
     public function getIncassoCost()
     {
-        return $this->IncassoCost;
+	    if(!is_array($this->IncassoCost)) {
+		    return array($this->IncassoCost);
+	    }
+	    return $this->IncassoCost;
     }
 }

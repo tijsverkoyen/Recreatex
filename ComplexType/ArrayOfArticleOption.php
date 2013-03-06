@@ -32,6 +32,9 @@ class ArrayOfArticleOption extends ComplexTypeAbstract
      */
     public function getArticleOption()
     {
-        return $this->ArticleOption;
+	    if(!is_array($this->ArticleOption)) {
+		    return array($this->ArticleOption);
+	    }
+	    return $this->ArticleOption;
     }
 }

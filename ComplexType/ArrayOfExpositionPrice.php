@@ -32,6 +32,9 @@ class ArrayOfExpositionPrice extends ComplexTypeAbstract
      */
     public function getExpositionPrice()
     {
-        return $this->ExpositionPrice;
+	    if(!is_array($this->ExpositionPrice)) {
+		    return array($this->ExpositionPrice);
+	    }
+	    return $this->ExpositionPrice;
     }
 }

@@ -32,6 +32,9 @@ class ArrayOfExpositionPeriod extends ComplexTypeAbstract
      */
     public function getExpositionPeriod()
     {
-        return $this->ExpositionPeriod;
+	    if(!is_array($this->ExpositionPeriod)) {
+		    return array($this->ExpositionPeriod);
+	    }
+	    return $this->ExpositionPeriod;
     }
 }

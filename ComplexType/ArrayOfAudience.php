@@ -32,6 +32,9 @@ class ArrayOfAudience extends ComplexTypeAbstract
      */
     public function getAudience()
     {
-        return $this->Audience;
+	    if(!is_array($this->Audience)) {
+		    return array($this->Audience);
+	    }
+	    return $this->Audience;
     }
 }

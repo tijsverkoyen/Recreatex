@@ -32,6 +32,9 @@ class ArrayOfActivityPart extends ComplexTypeAbstract
      */
     public function getActivityPart()
     {
-        return $this->ActivityPart;
+	    if(!is_array($this->ActivityPart)) {
+		    return array($this->ActivityPart);
+	    }
+	    return $this->ActivityPart;
     }
 }

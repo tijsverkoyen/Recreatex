@@ -32,6 +32,9 @@ class ArrayOfActivityPartReservation extends ComplexTypeAbstract
      */
     public function getActivityPartReservation()
     {
-        return $this->ActivityPartReservation;
+	    if(!is_array($this->ActivityPartReservation)) {
+		    return array($this->ActivityPartReservation);
+	    }
+	    return $this->ActivityPartReservation;
     }
 }

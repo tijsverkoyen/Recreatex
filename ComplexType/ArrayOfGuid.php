@@ -32,6 +32,9 @@ class ArrayOfGuid extends ComplexTypeAbstract
      */
     public function getGuid()
     {
-        return $this->guid;
+	    if(!is_array($this->guid)) {
+		    return array($this->guid);
+	    }
+	    return $this->guid;
     }
 }

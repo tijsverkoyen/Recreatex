@@ -32,6 +32,9 @@ class ArrayOfArticleCategory extends ComplexTypeAbstract
      */
     public function getArticleCategory()
     {
-        return $this->ArticleCategory;
+	    if(!is_array($this->ArticleCategory)) {
+		    return array($this->ArticleCategory);
+	    }
+	    return $this->ArticleCategory;
     }
 }

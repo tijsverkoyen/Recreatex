@@ -32,6 +32,9 @@ class ArrayOfSalesItem extends ComplexTypeAbstract
      */
     public function getSalesItem()
     {
-        return $this->SalesItem;
+	    if(!is_array($this->SalesItem)) {
+		    return array($this->SalesItem);
+	    }
+	    return $this->SalesItem;
     }
 }

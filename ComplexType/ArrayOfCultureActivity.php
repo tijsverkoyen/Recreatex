@@ -32,6 +32,9 @@ class ArrayOfCultureActivity extends ComplexTypeAbstract
      */
     public function getCultureActivity()
     {
-        return $this->CultureActivity;
+	    if(!is_array($this->CultureActivity)) {
+		    return array($this->CultureActivity);
+	    }
+	    return $this->CultureActivity;
     }
 }

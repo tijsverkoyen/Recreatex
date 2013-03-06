@@ -32,6 +32,9 @@ class ArrayOfPerson extends ComplexTypeAbstract
      */
     public function getPerson()
     {
+	    if(!is_array($this->Person)) {
+		    return array($this->Person);
+	    }
         return $this->Person;
     }
 }

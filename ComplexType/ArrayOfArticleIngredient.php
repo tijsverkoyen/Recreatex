@@ -32,6 +32,9 @@ class ArrayOfArticleIngredient extends ComplexTypeAbstract
      */
     public function getArticleIngredient()
     {
-        return $this->ArticleIngredient;
+	    if(!is_array($this->ArticleIngredient)) {
+		    return array($this->ArticleIngredient);
+	    }
+	    return $this->ArticleIngredient;
     }
 }
