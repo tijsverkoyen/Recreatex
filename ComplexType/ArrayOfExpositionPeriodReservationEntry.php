@@ -32,9 +32,10 @@ class ArrayOfExpositionPeriodReservationEntry extends ComplexTypeAbstract
      */
     public function getExpositionPeriodReservationEntry()
     {
-	    if(!is_array($this->ExpositionPeriodReservationEntry)) {
-		    return array($this->ExpositionPeriodReservationEntry);
-	    }
-	    return $this->ExpositionPeriodReservationEntry;
+        if (!is_array($this->ExpositionPeriodReservationEntry)) {
+            return array($this->ExpositionPeriodReservationEntry);
+        }
+
+        return $this->ExpositionPeriodReservationEntry;
     }
 }

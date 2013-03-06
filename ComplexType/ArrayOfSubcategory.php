@@ -32,9 +32,10 @@ class ArrayOfSubcategory extends ComplexTypeAbstract
      */
     public function getSubcategory()
     {
-	    if(!is_array($this->Subcategory)) {
-		    return array($this->Subcategory);
-	    }
-	    return $this->Subcategory;
+        if (!is_array($this->Subcategory)) {
+            return array($this->Subcategory);
+        }
+
+        return $this->Subcategory;
     }
 }

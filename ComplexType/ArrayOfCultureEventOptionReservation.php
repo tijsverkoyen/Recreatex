@@ -32,9 +32,10 @@ class ArrayOfCultureEventOptionReservation extends ComplexTypeAbstract
      */
     public function getCultureEventOptionReservation()
     {
-	    if(!is_array($this->CultureEventOptionReservation)) {
-		    return array($this->CultureEventOptionReservation);
-	    }
-	    return $this->CultureEventOptionReservation;
+        if (!is_array($this->CultureEventOptionReservation)) {
+            return array($this->CultureEventOptionReservation);
+        }
+
+        return $this->CultureEventOptionReservation;
     }
 }

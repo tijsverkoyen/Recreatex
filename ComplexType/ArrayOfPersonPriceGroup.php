@@ -32,9 +32,10 @@ class ArrayOfPersonPriceGroup extends ComplexTypeAbstract
      */
     public function getPersonPriceGroup()
     {
-	    if(!is_array($this->PersonPriceGroup)) {
-		    return array($this->PersonPriceGroup);
-	    }
-	    return $this->PersonPriceGroup;
+        if (!is_array($this->PersonPriceGroup)) {
+            return array($this->PersonPriceGroup);
+        }
+
+        return $this->PersonPriceGroup;
     }
 }

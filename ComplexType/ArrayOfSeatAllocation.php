@@ -32,9 +32,10 @@ class ArrayOfSeatAllocation extends ComplexTypeAbstract
      */
     public function getSeatAllocation()
     {
-	    if(!is_array($this->SeatAllocation)) {
-		    return array($this->SeatAllocation);
-	    }
-	    return $this->SeatAllocation;
+        if (!is_array($this->SeatAllocation)) {
+            return array($this->SeatAllocation);
+        }
+
+        return $this->SeatAllocation;
     }
 }

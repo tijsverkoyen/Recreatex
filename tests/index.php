@@ -74,9 +74,8 @@ try {
 
     // IsAvailable
 //    $response = $recreatex->isAvailable();
-
 } catch (Exception $e) {
-    var_dump($e);
+    var_dump($e->getMessage());
 }
 
 // output

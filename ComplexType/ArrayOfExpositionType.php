@@ -32,9 +32,10 @@ class ArrayOfExpositionType extends ComplexTypeAbstract
      */
     public function getExpositionType()
     {
-	    if(!is_array($this->ExpositionType)) {
-		    return array($this->ExpositionType);
-	    }
+        if (!is_array($this->ExpositionType)) {
+            return array($this->ExpositionType);
+        }
+
         return $this->ExpositionType;
     }
 }

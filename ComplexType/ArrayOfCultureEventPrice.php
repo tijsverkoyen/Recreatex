@@ -32,9 +32,10 @@ class ArrayOfCultureEventPrice extends ComplexTypeAbstract
      */
     public function getCultureEventPrice()
     {
-	    if(!is_array($this->CultureEventPrice)) {
-		    return array($this->CultureEventPrice);
-	    }
-	    return $this->CultureEventPrice;
+        if (!is_array($this->CultureEventPrice)) {
+            return array($this->CultureEventPrice);
+        }
+
+        return $this->CultureEventPrice;
     }
 }

@@ -32,9 +32,10 @@ class ArrayOfActivityOption extends ComplexTypeAbstract
      */
     public function getActivityOption()
     {
-	    if(!is_array($this->ActivityOption)) {
-		    return array($this->ActivityOption);
-	    }
-	    return $this->ActivityOption;
+        if (!is_array($this->ActivityOption)) {
+            return array($this->ActivityOption);
+        }
+
+        return $this->ActivityOption;
     }
 }

@@ -32,9 +32,10 @@ class ArrayOfstring extends ComplexTypeAbstract
      */
     public function getString()
     {
-	    if(!is_array($this->string)) {
-		    return array($this->string);
-	    }
-	    return $this->string;
+        if (!is_array($this->string)) {
+            return array($this->string);
+        }
+
+        return $this->string;
     }
 }

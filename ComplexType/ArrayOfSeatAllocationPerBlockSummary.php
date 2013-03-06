@@ -32,9 +32,10 @@ class ArrayOfSeatAllocationPerBlockSummary extends ComplexTypeAbstract
      */
     public function getSeatAllocationPerBlockSummary()
     {
-	    if(!is_array($this->SeatAllocationPerBlockSummary)) {
-		    return array($this->SeatAllocationPerBlockSummary);
-	    }
-	    return $this->SeatAllocationPerBlockSummary;
+        if (!is_array($this->SeatAllocationPerBlockSummary)) {
+            return array($this->SeatAllocationPerBlockSummary);
+        }
+
+        return $this->SeatAllocationPerBlockSummary;
     }
 }

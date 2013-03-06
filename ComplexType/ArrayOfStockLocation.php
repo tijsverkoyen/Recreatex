@@ -32,9 +32,10 @@ class ArrayOfStockLocation extends ComplexTypeAbstract
      */
     public function getStockLocation()
     {
-	    if(!is_array($this->StockLocation)) {
-		    return array($this->StockLocation);
-	    }
-	    return $this->StockLocation;
+        if (!is_array($this->StockLocation)) {
+            return array($this->StockLocation);
+        }
+
+        return $this->StockLocation;
     }
 }

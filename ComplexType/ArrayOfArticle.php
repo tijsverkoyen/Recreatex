@@ -32,9 +32,10 @@ class ArrayOfArticle extends ComplexTypeAbstract
      */
     public function getArticle()
     {
-	    if(!is_array($this->Article)) {
-		    return array($this->Article);
-	    }
-	    return $this->Article;
+        if (!is_array($this->Article)) {
+            return array($this->Article);
+        }
+
+        return $this->Article;
     }
 }

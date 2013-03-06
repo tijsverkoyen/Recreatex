@@ -32,9 +32,10 @@ class ArrayOfLockTicket extends ComplexTypeAbstract
      */
     public function getLockTicket()
     {
-	    if(!is_array($this->LockTicket)) {
-		    return array($this->LockTicket);
-	    }
-	    return $this->LockTicket;
+        if (!is_array($this->LockTicket)) {
+            return array($this->LockTicket);
+        }
+
+        return $this->LockTicket;
     }
 }

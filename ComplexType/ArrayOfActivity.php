@@ -32,9 +32,10 @@ class ArrayOfActivity extends ComplexTypeAbstract
      */
     public function getActivity()
     {
-	    if(!is_array($this->Activity)) {
-		    return array($this->Activity);
-	    }
-	    return $this->Activity;
+        if (!is_array($this->Activity)) {
+            return array($this->Activity);
+        }
+
+        return $this->Activity;
     }
 }

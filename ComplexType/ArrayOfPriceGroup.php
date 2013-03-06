@@ -23,6 +23,7 @@ class ArrayOfPriceGroup extends ComplexTypeAbstract
     public function setPriceGroup(array $priceGroup = array())
     {
         $this->PriceGroup = $priceGroup;
+
         return $this;
     }
 
@@ -31,9 +32,10 @@ class ArrayOfPriceGroup extends ComplexTypeAbstract
      */
     public function getPriceGroup()
     {
-	    if(!is_array($this->PriceGroup)) {
-		    return array($this->PriceGroup);
-	    }
+        if (!is_array($this->PriceGroup)) {
+            return array($this->PriceGroup);
+        }
+
         return $this->PriceGroup;
     }
 }

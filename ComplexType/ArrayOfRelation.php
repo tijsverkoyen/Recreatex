@@ -32,9 +32,10 @@ class ArrayOfRelation extends ComplexTypeAbstract
      */
     public function getRelation()
     {
-	    if(!is_array($this->Relation)) {
-		    return array($this->Relation);
-	    }
-	    return $this->Relation;
+        if (!is_array($this->Relation)) {
+            return array($this->Relation);
+        }
+
+        return $this->Relation;
     }
 }

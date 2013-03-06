@@ -32,9 +32,10 @@ class ArrayOfCultureReservation extends ComplexTypeAbstract
      */
     public function getCultureReservation()
     {
-	    if(!is_array($this->CultureReservation)) {
-		    return array($this->CultureReservation);
-	    }
-	    return $this->CultureReservation;
+        if (!is_array($this->CultureReservation)) {
+            return array($this->CultureReservation);
+        }
+
+        return $this->CultureReservation;
     }
 }

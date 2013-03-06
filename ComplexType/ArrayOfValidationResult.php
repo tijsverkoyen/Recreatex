@@ -32,9 +32,10 @@ class ArrayOfValidationResult extends ComplexTypeAbstract
      */
     public function getValidationResult()
     {
-	    if(!is_array($this->ValidationResult)) {
-		    return array($this->ValidationResult);
-	    }
-	    return $this->ValidationResult;
+        if (!is_array($this->ValidationResult)) {
+            return array($this->ValidationResult);
+        }
+
+        return $this->ValidationResult;
     }
 }

@@ -32,9 +32,10 @@ class ArrayOfCategory extends ComplexTypeAbstract
      */
     public function getCategory()
     {
-	    if(!is_array($this->Category)) {
-		    return array($this->Category);
-	    }
-	    return $this->Category;
+        if (!is_array($this->Category)) {
+            return array($this->Category);
+        }
+
+        return $this->Category;
     }
 }

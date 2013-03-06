@@ -32,9 +32,10 @@ class ArrayOfHall extends ComplexTypeAbstract
      */
     public function getHall()
     {
-	    if(!is_array($this->Hall)) {
-		    return array($this->Hall);
-	    }
-	    return $this->Hall;
+        if (!is_array($this->Hall)) {
+            return array($this->Hall);
+        }
+
+        return $this->Hall;
     }
 }

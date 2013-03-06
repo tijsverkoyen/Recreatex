@@ -32,9 +32,10 @@ class ArrayOfBasketPaymentMethod extends ComplexTypeAbstract
      */
     public function getBasketPaymentMethod()
     {
-	    if(!is_array($this->BasketPaymentMethod)) {
-		    return array($this->BasketPaymentMethod);
-	    }
-	    return $this->BasketPaymentMethod;
+        if (!is_array($this->BasketPaymentMethod)) {
+            return array($this->BasketPaymentMethod);
+        }
+
+        return $this->BasketPaymentMethod;
     }
 }

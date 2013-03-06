@@ -89,6 +89,41 @@ class Activity extends ComplexTypeAbstract
     protected $Type;
 
     /**
+     * @var boolean
+     */
+    protected $EntryMethod;
+
+    /**
+     * @var integer
+     */
+    protected $TotalPlaces;
+
+    /**
+     * @var string
+     */
+    protected $Agreements;
+
+    /**
+     * @var string
+     */
+    protected $Utilities;
+
+    /**
+     * @var string
+     */
+    protected $WebSalesStart;
+
+    /**
+     * @var string
+     */
+    protected $WebSalesStop;
+
+    /**
+     * @var Picture
+     */
+    protected $Image;
+
+    /**
      * @param  AgeCategory[optional] $ageCategory
      * @return Activity
      */
@@ -100,7 +135,7 @@ class Activity extends ComplexTypeAbstract
     }
 
     /**
-     *  AgeCategory[optional]
+     *  @return AgeCategory
      */
     public function getAgeCategory()
     {
@@ -371,5 +406,138 @@ class Activity extends ComplexTypeAbstract
     public function getType()
     {
         return $this->Type;
+    }
+
+    /**
+     * @param  boolean  $entryMethod
+     * @return Activity
+     */
+    public function setEntryMethod($entryMethod)
+    {
+        $this->EntryMethod = $entryMethod;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getEntryMethod()
+    {
+        return $this->EntryMethod;
+    }
+
+    /**
+     * @param  integer  $totalPlaces
+     * @return Activity
+     */
+    public function setTotalPlaces($totalPlaces)
+    {
+        $this->TotalPlaces = $totalPlaces;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getTotalPlaces()
+    {
+        return $this->TotalPlaces;
+    }
+
+    /**
+     * @param  string   $agreements
+     * @return Activity
+     */
+    public function setAgreements($agreements)
+    {
+        $this->Agreements = $agreements;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAgreements()
+    {
+        return $this->Agreements;
+    }
+
+    /**
+     * @param  string   $utilities
+     * @return Activity
+     */
+    public function setUtilities($utilities)
+    {
+        $this->Utilities = $utilities;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUtilities()
+    {
+        return $this->Utilities;
+    }
+
+    /**
+     * @param  string   $webSalesStart
+     * @return Activity
+     */
+    public function setWebSalesStart($webSalesStart)
+    {
+        $this->WebSalesStart = $webSalesStart;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getWebSalesStart()
+    {
+        return $this->WebSalesStart;
+    }
+
+    /**
+     * @param  string   $webSalesStop
+     * @return Activity
+     */
+    public function setWebSalesStop($webSalesStop)
+    {
+        $this->WebSalesStop = $webSalesStop;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getWebSalesStop()
+    {
+        return $this->WebSalesStop;
+    }
+
+    /**
+     * @param  Picture  $image
+     * @return Activity
+     */
+    public function setImage(Picture $image = null)
+    {
+        $this->Image = $image;
+
+        return $this;
+    }
+
+    /**
+     * @return Picture
+     */
+    public function getImage()
+    {
+        return $this->Image;
     }
 }

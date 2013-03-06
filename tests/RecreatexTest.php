@@ -72,20 +72,20 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($response->getHasSucceeded());
     }
 
-	/**
-	 * Tests Recreatex->FindActivities();
-	 */
-	public function testFindActivities()
-	{
-		$this->markTestSkipped('untested, because my RCX-instance hasn\'t any activities');
-	}
+    /**
+     * Tests Recreatex->FindActivities();
+     */
+    public function testFindActivities()
+    {
+        $this->markTestSkipped('untested, because my RCX-instance hasn\'t any activities');
+    }
 
     /**
      * Tests Recreatex->FindArticles()
      */
     public function testFindArticles()
     {
-	    $this->markTestSkipped('untested, because my RCX-instance hasn\'t any expositions');
+        $this->markTestSkipped('untested, because my RCX-instance hasn\'t any expositions');
 
         $paging = new \TijsVerkoyen\Recreatex\ComplexType\PagingCriteria();
         $paging->setPageSize(10);
@@ -139,7 +139,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
      */
     public function testFindExpositions()
     {
-	    $this->markTestSkipped('untested, because my RCX-instance hasn\'t any expositions');
+        $this->markTestSkipped('untested, because my RCX-instance hasn\'t any expositions');
 
         $paging = new \TijsVerkoyen\Recreatex\ComplexType\PagingCriteria();
         $paging->setPageSize(10);
@@ -155,7 +155,7 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
      */
     public function testFindExpositionTypes()
     {
-	    $this->markTestSkipped('untested, because my RCX-instance hasn\'t any expositions');
+        $this->markTestSkipped('untested, because my RCX-instance hasn\'t any expositions');
 
         $paging = new \TijsVerkoyen\Recreatex\ComplexType\PagingCriteria();
         $paging->setPageSize(10);
@@ -175,11 +175,10 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
         $criteria->setEmail('vorst@verkoyen.eu');
         $response = $this->recreatex->findPerson($criteria);
 
-	    $this->assertInternalType('array', $response);
-	    foreach($response as $row)
-	    {
+        $this->assertInternalType('array', $response);
+        foreach ($response as $row) {
             $this->assertInstanceOf('TijsVerkoyen\Recreatex\ComplexType\Person', $row);
-	    }
+        }
     }
 
     /**

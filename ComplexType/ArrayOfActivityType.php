@@ -32,9 +32,10 @@ class ArrayOfActivityType extends ComplexTypeAbstract
      */
     public function getActivityType()
     {
-	    if(!is_array($this->ActivityType)) {
-		    return array($this->ActivityType);
-	    }
-	    return $this->ActivityType;
+        if (!is_array($this->ActivityType)) {
+            return array($this->ActivityType);
+        }
+
+        return $this->ActivityType;
     }
 }
