@@ -175,7 +175,11 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
         $criteria->setEmail('vorst@verkoyen.eu');
         $response = $this->recreatex->findPerson($criteria);
 
-        $this->assertInstanceOf('TijsVerkoyen\Recreatex\ComplexType\Person', $response);
+	    $this->assertInternalType('array', $response);
+	    foreach($response as $row)
+	    {
+            $this->assertInstanceOf('TijsVerkoyen\Recreatex\ComplexType\Person', $row);
+	    }
     }
 
     /**
