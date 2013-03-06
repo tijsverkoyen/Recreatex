@@ -93,6 +93,17 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($response->getHasSucceeded());
     }
 
+	/**
+	 * Tests Recreatex->AuthenticateNationalNumber()
+	 */
+	public function testAuthenticateNationalNumber()
+	{
+		$response = $this->recreatex->authenticateNationalNumber('1');
+
+		$this->assertInstanceOf('\TijsVerkoyen\Recreatex\ComplexType\AuthenticationResult', $response);
+		$this->assertFalse($response->getHasSucceeded());
+	}
+
     /**
      * Tests Recreatex->FindActivities();
      */

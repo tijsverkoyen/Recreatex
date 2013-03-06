@@ -13,8 +13,10 @@ $recreatex = new Recreatex(SERVER, PORT);
 $recreatex->createServiceContext(SHOP_ID, DIVISION_ID, LANGUAGE);
 
 try {
-    // Authentication
+    // ListLicenseModules
 //    $response = $recreatex->listLicenseModules();
+
+	// ValidateUsername
 //    $response = $recreatex->validateUsername(USERNAME);
 
     // AuthenticateUser
@@ -22,6 +24,10 @@ try {
 //    $credential->setUsername(USERNAME);
 //    $credential->setPassword(PASSWORD);
 //    $response = $recreatex->authenticateUser($credential);
+
+	// AuthenticateNationalNumber
+//	$response = $recreatex->authenticateNationalNumber('1');
+
 
     // FindActivities   @remark: untested, because my RCX-instance hasn't any activities
 //    $paging = new \TijsVerkoyen\Recreatex\ComplexType\PagingCriteria();

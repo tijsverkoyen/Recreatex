@@ -798,6 +798,19 @@ class Recreatex extends BaseSoapClient
 		return $response;
 	}
 
+	/**
+	 * @param $nationalNumber
+	 * @return AuthenticationResult
+	 */
+	public function authenticateNationalNumber($nationalNumber)
+	{
+		$response = $this->getSoapClient()->AuthenticateNationalNumber(
+			$this->getServiceContext(),
+			$nationalNumber
+		);
+
+		return $response;
+	}
 
 
     /**
