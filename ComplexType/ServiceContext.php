@@ -29,6 +29,11 @@ class ServiceContext extends ComplexTypeAbstract
     protected $ShopId;
 
     /**
+     * @var SimpleTypeGuid
+     */
+    protected $SessionId;
+
+    /**
      * @param  SimpleType\Guid[optional] $divisionId
      * @return ServiceContext
      */
@@ -83,5 +88,24 @@ class ServiceContext extends ComplexTypeAbstract
     public function getShopId()
     {
         return $this->ShopId;
+    }
+
+    /**
+     * @param  SimpleType\Guid[optional] $sessionId
+     * @return ServiceContext
+     */
+    public function setSessionId(SimpleType\Guid $sessionId = null)
+    {
+        $this->SessionId = $sessionId;
+
+        return $this;
+    }
+
+    /**
+     * @return SimpleType\Guid
+     */
+    public function getSessionId()
+    {
+        return $this->SessionId;
     }
 }

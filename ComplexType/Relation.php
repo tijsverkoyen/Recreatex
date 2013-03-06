@@ -14,11 +14,6 @@ class Relation extends ComplexTypeAbstract
     const CLASS_NAME = 'Relation';
 
     /**
-     * @var Person
-     */
-    protected $From;
-
-    /**
      * @var SimpleType\Guid
      */
     protected $Id;
@@ -26,26 +21,17 @@ class Relation extends ComplexTypeAbstract
     /**
      * @var Person
      */
-    protected $To;
+    protected $Person;
 
     /**
-     * @param  Person[optional] $from
-     * @return Relation
+     * @var SimpleType\RelationType
      */
-    public function setFrom(Person $from = null)
-    {
-        $this->From = $from;
-
-        return $this;
-    }
+    protected $Type;
 
     /**
-     * @return Person
+     * @var string
      */
-    public function getFrom()
-    {
-        return $this->From;
-    }
+    protected $Comment;
 
     /**
      * @param  SimpleType\Guid[optional] $id
@@ -67,21 +53,59 @@ class Relation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  Person[optional] $to
+     * @param  Person[optional] $person
      * @return Relation
      */
-    public function setTo(Person $to = null)
+    public function setPerson(Person $person = null)
     {
-        $this->To = $to;
+        $this->Person = $person;
 
         return $this;
     }
 
     /**
-     * @return Person
+     * @return Person|null
      */
-    public function getTo()
+    public function getPerson()
     {
-        return $this->To;
+        return $this->Person;
+    }
+
+    /**
+     * @param  SimpleType\RelationType[optional] $type
+     * @return Relation
+     */
+    public function setType(SimpleType\RelationType $type = null)
+    {
+        $this->Type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return SimpleType\RelationType
+     */
+    public function getType()
+    {
+        return $this->Type;
+    }
+
+    /**
+     * @param  string[optional] $comment
+     * @return Relation
+     */
+    public function setComment($comment)
+    {
+        $this->Comment = $comment;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getComment()
+    {
+        return $this->Comment;
     }
 }

@@ -24,6 +24,11 @@ class CultureEventReservationSalesItem extends ComplexTypeAbstract
     protected $Seats;
 
     /**
+     * @var ArrayOfSiteAllocation
+     */
+    protected $Sites;
+
+    /**
      * @param  SimpleType\Guid[optional]        $cultureEventReservationId
      * @return CultureEventReservationSalesItem
      */
@@ -59,5 +64,24 @@ class CultureEventReservationSalesItem extends ComplexTypeAbstract
     public function getSeats()
     {
         return $this->Seats;
+    }
+
+    /**
+     * @param  ArrayOfSiteAllocation[optionnal] $sites
+     * @return CultureEventReservationSalesItem
+     */
+    public function setSites(ArrayOfSiteAllocation $sites = null)
+    {
+        $this->Sites = $sites;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayOfSiteAllocation
+     */
+    public function getSites()
+    {
+        return $this->Sites;
     }
 }

@@ -49,6 +49,11 @@ class CultureEventPrice extends ComplexTypeAbstract
     protected $MinimumQty;
 
     /**
+     * @var CultureSite
+     */
+    protected $Site;
+
+    /**
      * @param  SimpleType\Guid[optional] $customerID
      * @return CultureEventPrice
      */
@@ -179,5 +184,24 @@ class CultureEventPrice extends ComplexTypeAbstract
     public function getMinimumQty()
     {
         return $this->MinimumQty;
+    }
+
+    /**
+     * @param  CultureSite[optional] $site
+     * @return CultureEventPrice
+     */
+    public function setSite(CultureSite $site = null)
+    {
+        $this->Site = $site;
+
+        return $this;
+    }
+
+    /**
+     * @return CultureSite
+     */
+    public function getSite()
+    {
+        return $this->Site;
     }
 }

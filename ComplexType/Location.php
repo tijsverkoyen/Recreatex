@@ -32,6 +32,11 @@ class Location extends ComplexTypeAbstract
     protected $Y;
 
     /**
+     * @var float
+     */
+    protected $Angle;
+
+    /**
      * @param  float[optional] $dx
      * @return Location
      */
@@ -105,5 +110,24 @@ class Location extends ComplexTypeAbstract
     public function getY()
     {
         return $this->Y;
+    }
+
+    /**
+     * @param  float[optional] $angle
+     * @return Location
+     */
+    public function setAngle($angle)
+    {
+        $this->Angle = $angle;
+
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getAngle()
+    {
+        return $this->Angle;
     }
 }

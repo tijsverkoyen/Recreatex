@@ -42,6 +42,11 @@ class Address extends ComplexTypeAbstract
     protected $ZipCode;
 
     /**
+     * @var string
+     */
+    protected $LocationName;
+
+    /**
      * @param  string[optional] $box
      * @return Address
      */
@@ -153,5 +158,24 @@ class Address extends ComplexTypeAbstract
     public function getZipCode()
     {
         return $this->ZipCode;
+    }
+
+    /**
+     * @param  string[optional] $locationName
+     * @return Address
+     */
+    public function setLocationName($locationName)
+    {
+        $this->LocationName = $locationName;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLocationName()
+    {
+        return $this->LocationName;
     }
 }

@@ -45,9 +45,7 @@ class Exposition extends ComplexTypeAbstract
     protected $From;
 
     /**
-     * Exposition Unique Identifier
-     *
-     * @var SimpleType\Guid
+     * Exposition Unique Identifier     * @var SimpleType\Guid
      */
     protected $Id;
 
@@ -85,6 +83,21 @@ class Exposition extends ComplexTypeAbstract
      * @var Vat
      */
     protected $VAT;
+
+    /**
+     * @var ArrayOfExpositionSubcategory
+     */
+    protected $SubCategories;
+
+    /**
+     * @var AddressLocation
+     */
+    protected $AddressLocation;
+
+    /**
+     * @var string
+     */
+    protected $ImageUri;
 
     /**
      * @param  ArrayOfAudience[optional] $audiences
@@ -350,5 +363,62 @@ class Exposition extends ComplexTypeAbstract
     public function getVAT()
     {
         return $this->VAT;
+    }
+
+    /**
+     * @param  ArrayOfExpositionSubcategory[optional] $subCategories
+     * @return Exposition
+     */
+    public function setSubCategories(ArrayOfExpositionSubcategory $subCategories = null)
+    {
+        $this->SubCategories = $subCategories;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayOfExpositionSubcategory
+     */
+    public function getSubCategories()
+    {
+        return $this->SubCategories;
+    }
+
+    /**
+     * @param  AddressLocation[optional] $addressLocation
+     * @return Exposition
+     */
+    public function setAddressLocation(AddressLocation $addressLocation = null)
+    {
+        $this->AddressLocation = $addressLocation;
+
+        return $this;
+    }
+
+    /**
+     * @return AddressLocation
+     */
+    public function getAddressLocation()
+    {
+        return $this->AddressLocation;
+    }
+
+    /**
+     * @param  string[optional] $imageUri
+     * @return Exposition
+     */
+    public function setImageUri($imageUri)
+    {
+        $this->ImageUri = $imageUri;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImageUri()
+    {
+        return $this->ImageUri;
     }
 }

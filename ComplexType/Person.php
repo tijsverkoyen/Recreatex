@@ -99,22 +99,87 @@ class Person extends ComplexTypeAbstract
     protected $Picture;
 
     /**
-     * @var ArrayOfRelation[optional] $Relations
-     */
-    protected $Relations;
-
-    /**
-     * @var SimpleType\Guid
+     * @var ArrayOfRelation
      */
     protected $ResetPasswordId;
 
     /**
-     * @var PersonSettings[optional] $Settings
+     * @var PersonSettings
      */
     protected $Settings;
 
     /**
-     * @param  SimpleType\Guid[optional] $activationId
+     * @var ArrayOfContact
+     */
+    protected $Contacts;
+
+    /**
+     * @var SimpleType\PersonType
+     */
+    protected $Type;
+
+    /**
+     * @var boolean
+     */
+    protected $Parent;
+
+    /**
+     * @var boolean
+     */
+    protected $Disabled;
+
+    /**
+     * @var boolean
+     */
+    protected $HeadOfFamily;
+
+    /**
+     * @var ArrayOfRelation
+     */
+    protected $Relations;
+
+    /**
+     * @var string
+     */
+    protected $Info1;
+
+    /**
+     * @var string
+     */
+    protected $Info2;
+
+    /**
+     * @var string
+     */
+    protected $Info3;
+
+    /**
+     * @var string
+     */
+    protected $Info4;
+
+    /**
+     * @var string
+     */
+    protected $Info5;
+
+    /**
+     * @var string
+     */
+    protected $ExternalMasterID;
+
+    /**
+     * @var ArrayOfRelation
+     */
+    protected $ParentRelations;
+
+    /**
+     * @var SimpleType\Guid
+     */
+    protected $InvoiceAddressId;
+
+    /**
+     * @param  SimpleType\Guid $activationId
      * @return Person
      */
     public function setActivationId(SimpleType\Guid $activationId = null)
@@ -440,25 +505,6 @@ class Person extends ComplexTypeAbstract
      * @param  ArrayOfRelation[optional] $relations
      * @return Person
      */
-    public function setRelations(ArrayOfRelation $relations = null)
-    {
-        $this->Relations = $relations;
-
-        return $this;
-    }
-
-    /**
-     * @return ArrayOfRelation
-     */
-    public function getRelations()
-    {
-        return $this->Relations;
-    }
-
-    /**
-     * @param  SimpleType\Guid[optional] $resetPasswordId
-     * @return Person
-     */
     public function setResetPasswordId(SimpleType\Guid $resetPasswordId = null)
     {
         $this->ResetPasswordId = $resetPasswordId;
@@ -467,7 +513,7 @@ class Person extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\Guid[optional]
      */
     public function getResetPasswordId()
     {
@@ -491,5 +537,271 @@ class Person extends ComplexTypeAbstract
     public function getSettings()
     {
         return $this->Settings;
+    }
+
+    /**
+     * @param  ArrayOfContact[optional] $contacts
+     * @return Person
+     */
+    public function setContacts(ArrayOfContact $contacts = null)
+    {
+        $this->Contacts = $contacts;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayOfContact
+     */
+    public function getContacts()
+    {
+        return $this->Contacts;
+    }
+
+    /**
+     * @param  SimpleType\PersonType[optional] $type
+     * @return Person
+     */
+    public function setType(SimpleType\PersonType $type = null)
+    {
+        $this->Type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return SimpleType\PersonType
+     */
+    public function getType()
+    {
+        return $this->Type;
+    }
+
+    /**
+     * @param  boolean[optional] $parent
+     * @return Person
+     */
+    public function setParent($parent)
+    {
+        $this->Parent = $parent;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getParent()
+    {
+        return $this->Parent;
+    }
+
+    /**
+     * @param  boolean[optional] $disabled
+     * @return Person
+     */
+    public function setDisabled($disabled)
+    {
+        $this->Disabled = $disabled;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getDisabled()
+    {
+        return $this->Disabled;
+    }
+
+    /**
+     * @param  boolean[optional] $headOfFamily
+     * @return Person
+     */
+    public function setHeadOfFamily($headOfFamily)
+    {
+        $this->HeadOfFamily = $headOfFamily;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getHeadOfFamily()
+    {
+        return $this->HeadOfFamily;
+    }
+
+    /**
+     * @param  ArrayOfRelation[optional] $relations
+     * @return Person
+     */
+    public function setRelations(ArrayOfRelation $relations = null)
+    {
+        $this->Relations = $relations;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayOfRelation
+     */
+    public function getRelations()
+    {
+        return $this->Relations;
+    }
+
+    /**
+     * @param  string[optional] $info1
+     * @return Person
+     */
+    public function setInfo1($info1)
+    {
+        $this->Info1 = $info1;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInfo1()
+    {
+        return $this->Info1;
+    }
+
+    /**
+     * @param  string[optional] $info2
+     * @return Person
+     */
+    public function setInfo2($info2)
+    {
+        $this->Info2 = $info2;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInfo2()
+    {
+        return $this->Info2;
+    }
+
+    /**
+     * @param  string[optional] $info3
+     * @return Person
+     */
+    public function setInfo3($info3)
+    {
+        $this->Info3 = $info3;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInfo3()
+    {
+        return $this->Info3;
+    }
+
+    /**
+     * @param  string[optional] $info4
+     * @return Person
+     */
+    public function setInfo4($info4)
+    {
+        $this->Info4 = $info4;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInfo4()
+    {
+        return $this->Info4;
+    }
+
+    /**
+     * @param  string[optional] $info5
+     * @return Person
+     */
+    public function setInfo5($info5)
+    {
+        $this->Info5 = $info5;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInfo5()
+    {
+        return $this->Info5;
+    }
+
+    /**
+     * @param  string[optional] $externalMasterID
+     * @return Person
+     */
+    public function setExternalMasterID($externalMasterID)
+    {
+        $this->ExternalMasterID = $externalMasterID;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getExternalMasterID()
+    {
+        return $this->ExternalMasterID;
+    }
+
+    /**
+     * @param  ArrayOfRelation[optional] $parentRelations
+     * @return Person
+     */
+    public function setParentRelations(ArrayOfRelation $parentRelations = null)
+    {
+        $this->ParentRelations = $parentRelations;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayOfRelation
+     */
+    public function getParentRelations()
+    {
+        return $this->ParentRelations;
+    }
+
+    /**
+     * @param  SimpleType\Guid[optional] $invoiceAddressId
+     * @return Person
+     */
+    public function setInvoiceAddressId(SimpleType\Guid $invoiceAddressId = null)
+    {
+        $this->InvoiceAddressId = $invoiceAddressId;
+
+        return $this;
+    }
+
+    /**
+     * @return SimpleType\Guid
+     */
+    public function getInvoiceAddressId()
+    {
+        return $this->InvoiceAddressId;
     }
 }

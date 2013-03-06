@@ -24,6 +24,11 @@ class ExpositionSalesItem extends ComplexTypeAbstract
     protected $ExpositionPeriodId;
 
     /**
+     * @var SimpleTypeGuid
+     */
+    protected $OrganisedVisitId;
+
+    /**
      * @param  SimpleType\Guid[optional] $expositionId
      * @return ExpositionSalesItem
      */
@@ -59,5 +64,24 @@ class ExpositionSalesItem extends ComplexTypeAbstract
     public function getExpositionPeriodId()
     {
         return $this->ExpositionPeriodId;
+    }
+
+    /**
+     * @param  SimpleType\Guid[optional] $organisedVisitId
+     * @return ExpositionSalesItem
+     */
+    public function setOrganisedVisitId(SimpleType\Guid $organisedVisitId = null)
+    {
+        $this->OrganisedVisitId = $organisedVisitId;
+
+        return $this;
+    }
+
+    /**
+     * @return SimpleType\Guid
+     */
+    public function getOrganisedVisitId()
+    {
+        return $this->OrganisedVisitId;
     }
 }

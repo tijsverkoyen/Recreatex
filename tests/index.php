@@ -13,6 +13,9 @@ $recreatex = new Recreatex(SERVER, PORT);
 $recreatex->createServiceContext(SHOP_ID, DIVISION_ID, LANGUAGE);
 
 try {
+    // Authentication
+    $response = $recreatex->listLicenseModules();
+
     // AuthenticateUser
 //    $credential = new Credential();
 //    $credential->setUsername(USERNAME);

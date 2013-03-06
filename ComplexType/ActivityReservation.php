@@ -47,6 +47,11 @@ class ActivityReservation extends ComplexTypeAbstract
     protected $TotalPrice;
 
     /**
+     * @var integer
+     */
+    protected $Status;
+
+    /**
      * @param  Activity[optional]  $activity
      * @return ActivityReservation
      */
@@ -177,5 +182,24 @@ class ActivityReservation extends ComplexTypeAbstract
     public function getTotalPrice()
     {
         return $this->TotalPrice;
+    }
+
+    /**
+     * @param  integer[optional]   $status
+     * @return ActivityReservation
+     */
+    public function setStatus($status)
+    {
+        $this->Status = $status;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getStatus()
+    {
+        return $this->Status;
     }
 }

@@ -28,9 +28,7 @@ abstract class ComplexTypeAbstract
     }
 
     /**
-     * Returns the complex type as an array
-     *
-     * @param  boolean $renderTopKey
+     * Returns the complex type as an array     * @param  boolean $renderTopKey
      * @return array
      */
     public function toArray($renderTopKey = false)
@@ -45,9 +43,7 @@ abstract class ComplexTypeAbstract
     }
 
     /**
-     * Recursive algorithm to convert complex types to and array
-     *
-     * @param  array $arrayValues
+     * Recursive algorithm to convert complex types to and array     * @param  array $arrayValues
      * @return array
      */
     protected function convertToArray($arrayValues)
@@ -73,9 +69,7 @@ abstract class ComplexTypeAbstract
     }
 
     /**
-     * Returns array which contains all properties of the class
-     *
-     * @return array
+     * Returns array which contains all properties of the class     * @return array
      */
     private function getListOfProperties()
     {

@@ -45,37 +45,25 @@ class SeatAllocation extends ComplexTypeAbstract
 
     /**
 
-     * minOccurs = 1
-     * maxOccurs = 1
-     *
-     * @var string $SeatCode
+     * minOccurs = 1     * @var string $SeatCode
      */
     protected $SeatCode;
 
     /**
 
-     * minOccurs = 1
-     * maxOccurs = 1
-     *
-     * @var SimpleType\Guid
+     * minOccurs = 1     * @var SimpleType\Guid
      */
     protected $SeatId;
 
     /**
 
-     * minOccurs = 1
-     * maxOccurs = 1
-     *
-     * @var string $SeatRowCode
+     * minOccurs = 1     * @var string $SeatRowCode
      */
     protected $SeatRowCode;
 
     /**
 
-     * minOccurs = 1
-     * maxOccurs = 1
-     *
-     * @var SimpleType\SeatAllocationStatus $Status
+     * minOccurs = 1     * @var SimpleType\SeatAllocationStatus $Status
      */
     protected $Status;
 

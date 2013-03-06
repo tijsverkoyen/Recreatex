@@ -29,6 +29,16 @@ class BasketPaymentMethod extends ComplexTypeAbstract
     protected $Name;
 
     /**
+     * @var boolean
+     */
+    protected $DefaultCashPaymentMethod;
+
+    /**
+     * @var boolean
+     */
+    protected $DefaultIncassoPaymentMethod;
+
+    /**
      * @param  string[optional]    $code
      * @return BasketPaymentMethod
      */
@@ -83,5 +93,43 @@ class BasketPaymentMethod extends ComplexTypeAbstract
     public function getName()
     {
         return $this->Name;
+    }
+
+    /**
+     * @param  boolean[optional]   $defaultCashPaymentMethod
+     * @return BasketPaymentMethod
+     */
+    public function setDefaultCashPaymentMethod($defaultCashPaymentMethod)
+    {
+        $this->DefaultCashPaymentMethod = $defaultCashPaymentMethod;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getDefaultCashPaymentMethod()
+    {
+        return $this->DefaultCashPaymentMethod;
+    }
+
+    /**
+     * @param  boolean[optional]   $defaultIncassoPaymentMethod
+     * @return BasketPaymentMethod
+     */
+    public function setDefaultIncassoPaymentMethod($defaultIncassoPaymentMethod)
+    {
+        $this->DefaultIncassoPaymentMethod = $defaultIncassoPaymentMethod;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getDefaultIncassoPaymentMethod()
+    {
+        return $this->DefaultIncassoPaymentMethod;
     }
 }

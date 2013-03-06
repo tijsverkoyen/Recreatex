@@ -119,6 +119,46 @@ class CultureEvent extends ComplexTypeAbstract
     protected $UseReservationCost;
 
     /**
+     * @var boolean
+     */
+    protected $AllowBasReservation;
+
+    /**
+     * @var boolean
+     */
+    protected $AllowExplicitSeatReservation;
+
+    /**
+     * @var integer
+     */
+    protected $MaxVisitors;
+
+    /**
+     * @var integer
+     */
+    protected $MaxVisitorsWeb;
+
+    /**
+     * @var integer
+     */
+    protected $AvailableSitePlaces;
+
+    /**
+     * @var integer
+     */
+    protected $AvailableTotal;
+
+    /**
+     * @var string
+     */
+    protected $BreakFrom;
+
+    /**
+     * @var string
+     */
+    protected $BreakUntil;
+
+    /**
      * @param  AdministrativeCost[optional] $administrativeCost
      * @return CultureEvent
      */
@@ -515,5 +555,157 @@ class CultureEvent extends ComplexTypeAbstract
     public function getUseReservationCost()
     {
         return $this->UseReservationCost;
+    }
+
+    /**
+     * @param  boolean[optional] $allowBasReservation
+     * @return CultureEvent
+     */
+    public function setAllowBasReservation($allowBasReservation)
+    {
+        $this->AllowBasReservation = $allowBasReservation;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getAllowBasReservation()
+    {
+        return $this->AllowBasReservation;
+    }
+
+    /**
+     * @param  boolean[optional] $allowExplicitSeatReservation
+     * @return CultureEvent
+     */
+    public function setAllowExplicitSeatReservation($allowExplicitSeatReservation)
+    {
+        $this->AllowExplicitSeatReservation = $allowExplicitSeatReservation;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getAllowExplicitSeatReservation()
+    {
+        return $this->AllowExplicitSeatReservation;
+    }
+
+    /**
+     * @param  integer[optional] $maxVisitors
+     * @return CultureEvent
+     */
+    public function setMaxVisitors($maxVisitors)
+    {
+        $this->MaxVisitors = $maxVisitors;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getMaxVisitors()
+    {
+        return $this->MaxVisitors;
+    }
+
+    /**
+     * @param  integer      $maxVisitorsWeb
+     * @return CultureEvent
+     */
+    public function setMaxVisitorsWeb($maxVisitorsWeb)
+    {
+        $this->MaxVisitorsWeb = $maxVisitorsWeb;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getMaxVisitorsWeb()
+    {
+        return $this->MaxVisitorsWeb;
+    }
+
+    /**
+     * @param  integer[optional] $availableSitePlaces
+     * @return CultureEvent
+     */
+    public function setAvailableSitePlaces($availableSitePlaces)
+    {
+        $this->AvailableSitePlaces = $availableSitePlaces;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getAvailableSitePlaces()
+    {
+        return $this->AvailableSitePlaces;
+    }
+
+    /**
+     * @param  integer[optional] $availableTotal
+     * @return CultureEvent
+     */
+    public function setAvailableTotal($availableTotal)
+    {
+        $this->AvailableTotal = $availableTotal;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getAvailableTotal()
+    {
+        return $this->AvailableTotal;
+    }
+
+    /**
+     * @param  string[optional] $breakFrom
+     * @return CultureEvent
+     */
+    public function setBreakFrom($breakFrom)
+    {
+        $this->BreakFrom = $breakFrom;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBreakFrom()
+    {
+        return $this->BreakFrom;
+    }
+
+    /**
+     * @param  string[optional] $breakUntil
+     * @return CultureEvent
+     */
+    public function setBreakUntil($breakUntil)
+    {
+        $this->BreakUntil = $breakUntil;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBreakUntil()
+    {
+        return $this->BreakUntil;
     }
 }

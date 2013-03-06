@@ -22,6 +22,11 @@ class Occupancy extends ComplexTypeAbstract
     protected $Maximum;
 
     /**
+     * @var integer
+     */
+    protected $Remaining;
+
+    /**
      * @param  integer[optional] $current
      * @return Occupancy
      */
@@ -57,5 +62,24 @@ class Occupancy extends ComplexTypeAbstract
     public function getMaximum()
     {
         return $this->Maximum;
+    }
+
+    /**
+     * @param  integer[Optional] $remaining
+     * @return Occupancy
+     */
+    public function setRemaining($remaining)
+    {
+        $this->Remaining = $remaining;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getRemaining()
+    {
+        return $this->Remaining;
     }
 }

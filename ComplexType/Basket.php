@@ -34,6 +34,21 @@ class Basket extends ComplexTypeAbstract
     protected $Price;
 
     /**
+     * @var SimpleTypeGuid
+     */
+    protected $DeliveryAddressId;
+
+    /**
+     * @var ArrayOfAdditionalCost
+     */
+    protected $AdditionalCosts;
+
+    /**
+     * @var string
+     */
+    protected $OrderId;
+
+    /**
      * @param  SimpleType\Guid[optional] $customerId
      * @return Basket
      */
@@ -107,5 +122,62 @@ class Basket extends ComplexTypeAbstract
     public function getPrice()
     {
         return $this->Price;
+    }
+
+    /**
+     * @param  SimpleType\Guid[optional] $deliveryAddressId
+     * @return Basket
+     */
+    public function setDeliveryAddressId(SimpleType\Guid $deliveryAddressId = null)
+    {
+        $this->DeliveryAddressId = $deliveryAddressId;
+
+        return $this;
+    }
+
+    /**
+     * @return SimpleType\Guid
+     */
+    public function getDeliveryAddressId()
+    {
+        return $this->DeliveryAddressId;
+    }
+
+    /**
+     * @param  ArrayOfAdditionalCost[optional] $additionalCosts
+     * @return Basket
+     */
+    public function setAdditionalCosts(ArrayOfAdditionalCost $additionalCosts = null)
+    {
+        $this->AdditionalCosts = $additionalCosts;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayOfAdditionalCost
+     */
+    public function getAdditionalCosts()
+    {
+        return $this->AdditionalCosts;
+    }
+
+    /**
+     * @param  string[optional] $orderId
+     * @return Basket
+     */
+    public function setOrderId($orderId)
+    {
+        $this->OrderId = $orderId;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOrderId()
+    {
+        return $this->OrderId;
     }
 }

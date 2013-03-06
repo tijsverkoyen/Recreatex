@@ -29,6 +29,11 @@ class AuthenticationResult extends ComplexTypeAbstract
     protected $PersonId;
 
     /**
+     * @var string
+     */
+    protected $LastLoginDate;
+
+    /**
      * @param  SimpleType\AuthenticationError[optional] $error
      * @return AuthenticationResult
      */
@@ -83,5 +88,24 @@ class AuthenticationResult extends ComplexTypeAbstract
     public function getPersonId()
     {
         return $this->PersonId;
+    }
+
+    /**
+     * @param  string[optional]     $lastLoginDate
+     * @return AuthenticationResult
+     */
+    public function setLastLoginDate($lastLoginDate)
+    {
+        $this->LastLoginDate = $lastLoginDate;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLastLoginDate()
+    {
+        return $this->LastLoginDate;
     }
 }

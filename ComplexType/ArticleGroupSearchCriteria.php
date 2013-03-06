@@ -28,6 +28,10 @@ class ArticleGroupSearchCriteria extends ComplexTypeAbstract
      */
     protected $IncludeImageUrl;
 
+    /**     * @var SimpleTypeGuid
+     */
+    protected $EmployeeId;
+
     /**
      * @param SimpleType\ArticleType[optional] $articleTypes
      *  ArticleGroupSearchCriteria
@@ -83,5 +87,24 @@ class ArticleGroupSearchCriteria extends ComplexTypeAbstract
     public function getIncludeImageUrl()
     {
         return $this->IncludeImageUrl;
+    }
+
+    /**
+     * @param  SimpleType\Guid[optional]  $employeeId
+     * @return ArticleGroupSearchCriteria
+     */
+    public function setEmployeeId(SimpleType\Guid $employeeId = null)
+    {
+        $this->EmployeeId = $employeeId;
+
+        return $this;
+    }
+
+    /**
+     * @return SimpleType\Guid
+     */
+    public function getEmployeeId()
+    {
+        return $this->EmployeeId;
     }
 }

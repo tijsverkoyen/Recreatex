@@ -27,6 +27,26 @@ class PersonSettings extends ComplexTypeAbstract
     protected $PriceGroups;
 
     /**
+     * @var ArrayOfPersonLLVInfo
+     */
+    protected $PersonLLVInfos;
+
+    /**
+     * @var ArrayOfPersonLLVTransferHistory
+     */
+    protected $PersonLLVTransferHistories;
+
+    /**
+     * @var ArrayOfLessonGroup
+     */
+    protected $PersonLLVCurrentLessonGroups;
+
+    /**
+     * @var PersonChildCareInfo
+     */
+    protected $PersonChildCareInfo;
+
+    /**
      * @param  ArrayOfSubcategory[optional] $subcategories
      * @return PersonSettings
      */
@@ -81,5 +101,81 @@ class PersonSettings extends ComplexTypeAbstract
     public function getPriceGroups()
     {
         return $this->PriceGroups;
+    }
+
+    /**
+     * @param  ArrayOfPersonLLVInfo[optional] $personLLVInfos
+     * @return PersonSettings
+     */
+    public function setPersonLLVInfos(ArrayOfPersonLLVInfo $personLLVInfos = null)
+    {
+        $this->PersonLLVInfos = $personLLVInfos;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayOfPersonLLVInfo
+     */
+    public function getPersonLLVInfos()
+    {
+        return $this->PersonLLVInfos;
+    }
+
+    /**
+     * @param  ArrayOfPersonLLVTransferHistory[optional] $personLLVTransferHistories
+     * @return PersonSettings
+     */
+    public function setPersonLLVTransferHistories(ArrayOfPersonLLVTransferHistory $personLLVTransferHistories = null)
+    {
+        $this->PersonLLVTransferHistories = $personLLVTransferHistories;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayOfPersonLLVTransferHistory
+     */
+    public function getPersonLLVTransferHistories()
+    {
+        return $this->PersonLLVTransferHistories;
+    }
+
+    /**
+     * @param  ArrayOfLessonGroup[optional] $personLLVCurrentLessonGroups
+     * @return PersonSettings
+     */
+    public function setPersonLLVCurrentLessonGroups(ArrayOfLessonGroup $personLLVCurrentLessonGroups = null)
+    {
+        $this->PersonLLVCurrentLessonGroups = $personLLVCurrentLessonGroups;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayOfLessonGroup
+     */
+    public function getPersonLLVCurrentLessonGroups()
+    {
+        return $this->PersonLLVCurrentLessonGroups;
+    }
+
+    /**
+     * @param  PersonChildCareInfo[optional] $personChildCareInfo
+     * @return PersonSettings
+     */
+    public function setPersonChildCareInfo(PersonChildCareInfo $personChildCareInfo = null)
+    {
+        $this->PersonChildCareInfo = $personChildCareInfo;
+
+        return $this;
+    }
+
+    /**
+     * @return PersonChildCareInfo
+     */
+    public function getPersonChildCareInfo()
+    {
+        return $this->PersonChildCareInfo;
     }
 }

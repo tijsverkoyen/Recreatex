@@ -14,17 +14,12 @@ class ActivityIncludes extends ComplexTypeAbstract
     /**
      * @var boolean
      */
-    protected $DayParts;
-
-    /**
-     * @var boolean
-     */
-    protected $Image;
-
-    /**
-     * @var boolean
-     */
     protected $ImageUrl;
+
+    /**
+     * @var boolean
+     */
+    protected $DayParts;
 
     /**
      * @var boolean
@@ -34,53 +29,10 @@ class ActivityIncludes extends ComplexTypeAbstract
     /**
      * @var boolean
      */
-    protected $Price;
+    protected $Image;
 
     /**
-     * @var boolean
-     */
-    protected $Type;
-
-    /**
-     * @param  boolean[optional] $dayParts
-     * @return ActivityIncludes
-     */
-    public function setDayParts($dayParts)
-    {
-        $this->DayParts = $dayParts;
-
-        return $this;
-    }
-
-    /**
-     * @return boolean
-     */
-    public function getDayParts()
-    {
-        return $this->DayParts;
-    }
-
-    /**
-     * @param  boolean[optional] $image
-     * @return ActivityIncludes
-     */
-    public function setImage($image)
-    {
-        $this->Image = $image;
-
-        return $this;
-    }
-
-    /**
-     * @return boolean
-     */
-    public function getImage()
-    {
-        return $this->Image;
-    }
-
-    /**
-     * @param  boolean[optional] $imageUrl
+     * @param  boolean          $imageUrl
      * @return ActivityIncludes
      */
     public function setImageUrl($imageUrl)
@@ -99,7 +51,26 @@ class ActivityIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean[optional] $options
+     * @param  boolean          $dayParts
+     * @return ActivityIncludes
+     */
+    public function setDayParts($dayParts)
+    {
+        $this->DayParts = $dayParts;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getDayParts()
+    {
+        return $this->DayParts;
+    }
+
+    /**
+     * @param  boolean          $options
      * @return ActivityIncludes
      */
     public function setOptions($options)
@@ -118,12 +89,12 @@ class ActivityIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean[optional] $price
+     * @param  boolean          $image
      * @return ActivityIncludes
      */
-    public function setPrice($price)
+    public function setImage($image)
     {
-        $this->Price = $price;
+        $this->Image = $image;
 
         return $this;
     }
@@ -131,27 +102,8 @@ class ActivityIncludes extends ComplexTypeAbstract
     /**
      * @return boolean
      */
-    public function getPrice()
+    public function getImage()
     {
-        return $this->Price;
-    }
-
-    /**
-     * @param  boolean[optional] $type
-     * @return ActivityIncludes
-     */
-    public function setType($type)
-    {
-        $this->Type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return boolean
-     */
-    public function getType()
-    {
-        return $this->Type;
+        return $this->Image;
     }
 }

@@ -79,6 +79,11 @@ class CultureReservation extends ComplexTypeAbstract
     protected $SalesLineId;
 
     /**
+     * @var ArrayOfCultureReservationSite
+     */
+    protected $ReservationSites;
+
+    /**
      * @param  SimpleType\Guid[optional] $id
      * @return CultureReservation
      */
@@ -323,5 +328,24 @@ class CultureReservation extends ComplexTypeAbstract
     public function getSalesLineId()
     {
         return $this->SalesLineId;
+    }
+
+    /**
+     * @param  ArrayOfCultureReservationSite[optional] $reservationSites
+     * @return CultureReservation
+     */
+    public function setReservationSites(ArrayOfCultureReservationSite $reservationSites = null)
+    {
+        $this->ReservationSites = $reservationSites;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayOfCultureReservationSite
+     */
+    public function getReservationSites()
+    {
+        return $this->ReservationSites;
     }
 }

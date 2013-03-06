@@ -64,6 +64,21 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     protected $ArticleCategoryId;
 
     /**
+     * @var ArrayOfguid $ArticleCategoryIds
+     */
+    protected $ArticleCategoryIds;
+
+    /**
+     * @var float $MinPrice
+     */
+    protected $MinPrice;
+
+    /**
+     * @var float $MaxPrice
+     */
+    protected $MaxPrice;
+
+    /**
      * @param  SimpleType\Guid[optional] $articleGroupId
      * @return ArticleSearchCriteria
      */
@@ -251,5 +266,62 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     public function getArticleCategoryId()
     {
         return $this->ArticleCategoryId;
+    }
+
+    /**
+     * @param  ArrayOfguid[optional] $articleCategoryIds
+     * @return ArticleSearchCriteria
+     */
+    public function setArticleCategoryIds(ArrayOfguid $articleCategoryIds = null)
+    {
+        $this->ArticleCategoryIds = $articleCategoryIds;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayOfGuid
+     */
+    public function getArticleCategoryIds()
+    {
+        return $this->ArticleCategoryIds;
+    }
+
+    /**
+     * @param  float[optional]       $minPrice
+     * @return ArticleSearchCriteria
+     */
+    public function setMinPrice($minPrice)
+    {
+        $this->MinPrice = $minPrice;
+
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getMinPrice()
+    {
+        return $this->MinPrice;
+    }
+
+    /**
+     * @param  float[optional]       $maxPrice
+     * @return ArticleSearchCriteria
+     */
+    public function setMaxPrice($maxPrice)
+    {
+        $this->MaxPrice = $maxPrice;
+
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getMaxPrice()
+    {
+        return $this->MaxPrice;
     }
 }

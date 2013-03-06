@@ -77,6 +77,16 @@ class ArticleIncludes extends ComplexTypeAbstract
     protected $ArticleCategories;
 
     /**
+     * @var boolean
+     */
+    protected $ChipKnipArticles;
+
+    /**
+     * @var boolean
+     */
+    protected $ETicketArticles;
+
+    /**
      * @param  boolean[optional] $freeArticles
      * @return ArticleIncludes
      */
@@ -321,5 +331,43 @@ class ArticleIncludes extends ComplexTypeAbstract
     public function getArticleCategories()
     {
         return $this->ArticleCategories;
+    }
+
+    /**
+     * @param  boolean[optional] $chipKnipArticles
+     * @return ArticleIncludes
+     */
+    public function setChipKnipArticles($chipKnipArticles)
+    {
+        $this->ChipKnipArticles = $chipKnipArticles;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getChipKnipArticles()
+    {
+        return $this->ChipKnipArticles;
+    }
+
+    /**
+     * @param  boolean[optional] $eTicketArticles
+     * @return ArticleIncludes
+     */
+    public function setETicketArticles($eTicketArticles)
+    {
+        $this->ETicketArticles = $eTicketArticles;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getETicketArticles()
+    {
+        return $this->ETicketArticles;
     }
 }

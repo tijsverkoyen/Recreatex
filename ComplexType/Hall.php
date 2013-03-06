@@ -49,6 +49,11 @@ class Hall extends ComplexTypeAbstract
     protected $Rows;
 
     /**
+     * @var ArrayOfCultureSite
+     */
+    protected $CultureSites;
+
+    /**
      * @param  Address[optional] $address
      * @return Hall
      */
@@ -179,5 +184,24 @@ class Hall extends ComplexTypeAbstract
     public function getRows()
     {
         return $this->Rows;
+    }
+
+    /**
+     * @param  ArrayOfCultureSite[optional] $cultureSites
+     * @return Hall
+     */
+    public function setCultureSites(ArrayOfCultureSite $cultureSites = null)
+    {
+        $this->CultureSites = $cultureSites;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayOfCultureSite
+     */
+    public function getCultureSites()
+    {
+        return $this->CultureSites;
     }
 }

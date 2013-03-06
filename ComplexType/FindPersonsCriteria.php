@@ -59,6 +59,31 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     protected $UserName;
 
     /**
+     * @var SimpleType\Guid
+     */
+    protected $LessonGroupId;
+
+    /**
+     * @var boolean
+     */
+    protected $IncludeImage;
+
+    /**
+     * @var string
+     */
+    protected $Name;
+
+    /**
+     * @var string
+     */
+    protected $FirstName;
+
+    /**
+     * @var string
+     */
+    protected $ExternalMasterID;
+
+    /**
      * @param  SimpleType\Guid[optional] $activationId
      * @return FindPersonsCriteria
      */
@@ -227,5 +252,100 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     public function getUserName()
     {
         return $this->UserName;
+    }
+
+    /**
+     * @param  SimpleType\Guid[optional] $lessonGroupId
+     * @return FindPersonsCriteria
+     */
+    public function setLessonGroupId(SimpleType\Guid $lessonGroupId = null)
+    {
+        $this->LessonGroupId = $lessonGroupId;
+
+        return $this;
+    }
+
+    /**
+     * @return SimpleType\Guid
+     */
+    public function getLessonGroupId()
+    {
+        return $this->LessonGroupId;
+    }
+
+    /**
+     * @param  boolean             $includeImage
+     * @return FindPersonsCriteria
+     */
+    public function setIncludeImage($includeImage)
+    {
+        $this->IncludeImage = $includeImage;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getIncludeImage()
+    {
+        return $this->IncludeImage;
+    }
+
+    /**
+     * @param  string[optional]    $name
+     * @return FindPersonsCriteria
+     */
+    public function setName($name)
+    {
+        $this->Name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->Name;
+    }
+
+    /**
+     * @param  string              $firstName
+     * @return FindPersonsCriteria
+     */
+    public function setFirstName($firstName)
+    {
+        $this->FirstName = $firstName;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFirstName()
+    {
+        return $this->FirstName;
+    }
+
+    /**
+     * @param  string[optional]    $externalMasterID
+     * @return FindPersonsCriteria
+     */
+    public function setExternalMasterID($externalMasterID)
+    {
+        $this->ExternalMasterID = $externalMasterID;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getExternalMasterID()
+    {
+        return $this->ExternalMasterID;
     }
 }

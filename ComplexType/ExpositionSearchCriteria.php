@@ -67,6 +67,31 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     protected $TranslationRequired;
 
     /**
+     * @var SimpleTypeGuid
+     */
+    protected $LocationAddressId;
+
+    /**
+     * @var ArrayOfGuid
+     */
+    protected $AudienceIds;
+
+    /**
+     * @var ArrayOfGuid
+     */
+    protected $SubCategoryIds;
+
+    /**
+     * @var ArrayOfGuid
+     */
+    protected $ExpositionTypeIds;
+
+    /**
+     * @var boolean
+     */
+    protected $ExcludeDonation;
+
+    /**
      * @param  SimpleType\Guid[optional] $audienceId
      * @return ExpositionSearchCriteria
      */
@@ -235,5 +260,100 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     public function getTranslationRequired()
     {
         return $this->TranslationRequired;
+    }
+
+    /**
+     * @param  SimpleType\Guid[optional] $locationAddressId
+     * @return ExpositionSearchCriteria
+     */
+    public function setLocationAddressId(SimpleType\Guid $locationAddressId = null)
+    {
+        $this->LocationAddressId = $locationAddressId;
+
+        return $this;
+    }
+
+    /**
+     * @return SimpleType\Guid
+     */
+    public function getLocationAddressId()
+    {
+        return $this->LocationAddressId;
+    }
+
+    /**
+     * @param  ArrayOfguid[optional]    $audienceIds
+     * @return ExpositionSearchCriteria
+     */
+    public function setAudienceIds(ArrayOfguid $audienceIds = null)
+    {
+        $this->AudienceIds = $audienceIds;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayOfGuid
+     */
+    public function getAudienceIds()
+    {
+        return $this->AudienceIds;
+    }
+
+    /**
+     * @param  ArrayOfGuid              $subCategoryIds
+     * @return ExpositionSearchCriteria
+     */
+    public function setSubCategoryIds(ArrayOfguid $subCategoryIds = null)
+    {
+        $this->SubCategoryIds = $subCategoryIds;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayOfguid
+     */
+    public function getSubCategoryIds()
+    {
+        return $this->SubCategoryIds;
+    }
+
+    /**
+     * @param  ArrayOfGuid[optional]    $expositionTypeIds
+     * @return ExpositionSearchCriteria
+     */
+    public function setExpositionTypeIds(ArrayOfguid $expositionTypeIds = null)
+    {
+        $this->ExpositionTypeIds = $expositionTypeIds;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayOfGuid
+     */
+    public function getExpositionTypeIds()
+    {
+        return $this->ExpositionTypeIds;
+    }
+
+    /**
+     * @param  boolean[optional]        $excludeDonation
+     * @return ExpositionSearchCriteria
+     */
+    public function setExcludeDonation($excludeDonation)
+    {
+        $this->ExcludeDonation = $excludeDonation;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getExcludeDonation()
+    {
+        return $this->ExcludeDonation;
     }
 }

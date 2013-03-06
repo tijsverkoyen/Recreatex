@@ -54,6 +54,16 @@ class CultureEventSearchCriteria extends ComplexTypeAbstract
     protected $CultureEventCategoryId;
 
     /**
+     * @var ArrayOfGuid
+     */
+    protected $CultureActivityIdList;
+
+    /**
+     * @var ArrayOfGuid
+     */
+    protected $CultureEventCategoryIdList;
+
+    /**
      * @param  SimpleType\Guid[optional]  $cultureActivityId
      * @return CultureEventSearchCriteria
      */
@@ -203,5 +213,43 @@ class CultureEventSearchCriteria extends ComplexTypeAbstract
     public function getCultureEventCategoryId()
     {
         return $this->CultureEventCategoryId;
+    }
+
+    /**
+     * @param  ArrayOfGuid[optional]      $cultureActivityIdList
+     * @return CultureEventSearchCriteria
+     */
+    public function setCultureActivityIdList(ArrayOfGuid $cultureActivityIdList = null)
+    {
+        $this->CultureActivityIdList = $cultureActivityIdList;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayOfGuid
+     */
+    public function getCultureActivityIdList()
+    {
+        return $this->CultureActivityIdList;
+    }
+
+    /**
+     * @param  ArrayOfGuid[optional]      $cultureEventCategoryIdList
+     * @return CultureEventSearchCriteria
+     */
+    public function setCultureEventCategoryIdList(ArrayOfGuid $cultureEventCategoryIdList = null)
+    {
+        $this->CultureEventCategoryIdList = $cultureEventCategoryIdList;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayOfGuid
+     */
+    public function getCultureEventCategoryIdList()
+    {
+        return $this->CultureEventCategoryIdList;
     }
 }

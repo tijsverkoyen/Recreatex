@@ -29,6 +29,11 @@ class SeatRange extends ComplexTypeAbstract
     protected $Name;
 
     /**
+     * @var Color
+     */
+    protected $Color;
+
+    /**
      * @param  string[optional] $code
      * @return SeatRange
      */
@@ -83,5 +88,24 @@ class SeatRange extends ComplexTypeAbstract
     public function getName()
     {
         return $this->Name;
+    }
+
+    /**
+     * @param  Color[optional] $color
+     * @return SeatRange
+     */
+    public function setColor(Color $color = null)
+    {
+        $this->Color = $color;
+
+        return $this;
+    }
+
+    /**
+     * @return Color
+     */
+    public function getColor()
+    {
+        return $this->Color;
     }
 }
