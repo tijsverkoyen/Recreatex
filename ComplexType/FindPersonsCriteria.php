@@ -14,55 +14,136 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     const CLASS_NAME = 'FindPersonsCriteria';
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $ActivationId
      */
     protected $ActivationId;
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $Email
      */
     protected $Email;
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $Id
      */
     protected $Id;
 
     /**
-     * @var PersonIncludes
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var PersonIncludes|null $Includes
      */
     protected $Includes;
 
     /**
-     * @var boolean
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $IsBlocked
      */
     protected $IsBlocked;
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $NationalNumber
      */
     protected $NationalNumber;
 
     /**
-     * @var PagingCriteria
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var PagingCriteria|null $Paging
      */
     protected $Paging;
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $ResetPasswordId
      */
     protected $ResetPasswordId;
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $UserName
      */
     protected $UserName;
 
     /**
-     * @param  SimpleType\Guid[optional] $activationId
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $LessonGroupId
+     */
+    protected $LessonGroupId;
+
+    /**
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $IncludeImage
+     */
+    protected $IncludeImage;
+
+    /**
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $Name
+     */
+    protected $Name;
+
+    /**
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $FirstName
+     */
+    protected $FirstName;
+
+    /**
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $ExternalMasterID
+     */
+    protected $ExternalMasterID;
+
+    /**
+     * @param  SimpleType\guid|null $activationId
      * @return FindPersonsCriteria
      */
-    public function setActivationId(SimpleType\Guid $activationId = null)
+    public function setActivationId(SimpleType\guid $activationId = null)
     {
         $this->ActivationId = $activationId;
 
@@ -70,7 +151,7 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getActivationId()
     {
@@ -78,7 +159,7 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional]    $email
+     * @param  string|null         $email
      * @return FindPersonsCriteria
      */
     public function setEmail($email)
@@ -89,7 +170,7 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getEmail()
     {
@@ -97,10 +178,10 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional] $id
+     * @param  SimpleType\guid|null $id
      * @return FindPersonsCriteria
      */
-    public function setId(SimpleType\Guid $id = null)
+    public function setId(SimpleType\guid $id = null)
     {
         $this->Id = $id;
 
@@ -108,7 +189,7 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getId()
     {
@@ -116,7 +197,7 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  PersonIncludes[optional] $includes
+     * @param  PersonIncludes|null $includes
      * @return FindPersonsCriteria
      */
     public function setIncludes(PersonIncludes $includes = null)
@@ -127,7 +208,7 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return PersonIncludes
+     * @return PersonIncludes|null
      */
     public function getIncludes()
     {
@@ -135,7 +216,7 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean[optional]   $isBlocked
+     * @param  boolean|null        $isBlocked
      * @return FindPersonsCriteria
      */
     public function setIsBlocked($isBlocked)
@@ -146,7 +227,7 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean
+     * @return boolean|null
      */
     public function getIsBlocked()
     {
@@ -154,7 +235,7 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional]    $nationalNumber
+     * @param  string|null         $nationalNumber
      * @return FindPersonsCriteria
      */
     public function setNationalNumber($nationalNumber)
@@ -165,7 +246,7 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getNationalNumber()
     {
@@ -173,7 +254,7 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  PagingCriteria[optional] $paging
+     * @param  PagingCriteria|null $paging
      * @return FindPersonsCriteria
      */
     public function setPaging(PagingCriteria $paging = null)
@@ -184,7 +265,7 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return PagingCriteria
+     * @return PagingCriteria|null
      */
     public function getPaging()
     {
@@ -192,10 +273,10 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional] $resetPasswordId
+     * @param  SimpleType\guid|null $resetPasswordId
      * @return FindPersonsCriteria
      */
-    public function setResetPasswordId(SimpleType\Guid $resetPasswordId = null)
+    public function setResetPasswordId(SimpleType\guid $resetPasswordId = null)
     {
         $this->ResetPasswordId = $resetPasswordId;
 
@@ -203,7 +284,7 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getResetPasswordId()
     {
@@ -211,7 +292,7 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional]    $userName
+     * @param  string|null         $userName
      * @return FindPersonsCriteria
      */
     public function setUserName($userName)
@@ -222,10 +303,106 @@ class FindPersonsCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getUserName()
     {
         return $this->UserName;
     }
+
+    /**
+     * @param  SimpleType\guid|null $lessonGroupId
+     * @return FindPersonsCriteria
+     */
+    public function setLessonGroupId(SimpleType\guid $lessonGroupId = null)
+    {
+        $this->LessonGroupId = $lessonGroupId;
+
+        return $this;
+    }
+
+    /**
+     * @return SimpleType\guid|null
+     */
+    public function getLessonGroupId()
+    {
+        return $this->LessonGroupId;
+    }
+
+    /**
+     * @param  boolean|null        $includeImage
+     * @return FindPersonsCriteria
+     */
+    public function setIncludeImage($includeImage)
+    {
+        $this->IncludeImage = $includeImage;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean|null
+     */
+    public function getIncludeImage()
+    {
+        return $this->IncludeImage;
+    }
+
+    /**
+     * @param  string|null         $name
+     * @return FindPersonsCriteria
+     */
+    public function setName($name)
+    {
+        $this->Name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->Name;
+    }
+
+    /**
+     * @param  string|null         $firstName
+     * @return FindPersonsCriteria
+     */
+    public function setFirstName($firstName)
+    {
+        $this->FirstName = $firstName;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getFirstName()
+    {
+        return $this->FirstName;
+    }
+
+    /**
+     * @param  string|null         $externalMasterID
+     * @return FindPersonsCriteria
+     */
+    public function setExternalMasterID($externalMasterID)
+    {
+        $this->ExternalMasterID = $externalMasterID;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getExternalMasterID()
+    {
+        return $this->ExternalMasterID;
+    }
+
 }

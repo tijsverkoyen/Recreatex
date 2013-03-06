@@ -12,17 +12,25 @@ class SavePersonResult extends ComplexTypeAbstract
     const CLASS_NAME = 'SavePersonResult';
 
     /**
-     * @var Person
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var Person|null $Person
      */
     protected $Person;
 
     /**
-     * @var ArrayOfValidationResult
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var ArrayOfValidationResult|null $ValidationResults
      */
     protected $ValidationResults;
 
     /**
-     * @param  Person[optional] $person
+     * @param  Person|null      $person
      * @return SavePersonResult
      */
     public function setPerson(Person $person = null)
@@ -33,7 +41,7 @@ class SavePersonResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return Person
+     * @return Person|null
      */
     public function getPerson()
     {
@@ -41,7 +49,7 @@ class SavePersonResult extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfValidationResult[optional] $validationResults
+     * @param  ArrayOfValidationResult|null $validationResults
      * @return SavePersonResult
      */
     public function setValidationResults(ArrayOfValidationResult $validationResults = null)
@@ -52,10 +60,11 @@ class SavePersonResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfValidationResult
+     * @return ArrayOfValidationResult|null
      */
     public function getValidationResults()
     {
         return $this->ValidationResults;
     }
+
 }

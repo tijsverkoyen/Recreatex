@@ -14,22 +14,79 @@ class ExpositionPeriodReservation extends ComplexTypeAbstract
     const CLASS_NAME = 'ExpositionPeriodReservation';
 
     /**
-     * @var ArrayOfExpositionPeriodReservationEntry
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var ArrayOfExpositionPeriodReservationEntry|null $Entries
      */
     protected $Entries;
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $ExpositionPeriodId
      */
     protected $ExpositionPeriodId;
 
     /**
-     * @var LockTicket
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var LockTicket|null $LockTicket
      */
     protected $LockTicket;
 
     /**
-     * @param  ArrayOfExpositionPeriodReservationEntry[optional] $entries
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $Comments
+     */
+    protected $Comments;
+
+    /**
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var ArrayOfArticleSale|null $ArticleSales
+     */
+    protected $ArticleSales;
+
+    /**
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $Donation
+     */
+    protected $Donation;
+
+    /**
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $OrderWithoutPayment
+     */
+    protected $OrderWithoutPayment;
+
+    /**
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $GiftAid
+     */
+    protected $GiftAid;
+
+    /**
+     * @param  ArrayOfExpositionPeriodReservationEntry|null $entries
      * @return ExpositionPeriodReservation
      */
     public function setEntries(ArrayOfExpositionPeriodReservationEntry $entries = null)
@@ -40,7 +97,7 @@ class ExpositionPeriodReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfExpositionPeriodReservationEntry
+     * @return ArrayOfExpositionPeriodReservationEntry|null
      */
     public function getEntries()
     {
@@ -48,10 +105,10 @@ class ExpositionPeriodReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional]   $expositionPeriodId
+     * @param  SimpleType\guid|null        $expositionPeriodId
      * @return ExpositionPeriodReservation
      */
-    public function setExpositionPeriodId(SimpleType\Guid $expositionPeriodId = null)
+    public function setExpositionPeriodId(SimpleType\guid $expositionPeriodId = null)
     {
         $this->ExpositionPeriodId = $expositionPeriodId;
 
@@ -59,7 +116,7 @@ class ExpositionPeriodReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getExpositionPeriodId()
     {
@@ -67,7 +124,7 @@ class ExpositionPeriodReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  LockTicket[optional]        $lockTicket
+     * @param  LockTicket|null             $lockTicket
      * @return ExpositionPeriodReservation
      */
     public function setLockTicket(LockTicket $lockTicket = null)
@@ -78,10 +135,106 @@ class ExpositionPeriodReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return LockTicket
+     * @return LockTicket|null
      */
     public function getLockTicket()
     {
         return $this->LockTicket;
     }
+
+    /**
+     * @param  string|null                 $comments
+     * @return ExpositionPeriodReservation
+     */
+    public function setComments($comments)
+    {
+        $this->Comments = $comments;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getComments()
+    {
+        return $this->Comments;
+    }
+
+    /**
+     * @param  ArrayOfArticleSale|null     $articleSales
+     * @return ExpositionPeriodReservation
+     */
+    public function setArticleSales(ArrayOfArticleSale $articleSales = null)
+    {
+        $this->ArticleSales = $articleSales;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayOfArticleSale|null
+     */
+    public function getArticleSales()
+    {
+        return $this->ArticleSales;
+    }
+
+    /**
+     * @param  boolean|null                $donation
+     * @return ExpositionPeriodReservation
+     */
+    public function setDonation($donation)
+    {
+        $this->Donation = $donation;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean|null
+     */
+    public function getDonation()
+    {
+        return $this->Donation;
+    }
+
+    /**
+     * @param  boolean|null                $orderWithoutPayment
+     * @return ExpositionPeriodReservation
+     */
+    public function setOrderWithoutPayment($orderWithoutPayment)
+    {
+        $this->OrderWithoutPayment = $orderWithoutPayment;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean|null
+     */
+    public function getOrderWithoutPayment()
+    {
+        return $this->OrderWithoutPayment;
+    }
+
+    /**
+     * @param  boolean|null                $giftAid
+     * @return ExpositionPeriodReservation
+     */
+    public function setGiftAid($giftAid)
+    {
+        $this->GiftAid = $giftAid;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean|null
+     */
+    public function getGiftAid()
+    {
+        return $this->GiftAid;
+    }
+
 }

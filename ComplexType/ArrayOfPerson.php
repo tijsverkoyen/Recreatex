@@ -12,12 +12,16 @@ class ArrayOfPerson extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfPerson';
 
     /**
-     * @var array
+
+     * minOccurs = 0
+     * maxOccurs = unbounded
+     *
+     * @var Person[] $Person
      */
     protected $Person = array();
 
     /**
-     * @param  array         $person
+     * @param  Person[]      $person
      * @return ArrayOfPerson
      */
     public function setPerson(array $person = array())
@@ -28,13 +32,11 @@ class ArrayOfPerson extends ComplexTypeAbstract
     }
 
     /**
-     * @return array
+     * @return Person[]
      */
     public function getPerson()
     {
-	    if(!is_array($this->Person)) {
-		    return array($this->Person);
-	    }
         return $this->Person;
     }
+
 }

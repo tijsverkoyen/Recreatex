@@ -14,22 +14,61 @@ class BasketPayment extends ComplexTypeAbstract
     const CLASS_NAME = 'BasketPayment';
 
     /**
-     * @var float
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var float|null $Amount
      */
     protected $Amount;
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $Currency
      */
     protected $Currency;
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $PaymentMethodId
      */
     protected $PaymentMethodId;
 
     /**
-     * @param  float[optional] $amount
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $ExtraInfo1
+     */
+    protected $ExtraInfo1;
+
+    /**
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $ExtraInfo2
+     */
+    protected $ExtraInfo2;
+
+    /**
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $ExtraInfo3
+     */
+    protected $ExtraInfo3;
+
+    /**
+     * @param  float|null    $amount
      * @return BasketPayment
      */
     public function setAmount($amount)
@@ -40,7 +79,7 @@ class BasketPayment extends ComplexTypeAbstract
     }
 
     /**
-     * @return float
+     * @return float|null
      */
     public function getAmount()
     {
@@ -48,7 +87,7 @@ class BasketPayment extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional] $currency
+     * @param  string|null   $currency
      * @return BasketPayment
      */
     public function setCurrency($currency)
@@ -59,7 +98,7 @@ class BasketPayment extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getCurrency()
     {
@@ -67,10 +106,10 @@ class BasketPayment extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional] $paymentMethodId
+     * @param  SimpleType\guid|null $paymentMethodId
      * @return BasketPayment
      */
-    public function setPaymentMethodId(SimpleType\Guid $paymentMethodId = null)
+    public function setPaymentMethodId(SimpleType\guid $paymentMethodId = null)
     {
         $this->PaymentMethodId = $paymentMethodId;
 
@@ -78,10 +117,68 @@ class BasketPayment extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getPaymentMethodId()
     {
         return $this->PaymentMethodId;
     }
+
+    /**
+     * @param  string|null   $extraInfo1
+     * @return BasketPayment
+     */
+    public function setExtraInfo1($extraInfo1)
+    {
+        $this->ExtraInfo1 = $extraInfo1;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getExtraInfo1()
+    {
+        return $this->ExtraInfo1;
+    }
+
+    /**
+     * @param  string|null   $extraInfo2
+     * @return BasketPayment
+     */
+    public function setExtraInfo2($extraInfo2)
+    {
+        $this->ExtraInfo2 = $extraInfo2;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getExtraInfo2()
+    {
+        return $this->ExtraInfo2;
+    }
+
+    /**
+     * @param  string|null   $extraInfo3
+     * @return BasketPayment
+     */
+    public function setExtraInfo3($extraInfo3)
+    {
+        $this->ExtraInfo3 = $extraInfo3;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getExtraInfo3()
+    {
+        return $this->ExtraInfo3;
+    }
+
 }

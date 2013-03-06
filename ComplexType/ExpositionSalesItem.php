@@ -14,20 +14,37 @@ class ExpositionSalesItem extends ComplexTypeAbstract
     const CLASS_NAME = 'ExpositionSalesItem';
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $ExpositionId
      */
     protected $ExpositionId;
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $ExpositionPeriodId
      */
     protected $ExpositionPeriodId;
 
     /**
-     * @param  SimpleType\Guid[optional] $expositionId
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $OrganisedVisitId
+     */
+    protected $OrganisedVisitId;
+
+    /**
+     * @param  SimpleType\guid|null $expositionId
      * @return ExpositionSalesItem
      */
-    public function setExpositionId(SimpleType\Guid $expositionId = null)
+    public function setExpositionId(SimpleType\guid $expositionId = null)
     {
         $this->ExpositionId = $expositionId;
 
@@ -35,7 +52,7 @@ class ExpositionSalesItem extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getExpositionId()
     {
@@ -43,10 +60,10 @@ class ExpositionSalesItem extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional] $expositionPeriodId
+     * @param  SimpleType\guid|null $expositionPeriodId
      * @return ExpositionSalesItem
      */
-    public function setExpositionPeriodId(SimpleType\Guid $expositionPeriodId = null)
+    public function setExpositionPeriodId(SimpleType\guid $expositionPeriodId = null)
     {
         $this->ExpositionPeriodId = $expositionPeriodId;
 
@@ -54,10 +71,30 @@ class ExpositionSalesItem extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getExpositionPeriodId()
     {
         return $this->ExpositionPeriodId;
     }
+
+    /**
+     * @param  SimpleType\guid|null $organisedVisitId
+     * @return ExpositionSalesItem
+     */
+    public function setOrganisedVisitId(SimpleType\guid $organisedVisitId = null)
+    {
+        $this->OrganisedVisitId = $organisedVisitId;
+
+        return $this;
+    }
+
+    /**
+     * @return SimpleType\guid|null
+     */
+    public function getOrganisedVisitId()
+    {
+        return $this->OrganisedVisitId;
+    }
+
 }

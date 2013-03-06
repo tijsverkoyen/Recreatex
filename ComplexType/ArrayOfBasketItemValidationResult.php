@@ -12,12 +12,16 @@ class ArrayOfBasketItemValidationResult extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfBasketItemValidationResult';
 
     /**
-     * @var array
+
+     * minOccurs = 0
+     * maxOccurs = unbounded
+     *
+     * @var BasketItemValidationResult[] $BasketItemValidationResult
      */
     protected $BasketItemValidationResult = array();
 
     /**
-     * @param  array                             $basketItemValidationResult
+     * @param  BasketItemValidationResult[]      $basketItemValidationResult
      * @return ArrayOfBasketItemValidationResult
      */
     public function setBasketItemValidationResult(array $basketItemValidationResult = array())
@@ -28,13 +32,11 @@ class ArrayOfBasketItemValidationResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return array
+     * @return BasketItemValidationResult[]
      */
     public function getBasketItemValidationResult()
     {
-	    if(!is_array($this->BasketItemValidationResult)) {
-		    return array($this->BasketItemValidationResult);
-	    }
-	    return $this->BasketItemValidationResult;
+        return $this->BasketItemValidationResult;
     }
+
 }

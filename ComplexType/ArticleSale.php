@@ -12,12 +12,16 @@ class ArticleSale extends ComplexTypeAbstract
     const CLASS_NAME = 'ArticleSale';
 
     /**
-     * @var Article
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var Article|null $Article
      */
     protected $Article;
 
     /**
-     * @param  Article[optional] $article
+     * @param  Article|null $article
      * @return ArticleSale
      */
     public function setArticle(Article $article = null)
@@ -28,10 +32,11 @@ class ArticleSale extends ComplexTypeAbstract
     }
 
     /**
-     * @return Article
+     * @return Article|null
      */
     public function getArticle()
     {
         return $this->Article;
     }
+
 }

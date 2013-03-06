@@ -3,58 +3,198 @@
 namespace TijsVerkoyen\Recreatex;
 
 use SoapClient as BaseSoapClient;
-use TijsVerkoyen\Recreatex\ComplexType\AuthenticationResult;
+use TijsVerkoyen\Recreatex\ComplexType\SavePurchaseLineResult;
 use TijsVerkoyen\Recreatex\ComplexType\ServiceContext;
+use TijsVerkoyen\Recreatex\ComplexType\PurchaseLineRequest;
+use TijsVerkoyen\Recreatex\ComplexType\DeletePurchaseLineResult;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfRentalArticle;
+use TijsVerkoyen\Recreatex\ComplexType\RentalArticleSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfRentalOrder;
+use TijsVerkoyen\Recreatex\ComplexType\RentalOrderSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\RentalOrder;
+use TijsVerkoyen\Recreatex\SimpleType\Guid;
+use TijsVerkoyen\Recreatex\ComplexType\RentalValidationResult;
+use TijsVerkoyen\Recreatex\ComplexType\AuthenticationResult;
 use TijsVerkoyen\Recreatex\ComplexType\Credential;
-use TijsVerkoyen\Recreatex\ComplexType\SavePersonResult;
-use TijsVerkoyen\Recreatex\ComplexType\Person;
-use TijsVerkoyen\Recreatex\ComplexType\ForgotPasswordResult;
-use TijsVerkoyen\Recreatex\ComplexType\ArrayOfPerson;
-use TijsVerkoyen\Recreatex\ComplexType\FindPersonsCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfChildCareCentre;
+use TijsVerkoyen\Recreatex\ComplexType\ChildCareCentreSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfChildCareCentrePeriod;
+use TijsVerkoyen\Recreatex\ComplexType\ChildCareCentrePeriodSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfChildCareCentreEntry;
+use TijsVerkoyen\Recreatex\ComplexType\ChildCareCentreEntrySearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfChildCareCentrePresence;
+use TijsVerkoyen\Recreatex\ComplexType\ChildCareCentrePresenceSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\SaveChildCareCentrePresenceResult;
+use TijsVerkoyen\Recreatex\ComplexType\ChildCareCentrePresence;
+use TijsVerkoyen\Recreatex\ComplexType\ValidationResult;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfChildCareCentrePresenceHeader;
+use TijsVerkoyen\Recreatex\ComplexType\ChildCareCentrePresenceHeaderSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\PersonChipKnip;
+use TijsVerkoyen\Recreatex\ComplexType\ChildCareChipKnipSearchCriteria;
 use TijsVerkoyen\Recreatex\ComplexType\ArrayOfActivityType;
-use TijsVerkoyen\Recreatex\ComplexType\ArrayOfActivity;
-use TijsVerkoyen\Recreatex\ComplexType\ActivitySearchCriteria;
 use TijsVerkoyen\Recreatex\ComplexType\ArrayOfArticleGroup;
 use TijsVerkoyen\Recreatex\ComplexType\ArticleGroupSearchCriteria;
 use TijsVerkoyen\Recreatex\ComplexType\ArrayOfArticleCategory;
 use TijsVerkoyen\Recreatex\ComplexType\ArticleCategorySearchCriteria;
-use TijsVerkoyen\Recreatex\ComplexType\ArrayOfArticle;
-use TijsVerkoyen\Recreatex\ComplexType\ArticleSearchCriteria;
 use TijsVerkoyen\Recreatex\ComplexType\ArrayOfExpositionType;
-use TijsVerkoyen\Recreatex\ComplexType\ExpositionTypeSearchCriteria;
-use TijsVerkoyen\Recreatex\ComplexType\ArrayOfExposition;
-use TijsVerkoyen\Recreatex\ComplexType\ExpositionSearchCriteria;
 use TijsVerkoyen\Recreatex\ComplexType\ArrayOfExpositionPeriod;
 use TijsVerkoyen\Recreatex\ComplexType\ExpositionPeriodSearchCriteria;
 use TijsVerkoyen\Recreatex\ComplexType\ArrayOfAudience;
-use TijsVerkoyen\Recreatex\ComplexType\BasketValidationResult;
-use TijsVerkoyen\Recreatex\ComplexType\Basket;
-use TijsVerkoyen\Recreatex\ComplexType\BasketItemValidationResult;
-use TijsVerkoyen\Recreatex\ComplexType\BasketItem;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfBasketPaymentMethod;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfHall;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfCategory;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfInfrastructure;
+use TijsVerkoyen\Recreatex\ComplexType\InfrastructureSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\InfrastructureOpenings;
+use TijsVerkoyen\Recreatex\ComplexType\InfrastructureOpeningsSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfPlace;
+use TijsVerkoyen\Recreatex\ComplexType\PlaceSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfReservationActivity;
+use TijsVerkoyen\Recreatex\ComplexType\ReservationActivitySearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfReservationView;
+use TijsVerkoyen\Recreatex\ComplexType\ReservationViewSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfCountry;
+use TijsVerkoyen\Recreatex\ComplexType\ListCountriesCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfCounty;
+use TijsVerkoyen\Recreatex\ComplexType\FindCountiesCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfLanguage;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfWaitingList;
+use TijsVerkoyen\Recreatex\ComplexType\WaitingListSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfLessonGroup;
+use TijsVerkoyen\Recreatex\ComplexType\LessonGroupSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfSwimmingLevel;
+use TijsVerkoyen\Recreatex\ComplexType\SwimmingLevelSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfStudentFollowScore;
+use TijsVerkoyen\Recreatex\ComplexType\StudentFollowScoreSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfStudentPresence;
+use TijsVerkoyen\Recreatex\ComplexType\StudentPresenceSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfNorm;
+use TijsVerkoyen\Recreatex\ComplexType\NormSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfSwimmingDiploma;
+use TijsVerkoyen\Recreatex\ComplexType\SwimmingDiplomaSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfAbsentReason;
+use TijsVerkoyen\Recreatex\ComplexType\AbsentReasonSearchCriteria;
+use TijsVerkoyen\Recreatex\SimpleType\StudentFollowTransferFeedback;
+use TijsVerkoyen\Recreatex\ComplexType\Person;
+use TijsVerkoyen\Recreatex\ComplexType\LessonGroup;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfPerson;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfLLVMessageTranslation;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfPersonLLVInfo;
+use TijsVerkoyen\Recreatex\ComplexType\PersonLLVInfoSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfWaitingListStudent;
+use TijsVerkoyen\Recreatex\ComplexType\WaitingListStudentSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfEmployee;
+use TijsVerkoyen\Recreatex\ComplexType\EmployeeSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfVendor;
+use TijsVerkoyen\Recreatex\ComplexType\VendorSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfVendorGroup;
+use TijsVerkoyen\Recreatex\ComplexType\VendorGroupSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfPurchaseArticle;
+use TijsVerkoyen\Recreatex\ComplexType\PurchaseArticleSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfStockLocation;
+use TijsVerkoyen\Recreatex\ComplexType\StockLocationSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfPurchaseOrder;
+use TijsVerkoyen\Recreatex\ComplexType\PurchaseOrderSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\PurchaseOrderRequest;
+use TijsVerkoyen\Recreatex\ComplexType\SavePurchaseOrderResult;
+use TijsVerkoyen\Recreatex\ComplexType\DeletePurchaseOrderResult;
 use TijsVerkoyen\Recreatex\ComplexType\CheckoutBasketResult;
+use TijsVerkoyen\Recreatex\ComplexType\Basket;
 use TijsVerkoyen\Recreatex\ComplexType\LockBasketResult;
 use TijsVerkoyen\Recreatex\ComplexType\ArrayOfBasketItem;
 use TijsVerkoyen\Recreatex\ComplexType\ArrayOfLockTicket;
 use TijsVerkoyen\Recreatex\ComplexType\ExtendedLocks;
-use TijsVerkoyen\Recreatex\ComplexType\ArrayOfBasketPaymentMethod;
 use TijsVerkoyen\Recreatex\ComplexType\ArrayOfCultureActivity;
 use TijsVerkoyen\Recreatex\ComplexType\ArrayOfCultureEvent;
 use TijsVerkoyen\Recreatex\ComplexType\CultureEventSearchCriteria;
-use TijsVerkoyen\Recreatex\ComplexType\ArrayOfHall;
 use TijsVerkoyen\Recreatex\ComplexType\Hall;
-use TijsVerkoyen\Recreatex\SimpleType\Guid;
 use TijsVerkoyen\Recreatex\ComplexType\SeatAllocationsOverview;
 use TijsVerkoyen\Recreatex\SimpleType\SeatAllocationIncludes;
+use TijsVerkoyen\Recreatex\ComplexType\SiteAllocationsOverview;
+use TijsVerkoyen\Recreatex\SimpleType\SiteAllocationIncludes;
 use TijsVerkoyen\Recreatex\ComplexType\ArrayOfCultureReservation;
 use TijsVerkoyen\Recreatex\ComplexType\CultureReservationSearchCriteria;
 use TijsVerkoyen\Recreatex\ComplexType\ArrayOfCultureEventCategory;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfCultureWaitingListReservation;
+use TijsVerkoyen\Recreatex\ComplexType\CultureWaitingListReservationSearchCriteria;
 use TijsVerkoyen\Recreatex\ComplexType\ArrayOfPriceGroup;
 use TijsVerkoyen\Recreatex\ComplexType\PriceGroupSearchCriteria;
-use TijsVerkoyen\Recreatex\ComplexType\ArrayOfCategory;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfReservation;
+use TijsVerkoyen\Recreatex\ComplexType\ReservationSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfBusTripRequest;
+use TijsVerkoyen\Recreatex\ComplexType\BusTripRequestSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\BusTripRequest;
+use TijsVerkoyen\Recreatex\ComplexType\BusTripSerieRequest;
+use TijsVerkoyen\Recreatex\ComplexType\BusTripCompositeValidationResult;
+use TijsVerkoyen\Recreatex\ComplexType\BusTripSerieCompositeValidationResult;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfAddressLocation;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfFitnessActivity;
+use TijsVerkoyen\Recreatex\ComplexType\FitnessActivitySearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\FitnessActivity;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfFitnessActivityReservation;
+use TijsVerkoyen\Recreatex\ComplexType\FitnessActivityReservationSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\FitnessActivityReservation;
+use TijsVerkoyen\Recreatex\ComplexType\FitnessActivityReservationValidationResult;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfSubscription;
+use TijsVerkoyen\Recreatex\ComplexType\SubscriptionSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfSubscriptionLog;
+use TijsVerkoyen\Recreatex\ComplexType\SubscriptionLogSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfSubscriptionArticle;
+use TijsVerkoyen\Recreatex\ComplexType\SubscriptionArticleSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfPersonTitle;
+use TijsVerkoyen\Recreatex\ComplexType\FindPersonTitlesCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfPersonCard;
+use TijsVerkoyen\Recreatex\ComplexType\FindPersonCardsCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfPersonFunction;
+use TijsVerkoyen\Recreatex\ComplexType\FindPersonFunctionsCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfRcxWsdlModules;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfReason;
+use TijsVerkoyen\Recreatex\ComplexType\ReasonSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfZipcode;
+use TijsVerkoyen\Recreatex\ComplexType\ZipcodesSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfZipcodeStreet;
+use TijsVerkoyen\Recreatex\ComplexType\ZipcodeStreetsSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfZipcodeCendrisStreet;
+use TijsVerkoyen\Recreatex\ComplexType\ZipcodeCendrisStreetsSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\RequestAuthenticationTokenResult;
+use TijsVerkoyen\Recreatex\ComplexType\SavePersonResult;
+use TijsVerkoyen\Recreatex\ComplexType\SavePersonOptions;
+use TijsVerkoyen\Recreatex\ComplexType\ForgotPasswordResult;
+use TijsVerkoyen\Recreatex\ComplexType\FindPersonsCriteria;
+use TijsVerkoyen\Recreatex\SimpleType\RelationType;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfDeliveryAddress;
+use TijsVerkoyen\Recreatex\ComplexType\DeliveryAddressSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\SavePersonDeliveryAddressResult;
+use TijsVerkoyen\Recreatex\ComplexType\DeliveryAddress;
+use TijsVerkoyen\Recreatex\ComplexType\PersonChipKnipSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\PersonCredits;
+use TijsVerkoyen\Recreatex\ComplexType\PersonCreditsSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\GuiConfigurationValidationResult;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfActivity;
+use TijsVerkoyen\Recreatex\ComplexType\ActivitySearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfPriceGroupActivity;
+use TijsVerkoyen\Recreatex\ComplexType\PriceGroupActivitySearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfEntry;
+use TijsVerkoyen\Recreatex\ComplexType\EntrySearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfArticle;
+use TijsVerkoyen\Recreatex\ComplexType\ArticleSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfArticleSalesOrder;
+use TijsVerkoyen\Recreatex\ComplexType\ArticleSalesOrderSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ExpositionTypeSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfExposition;
+use TijsVerkoyen\Recreatex\ComplexType\ExpositionSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfOrganisedVisit;
+use TijsVerkoyen\Recreatex\ComplexType\OrganisedVisitSearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfExpositionSubcategory;
+use TijsVerkoyen\Recreatex\ComplexType\ExpositionSubCategorySearchCriteria;
+use TijsVerkoyen\Recreatex\ComplexType\ArrayOfExpositionCategory;
+use TijsVerkoyen\Recreatex\ComplexType\BasketValidationResult;
+use TijsVerkoyen\Recreatex\ComplexType\BasketItemValidationResult;
+use TijsVerkoyen\Recreatex\ComplexType\BasketItem;
 
 class Recreatex extends BaseSoapClient
 {
-    const DEBUG = true;
+    const DEBUG = false;
     const VERSION = '2.0.0';
 
     /**
@@ -103,57 +243,86 @@ class Recreatex extends BaseSoapClient
      * @var array
      */
     private $classMaps = array(
-        'AuthenticationError' => 'TijsVerkoyen\Recreatex\SimpleType\AuthenticationError',
         'Gender' => 'TijsVerkoyen\Recreatex\SimpleType\Gender',
+        'SeatAllocationStatus' => 'TijsVerkoyen\Recreatex\SimpleType\SeatAllocationStatus',
+        'PurchaseArticleCalculationType' => 'TijsVerkoyen\Recreatex\SimpleType\PurchaseArticleCalculationType',
+        'WarrantyCalculationType' => 'TijsVerkoyen\Recreatex\SimpleType\WarrantyCalculationType',
+        'RentalPriceCalculationType' => 'TijsVerkoyen\Recreatex\SimpleType\RentalPriceCalculationType',
         'PersonPriceGroupType' => 'TijsVerkoyen\Recreatex\SimpleType\PersonPriceGroupType',
         'PriceGroupType' => 'TijsVerkoyen\Recreatex\SimpleType\PriceGroupType',
         'WeekDay' => 'TijsVerkoyen\Recreatex\SimpleType\WeekDay',
-        'SeatAllocationStatus' => 'TijsVerkoyen\Recreatex\SimpleType\SeatAllocationStatus',
+        'PersonType' => 'TijsVerkoyen\Recreatex\SimpleType\PersonType',
+        'RelationType' => 'TijsVerkoyen\Recreatex\SimpleType\RelationType',
+        'FrequencyTypes' => 'TijsVerkoyen\Recreatex\SimpleType\FrequencyTypes',
+        'WeekDays' => 'TijsVerkoyen\Recreatex\SimpleType\WeekDays',
+        'ResultState' => 'TijsVerkoyen\Recreatex\SimpleType\ResultState',
+        'RentalOrderStatus' => 'TijsVerkoyen\Recreatex\SimpleType\RentalOrderStatus',
+        'RentalAdministrativeStatus' => 'TijsVerkoyen\Recreatex\SimpleType\RentalAdministrativeStatus',
+        'RentalCalculationType' => 'TijsVerkoyen\Recreatex\SimpleType\RentalCalculationType',
+        'AuthenticationError' => 'TijsVerkoyen\Recreatex\SimpleType\AuthenticationError',
         'ArticleType' => 'TijsVerkoyen\Recreatex\SimpleType\ArticleType',
-        'CalculationType' => 'TijsVerkoyen\Recreatex\SimpleType\CalculationType',
+        'StudentFollowTransferFeedback' => 'TijsVerkoyen\Recreatex\SimpleType\StudentFollowTransferFeedback',
+        'PurchaseOrderState' => 'TijsVerkoyen\Recreatex\SimpleType\PurchaseOrderState',
         'CheckoutResultState' => 'TijsVerkoyen\Recreatex\SimpleType\CheckoutResultState',
         'CultureEventStatus' => 'TijsVerkoyen\Recreatex\SimpleType\CultureEventStatus',
         'SeatAllocationIncludes' => 'TijsVerkoyen\Recreatex\SimpleType\SeatAllocationIncludes',
-        'char' => 'TijsVerkoyen\Recreatex\SimpleType\Char',
-        'duration' => 'TijsVerkoyen\Recreatex\SimpleType\Duration',
-        'Guid' => 'TijsVerkoyen\Recreatex\SimpleType\Guid',
+        'SiteAllocationIncludes' => 'TijsVerkoyen\Recreatex\SimpleType\SiteAllocationIncludes',
+        'BustripStates' => 'TijsVerkoyen\Recreatex\SimpleType\BustripStates',
+        'FitnessActivityReservationStatus' => 'TijsVerkoyen\Recreatex\SimpleType\FitnessActivityReservationStatus',
+        'SubscriptionLogType' => 'TijsVerkoyen\Recreatex\SimpleType\SubscriptionLogType',
+        'SubscriptionLogSubType' => 'TijsVerkoyen\Recreatex\SimpleType\SubscriptionLogSubType',
+        'SubscriptionType' => 'TijsVerkoyen\Recreatex\SimpleType\SubscriptionType',
+        'RcxWsdlModules' => 'TijsVerkoyen\Recreatex\SimpleType\RcxWsdlModules',
+        'ReasonType' => 'TijsVerkoyen\Recreatex\SimpleType\ReasonType',
+        'ArticleSalesOrderType' => 'TijsVerkoyen\Recreatex\SimpleType\ArticleSalesOrderType',
+        'CalculationType' => 'TijsVerkoyen\Recreatex\SimpleType\CalculationType',
+        'char' => 'TijsVerkoyen\Recreatex\SimpleType\char',
+        'duration' => 'TijsVerkoyen\Recreatex\SimpleType\duration',
+        'guid' => 'TijsVerkoyen\Recreatex\SimpleType\Guid',
         'ServiceContext' => 'TijsVerkoyen\Recreatex\ComplexType\ServiceContext',
-        'Credential' => 'TijsVerkoyen\Recreatex\ComplexType\Credential',
-        'AuthenticationResult' => '\TijsVerkoyen\Recreatex\ComplexType\AuthenticationResult',
-        'Person' => 'TijsVerkoyen\Recreatex\ComplexType\Person',
-        'Address' => 'TijsVerkoyen\Recreatex\ComplexType\Address',
-        'PersonName' => 'TijsVerkoyen\Recreatex\ComplexType\PersonName',
-        'ArrayOfRelation' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfRelation',
-        'Relation' => 'TijsVerkoyen\Recreatex\ComplexType\Relation',
-        'FamilyRelation' => 'TijsVerkoyen\Recreatex\ComplexType\FamilyRelation',
-        'PersonSettings' => 'TijsVerkoyen\Recreatex\ComplexType\PersonSettings',
-        'ArrayOfSubcategory' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfSubcategory',
-        'Subcategory' => 'TijsVerkoyen\Recreatex\ComplexType\Subcategory',
-        'Category' => 'TijsVerkoyen\Recreatex\ComplexType\Category',
-        'ArrayOfPersonPriceGroup' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfPersonPriceGroup',
-        'PersonPriceGroup' => 'TijsVerkoyen\Recreatex\ComplexType\PersonPriceGroup',
-        'PriceGroup' => 'TijsVerkoyen\Recreatex\ComplexType\PriceGroup',
-        'SavePersonResult' => 'TijsVerkoyen\Recreatex\ComplexType\SavePersonResult',
-        'ArrayOfValidationResult' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfValidationResult',
+        'PurchaseLineRequest' => 'TijsVerkoyen\Recreatex\ComplexType\PurchaseLineRequest',
+        'SavePurchaseLineResult' => 'TijsVerkoyen\Recreatex\ComplexType\SavePurchaseLineResult',
         'ValidationResult' => 'TijsVerkoyen\Recreatex\ComplexType\ValidationResult',
+        'BusTripValidationResult' => 'TijsVerkoyen\Recreatex\ComplexType\BusTripValidationResult',
         'BasketItemValidationResult' => 'TijsVerkoyen\Recreatex\ComplexType\BasketItemValidationResult',
         'BasketItem' => 'TijsVerkoyen\Recreatex\ComplexType\BasketItem',
-        'ExpositionPeriodReservation' => 'TijsVerkoyen\Recreatex\ComplexType\ExpositionPeriodReservation',
-        'ArrayOfExpositionPeriodReservationEntry' =>
-            'TijsVerkoyen\Recreatex\ComplexType\ArrayOfExpositionPeriodReservationEntry',
-        'ExpositionPeriodReservationEntry' => 'TijsVerkoyen\Recreatex\ComplexType\ExpositionPeriodReservationEntry',
+        'WaitingListSale' => 'TijsVerkoyen\Recreatex\ComplexType\WaitingListSale',
+        'ArrayOfLessonGroup' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfLessonGroup',
+        'LessonGroup' => 'TijsVerkoyen\Recreatex\ComplexType\LessonGroup',
+        'ArrayOfNorm' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfNorm',
+        'Norm' => 'TijsVerkoyen\Recreatex\ComplexType\Norm',
+        'ArrayOfEmployee' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfEmployee',
+        'Employee' => 'TijsVerkoyen\Recreatex\ComplexType\Employee',
+        'PersonName' => 'TijsVerkoyen\Recreatex\ComplexType\PersonName',
+        'Address' => 'TijsVerkoyen\Recreatex\ComplexType\Address',
+        'Department' => 'TijsVerkoyen\Recreatex\ComplexType\Department',
+        'Function' => 'TijsVerkoyen\Recreatex\ComplexType\Function',
+        'Credential' => 'TijsVerkoyen\Recreatex\ComplexType\Credential',
+        'Picture' => 'TijsVerkoyen\Recreatex\ComplexType\Picture',
         'LockTicket' => 'TijsVerkoyen\Recreatex\ComplexType\LockTicket',
+        'ArticleSaleLockTicket' => 'TijsVerkoyen\Recreatex\ComplexType\ArticleSaleLockTicket',
+        'ActivityReservationLockTicket' => 'TijsVerkoyen\Recreatex\ComplexType\ActivityReservationLockTicket',
+        'RentalReservationLockTicket' => 'TijsVerkoyen\Recreatex\ComplexType\RentalReservationLockTicket',
+        'ExpositionReservationLockTicket' => 'TijsVerkoyen\Recreatex\ComplexType\ExpositionReservationLockTicket',
         'CultureEventReservationLockTicket' => 'TijsVerkoyen\Recreatex\ComplexType\CultureEventReservationLockTicket',
         'ArrayOfSeatAllocation' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfSeatAllocation',
         'SeatAllocation' => 'TijsVerkoyen\Recreatex\ComplexType\SeatAllocation',
-        'ActivityReservationLockTicket' => 'TijsVerkoyen\Recreatex\ComplexType\ActivityReservationLockTicket',
-        'ExpositionReservationLockTicket' => 'TijsVerkoyen\Recreatex\ComplexType\ExpositionReservationLockTicket',
-        'ArticleSaleLockTicket' => 'TijsVerkoyen\Recreatex\ComplexType\ArticleSaleLockTicket',
+        'ArrayOfSiteAllocation' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfSiteAllocation',
+        'SiteAllocation' => 'TijsVerkoyen\Recreatex\ComplexType\SiteAllocation',
+        'WaitingListSaleLockTicket' => 'TijsVerkoyen\Recreatex\ComplexType\WaitingListSaleLockTicket',
+        'FitnessActivityDayReservationLockTicket' => 'TijsVerkoyen\Recreatex\ComplexType\FitnessActivityDayReservationLockTicket',
+        'PlaceReservationLockTicket' => 'TijsVerkoyen\Recreatex\ComplexType\PlaceReservationLockTicket',
+        'RecurringPlaceReservationLockTicket' => 'TijsVerkoyen\Recreatex\ComplexType\RecurringPlaceReservationLockTicket',
+        'ArrayOfPlaceReservationLockTicket' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfPlaceReservationLockTicket',
+        'FitnessActivityDayReservation' => 'TijsVerkoyen\Recreatex\ComplexType\FitnessActivityDayReservation',
+        'RecurringPlaceReservation' => 'TijsVerkoyen\Recreatex\ComplexType\RecurringPlaceReservation',
+        'PlaceReservation' => 'TijsVerkoyen\Recreatex\ComplexType\PlaceReservation',
+        'ArrayOfArticleSale' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfArticleSale',
         'ArticleSale' => 'TijsVerkoyen\Recreatex\ComplexType\ArticleSale',
         'Article' => 'TijsVerkoyen\Recreatex\ComplexType\Article',
+        'ArticleBase' => 'TijsVerkoyen\Recreatex\ComplexType\ArticleBase',
         'ArticleGroup' => 'TijsVerkoyen\Recreatex\ComplexType\ArticleGroup',
         'ArrayOfArticle' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfArticle',
-        'Picture' => 'TijsVerkoyen\Recreatex\ComplexType\Picture',
         'ArrayOfArticleIngredient' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfArticleIngredient',
         'ArticleIngredient' => 'TijsVerkoyen\Recreatex\ComplexType\ArticleIngredient',
         'ArrayOfArticleOption' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfArticleOption',
@@ -162,94 +331,147 @@ class Recreatex extends BaseSoapClient
         'ArticleOptionValue' => 'TijsVerkoyen\Recreatex\ComplexType\ArticleOptionValue',
         'ArrayOfStockLocation' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfStockLocation',
         'StockLocation' => 'TijsVerkoyen\Recreatex\ComplexType\StockLocation',
-        'CultureEventReservation' => 'TijsVerkoyen\Recreatex\ComplexType\CultureEventReservation',
-        'ArrayOfCultureEventReservationEntry' =>
-            'TijsVerkoyen\Recreatex\ComplexType\ArrayOfCultureEventReservationEntry',
-        'CultureEventReservationEntry' => 'TijsVerkoyen\Recreatex\ComplexType\CultureEventReservationEntry',
-        'ExplicitSeatsCultureEventReservationEntry' =>
-            'Recreatex\ComplexType\ExplicitSeatsCultureEventReservationEntry',
-        'BestAvailableSeatsCultureEventReservationEntry' =>
-            'Recreatex\ComplexType\BestAvailableSeatsCultureEventReservationEntry',
-        'ArrayOfCultureEventOptionReservation' =>
-            'TijsVerkoyen\Recreatex\ComplexType\ArrayOfCultureEventOptionReservation',
-        'CultureEventOptionReservation' => 'TijsVerkoyen\Recreatex\ComplexType\CultureEventOptionReservation',
+        'Attachment' => 'TijsVerkoyen\Recreatex\ComplexType\Attachment',
+        'ArrayOfPicture' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfPicture',
+        'SubscriptionArticle' => 'TijsVerkoyen\Recreatex\ComplexType\SubscriptionArticle',
+        'Duration' => 'TijsVerkoyen\Recreatex\ComplexType\Duration',
+        'Period' => 'TijsVerkoyen\Recreatex\ComplexType\Period',
+        'InvalidPeriod' => 'TijsVerkoyen\Recreatex\ComplexType\InvalidPeriod',
+        'SubscriptionPeriod' => 'TijsVerkoyen\Recreatex\ComplexType\SubscriptionPeriod',
+        'PurchaseArticle' => 'TijsVerkoyen\Recreatex\ComplexType\PurchaseArticle',
+        'ArrayOfVendorArticle' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfVendorArticle',
+        'VendorArticle' => 'TijsVerkoyen\Recreatex\ComplexType\VendorArticle',
+        'ArticleUnit' => 'TijsVerkoyen\Recreatex\ComplexType\ArticleUnit',
+        'ArrayOfArticleUnit' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfArticleUnit',
+        'RentalArticle' => 'TijsVerkoyen\Recreatex\ComplexType\RentalArticle',
+        'ArrayOfRentalArticleComponent' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfRentalArticleComponent',
+        'RentalArticleComponent' => 'TijsVerkoyen\Recreatex\ComplexType\RentalArticleComponent',
+        'OptionalRecurringPlaceReservation' => 'TijsVerkoyen\Recreatex\ComplexType\OptionalRecurringPlaceReservation',
+        'OptionalPlaceReservation' => 'TijsVerkoyen\Recreatex\ComplexType\OptionalPlaceReservation',
         'ActivityReservation' => 'TijsVerkoyen\Recreatex\ComplexType\ActivityReservation',
         'Activity' => 'TijsVerkoyen\Recreatex\ComplexType\Activity',
         'AgeCategory' => 'TijsVerkoyen\Recreatex\ComplexType\AgeCategory',
         'ArrayOfActivityPart' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfActivityPart',
         'ActivityPart' => 'TijsVerkoyen\Recreatex\ComplexType\ActivityPart',
-        'Period' => 'TijsVerkoyen\Recreatex\ComplexType\Period',
         'ArrayOfActivityOption' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfActivityOption',
         'ActivityOption' => 'TijsVerkoyen\Recreatex\ComplexType\ActivityOption',
         'ActivityType' => 'TijsVerkoyen\Recreatex\ComplexType\ActivityType',
+        'Person' => 'TijsVerkoyen\Recreatex\ComplexType\Person',
+        'PersonSettings' => 'TijsVerkoyen\Recreatex\ComplexType\PersonSettings',
+        'ArrayOfSubcategory' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfSubcategory',
+        'Subcategory' => 'TijsVerkoyen\Recreatex\ComplexType\Subcategory',
+        'Category' => 'TijsVerkoyen\Recreatex\ComplexType\Category',
+        'ArrayOfPersonPriceGroup' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfPersonPriceGroup',
+        'PersonPriceGroup' => 'TijsVerkoyen\Recreatex\ComplexType\PersonPriceGroup',
+        'PriceGroup' => 'TijsVerkoyen\Recreatex\ComplexType\PriceGroup',
+        'ArrayOfPersonLLVInfo' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfPersonLLVInfo',
+        'PersonLLVInfo' => 'TijsVerkoyen\Recreatex\ComplexType\PersonLLVInfo',
+        'ArrayOfPersonLLVTransferHistory' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfPersonLLVTransferHistory',
+        'PersonLLVTransferHistory' => 'TijsVerkoyen\Recreatex\ComplexType\PersonLLVTransferHistory',
+        'PersonChildCareInfo' => 'TijsVerkoyen\Recreatex\ComplexType\PersonChildCareInfo',
+        'ChildCareSchool' => 'TijsVerkoyen\Recreatex\ComplexType\ChildCareSchool',
+        'AddressLocation' => 'TijsVerkoyen\Recreatex\ComplexType\AddressLocation',
+        'AddressName' => 'TijsVerkoyen\Recreatex\ComplexType\AddressName',
+        'ArrayOfContact' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfContact',
+        'Contact' => 'TijsVerkoyen\Recreatex\ComplexType\Contact',
+        'PersonTitle' => 'TijsVerkoyen\Recreatex\ComplexType\PersonTitle',
+        'PersonFunction' => 'TijsVerkoyen\Recreatex\ComplexType\PersonFunction',
+        'ArrayOfRelation' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfRelation',
+        'Relation' => 'TijsVerkoyen\Recreatex\ComplexType\Relation',
         'ArrayOfActivityPartReservation' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfActivityPartReservation',
         'ActivityPartReservation' => 'TijsVerkoyen\Recreatex\ComplexType\ActivityPartReservation',
+        'ExpositionPeriodReservation' => 'TijsVerkoyen\Recreatex\ComplexType\ExpositionPeriodReservation',
+        'ArrayOfExpositionPeriodReservationEntry' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfExpositionPeriodReservationEntry',
+        'ExpositionPeriodReservationEntry' => 'TijsVerkoyen\Recreatex\ComplexType\ExpositionPeriodReservationEntry',
+        'CultureEventReservation' => 'TijsVerkoyen\Recreatex\ComplexType\CultureEventReservation',
+        'ArrayOfCultureEventReservationEntry' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfCultureEventReservationEntry',
+        'CultureEventReservationEntry' => 'TijsVerkoyen\Recreatex\ComplexType\CultureEventReservationEntry',
+        'ExplicitSeatsCultureEventReservationEntry' => 'TijsVerkoyen\Recreatex\ComplexType\ExplicitSeatsCultureEventReservationEntry',
+        'SiteCultureEventReservationEntry' => 'TijsVerkoyen\Recreatex\ComplexType\SiteCultureEventReservationEntry',
+        'BestAvailableSeatsCultureEventReservationEntry' => 'TijsVerkoyen\Recreatex\ComplexType\BestAvailableSeatsCultureEventReservationEntry',
+        'ArrayOfCultureEventOptionReservation' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfCultureEventOptionReservation',
+        'CultureEventOptionReservation' => 'TijsVerkoyen\Recreatex\ComplexType\CultureEventOptionReservation',
+        'CultureEventWaitingListReservation' => 'TijsVerkoyen\Recreatex\ComplexType\CultureEventWaitingListReservation',
+        'RentalReservation' => 'TijsVerkoyen\Recreatex\ComplexType\RentalReservation',
+        'SubscriptionProlongation' => 'TijsVerkoyen\Recreatex\ComplexType\SubscriptionProlongation',
+        'ArrayOfRentalReservation' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfRentalReservation',
+        'RecurringPattern' => 'TijsVerkoyen\Recreatex\ComplexType\RecurringPattern',
+        'SerieFrequency' => 'TijsVerkoyen\Recreatex\ComplexType\SerieFrequency',
+        'ArrayOfWeekDayRange' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfWeekDayRange',
+        'WeekDayRange' => 'TijsVerkoyen\Recreatex\ComplexType\WeekDayRange',
+        'SerieMonthPattern' => 'TijsVerkoyen\Recreatex\ComplexType\SerieMonthPattern',
+        'SerieYearPattern' => 'TijsVerkoyen\Recreatex\ComplexType\SerieYearPattern',
+        'ArrayOfPlaceReservation' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfPlaceReservation',
+        'ArrayOfPeriod' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfPeriod',
+        'ArrayOfInvalidPeriod' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfInvalidPeriod',
         'BasketValidationResult' => 'TijsVerkoyen\Recreatex\ComplexType\BasketValidationResult',
         'ArrayOfBasketItemValidationResult' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfBasketItemValidationResult',
-        'ForgotPasswordResult' => 'TijsVerkoyen\Recreatex\ComplexType\ForgotPasswordResult',
-        'FindPersonsCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\FindPersonsCriteria',
-        'PersonIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\PersonIncludes',
+        'PurchaseLine' => 'TijsVerkoyen\Recreatex\ComplexType\PurchaseLine',
+        'DeletePurchaseLineResult' => 'TijsVerkoyen\Recreatex\ComplexType\DeletePurchaseLineResult',
+        'RentalArticleSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\RentalArticleSearchCriteria',
         'PagingCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\PagingCriteria',
         'SortingCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\SortingCriteria',
-        'ArrayOfPerson' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfPerson',
+        'RentalArticleIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\RentalArticleIncludes',
+        'ArrayOfRentalArticle' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfRentalArticle',
+        'RentalOrderSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\RentalOrderSearchCriteria',
+        'RentalOrderIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\RentalOrderIncludes',
+        'ArrayOfRentalOrder' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfRentalOrder',
+        'RentalOrder' => 'TijsVerkoyen\Recreatex\ComplexType\RentalOrder',
+        'ArrayOfRentalOrderLine' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfRentalOrderLine',
+        'RentalOrderLine' => 'TijsVerkoyen\Recreatex\ComplexType\RentalOrderLine',
+        'RentalValidationResult' => 'TijsVerkoyen\Recreatex\ComplexType\RentalValidationResult',
+        'AuthenticationResult' => 'TijsVerkoyen\Recreatex\ComplexType\AuthenticationResult',
+        'ChildCareCentreSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\ChildCareCentreSearchCriteria',
+        'ChildCareCentreIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\ChildCareCentreIncludes',
+        'ArrayOfChildCareCentre' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfChildCareCentre',
+        'ChildCareCentre' => 'TijsVerkoyen\Recreatex\ComplexType\ChildCareCentre',
+        'ChildCareCentrePeriodSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\ChildCareCentrePeriodSearchCriteria',
+        'ArrayOfChildCareCentrePeriod' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfChildCareCentrePeriod',
+        'ChildCareCentrePeriod' => 'TijsVerkoyen\Recreatex\ComplexType\ChildCareCentrePeriod',
+        'ChildCareCentreEntrySearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\ChildCareCentreEntrySearchCriteria',
+        'ChildCareCentreEntryIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\ChildCareCentreEntryIncludes',
+        'ArrayOfChildCareCentreEntry' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfChildCareCentreEntry',
+        'ChildCareCentreEntry' => 'TijsVerkoyen\Recreatex\ComplexType\ChildCareCentreEntry',
+        'ChildCareEntryPeriod' => 'TijsVerkoyen\Recreatex\ComplexType\ChildCareEntryPeriod',
+        'ChildCareCentrePresenceSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\ChildCareCentrePresenceSearchCriteria',
+        'ArrayOfChildCareCentrePresence' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfChildCareCentrePresence',
+        'ChildCareCentrePresence' => 'TijsVerkoyen\Recreatex\ComplexType\ChildCareCentrePresence',
+        'SaveChildCareCentrePresenceResult' => 'TijsVerkoyen\Recreatex\ComplexType\SaveChildCareCentrePresenceResult',
+        'ArrayOfValidationResult' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfValidationResult',
+        'ChildCareCentrePresenceHeaderSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\ChildCareCentrePresenceHeaderSearchCriteria',
+        'ChildCareCentrePresenceHeaderIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\ChildCareCentrePresenceHeaderIncludes',
+        'ArrayOfChildCareCentrePresenceHeader' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfChildCareCentrePresenceHeader',
+        'ChildCareCentrePresenceHeader' => 'TijsVerkoyen\Recreatex\ComplexType\ChildCareCentrePresenceHeader',
+        'ChildCareTariff' => 'TijsVerkoyen\Recreatex\ComplexType\ChildCareTariff',
+        'ChildCareChipKnipSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\ChildCareChipKnipSearchCriteria',
+        'PersonChipKnip' => 'TijsVerkoyen\Recreatex\ComplexType\PersonChipKnip',
+        'ArrayOfPersonChipKnipLine' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfPersonChipKnipLine',
+        'PersonChipKnipLine' => 'TijsVerkoyen\Recreatex\ComplexType\PersonChipKnipLine',
+        'PersonChipKnipChildCareInfo' => 'TijsVerkoyen\Recreatex\ComplexType\PersonChipKnipChildCareInfo',
         'ArrayOfActivityType' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfActivityType',
-        'ActivitySearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\ActivitySearchCriteria',
-        'ActivityIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\ActivityIncludes',
-        'ArrayOfActivity' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfActivity',
         'ArticleGroupSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\ArticleGroupSearchCriteria',
         'ArrayOfArticleGroup' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfArticleGroup',
         'ArticleCategorySearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\ArticleCategorySearchCriteria',
         'ArrayOfArticleCategory' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfArticleCategory',
         'ArticleCategory' => 'TijsVerkoyen\Recreatex\ComplexType\ArticleCategory',
-        'ArticleSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\ArticleSearchCriteria',
-        'ArticleIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\ArticleIncludes',
         'ArrayOfExpositionType' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfExpositionType',
         'ExpositionType' => 'TijsVerkoyen\Recreatex\ComplexType\ExpositionType',
-        'ExpositionTypeSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\ExpositionTypeSearchCriteria',
-        'ExpositionTypeIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\ExpositionTypeIncludes',
-        'ExpositionSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\ExpositionSearchCriteria',
-        'ExpositionIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\ExpositionIncludes',
-        'ArrayOfExposition' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfExposition',
-        'Exposition' => 'TijsVerkoyen\Recreatex\ComplexType\Exposition',
-        'ArrayOfAudience' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfAudience',
-        'Audience' => 'TijsVerkoyen\Recreatex\ComplexType\Audience',
+        'ExpositionPeriodSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\ExpositionPeriodSearchCriteria',
         'ArrayOfExpositionPeriod' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfExpositionPeriod',
         'ExpositionPeriod' => 'TijsVerkoyen\Recreatex\ComplexType\ExpositionPeriod',
         'Occupancy' => 'TijsVerkoyen\Recreatex\ComplexType\Occupancy',
-        'ArrayOfExpositionPrice' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfExpositionPrice',
-        'ExpositionPrice' => 'TijsVerkoyen\Recreatex\ComplexType\ExpositionPrice',
-        'Price' => 'TijsVerkoyen\Recreatex\ComplexType\Price',
-        'Vat' => 'TijsVerkoyen\Recreatex\ComplexType\Vat',
-        'ExpositionPeriodSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\ExpositionPeriodSearchCriteria',
-        'Basket' => 'TijsVerkoyen\Recreatex\ComplexType\Basket',
-        'ArrayOfBasketItem' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfBasketItem',
-        'ArrayOfBasketPayment' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfBasketPayment',
-        'BasketPayment' => 'TijsVerkoyen\Recreatex\ComplexType\BasketPayment',
-        'IncassoBasketPayment' => 'TijsVerkoyen\Recreatex\ComplexType\IncassoBasketPayment',
-        'CheckoutBasketResult' => 'TijsVerkoyen\Recreatex\ComplexType\CheckoutBasketResult',
-        'ArrayOfSalesItem' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfSalesItem',
-        'SalesItem' => 'TijsVerkoyen\Recreatex\ComplexType\SalesItem',
-        'ActivityReservationSalesItem' => 'TijsVerkoyen\Recreatex\ComplexType\ActivityReservationSalesItem',
-        'ExpositionSalesItem' => 'TijsVerkoyen\Recreatex\ComplexType\ExpositionSalesItem',
-        'CultureEventReservationSalesItem' => 'TijsVerkoyen\Recreatex\ComplexType\CultureEventReservationSalesItem',
-        'ArticleSalesItem' => 'TijsVerkoyen\Recreatex\ComplexType\ArticleSalesItem',
-        'LockBasketResult' => 'TijsVerkoyen\Recreatex\ComplexType\LockBasketResult',
-        'ArrayOfLockTicket' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfLockTicket',
-        'ExtendedLocks' => 'TijsVerkoyen\Recreatex\ComplexType\ExtendedLocks',
+        'ArrayOfAudience' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfAudience',
+        'Audience' => 'TijsVerkoyen\Recreatex\ComplexType\Audience',
         'ArrayOfBasketPaymentMethod' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfBasketPaymentMethod',
         'BasketPaymentMethod' => 'TijsVerkoyen\Recreatex\ComplexType\BasketPaymentMethod',
         'IncassoBasketPaymentMethod' => 'TijsVerkoyen\Recreatex\ComplexType\IncassoBasketPaymentMethod',
         'ArrayOfIncassoCost' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfIncassoCost',
         'IncassoCost' => 'TijsVerkoyen\Recreatex\ComplexType\IncassoCost',
         'AdditionalCost' => 'TijsVerkoyen\Recreatex\ComplexType\AdditionalCost',
-        'ReservationCost' => 'TijsVerkoyen\Recreatex\ComplexType\ReservationCost',
+        'RentalWarranty' => 'TijsVerkoyen\Recreatex\ComplexType\RentalWarranty',
         'AdministrativeCost' => 'TijsVerkoyen\Recreatex\ComplexType\AdministrativeCost',
-        'ArrayOfCultureActivity' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfCultureActivity',
-        'CultureActivity' => 'TijsVerkoyen\Recreatex\ComplexType\CultureActivity',
-        'CultureEventSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\CultureEventSearchCriteria',
-        'CultureEventIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\CultureEventIncludes',
-        'ArrayOfCultureEvent' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfCultureEvent',
-        'CultureEvent' => 'TijsVerkoyen\Recreatex\ComplexType\CultureEvent',
+        'ReservationCost' => 'TijsVerkoyen\Recreatex\ComplexType\ReservationCost',
+        'ArrayOfHall' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfHall',
         'Hall' => 'TijsVerkoyen\Recreatex\ComplexType\Hall',
         'ArrayOfSeatBlock' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfSeatBlock',
         'SeatBlock' => 'TijsVerkoyen\Recreatex\ComplexType\SeatBlock',
@@ -259,30 +481,279 @@ class Recreatex extends BaseSoapClient
         'ArrayOfSeat' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfSeat',
         'Seat' => 'TijsVerkoyen\Recreatex\ComplexType\Seat',
         'SeatRange' => 'TijsVerkoyen\Recreatex\ComplexType\SeatRange',
+        'ArrayOfCultureSite' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfCultureSite',
+        'CultureSite' => 'TijsVerkoyen\Recreatex\ComplexType\CultureSite',
+        'ArrayOfCategory' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfCategory',
+        'InfrastructureSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\InfrastructureSearchCriteria',
+        'InfrastructureIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\InfrastructureIncludes',
+        'ArrayOfInfrastructure' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfInfrastructure',
+        'Infrastructure' => 'TijsVerkoyen\Recreatex\ComplexType\Infrastructure',
+        'ArrayOfPlace' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfPlace',
+        'Place' => 'TijsVerkoyen\Recreatex\ComplexType\Place',
+        'ReservationActivity' => 'TijsVerkoyen\Recreatex\ComplexType\ReservationActivity',
+        'Division' => 'TijsVerkoyen\Recreatex\ComplexType\Division',
+        'InfrastructureOpeningsSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\InfrastructureOpeningsSearchCriteria',
+        'InfrastructureOpenings' => 'TijsVerkoyen\Recreatex\ComplexType\InfrastructureOpenings',
+        'ArrayOfInfrastructureOpeningHours' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfInfrastructureOpeningHours',
+        'InfrastructureOpeningHours' => 'TijsVerkoyen\Recreatex\ComplexType\InfrastructureOpeningHours',
+        'ArrayOfOpeningHour' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfOpeningHour',
+        'OpeningHour' => 'TijsVerkoyen\Recreatex\ComplexType\OpeningHour',
+        'PlaceSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\PlaceSearchCriteria',
+        'PlaceIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\PlaceIncludes',
+        'ReservationActivitySearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\ReservationActivitySearchCriteria',
+        'ReservationActivityIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\ReservationActivityIncludes',
+        'ArrayOfReservationActivity' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfReservationActivity',
+        'ReservationViewSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\ReservationViewSearchCriteria',
+        'ReservationViewIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\ReservationViewIncludes',
+        'ArrayOfReservationView' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfReservationView',
+        'ReservationView' => 'TijsVerkoyen\Recreatex\ComplexType\ReservationView',
+        'ArrayOfReservationViewPlace' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfReservationViewPlace',
+        'ReservationViewPlace' => 'TijsVerkoyen\Recreatex\ComplexType\ReservationViewPlace',
+        'ListCountriesCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\ListCountriesCriteria',
+        'ArrayOfCountry' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfCountry',
+        'Country' => 'TijsVerkoyen\Recreatex\ComplexType\Country',
+        'FindCountiesCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\FindCountiesCriteria',
+        'ArrayOfCounty' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfCounty',
+        'County' => 'TijsVerkoyen\Recreatex\ComplexType\County',
+        'ArrayOfLanguage' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfLanguage',
+        'Language' => 'TijsVerkoyen\Recreatex\ComplexType\Language',
+        'WaitingListSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\WaitingListSearchCriteria',
+        'ArrayOfWaitingList' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfWaitingList',
+        'WaitingList' => 'TijsVerkoyen\Recreatex\ComplexType\WaitingList',
+        'ArrayOfSwimmingLevel' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfSwimmingLevel',
+        'SwimmingLevel' => 'TijsVerkoyen\Recreatex\ComplexType\SwimmingLevel',
+        'LessonGroupSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\LessonGroupSearchCriteria',
+        'SwimmingLevelSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\SwimmingLevelSearchCriteria',
+        'StudentFollowScoreSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\StudentFollowScoreSearchCriteria',
+        'ArrayOfStudentFollowScore' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfStudentFollowScore',
+        'StudentFollowScore' => 'TijsVerkoyen\Recreatex\ComplexType\StudentFollowScore',
+        'StudentPresenceSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\StudentPresenceSearchCriteria',
+        'ArrayOfStudentPresence' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfStudentPresence',
+        'StudentPresence' => 'TijsVerkoyen\Recreatex\ComplexType\StudentPresence',
+        'NormSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\NormSearchCriteria',
+        'SwimmingDiplomaSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\SwimmingDiplomaSearchCriteria',
+        'ArrayOfSwimmingDiploma' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfSwimmingDiploma',
+        'SwimmingDiploma' => 'TijsVerkoyen\Recreatex\ComplexType\SwimmingDiploma',
+        'AbsentReasonSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\AbsentReasonSearchCriteria',
+        'ArrayOfAbsentReason' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfAbsentReason',
+        'AbsentReason' => 'TijsVerkoyen\Recreatex\ComplexType\AbsentReason',
+        'ArrayOfPerson' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfPerson',
+        'ArrayOfLLVMessageTranslation' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfLLVMessageTranslation',
+        'LLVMessageTranslation' => 'TijsVerkoyen\Recreatex\ComplexType\LLVMessageTranslation',
+        'PersonLLVInfoSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\PersonLLVInfoSearchCriteria',
+        'WaitingListStudentSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\WaitingListStudentSearchCriteria',
+        'ArrayOfWaitingListStudent' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfWaitingListStudent',
+        'WaitingListStudent' => 'TijsVerkoyen\Recreatex\ComplexType\WaitingListStudent',
+        'EmployeeSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\EmployeeSearchCriteria',
+        'EmployeeIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\EmployeeIncludes',
+        'VendorSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\VendorSearchCriteria',
+        'VendorIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\VendorIncludes',
+        'ArrayOfVendor' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfVendor',
+        'Vendor' => 'TijsVerkoyen\Recreatex\ComplexType\Vendor',
+        'VendorState' => 'TijsVerkoyen\Recreatex\ComplexType\VendorState',
+        'VendorGroup' => 'TijsVerkoyen\Recreatex\ComplexType\VendorGroup',
+        'VatRegime' => 'TijsVerkoyen\Recreatex\ComplexType\VatRegime',
+        'Vat' => 'TijsVerkoyen\Recreatex\ComplexType\Vat',
+        'ArrayOfVendorContact' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfVendorContact',
+        'VendorContact' => 'TijsVerkoyen\Recreatex\ComplexType\VendorContact',
+        'VendorGroupSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\VendorGroupSearchCriteria',
+        'ArrayOfVendorGroup' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfVendorGroup',
+        'PurchaseArticleSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\PurchaseArticleSearchCriteria',
+        'PurchaseArticleIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\PurchaseArticleIncludes',
+        'ArrayOfPurchaseArticle' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfPurchaseArticle',
+        'StockLocationSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\StockLocationSearchCriteria',
+        'PurchaseOrderSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\PurchaseOrderSearchCriteria',
+        'PurchaseOrderIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\PurchaseOrderIncludes',
+        'ArrayOfPurchaseOrder' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfPurchaseOrder',
+        'PurchaseOrder' => 'TijsVerkoyen\Recreatex\ComplexType\PurchaseOrder',
+        'PurchaseOrderRequest' => 'TijsVerkoyen\Recreatex\ComplexType\PurchaseOrderRequest',
+        'ArrayOfPurchaseLine' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfPurchaseLine',
+        'SavePurchaseOrderResult' => 'TijsVerkoyen\Recreatex\ComplexType\SavePurchaseOrderResult',
+        'DeletePurchaseOrderResult' => 'TijsVerkoyen\Recreatex\ComplexType\DeletePurchaseOrderResult',
+        'Basket' => 'TijsVerkoyen\Recreatex\ComplexType\Basket',
+        'ArrayOfBasketItem' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfBasketItem',
+        'ArrayOfBasketPayment' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfBasketPayment',
+        'BasketPayment' => 'TijsVerkoyen\Recreatex\ComplexType\BasketPayment',
+        'IncassoBasketPayment' => 'TijsVerkoyen\Recreatex\ComplexType\IncassoBasketPayment',
+        'ArrayOfAdditionalCost' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfAdditionalCost',
+        'CheckoutBasketResult' => 'TijsVerkoyen\Recreatex\ComplexType\CheckoutBasketResult',
+        'ArrayOfSalesItem' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfSalesItem',
+        'SalesItem' => 'TijsVerkoyen\Recreatex\ComplexType\SalesItem',
+        'ArticleSalesItem' => 'TijsVerkoyen\Recreatex\ComplexType\ArticleSalesItem',
+        'ExpositionSalesItem' => 'TijsVerkoyen\Recreatex\ComplexType\ExpositionSalesItem',
+        'SubscriptionProlongationSalesItem' => 'TijsVerkoyen\Recreatex\ComplexType\SubscriptionProlongationSalesItem',
+        'CultureEventReservationSalesItem' => 'TijsVerkoyen\Recreatex\ComplexType\CultureEventReservationSalesItem',
+        'CultureEventWaitingListReservationSalesItem' => 'TijsVerkoyen\Recreatex\ComplexType\CultureEventWaitingListReservationSalesItem',
+        'ActivityReservationSalesItem' => 'TijsVerkoyen\Recreatex\ComplexType\ActivityReservationSalesItem',
+        'FitnessActivityDayReservationSalesItem' => 'TijsVerkoyen\Recreatex\ComplexType\FitnessActivityDayReservationSalesItem',
+        'RentalReservationSalesItem' => 'TijsVerkoyen\Recreatex\ComplexType\RentalReservationSalesItem',
+        'RecurringPlaceReservationSalesItem' => 'TijsVerkoyen\Recreatex\ComplexType\RecurringPlaceReservationSalesItem',
+        'PlaceReservationSalesItem' => 'TijsVerkoyen\Recreatex\ComplexType\PlaceReservationSalesItem',
+        'LockBasketResult' => 'TijsVerkoyen\Recreatex\ComplexType\LockBasketResult',
+        'ArrayOfLockTicket' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfLockTicket',
+        'ExtendedLocks' => 'TijsVerkoyen\Recreatex\ComplexType\ExtendedLocks',
+        'ArrayOfCultureActivity' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfCultureActivity',
+        'CultureActivity' => 'TijsVerkoyen\Recreatex\ComplexType\CultureActivity',
+        'CultureEventSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\CultureEventSearchCriteria',
+        'CultureEventIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\CultureEventIncludes',
+        'ArrayOfCultureEvent' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfCultureEvent',
+        'CultureEvent' => 'TijsVerkoyen\Recreatex\ComplexType\CultureEvent',
         'ArrayOfCultureEventPrice' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfCultureEventPrice',
         'CultureEventPrice' => 'TijsVerkoyen\Recreatex\ComplexType\CultureEventPrice',
+        'Price' => 'TijsVerkoyen\Recreatex\ComplexType\Price',
         'ArrayOfCultureEventOption' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfCultureEventOption',
         'CultureEventOption' => 'TijsVerkoyen\Recreatex\ComplexType\CultureEventOption',
         'CultureEventCategory' => 'TijsVerkoyen\Recreatex\ComplexType\CultureEventCategory',
-        'ArrayOfHall' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfHall',
         'SeatAllocationsOverview' => 'TijsVerkoyen\Recreatex\ComplexType\SeatAllocationsOverview',
         'SeatAllocationPerHallSummary' => 'TijsVerkoyen\Recreatex\ComplexType\SeatAllocationPerHallSummary',
         'SeatAllocationSummary' => 'TijsVerkoyen\Recreatex\ComplexType\SeatAllocationSummary',
         'SeatAllocationCount' => 'TijsVerkoyen\Recreatex\ComplexType\SeatAllocationCount',
         'SeatAllocationPerBlockSummary' => 'TijsVerkoyen\Recreatex\ComplexType\SeatAllocationPerBlockSummary',
-        'ArrayOfSeatAllocationPerBlockSummary' =>
-            'TijsVerkoyen\Recreatex\ComplexType\ArrayOfSeatAllocationPerBlockSummary',
+        'ArrayOfSeatAllocationPerBlockSummary' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfSeatAllocationPerBlockSummary',
+        'SiteAllocationsOverview' => 'TijsVerkoyen\Recreatex\ComplexType\SiteAllocationsOverview',
+        'SiteAllocationPerHallSummary' => 'TijsVerkoyen\Recreatex\ComplexType\SiteAllocationPerHallSummary',
         'CultureReservationSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\CultureReservationSearchCriteria',
         'ArrayOfCultureReservation' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfCultureReservation',
         'CultureReservation' => 'TijsVerkoyen\Recreatex\ComplexType\CultureReservation',
         'ArrayOfCultureReservationSeat' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfCultureReservationSeat',
         'CultureReservationSeat' => 'TijsVerkoyen\Recreatex\ComplexType\CultureReservationSeat',
+        'ArrayOfCultureReservationSite' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfCultureReservationSite',
+        'CultureReservationSite' => 'TijsVerkoyen\Recreatex\ComplexType\CultureReservationSite',
+        'ArrayOfCultureReservationSitePlace' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfCultureReservationSitePlace',
+        'CultureReservationSitePlace' => 'TijsVerkoyen\Recreatex\ComplexType\CultureReservationSitePlace',
         'ArrayOfCultureEventCategory' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfCultureEventCategory',
+        'CultureWaitingListReservationSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\CultureWaitingListReservationSearchCriteria',
+        'CultureWaitingListReservationIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\CultureWaitingListReservationIncludes',
+        'ArrayOfCultureWaitingListReservation' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfCultureWaitingListReservation',
+        'CultureWaitingListReservation' => 'TijsVerkoyen\Recreatex\ComplexType\CultureWaitingListReservation',
         'PriceGroupSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\PriceGroupSearchCriteria',
         'ArrayOfPriceGroup' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfPriceGroup',
-        'ArrayOfCategory' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfCategory',
+        'ReservationSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\ReservationSearchCriteria',
+        'ReservationIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\ReservationIncludes',
+        'ArrayOfReservation' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfReservation',
+        'Reservation' => 'TijsVerkoyen\Recreatex\ComplexType\Reservation',
+        'BusTripRequestSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\BusTripRequestSearchCriteria',
+        'BusTripIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\BusTripIncludes',
+        'ArrayOfBusTripRequest' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfBusTripRequest',
+        'BusTripRequest' => 'TijsVerkoyen\Recreatex\ComplexType\BusTripRequest',
+        'BusTripSerieRequest' => 'TijsVerkoyen\Recreatex\ComplexType\BusTripSerieRequest',
+        'BusTripCompositeValidationResult' => 'TijsVerkoyen\Recreatex\ComplexType\BusTripCompositeValidationResult',
+        'ArrayOfBusTripValidationResult' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfBusTripValidationResult',
+        'BusTripSerieCompositeValidationResult' => 'TijsVerkoyen\Recreatex\ComplexType\BusTripSerieCompositeValidationResult',
+        'ArrayOfAddressLocation' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfAddressLocation',
+        'FitnessActivitySearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\FitnessActivitySearchCriteria',
+        'FitnessActivityIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\FitnessActivityIncludes',
+        'ArrayOfFitnessActivity' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfFitnessActivity',
+        'FitnessActivity' => 'TijsVerkoyen\Recreatex\ComplexType\FitnessActivity',
+        'ArrayOfFitnessActivityDay' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfFitnessActivityDay',
+        'FitnessActivityDay' => 'TijsVerkoyen\Recreatex\ComplexType\FitnessActivityDay',
+        'ArrayOfFitnessActivityDaySlot' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfFitnessActivityDaySlot',
+        'FitnessActivityDaySlot' => 'TijsVerkoyen\Recreatex\ComplexType\FitnessActivityDaySlot',
+        'FitnessActivityReservationSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\FitnessActivityReservationSearchCriteria',
+        'FitnessActivityReservationIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\FitnessActivityReservationIncludes',
+        'ArrayOfFitnessActivityReservation' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfFitnessActivityReservation',
+        'FitnessActivityReservation' => 'TijsVerkoyen\Recreatex\ComplexType\FitnessActivityReservation',
+        'FitnessActivityReservationValidationResult' => 'TijsVerkoyen\Recreatex\ComplexType\FitnessActivityReservationValidationResult',
+        'SubscriptionSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\SubscriptionSearchCriteria',
+        'SubscriptionIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\SubscriptionIncludes',
+        'ArrayOfSubscription' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfSubscription',
+        'Subscription' => 'TijsVerkoyen\Recreatex\ComplexType\Subscription',
+        'ArrayOfSubscriptionLog' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfSubscriptionLog',
+        'SubscriptionLog' => 'TijsVerkoyen\Recreatex\ComplexType\SubscriptionLog',
+        'PeripheralString' => 'TijsVerkoyen\Recreatex\ComplexType\PeripheralString',
+        'ArrayOfPersonCard' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfPersonCard',
+        'PersonCard' => 'TijsVerkoyen\Recreatex\ComplexType\PersonCard',
+        'SubscriptionLogSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\SubscriptionLogSearchCriteria',
+        'SubscriptionLogIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\SubscriptionLogIncludes',
+        'SubscriptionArticleSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\SubscriptionArticleSearchCriteria',
+        'SubscriptionArticleIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\SubscriptionArticleIncludes',
+        'ArrayOfSubscriptionArticle' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfSubscriptionArticle',
+        'FindPersonTitlesCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\FindPersonTitlesCriteria',
+        'PersonTitleIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\PersonTitleIncludes',
+        'ArrayOfPersonTitle' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfPersonTitle',
+        'FindPersonCardsCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\FindPersonCardsCriteria',
+        'PersonCardIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\PersonCardIncludes',
+        'FindPersonFunctionsCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\FindPersonFunctionsCriteria',
+        'PersonFunctionIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\PersonFunctionIncludes',
+        'ArrayOfPersonFunction' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfPersonFunction',
+        'ArrayOfRcxWsdlModules' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfRcxWsdlModules',
+        'ReasonSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\ReasonSearchCriteria',
+        'ArrayOfReason' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfReason',
+        'Reason' => 'TijsVerkoyen\Recreatex\ComplexType\Reason',
+        'ZipcodesSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\ZipcodesSearchCriteria',
+        'ArrayOfZipcode' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfZipcode',
+        'Zipcode' => 'TijsVerkoyen\Recreatex\ComplexType\Zipcode',
+        'ZipcodeStreetsSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\ZipcodeStreetsSearchCriteria',
+        'ArrayOfZipcodeStreet' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfZipcodeStreet',
+        'ZipcodeStreet' => 'TijsVerkoyen\Recreatex\ComplexType\ZipcodeStreet',
+        'ZipcodeCendrisStreetsSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\ZipcodeCendrisStreetsSearchCriteria',
+        'ZipcodeCendrisStreetIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\ZipcodeCendrisStreetIncludes',
+        'ArrayOfZipcodeCendrisStreet' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfZipcodeCendrisStreet',
+        'ZipcodeCendrisStreet' => 'TijsVerkoyen\Recreatex\ComplexType\ZipcodeCendrisStreet',
+        'RequestAuthenticationTokenResult' => 'TijsVerkoyen\Recreatex\ComplexType\RequestAuthenticationTokenResult',
+        'SavePersonOptions' => 'TijsVerkoyen\Recreatex\ComplexType\SavePersonOptions',
+        'SavePersonResult' => 'TijsVerkoyen\Recreatex\ComplexType\SavePersonResult',
+        'ForgotPasswordResult' => 'TijsVerkoyen\Recreatex\ComplexType\ForgotPasswordResult',
+        'FindPersonsCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\FindPersonsCriteria',
+        'PersonIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\PersonIncludes',
+        'DeliveryAddressSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\DeliveryAddressSearchCriteria',
+        'ArrayOfDeliveryAddress' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfDeliveryAddress',
+        'DeliveryAddress' => 'TijsVerkoyen\Recreatex\ComplexType\DeliveryAddress',
+        'SavePersonDeliveryAddressResult' => 'TijsVerkoyen\Recreatex\ComplexType\SavePersonDeliveryAddressResult',
+        'PersonChipKnipSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\PersonChipKnipSearchCriteria',
+        'PersonChipKnipIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\PersonChipKnipIncludes',
+        'PersonCreditsSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\PersonCreditsSearchCriteria',
+        'PersonCreditsIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\PersonCreditsIncludes',
+        'PersonCredits' => 'TijsVerkoyen\Recreatex\ComplexType\PersonCredits',
+        'ArrayOfPersonCreditLine' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfPersonCreditLine',
+        'PersonCreditLine' => 'TijsVerkoyen\Recreatex\ComplexType\PersonCreditLine',
+        'GuiConfigurationValidationResult' => 'TijsVerkoyen\Recreatex\ComplexType\GuiConfigurationValidationResult',
+        'ActivitySearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\ActivitySearchCriteria',
+        'ActivityIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\ActivityIncludes',
+        'ArrayOfActivity' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfActivity',
+        'PriceGroupActivitySearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\PriceGroupActivitySearchCriteria',
+        'ArrayOfPriceGroupActivity' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfPriceGroupActivity',
+        'PriceGroupActivity' => 'TijsVerkoyen\Recreatex\ComplexType\PriceGroupActivity',
+        'EntrySearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\EntrySearchCriteria',
+        'ArrayOfEntry' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfEntry',
+        'Entry' => 'TijsVerkoyen\Recreatex\ComplexType\Entry',
+        'ArticleSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\ArticleSearchCriteria',
+        'ArticleIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\ArticleIncludes',
+        'ArticleSalesOrderSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\ArticleSalesOrderSearchCriteria',
+        'ArrayOfArticleSalesOrder' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfArticleSalesOrder',
+        'ArticleSalesOrder' => 'TijsVerkoyen\Recreatex\ComplexType\ArticleSalesOrder',
+        'SalesOrder' => 'TijsVerkoyen\Recreatex\ComplexType\SalesOrder',
+        'ExpositionTypeSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\ExpositionTypeSearchCriteria',
+        'ExpositionTypeIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\ExpositionTypeIncludes',
+        'ExpositionSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\ExpositionSearchCriteria',
+        'ExpositionIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\ExpositionIncludes',
+        'ArrayOfExposition' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfExposition',
+        'Exposition' => 'TijsVerkoyen\Recreatex\ComplexType\Exposition',
+        'ArrayOfExpositionPrice' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfExpositionPrice',
+        'ExpositionPrice' => 'TijsVerkoyen\Recreatex\ComplexType\ExpositionPrice',
+        'ArrayOfExpositionSubcategory' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfExpositionSubcategory',
+        'ExpositionSubcategory' => 'TijsVerkoyen\Recreatex\ComplexType\ExpositionSubcategory',
+        'ExpositionCategory' => 'TijsVerkoyen\Recreatex\ComplexType\ExpositionCategory',
+        'OrganisedVisitSearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\OrganisedVisitSearchCriteria',
+        'OrganisedVisitIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\OrganisedVisitIncludes',
+        'ArrayOfOrganisedVisit' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfOrganisedVisit',
+        'OrganisedVisit' => 'TijsVerkoyen\Recreatex\ComplexType\OrganisedVisit',
+        'ArrayOfOrganisedVisitPeriodReservation' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfOrganisedVisitPeriodReservation',
+        'OrganisedVisitPeriodReservation' => 'TijsVerkoyen\Recreatex\ComplexType\OrganisedVisitPeriodReservation',
+        'OrganisedVisitPriceGroupPeriodReservation' => 'TijsVerkoyen\Recreatex\ComplexType\OrganisedVisitPriceGroupPeriodReservation',
+        'OrganisedVisitArticlePeriodReservation' => 'TijsVerkoyen\Recreatex\ComplexType\OrganisedVisitArticlePeriodReservation',
+        'ArrayOfOrganisedVisitArticle' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfOrganisedVisitArticle',
+        'OrganisedVisitArticle' => 'TijsVerkoyen\Recreatex\ComplexType\OrganisedVisitArticle',
+        'ExpositionSubCategorySearchCriteria' => 'TijsVerkoyen\Recreatex\ComplexType\ExpositionSubCategorySearchCriteria',
+        'ExpositionSubCategoryIncludes' => 'TijsVerkoyen\Recreatex\ComplexType\ExpositionSubCategoryIncludes',
+        'ArrayOfExpositionCategory' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfExpositionCategory',
         'ArrayOfstring' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfstring',
-        'ArrayOfGuid' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfGuid',
+        'ArrayOfguid' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfguid',
+        'ArrayOfdateTime' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfdateTime',
+        'ArrayOfActivityParticipantReservation' => 'TijsVerkoyen\Recreatex\ComplexType\ArrayOfActivityParticipantReservation',
+        'ActivityParticipantReservation' => 'TijsVerkoyen\Recreatex\ComplexType\ActivityParticipantReservation',
+        'Card' => 'TijsVerkoyen\Recreatex\ComplexType\Card',
+        'Color' => 'TijsVerkoyen\Recreatex\ComplexType\Color',
     );
 
     /**
@@ -787,7 +1258,7 @@ class Recreatex extends BaseSoapClient
      * @return array
      */
     public function findCultureEvents(
-        CultureEventSearchCriteria $CultureEventSearchCriteria
+	    CultureEventSearchCriteria $CultureEventSearchCriteria
     ) {
         $response = $this->getSoapClient()->FindCultureEvents(
             $this->getServiceContext(),
@@ -863,20 +1334,19 @@ class Recreatex extends BaseSoapClient
     }
 
     /**
-     * @param  ServiceContext           $Context
      * @param  PriceGroupSearchCriteria $PriceGroupSearchCriteria
-     * @return ArrayOfPriceGroup
+     * @return array
      */
     public function findPriceGroups(
-        ServiceContext $Context,
         PriceGroupSearchCriteria $PriceGroupSearchCriteria
     ) {
-        return $this->getSoapClient()->FindPriceGroups(
-            array(
-                 $Context,
-                 $PriceGroupSearchCriteria
-            )
+        $response = $this->getSoapClient()->FindPriceGroups(
+            $this->getServiceContext(),
+            $PriceGroupSearchCriteria
         );
+        $this->isValidResponse($response);
+
+        return $response->getPriceGroup();
     }
 
     /**

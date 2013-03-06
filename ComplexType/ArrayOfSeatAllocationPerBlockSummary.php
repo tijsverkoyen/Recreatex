@@ -12,12 +12,16 @@ class ArrayOfSeatAllocationPerBlockSummary extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfSeatAllocationPerBlockSummary';
 
     /**
-     * @var array
+
+     * minOccurs = 0
+     * maxOccurs = unbounded
+     *
+     * @var SeatAllocationPerBlockSummary[] $SeatAllocationPerBlockSummary
      */
     protected $SeatAllocationPerBlockSummary = array();
 
     /**
-     * @param  array                                $seatAllocationPerBlockSummary
+     * @param  SeatAllocationPerBlockSummary[]      $seatAllocationPerBlockSummary
      * @return ArrayOfSeatAllocationPerBlockSummary
      */
     public function setSeatAllocationPerBlockSummary(array $seatAllocationPerBlockSummary = array())
@@ -28,13 +32,11 @@ class ArrayOfSeatAllocationPerBlockSummary extends ComplexTypeAbstract
     }
 
     /**
-     * @return array
+     * @return SeatAllocationPerBlockSummary[]
      */
     public function getSeatAllocationPerBlockSummary()
     {
-	    if(!is_array($this->SeatAllocationPerBlockSummary)) {
-		    return array($this->SeatAllocationPerBlockSummary);
-	    }
-	    return $this->SeatAllocationPerBlockSummary;
+        return $this->SeatAllocationPerBlockSummary;
     }
+
 }

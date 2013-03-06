@@ -12,22 +12,34 @@ class PersonName extends ComplexTypeAbstract
     const CLASS_NAME = 'PersonName';
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $First
      */
     protected $First;
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $Last
      */
     protected $Last;
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $Middle
      */
     protected $Middle;
 
     /**
-     * @param  string[optional] $first
+     * @param  string|null $first
      * @return PersonName
      */
     public function setFirst($first)
@@ -38,7 +50,7 @@ class PersonName extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getFirst()
     {
@@ -46,7 +58,7 @@ class PersonName extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional] $last
+     * @param  string|null $last
      * @return PersonName
      */
     public function setLast($last)
@@ -57,7 +69,7 @@ class PersonName extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getLast()
     {
@@ -65,7 +77,7 @@ class PersonName extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional] $middle
+     * @param  string|null $middle
      * @return PersonName
      */
     public function setMiddle($middle)
@@ -76,10 +88,11 @@ class PersonName extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getMiddle()
     {
         return $this->Middle;
     }
+
 }

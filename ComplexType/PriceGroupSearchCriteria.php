@@ -14,20 +14,28 @@ class PriceGroupSearchCriteria extends ComplexTypeAbstract
     const CLASS_NAME = 'PriceGroupSearchCriteria';
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $Id
      */
     protected $Id;
 
     /**
-     * @var SimpleType\PriceGroupType[optional] $Type
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\PriceGroupType|null $Type
      */
     protected $Type;
 
     /**
-     * @param  SimpleType\Guid[optional] $id
+     * @param  SimpleType\guid|null     $id
      * @return PriceGroupSearchCriteria
      */
-    public function setId(SimpleType\Guid $id = null)
+    public function setId(SimpleType\guid $id = null)
     {
         $this->Id = $id;
 
@@ -35,7 +43,7 @@ class PriceGroupSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getId()
     {
@@ -43,7 +51,7 @@ class PriceGroupSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\PriceGroupType[optional] $type
+     * @param  SimpleType\PriceGroupType|null $type
      * @return PriceGroupSearchCriteria
      */
     public function setType(SimpleType\PriceGroupType $type = null)
@@ -54,10 +62,11 @@ class PriceGroupSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\PriceGroupType
+     * @return SimpleType\PriceGroupType|null
      */
     public function getType()
     {
         return $this->Type;
     }
+
 }

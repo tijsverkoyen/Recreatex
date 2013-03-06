@@ -12,12 +12,16 @@ class ArrayOfExposition extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfExposition';
 
     /**
-     * @var array
+
+     * minOccurs = 0
+     * maxOccurs = unbounded
+     *
+     * @var Exposition[] $Exposition
      */
     protected $Exposition = array();
 
     /**
-     * @param  array             $exposition
+     * @param  Exposition[]      $exposition
      * @return ArrayOfExposition
      */
     public function setExposition(array $exposition = array())
@@ -28,13 +32,11 @@ class ArrayOfExposition extends ComplexTypeAbstract
     }
 
     /**
-     * @return array
+     * @return Exposition[]
      */
     public function getExposition()
     {
-	    if(!is_array($this->Exposition)) {
-		    return array($this->Exposition);
-	    }
-	    return $this->Exposition;
+        return $this->Exposition;
     }
+
 }

@@ -12,12 +12,16 @@ class ArrayOfActivityPartReservation extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfActivityPartReservation';
 
     /**
-     * @var array
+
+     * minOccurs = 0
+     * maxOccurs = unbounded
+     *
+     * @var ActivityPartReservation[] $ActivityPartReservation
      */
     protected $ActivityPartReservation = array();
 
     /**
-     * @param  array                          $activityPartReservation
+     * @param  ActivityPartReservation[]      $activityPartReservation
      * @return ArrayOfActivityPartReservation
      */
     public function setActivityPartReservation(array $activityPartReservation = array())
@@ -28,13 +32,11 @@ class ArrayOfActivityPartReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return array
+     * @return ActivityPartReservation[]
      */
     public function getActivityPartReservation()
     {
-	    if(!is_array($this->ActivityPartReservation)) {
-		    return array($this->ActivityPartReservation);
-	    }
-	    return $this->ActivityPartReservation;
+        return $this->ActivityPartReservation;
     }
+
 }

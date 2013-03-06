@@ -14,32 +14,52 @@ class ArticleOption extends ComplexTypeAbstract
     const CLASS_NAME = 'ArticleOption';
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $Code
      */
     protected $Code;
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $Description
      */
     protected $Description;
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $Id
      */
     protected $Id;
 
     /**
-     * @var ArrayOfArticleOptionValue
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var ArrayOfArticleOptionValue|null $PossibleValues
      */
     protected $PossibleValues;
 
     /**
-     * @var integer
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var integer|null $Sequence
      */
     protected $Sequence;
 
     /**
-     * @param  string[optional] $code
+     * @param  string|null   $code
      * @return ArticleOption
      */
     public function setCode($code)
@@ -50,7 +70,7 @@ class ArticleOption extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getCode()
     {
@@ -58,7 +78,7 @@ class ArticleOption extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional] $description
+     * @param  string|null   $description
      * @return ArticleOption
      */
     public function setDescription($description)
@@ -69,7 +89,7 @@ class ArticleOption extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getDescription()
     {
@@ -77,10 +97,10 @@ class ArticleOption extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional] $id
+     * @param  SimpleType\guid|null $id
      * @return ArticleOption
      */
-    public function setId(SimpleType\Guid $id = null)
+    public function setId(SimpleType\guid $id = null)
     {
         $this->Id = $id;
 
@@ -88,7 +108,7 @@ class ArticleOption extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getId()
     {
@@ -96,7 +116,7 @@ class ArticleOption extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfArticleOptionValue[optional] $possibleValues
+     * @param  ArrayOfArticleOptionValue|null $possibleValues
      * @return ArticleOption
      */
     public function setPossibleValues(ArrayOfArticleOptionValue $possibleValues = null)
@@ -107,7 +127,7 @@ class ArticleOption extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfArticleOptionValue
+     * @return ArrayOfArticleOptionValue|null
      */
     public function getPossibleValues()
     {
@@ -115,7 +135,7 @@ class ArticleOption extends ComplexTypeAbstract
     }
 
     /**
-     * @param  integer[optional] $sequence
+     * @param  integer|null  $sequence
      * @return ArticleOption
      */
     public function setSequence($sequence)
@@ -126,10 +146,11 @@ class ArticleOption extends ComplexTypeAbstract
     }
 
     /**
-     * @return integer
+     * @return integer|null
      */
     public function getSequence()
     {
         return $this->Sequence;
     }
+
 }

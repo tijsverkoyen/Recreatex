@@ -12,12 +12,16 @@ class ArrayOfCategory extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfCategory';
 
     /**
-     * @var array
+
+     * minOccurs = 0
+     * maxOccurs = unbounded
+     *
+     * @var Category[] $Category
      */
     protected $Category = array();
 
     /**
-     * @param  array           $category
+     * @param  Category[]      $category
      * @return ArrayOfCategory
      */
     public function setCategory(array $category = array())
@@ -28,13 +32,11 @@ class ArrayOfCategory extends ComplexTypeAbstract
     }
 
     /**
-     * @return array
+     * @return Category[]
      */
     public function getCategory()
     {
-	    if(!is_array($this->Category)) {
-		    return array($this->Category);
-	    }
-	    return $this->Category;
+        return $this->Category;
     }
+
 }

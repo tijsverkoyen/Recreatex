@@ -12,12 +12,16 @@ class ArrayOfExpositionPeriodReservationEntry extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfExpositionPeriodReservationEntry';
 
     /**
-     * @var array
+
+     * minOccurs = 0
+     * maxOccurs = unbounded
+     *
+     * @var ExpositionPeriodReservationEntry[] $ExpositionPeriodReservationEntry
      */
     protected $ExpositionPeriodReservationEntry = array();
 
     /**
-     * @param  array                                   $expositionPeriodReservationEntry
+     * @param  ExpositionPeriodReservationEntry[]      $expositionPeriodReservationEntry
      * @return ArrayOfExpositionPeriodReservationEntry
      */
     public function setExpositionPeriodReservationEntry(array $expositionPeriodReservationEntry = array())
@@ -28,13 +32,11 @@ class ArrayOfExpositionPeriodReservationEntry extends ComplexTypeAbstract
     }
 
     /**
-     * @return array
+     * @return ExpositionPeriodReservationEntry[]
      */
     public function getExpositionPeriodReservationEntry()
     {
-	    if(!is_array($this->ExpositionPeriodReservationEntry)) {
-		    return array($this->ExpositionPeriodReservationEntry);
-	    }
-	    return $this->ExpositionPeriodReservationEntry;
+        return $this->ExpositionPeriodReservationEntry;
     }
+
 }

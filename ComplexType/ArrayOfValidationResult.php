@@ -12,12 +12,16 @@ class ArrayOfValidationResult extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfValidationResult';
 
     /**
-     * @var array
+
+     * minOccurs = 0
+     * maxOccurs = unbounded
+     *
+     * @var ValidationResult[] $ValidationResult
      */
     protected $ValidationResult = array();
 
     /**
-     * @param  array                   $validationResult
+     * @param  ValidationResult[]      $validationResult
      * @return ArrayOfValidationResult
      */
     public function setValidationResult(array $validationResult = array())
@@ -28,13 +32,11 @@ class ArrayOfValidationResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return array
+     * @return ValidationResult[]
      */
     public function getValidationResult()
     {
-	    if(!is_array($this->ValidationResult)) {
-		    return array($this->ValidationResult);
-	    }
-	    return $this->ValidationResult;
+        return $this->ValidationResult;
     }
+
 }

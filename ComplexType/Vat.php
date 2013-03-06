@@ -14,25 +14,37 @@ class Vat extends ComplexTypeAbstract
     const CLASS_NAME = 'Vat';
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $Id
      */
     protected $Id;
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $Name
      */
     protected $Name;
 
     /**
-     * @var float
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var float|null $Value
      */
     protected $Value;
 
     /**
-     * @param  SimpleType\Guid[optional] $id
+     * @param  SimpleType\guid|null $id
      * @return Vat
      */
-    public function setId(SimpleType\Guid $id = null)
+    public function setId(SimpleType\guid $id = null)
     {
         $this->Id = $id;
 
@@ -40,7 +52,7 @@ class Vat extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getId()
     {
@@ -48,7 +60,7 @@ class Vat extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional] $name
+     * @param  string|null $name
      * @return Vat
      */
     public function setName($name)
@@ -59,7 +71,7 @@ class Vat extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -67,7 +79,7 @@ class Vat extends ComplexTypeAbstract
     }
 
     /**
-     * @param  float[optional] $value
+     * @param  float|null $value
      * @return Vat
      */
     public function setValue($value)
@@ -78,10 +90,11 @@ class Vat extends ComplexTypeAbstract
     }
 
     /**
-     * @return float
+     * @return float|null
      */
     public function getValue()
     {
         return $this->Value;
     }
+
 }

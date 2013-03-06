@@ -14,42 +14,70 @@ class ArticleGroup extends ComplexTypeAbstract
     const CLASS_NAME = 'ArticleGroup';
 
     /**
-     * @var ArrayOfArticle
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var ArrayOfArticle|null $Articles
      */
     protected $Articles;
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $Code
      */
     protected $Code;
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $Description
      */
     protected $Description;
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $Id
      */
     protected $Id;
 
     /**
-     * @var Picture
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var Picture|null $Image
      */
     protected $Image;
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $ImageUrl
      */
     protected $ImageUrl;
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $Name
      */
     protected $Name;
 
     /**
-     * @param  ArrayOfArticle[optional] $articles
+     * @param  ArrayOfArticle|null $articles
      * @return ArticleGroup
      */
     public function setArticles(ArrayOfArticle $articles = null)
@@ -60,7 +88,7 @@ class ArticleGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfArticle
+     * @return ArrayOfArticle|null
      */
     public function getArticles()
     {
@@ -68,7 +96,7 @@ class ArticleGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional] $code
+     * @param  string|null  $code
      * @return ArticleGroup
      */
     public function setCode($code)
@@ -79,7 +107,7 @@ class ArticleGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getCode()
     {
@@ -87,7 +115,7 @@ class ArticleGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional] $description
+     * @param  string|null  $description
      * @return ArticleGroup
      */
     public function setDescription($description)
@@ -98,7 +126,7 @@ class ArticleGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getDescription()
     {
@@ -106,10 +134,10 @@ class ArticleGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional] $id
+     * @param  SimpleType\guid|null $id
      * @return ArticleGroup
      */
-    public function setId(SimpleType\Guid $id = null)
+    public function setId(SimpleType\guid $id = null)
     {
         $this->Id = $id;
 
@@ -117,7 +145,7 @@ class ArticleGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getId()
     {
@@ -125,7 +153,7 @@ class ArticleGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @param  Picture[optional] $image
+     * @param  Picture|null $image
      * @return ArticleGroup
      */
     public function setImage(Picture $image = null)
@@ -136,7 +164,7 @@ class ArticleGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @return Picture
+     * @return Picture|null
      */
     public function getImage()
     {
@@ -144,7 +172,7 @@ class ArticleGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional] $imageUrl
+     * @param  string|null  $imageUrl
      * @return ArticleGroup
      */
     public function setImageUrl($imageUrl)
@@ -155,7 +183,7 @@ class ArticleGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getImageUrl()
     {
@@ -163,7 +191,7 @@ class ArticleGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional] $name
+     * @param  string|null  $name
      * @return ArticleGroup
      */
     public function setName($name)
@@ -174,10 +202,11 @@ class ArticleGroup extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
         return $this->Name;
     }
+
 }

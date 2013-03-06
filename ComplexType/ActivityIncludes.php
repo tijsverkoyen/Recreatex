@@ -12,75 +12,43 @@ class ActivityIncludes extends ComplexTypeAbstract
     const CLASS_NAME = 'ActivityIncludes';
 
     /**
-     * @var boolean
-     */
-    protected $DayParts;
 
-    /**
-     * @var boolean
-     */
-    protected $Image;
-
-    /**
-     * @var boolean
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $ImageUrl
      */
     protected $ImageUrl;
 
     /**
-     * @var boolean
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $DayParts
+     */
+    protected $DayParts;
+
+    /**
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $Options
      */
     protected $Options;
 
     /**
-     * @var boolean
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $Image
      */
-    protected $Price;
+    protected $Image;
 
     /**
-     * @var boolean
-     */
-    protected $Type;
-
-    /**
-     * @param  boolean[optional] $dayParts
-     * @return ActivityIncludes
-     */
-    public function setDayParts($dayParts)
-    {
-        $this->DayParts = $dayParts;
-
-        return $this;
-    }
-
-    /**
-     * @return boolean
-     */
-    public function getDayParts()
-    {
-        return $this->DayParts;
-    }
-
-    /**
-     * @param  boolean[optional] $image
-     * @return ActivityIncludes
-     */
-    public function setImage($image)
-    {
-        $this->Image = $image;
-
-        return $this;
-    }
-
-    /**
-     * @return boolean
-     */
-    public function getImage()
-    {
-        return $this->Image;
-    }
-
-    /**
-     * @param  boolean[optional] $imageUrl
+     * @param  boolean|null     $imageUrl
      * @return ActivityIncludes
      */
     public function setImageUrl($imageUrl)
@@ -91,7 +59,7 @@ class ActivityIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean
+     * @return boolean|null
      */
     public function getImageUrl()
     {
@@ -99,7 +67,26 @@ class ActivityIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean[optional] $options
+     * @param  boolean|null     $dayParts
+     * @return ActivityIncludes
+     */
+    public function setDayParts($dayParts)
+    {
+        $this->DayParts = $dayParts;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean|null
+     */
+    public function getDayParts()
+    {
+        return $this->DayParts;
+    }
+
+    /**
+     * @param  boolean|null     $options
      * @return ActivityIncludes
      */
     public function setOptions($options)
@@ -110,7 +97,7 @@ class ActivityIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean
+     * @return boolean|null
      */
     public function getOptions()
     {
@@ -118,40 +105,22 @@ class ActivityIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean[optional] $price
+     * @param  boolean|null     $image
      * @return ActivityIncludes
      */
-    public function setPrice($price)
+    public function setImage($image)
     {
-        $this->Price = $price;
+        $this->Image = $image;
 
         return $this;
     }
 
     /**
-     * @return boolean
+     * @return boolean|null
      */
-    public function getPrice()
+    public function getImage()
     {
-        return $this->Price;
+        return $this->Image;
     }
 
-    /**
-     * @param  boolean[optional] $type
-     * @return ActivityIncludes
-     */
-    public function setType($type)
-    {
-        $this->Type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return boolean
-     */
-    public function getType()
-    {
-        return $this->Type;
-    }
 }

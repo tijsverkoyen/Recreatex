@@ -12,27 +12,31 @@ class BasketValidationResult extends ComplexTypeAbstract
     const CLASS_NAME = 'BasketValidationResult';
 
     /**
-     * @var ArrayOfBasketItemValidationResult
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var ArrayOfBasketItemValidationResult|null $BasketItemValidationResults
      */
     protected $BasketItemValidationResults;
 
     /**
-     * @param  ArrayOfBasketItemValidationResult[optional] $basketItemValidationResults
+     * @param  ArrayOfBasketItemValidationResult|null $basketItemValidationResults
      * @return BasketValidationResult
      */
-    public function setBasketItemValidationResults(
-        ArrayOfBasketItemValidationResult $basketItemValidationResults = null
-    ) {
+    public function setBasketItemValidationResults(ArrayOfBasketItemValidationResult $basketItemValidationResults = null)
+    {
         $this->BasketItemValidationResults = $basketItemValidationResults;
 
         return $this;
     }
 
     /**
-     * @return ArrayOfBasketItemValidationResult
+     * @return ArrayOfBasketItemValidationResult|null
      */
     public function getBasketItemValidationResults()
     {
         return $this->BasketItemValidationResults;
     }
+
 }

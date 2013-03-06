@@ -14,22 +14,43 @@ class AuthenticationResult extends ComplexTypeAbstract
     const CLASS_NAME = 'AuthenticationResult';
 
     /**
-     * @var SimpleTypeAuthenticationError
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\AuthenticationError|null $Error
      */
     protected $Error;
 
     /**
-     * @var boolean
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $HasSucceeded
      */
     protected $HasSucceeded;
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $PersonId
      */
     protected $PersonId;
 
     /**
-     * @param  SimpleType\AuthenticationError[optional] $error
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $LastLoginDate
+     */
+    protected $LastLoginDate;
+
+    /**
+     * @param  SimpleType\AuthenticationError|null $error
      * @return AuthenticationResult
      */
     public function setError(SimpleType\AuthenticationError $error = null)
@@ -40,7 +61,7 @@ class AuthenticationResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\AuthenticationError
+     * @return SimpleType\AuthenticationError|null
      */
     public function getError()
     {
@@ -48,7 +69,7 @@ class AuthenticationResult extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean[optional]    $hasSucceeded
+     * @param  boolean|null         $hasSucceeded
      * @return AuthenticationResult
      */
     public function setHasSucceeded($hasSucceeded)
@@ -59,7 +80,7 @@ class AuthenticationResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean
+     * @return boolean|null
      */
     public function getHasSucceeded()
     {
@@ -67,10 +88,10 @@ class AuthenticationResult extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional] $personId
+     * @param  SimpleType\guid|null $personId
      * @return AuthenticationResult
      */
-    public function setPersonId(SimpleType\Guid $personId = null)
+    public function setPersonId(SimpleType\guid $personId = null)
     {
         $this->PersonId = $personId;
 
@@ -78,10 +99,30 @@ class AuthenticationResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getPersonId()
     {
         return $this->PersonId;
     }
+
+    /**
+     * @param  string|null          $lastLoginDate
+     * @return AuthenticationResult
+     */
+    public function setLastLoginDate($lastLoginDate)
+    {
+        $this->LastLoginDate = $lastLoginDate;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getLastLoginDate()
+    {
+        return $this->LastLoginDate;
+    }
+
 }

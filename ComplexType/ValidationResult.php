@@ -12,22 +12,34 @@ class ValidationResult extends ComplexTypeAbstract
     const CLASS_NAME = 'ValidationResult';
 
     /**
-     * @var boolean
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $IsValid
      */
     protected $IsValid;
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $Message
      */
     protected $Message;
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $brokenRuleName
      */
     protected $brokenRuleName;
 
     /**
-     * @param  boolean[optional] $isValid
+     * @param  boolean|null     $isValid
      * @return ValidationResult
      */
     public function setIsValid($isValid)
@@ -38,7 +50,7 @@ class ValidationResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean
+     * @return boolean|null
      */
     public function getIsValid()
     {
@@ -46,7 +58,7 @@ class ValidationResult extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional] $message
+     * @param  string|null      $message
      * @return ValidationResult
      */
     public function setMessage($message)
@@ -57,7 +69,7 @@ class ValidationResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getMessage()
     {
@@ -65,7 +77,7 @@ class ValidationResult extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional] $brokenRuleName
+     * @param  string|null      $brokenRuleName
      * @return ValidationResult
      */
     public function setBrokenRuleName($brokenRuleName)
@@ -76,10 +88,11 @@ class ValidationResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getBrokenRuleName()
     {
         return $this->brokenRuleName;
     }
+
 }

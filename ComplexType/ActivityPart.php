@@ -14,22 +14,34 @@ class ActivityPart extends ComplexTypeAbstract
     const CLASS_NAME = 'ActivityPart';
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $Comments
      */
     protected $Comments;
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $Id
      */
     protected $Id;
 
     /**
-     * @var Period
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var Period|null $Period
      */
     protected $Period;
 
     /**
-     * @param  string[optional] $comments
+     * @param  string|null  $comments
      * @return ActivityPart
      */
     public function setComments($comments)
@@ -40,7 +52,7 @@ class ActivityPart extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getComments()
     {
@@ -48,10 +60,10 @@ class ActivityPart extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional] $id
+     * @param  SimpleType\guid|null $id
      * @return ActivityPart
      */
-    public function setId(SimpleType\Guid $id = null)
+    public function setId(SimpleType\guid $id = null)
     {
         $this->Id = $id;
 
@@ -59,7 +71,7 @@ class ActivityPart extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getId()
     {
@@ -67,7 +79,7 @@ class ActivityPart extends ComplexTypeAbstract
     }
 
     /**
-     * @param  Period[optional] $period
+     * @param  Period|null  $period
      * @return ActivityPart
      */
     public function setPeriod(Period $period = null)
@@ -78,10 +90,11 @@ class ActivityPart extends ComplexTypeAbstract
     }
 
     /**
-     * @return Period
+     * @return Period|null
      */
     public function getPeriod()
     {
         return $this->Period;
     }
+
 }

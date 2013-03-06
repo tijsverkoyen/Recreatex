@@ -14,22 +14,34 @@ class CultureActivity extends ComplexTypeAbstract
     const CLASS_NAME = 'CultureActivity';
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $Code
      */
     protected $Code;
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $Id
      */
     protected $Id;
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $Name
      */
     protected $Name;
 
     /**
-     * @param  string[optional] $code
+     * @param  string|null     $code
      * @return CultureActivity
      */
     public function setCode($code)
@@ -40,7 +52,7 @@ class CultureActivity extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getCode()
     {
@@ -48,10 +60,10 @@ class CultureActivity extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional] $id
+     * @param  SimpleType\guid|null $id
      * @return CultureActivity
      */
-    public function setId(SimpleType\Guid $id = null)
+    public function setId(SimpleType\guid $id = null)
     {
         $this->Id = $id;
 
@@ -59,7 +71,7 @@ class CultureActivity extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getId()
     {
@@ -67,7 +79,7 @@ class CultureActivity extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional] $name
+     * @param  string|null     $name
      * @return CultureActivity
      */
     public function setName($name)
@@ -78,10 +90,11 @@ class CultureActivity extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
         return $this->Name;
     }
+
 }

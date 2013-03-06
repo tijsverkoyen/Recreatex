@@ -12,12 +12,16 @@ class ArrayOfCultureEvent extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfCultureEvent';
 
     /**
-     * @var array
+
+     * minOccurs = 0
+     * maxOccurs = unbounded
+     *
+     * @var CultureEvent[] $CultureEvent
      */
     protected $CultureEvent = array();
 
     /**
-     * @param  array               $cultureEvent
+     * @param  CultureEvent[]      $cultureEvent
      * @return ArrayOfCultureEvent
      */
     public function setCultureEvent(array $cultureEvent = array())
@@ -28,13 +32,11 @@ class ArrayOfCultureEvent extends ComplexTypeAbstract
     }
 
     /**
-     * @return array
+     * @return CultureEvent[]
      */
     public function getCultureEvent()
     {
-	    if(!is_array($this->CultureEvent)) {
-		    return array($this->CultureEvent);
-	    }
-	    return $this->CultureEvent;
+        return $this->CultureEvent;
     }
+
 }

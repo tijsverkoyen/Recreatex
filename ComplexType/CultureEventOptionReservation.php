@@ -14,25 +14,37 @@ class CultureEventOptionReservation extends ComplexTypeAbstract
     const CLASS_NAME = 'CultureEventOptionReservation';
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $CultureEventId
      */
     protected $CultureEventId;
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $CultureEventOptionId
      */
     protected $CultureEventOptionId;
 
     /**
-     * @var integer
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var integer|null $Quantity
      */
     protected $Quantity;
 
     /**
-     * @param  SimpleType\Guid[optional]     $cultureEventId
+     * @param  SimpleType\guid|null          $cultureEventId
      * @return CultureEventOptionReservation
      */
-    public function setCultureEventId(SimpleType\Guid $cultureEventId = null)
+    public function setCultureEventId(SimpleType\guid $cultureEventId = null)
     {
         $this->CultureEventId = $cultureEventId;
 
@@ -40,7 +52,7 @@ class CultureEventOptionReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getCultureEventId()
     {
@@ -48,10 +60,10 @@ class CultureEventOptionReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional]     $cultureEventOptionId
+     * @param  SimpleType\guid|null          $cultureEventOptionId
      * @return CultureEventOptionReservation
      */
-    public function setCultureEventOptionId(SimpleType\Guid $cultureEventOptionId = null)
+    public function setCultureEventOptionId(SimpleType\guid $cultureEventOptionId = null)
     {
         $this->CultureEventOptionId = $cultureEventOptionId;
 
@@ -59,7 +71,7 @@ class CultureEventOptionReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getCultureEventOptionId()
     {
@@ -67,7 +79,7 @@ class CultureEventOptionReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  integer[optional]             $quantity
+     * @param  integer|null                  $quantity
      * @return CultureEventOptionReservation
      */
     public function setQuantity($quantity)
@@ -78,10 +90,11 @@ class CultureEventOptionReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return integer
+     * @return integer|null
      */
     public function getQuantity()
     {
         return $this->Quantity;
     }
+
 }

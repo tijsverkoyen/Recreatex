@@ -14,32 +14,56 @@ class SeatAllocation extends ComplexTypeAbstract
     const CLASS_NAME = 'SeatAllocation';
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $CardNumber
      */
     protected $CardNumber;
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $CultureEventId
      */
     protected $CultureEventId;
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $CultureEventReservationId
      */
     protected $CultureEventReservationId;
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $CustomerId
      */
     protected $CustomerId;
 
     /**
-     * @var float
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var float|null $Price
      */
     protected $Price;
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $SeatBlockCode
      */
     protected $SeatBlockCode;
 
@@ -57,7 +81,7 @@ class SeatAllocation extends ComplexTypeAbstract
      * minOccurs = 1
      * maxOccurs = 1
      *
-     * @var SimpleType\Guid
+     * @var SimpleType\guid $SeatId
      */
     protected $SeatId;
 
@@ -80,7 +104,7 @@ class SeatAllocation extends ComplexTypeAbstract
     protected $Status;
 
     /**
-     * @param  string[optional] $cardNumber
+     * @param  string|null    $cardNumber
      * @return SeatAllocation
      */
     public function setCardNumber($cardNumber)
@@ -91,7 +115,7 @@ class SeatAllocation extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getCardNumber()
     {
@@ -99,10 +123,10 @@ class SeatAllocation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional] $cultureEventId
+     * @param  SimpleType\guid|null $cultureEventId
      * @return SeatAllocation
      */
-    public function setCultureEventId(SimpleType\Guid $cultureEventId = null)
+    public function setCultureEventId(SimpleType\guid $cultureEventId = null)
     {
         $this->CultureEventId = $cultureEventId;
 
@@ -110,7 +134,7 @@ class SeatAllocation extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getCultureEventId()
     {
@@ -118,10 +142,10 @@ class SeatAllocation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional] $cultureEventReservationId
+     * @param  SimpleType\guid|null $cultureEventReservationId
      * @return SeatAllocation
      */
-    public function setCultureEventReservationId(SimpleType\Guid $cultureEventReservationId = null)
+    public function setCultureEventReservationId(SimpleType\guid $cultureEventReservationId = null)
     {
         $this->CultureEventReservationId = $cultureEventReservationId;
 
@@ -129,7 +153,7 @@ class SeatAllocation extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getCultureEventReservationId()
     {
@@ -137,10 +161,10 @@ class SeatAllocation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional] $customerId
+     * @param  SimpleType\guid|null $customerId
      * @return SeatAllocation
      */
-    public function setCustomerId(SimpleType\Guid $customerId = null)
+    public function setCustomerId(SimpleType\guid $customerId = null)
     {
         $this->CustomerId = $customerId;
 
@@ -148,7 +172,7 @@ class SeatAllocation extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getCustomerId()
     {
@@ -156,7 +180,7 @@ class SeatAllocation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  float[optional] $price
+     * @param  float|null     $price
      * @return SeatAllocation
      */
     public function setPrice($price)
@@ -167,7 +191,7 @@ class SeatAllocation extends ComplexTypeAbstract
     }
 
     /**
-     * @return float
+     * @return float|null
      */
     public function getPrice()
     {
@@ -175,7 +199,7 @@ class SeatAllocation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional] $seatBlockCode
+     * @param  string|null    $seatBlockCode
      * @return SeatAllocation
      */
     public function setSeatBlockCode($seatBlockCode)
@@ -186,7 +210,7 @@ class SeatAllocation extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getSeatBlockCode()
     {
@@ -213,10 +237,10 @@ class SeatAllocation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid $seatId
+     * @param  SimpleType\guid $seatId
      * @return SeatAllocation
      */
-    public function setSeatId(SimpleType\Guid $seatId)
+    public function setSeatId(SimpleType\guid $seatId)
     {
         $this->SeatId = $seatId;
 
@@ -224,7 +248,7 @@ class SeatAllocation extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid
      */
     public function getSeatId()
     {
@@ -268,4 +292,5 @@ class SeatAllocation extends ComplexTypeAbstract
     {
         return $this->Status;
     }
+
 }

@@ -12,12 +12,16 @@ class ArrayOfLockTicket extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfLockTicket';
 
     /**
-     * @var array
+
+     * minOccurs = 0
+     * maxOccurs = unbounded
+     *
+     * @var LockTicket[] $LockTicket
      */
     protected $LockTicket = array();
 
     /**
-     * @param  array             $lockTicket
+     * @param  LockTicket[]      $lockTicket
      * @return ArrayOfLockTicket
      */
     public function setLockTicket(array $lockTicket = array())
@@ -28,13 +32,11 @@ class ArrayOfLockTicket extends ComplexTypeAbstract
     }
 
     /**
-     * @return array
+     * @return LockTicket[]
      */
     public function getLockTicket()
     {
-	    if(!is_array($this->LockTicket)) {
-		    return array($this->LockTicket);
-	    }
-	    return $this->LockTicket;
+        return $this->LockTicket;
     }
+
 }

@@ -12,17 +12,25 @@ class AdditionalCost extends ComplexTypeAbstract
     const CLASS_NAME = 'AdditionalCost';
 
     /**
-     * @var float
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var float|null $Cost
      */
     protected $Cost;
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $Name
      */
     protected $Name;
 
     /**
-     * @param  float[optional] $cost
+     * @param  float|null     $cost
      * @return AdditionalCost
      */
     public function setCost($cost)
@@ -33,7 +41,7 @@ class AdditionalCost extends ComplexTypeAbstract
     }
 
     /**
-     * @return float
+     * @return float|null
      */
     public function getCost()
     {
@@ -41,7 +49,7 @@ class AdditionalCost extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional] $name
+     * @param  string|null    $name
      * @return AdditionalCost
      */
     public function setName($name)
@@ -52,10 +60,11 @@ class AdditionalCost extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
         return $this->Name;
     }
+
 }

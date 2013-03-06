@@ -2,6 +2,8 @@
 
 namespace TijsVerkoyen\Recreatex\ComplexType;
 
+use TijsVerkoyen\Recreatex\SimpleType;
+
 /**
  *
  * @link https://github.com/opensoft/php-wsdl-proxy-generator WSDL parser and Proxy class generator on PHP
@@ -12,13 +14,17 @@ class ArrayOfGuid extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfguid';
 
     /**
-     * @var array
+
+     * minOccurs = 0
+     * maxOccurs = unbounded
+     *
+     * @var SimpleType\guid[] $guid
      */
     protected $guid = array();
 
     /**
-     * @param  array       $guid
-     * @return ArrayOfGuid
+     * @param  SimpleType\guid[] $guid
+     * @return ArrayOfguid
      */
     public function setGuid(array $guid = array())
     {
@@ -28,13 +34,11 @@ class ArrayOfGuid extends ComplexTypeAbstract
     }
 
     /**
-     * @return array
+     * @return SimpleType\guid[]
      */
     public function getGuid()
     {
-	    if(!is_array($this->guid)) {
-		    return array($this->guid);
-	    }
-	    return $this->guid;
+        return $this->guid;
     }
+
 }

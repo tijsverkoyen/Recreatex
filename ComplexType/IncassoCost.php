@@ -12,12 +12,16 @@ class IncassoCost extends ComplexTypeAbstract
     const CLASS_NAME = 'IncassoCost';
 
     /**
-     * @var integer
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var integer|null $NumberOfPayments
      */
     protected $NumberOfPayments;
 
     /**
-     * @param  integer[optional] $numberOfPayments
+     * @param  integer|null $numberOfPayments
      * @return IncassoCost
      */
     public function setNumberOfPayments($numberOfPayments)
@@ -28,10 +32,11 @@ class IncassoCost extends ComplexTypeAbstract
     }
 
     /**
-     * @return integer
+     * @return integer|null
      */
     public function getNumberOfPayments()
     {
         return $this->NumberOfPayments;
     }
+
 }

@@ -12,22 +12,34 @@ class ActivityPartReservation extends ComplexTypeAbstract
     const CLASS_NAME = 'ActivityPartReservation';
 
     /**
-     * @var ArrayOfActivityOption
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var ArrayOfActivityOption|null $ActivityOptions
      */
     protected $ActivityOptions;
 
     /**
-     * @var ActivityPart
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var ActivityPart|null $ActivityPart
      */
     protected $ActivityPart;
 
     /**
-     * @var boolean
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $IsSelected
      */
     protected $IsSelected;
 
     /**
-     * @param  ArrayOfActivityOption[optional] $activityOptions
+     * @param  ArrayOfActivityOption|null $activityOptions
      * @return ActivityPartReservation
      */
     public function setActivityOptions(ArrayOfActivityOption $activityOptions = null)
@@ -38,7 +50,7 @@ class ActivityPartReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfActivityOption
+     * @return ArrayOfActivityOption|null
      */
     public function getActivityOptions()
     {
@@ -46,7 +58,7 @@ class ActivityPartReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ActivityPart[optional]  $activityPart
+     * @param  ActivityPart|null       $activityPart
      * @return ActivityPartReservation
      */
     public function setActivityPart(ActivityPart $activityPart = null)
@@ -57,7 +69,7 @@ class ActivityPartReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return ActivityPart
+     * @return ActivityPart|null
      */
     public function getActivityPart()
     {
@@ -65,7 +77,7 @@ class ActivityPartReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean[optional]       $isSelected
+     * @param  boolean|null            $isSelected
      * @return ActivityPartReservation
      */
     public function setIsSelected($isSelected)
@@ -76,10 +88,11 @@ class ActivityPartReservation extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean
+     * @return boolean|null
      */
     public function getIsSelected()
     {
         return $this->IsSelected;
     }
+
 }

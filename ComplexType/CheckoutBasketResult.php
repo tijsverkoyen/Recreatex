@@ -14,22 +14,34 @@ class CheckoutBasketResult extends ComplexTypeAbstract
     const CLASS_NAME = 'CheckoutBasketResult';
 
     /**
-     * @var BasketValidationResult
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var BasketValidationResult|null $BasketValidationResult
      */
     protected $BasketValidationResult;
 
     /**
-     * @var SimpleTypeCheckoutResultState
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\CheckoutResultState|null $ResultState
      */
     protected $ResultState;
 
     /**
-     * @var SimpleTypeCheckoutResultState
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var ArrayOfSalesItem|null $SalesItems
      */
     protected $SalesItems;
 
     /**
-     * @param  BasketValidationResult[optional] $basketValidationResult
+     * @param  BasketValidationResult|null $basketValidationResult
      * @return CheckoutBasketResult
      */
     public function setBasketValidationResult(BasketValidationResult $basketValidationResult = null)
@@ -40,7 +52,7 @@ class CheckoutBasketResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return BasketValidationResult
+     * @return BasketValidationResult|null
      */
     public function getBasketValidationResult()
     {
@@ -48,7 +60,7 @@ class CheckoutBasketResult extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\CheckoutResultState[optional] $resultState
+     * @param  SimpleType\CheckoutResultState|null $resultState
      * @return CheckoutBasketResult
      */
     public function setResultState(SimpleType\CheckoutResultState $resultState = null)
@@ -59,7 +71,7 @@ class CheckoutBasketResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\CheckoutResultState
+     * @return SimpleType\CheckoutResultState|null
      */
     public function getResultState()
     {
@@ -67,7 +79,7 @@ class CheckoutBasketResult extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfSalesItem[optional] $salesItems
+     * @param  ArrayOfSalesItem|null $salesItems
      * @return CheckoutBasketResult
      */
     public function setSalesItems(ArrayOfSalesItem $salesItems = null)
@@ -78,10 +90,11 @@ class CheckoutBasketResult extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfSalesItem
+     * @return ArrayOfSalesItem|null
      */
     public function getSalesItems()
     {
         return $this->SalesItems;
     }
+
 }

@@ -12,12 +12,16 @@ class IncassoBasketPaymentMethod extends ComplexTypeAbstract
     const CLASS_NAME = 'IncassoBasketPaymentMethod';
 
     /**
-     * @var ArrayOfIncassoCost
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var ArrayOfIncassoCost|null $AdditionalIncassoCosts
      */
     protected $AdditionalIncassoCosts;
 
     /**
-     * @param  ArrayOfIncassoCost[optional] $additionalIncassoCosts
+     * @param  ArrayOfIncassoCost|null    $additionalIncassoCosts
      * @return IncassoBasketPaymentMethod
      */
     public function setAdditionalIncassoCosts(ArrayOfIncassoCost $additionalIncassoCosts = null)
@@ -28,10 +32,11 @@ class IncassoBasketPaymentMethod extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfIncassoCost
+     * @return ArrayOfIncassoCost|null
      */
     public function getAdditionalIncassoCosts()
     {
         return $this->AdditionalIncassoCosts;
     }
+
 }

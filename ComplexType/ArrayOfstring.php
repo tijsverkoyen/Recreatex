@@ -12,12 +12,16 @@ class ArrayOfstring extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfstring';
 
     /**
-     * @var array
+
+     * minOccurs = 0
+     * maxOccurs = unbounded
+     *
+     * @var string[] $string
      */
     protected $string = array();
 
     /**
-     * @param  array         $string
+     * @param  string[]      $string
      * @return ArrayOfstring
      */
     public function setString(array $string = array())
@@ -28,13 +32,11 @@ class ArrayOfstring extends ComplexTypeAbstract
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getString()
     {
-	    if(!is_array($this->string)) {
-		    return array($this->string);
-	    }
-	    return $this->string;
+        return $this->string;
     }
+
 }

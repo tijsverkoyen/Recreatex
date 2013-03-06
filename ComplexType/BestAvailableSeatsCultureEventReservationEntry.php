@@ -15,22 +15,38 @@ class BestAvailableSeatsCultureEventReservationEntry extends ComplexTypeAbstract
     const CLASS_NAME = 'BestAvailableSeatsCultureEventReservationEntry';
 
     /**
-     * @var integer
+
+     * minOccurs = 1
+     * maxOccurs = 1
+     *
+     * @var integer $ParticipantCount
      */
     protected $ParticipantCount;
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $SeatBlockId
      */
     protected $SeatBlockId;
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $SeatRowId
      */
     protected $SeatRowId;
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $SeatRangeId
      */
     protected $SeatRangeId;
 
@@ -54,10 +70,10 @@ class BestAvailableSeatsCultureEventReservationEntry extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional]                      $seatBlockId
+     * @param  SimpleType\guid|null                           $seatBlockId
      * @return BestAvailableSeatsCultureEventReservationEntry
      */
-    public function setSeatBlockId(SimpleType\Guid $seatBlockId = null)
+    public function setSeatBlockId(SimpleType\guid $seatBlockId = null)
     {
         $this->SeatBlockId = $seatBlockId;
 
@@ -65,7 +81,7 @@ class BestAvailableSeatsCultureEventReservationEntry extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getSeatBlockId()
     {
@@ -73,10 +89,10 @@ class BestAvailableSeatsCultureEventReservationEntry extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional]                      $seatRowId
+     * @param  SimpleType\guid|null                           $seatRowId
      * @return BestAvailableSeatsCultureEventReservationEntry
      */
-    public function setSeatRowId(SimpleType\Guid $seatRowId = null)
+    public function setSeatRowId(SimpleType\guid $seatRowId = null)
     {
         $this->SeatRowId = $seatRowId;
 
@@ -84,7 +100,7 @@ class BestAvailableSeatsCultureEventReservationEntry extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getSeatRowId()
     {
@@ -92,10 +108,10 @@ class BestAvailableSeatsCultureEventReservationEntry extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional]                      $seatRangeId
+     * @param  SimpleType\guid|null                           $seatRangeId
      * @return BestAvailableSeatsCultureEventReservationEntry
      */
-    public function setSeatRangeId(SimpleType\Guid $seatRangeId = null)
+    public function setSeatRangeId(SimpleType\guid $seatRangeId = null)
     {
         $this->SeatRangeId = $seatRangeId;
 
@@ -103,10 +119,11 @@ class BestAvailableSeatsCultureEventReservationEntry extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getSeatRangeId()
     {
         return $this->SeatRangeId;
     }
+
 }

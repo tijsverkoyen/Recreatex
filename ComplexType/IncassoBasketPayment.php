@@ -12,12 +12,16 @@ class IncassoBasketPayment extends ComplexTypeAbstract
     const CLASS_NAME = 'IncassoBasketPayment';
 
     /**
-     * @var integer
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var integer|null $NumberOfIncassoPayments
      */
     protected $NumberOfIncassoPayments;
 
     /**
-     * @param  integer[optional]    $numberOfIncassoPayments
+     * @param  integer|null         $numberOfIncassoPayments
      * @return IncassoBasketPayment
      */
     public function setNumberOfIncassoPayments($numberOfIncassoPayments)
@@ -28,10 +32,11 @@ class IncassoBasketPayment extends ComplexTypeAbstract
     }
 
     /**
-     * @return integer
+     * @return integer|null
      */
     public function getNumberOfIncassoPayments()
     {
         return $this->NumberOfIncassoPayments;
     }
+
 }

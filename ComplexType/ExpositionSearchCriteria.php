@@ -16,61 +16,135 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
 
     /**
      * Only include expositions for this target audience
-     * @var SimpleType\Guid
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $AudienceId
      */
     protected $AudienceId;
 
     /**
      * The ID of a specific exposition that you want to find
-     * @var SimpleType\Guid
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $ExpositionId
      */
     protected $ExpositionId;
 
     /**
      * Only include expositions of this type
-     * @var SimpleType\Guid
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $ExpositionTypeId
      */
     protected $ExpositionTypeId;
 
     /**
      * Ignore expositions that end before this time
-     * @var string
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $From
      */
     protected $From;
 
     /**
-     * @var ExpositionIncludes
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var ExpositionIncludes|null $Includes
      */
     protected $Includes;
 
     /**
      * Part of the name of the exposition to find. Use an asteriks (*) as the wildcard.
-     * @var string
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $NamePattern
      */
     protected $NamePattern;
 
     /**
-     * @var PagingCriteria
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var PagingCriteria|null $Paging
      */
     protected $Paging;
 
     /**
      * Ignore expositions that begin after this time
-     * @var string
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $Until
      */
     protected $Until;
 
     /**
      * Only include expositions which have a translation in the requested language
-     * @var boolean
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $TranslationRequired
      */
     protected $TranslationRequired;
 
     /**
-     * @param  SimpleType\Guid[optional] $audienceId
+     * Only include expositions for this location address
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $LocationAddressId
+     */
+    protected $LocationAddressId;
+
+    /**
+     * Only include expositions for this list of Target audiences
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var ArrayOfguid|null $AudienceIds
+     */
+    protected $AudienceIds;
+
+    /**
+     * Only include expositions for this list of Sub categories
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var ArrayOfguid|null $SubCategoryIds
+     */
+    protected $SubCategoryIds;
+
+    /**
+     * Only include expositions for this list of ExpositionTypes
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var ArrayOfguid|null $ExpositionTypeIds
+     */
+    protected $ExpositionTypeIds;
+
+    /**
+     * Excludes the donation amount within the price
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $ExcludeDonation
+     */
+    protected $ExcludeDonation;
+
+    /**
+     * @param  SimpleType\guid|null     $audienceId
      * @return ExpositionSearchCriteria
      */
-    public function setAudienceId(SimpleType\Guid $audienceId = null)
+    public function setAudienceId(SimpleType\guid $audienceId = null)
     {
         $this->AudienceId = $audienceId;
 
@@ -78,7 +152,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getAudienceId()
     {
@@ -86,10 +160,10 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional] $expositionId
+     * @param  SimpleType\guid|null     $expositionId
      * @return ExpositionSearchCriteria
      */
-    public function setExpositionId(SimpleType\Guid $expositionId = null)
+    public function setExpositionId(SimpleType\guid $expositionId = null)
     {
         $this->ExpositionId = $expositionId;
 
@@ -97,7 +171,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getExpositionId()
     {
@@ -105,10 +179,10 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional] $expositionTypeId
+     * @param  SimpleType\guid|null     $expositionTypeId
      * @return ExpositionSearchCriteria
      */
-    public function setExpositionTypeId(SimpleType\Guid $expositionTypeId = null)
+    public function setExpositionTypeId(SimpleType\guid $expositionTypeId = null)
     {
         $this->ExpositionTypeId = $expositionTypeId;
 
@@ -116,7 +190,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getExpositionTypeId()
     {
@@ -124,7 +198,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional]         $from
+     * @param  string|null              $from
      * @return ExpositionSearchCriteria
      */
     public function setFrom($from)
@@ -135,7 +209,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getFrom()
     {
@@ -143,7 +217,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ExpositionIncludes[optional] $includes
+     * @param  ExpositionIncludes|null  $includes
      * @return ExpositionSearchCriteria
      */
     public function setIncludes(ExpositionIncludes $includes = null)
@@ -154,7 +228,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return ExpositionIncludes
+     * @return ExpositionIncludes|null
      */
     public function getIncludes()
     {
@@ -162,7 +236,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional]         $namePattern
+     * @param  string|null              $namePattern
      * @return ExpositionSearchCriteria
      */
     public function setNamePattern($namePattern)
@@ -173,7 +247,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getNamePattern()
     {
@@ -181,7 +255,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  PagingCriteria[optional] $paging
+     * @param  PagingCriteria|null      $paging
      * @return ExpositionSearchCriteria
      */
     public function setPaging(PagingCriteria $paging = null)
@@ -192,7 +266,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return PagingCriteria
+     * @return PagingCriteria|null
      */
     public function getPaging()
     {
@@ -200,7 +274,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional]         $until
+     * @param  string|null              $until
      * @return ExpositionSearchCriteria
      */
     public function setUntil($until)
@@ -211,7 +285,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getUntil()
     {
@@ -219,7 +293,7 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean[optional]        $translationRequired
+     * @param  boolean|null             $translationRequired
      * @return ExpositionSearchCriteria
      */
     public function setTranslationRequired($translationRequired)
@@ -230,10 +304,106 @@ class ExpositionSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean
+     * @return boolean|null
      */
     public function getTranslationRequired()
     {
         return $this->TranslationRequired;
     }
+
+    /**
+     * @param  SimpleType\guid|null     $locationAddressId
+     * @return ExpositionSearchCriteria
+     */
+    public function setLocationAddressId(SimpleType\guid $locationAddressId = null)
+    {
+        $this->LocationAddressId = $locationAddressId;
+
+        return $this;
+    }
+
+    /**
+     * @return SimpleType\guid|null
+     */
+    public function getLocationAddressId()
+    {
+        return $this->LocationAddressId;
+    }
+
+    /**
+     * @param  ArrayOfguid|null         $audienceIds
+     * @return ExpositionSearchCriteria
+     */
+    public function setAudienceIds(ArrayOfguid $audienceIds = null)
+    {
+        $this->AudienceIds = $audienceIds;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayOfguid|null
+     */
+    public function getAudienceIds()
+    {
+        return $this->AudienceIds;
+    }
+
+    /**
+     * @param  ArrayOfguid|null         $subCategoryIds
+     * @return ExpositionSearchCriteria
+     */
+    public function setSubCategoryIds(ArrayOfguid $subCategoryIds = null)
+    {
+        $this->SubCategoryIds = $subCategoryIds;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayOfguid|null
+     */
+    public function getSubCategoryIds()
+    {
+        return $this->SubCategoryIds;
+    }
+
+    /**
+     * @param  ArrayOfguid|null         $expositionTypeIds
+     * @return ExpositionSearchCriteria
+     */
+    public function setExpositionTypeIds(ArrayOfguid $expositionTypeIds = null)
+    {
+        $this->ExpositionTypeIds = $expositionTypeIds;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayOfguid|null
+     */
+    public function getExpositionTypeIds()
+    {
+        return $this->ExpositionTypeIds;
+    }
+
+    /**
+     * @param  boolean|null             $excludeDonation
+     * @return ExpositionSearchCriteria
+     */
+    public function setExcludeDonation($excludeDonation)
+    {
+        $this->ExcludeDonation = $excludeDonation;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean|null
+     */
+    public function getExcludeDonation()
+    {
+        return $this->ExcludeDonation;
+    }
+
 }

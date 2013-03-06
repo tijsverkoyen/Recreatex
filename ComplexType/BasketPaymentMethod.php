@@ -14,22 +14,52 @@ class BasketPaymentMethod extends ComplexTypeAbstract
     const CLASS_NAME = 'BasketPaymentMethod';
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $Code
      */
     protected $Code;
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $Id
      */
     protected $Id;
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $Name
      */
     protected $Name;
 
     /**
-     * @param  string[optional]    $code
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $DefaultCashPaymentMethod
+     */
+    protected $DefaultCashPaymentMethod;
+
+    /**
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $DefaultIncassoPaymentMethod
+     */
+    protected $DefaultIncassoPaymentMethod;
+
+    /**
+     * @param  string|null         $code
      * @return BasketPaymentMethod
      */
     public function setCode($code)
@@ -40,7 +70,7 @@ class BasketPaymentMethod extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getCode()
     {
@@ -48,10 +78,10 @@ class BasketPaymentMethod extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional] $id
+     * @param  SimpleType\guid|null $id
      * @return BasketPaymentMethod
      */
-    public function setId(SimpleType\Guid $id = null)
+    public function setId(SimpleType\guid $id = null)
     {
         $this->Id = $id;
 
@@ -59,7 +89,7 @@ class BasketPaymentMethod extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getId()
     {
@@ -67,7 +97,7 @@ class BasketPaymentMethod extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional]    $name
+     * @param  string|null         $name
      * @return BasketPaymentMethod
      */
     public function setName($name)
@@ -78,10 +108,49 @@ class BasketPaymentMethod extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
         return $this->Name;
     }
+
+    /**
+     * @param  boolean|null        $defaultCashPaymentMethod
+     * @return BasketPaymentMethod
+     */
+    public function setDefaultCashPaymentMethod($defaultCashPaymentMethod)
+    {
+        $this->DefaultCashPaymentMethod = $defaultCashPaymentMethod;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean|null
+     */
+    public function getDefaultCashPaymentMethod()
+    {
+        return $this->DefaultCashPaymentMethod;
+    }
+
+    /**
+     * @param  boolean|null        $defaultIncassoPaymentMethod
+     * @return BasketPaymentMethod
+     */
+    public function setDefaultIncassoPaymentMethod($defaultIncassoPaymentMethod)
+    {
+        $this->DefaultIncassoPaymentMethod = $defaultIncassoPaymentMethod;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean|null
+     */
+    public function getDefaultIncassoPaymentMethod()
+    {
+        return $this->DefaultIncassoPaymentMethod;
+    }
+
 }

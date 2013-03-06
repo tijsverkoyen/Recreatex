@@ -12,72 +12,142 @@ class ArticleIncludes extends ComplexTypeAbstract
     const CLASS_NAME = 'ArticleIncludes';
 
     /**
-     * @var boolean
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $FreeArticles
      */
     protected $FreeArticles;
 
     /**
-     * @var boolean
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $Group
      */
     protected $Group;
 
     /**
-     * @var boolean
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $Image
      */
     protected $Image;
 
     /**
-     * @var boolean
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $ImageUrl
      */
     protected $ImageUrl;
 
     /**
-     * @var boolean
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $Ingrediënts
      */
-    protected $Ingredients;
+    protected $Ingrediënts;
 
     /**
-     * @var boolean
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $Locations
      */
     protected $Locations;
 
     /**
-     * @var boolean
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $Options
      */
     protected $Options;
 
     /**
-     * @var boolean
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $Price
      */
     protected $Price;
 
     /**
-     * @var boolean
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $RentArticles
      */
     protected $RentArticles;
 
     /**
-     * @var boolean
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $SaleArticles
      */
     protected $SaleArticles;
 
     /**
-     * @var boolean
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $SoldOutArticles
      */
     protected $SoldOutArticles;
 
     /**
-     * @var boolean
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $Stock
      */
     protected $Stock;
 
     /**
-     * @var boolean
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $ArticleCategories
      */
     protected $ArticleCategories;
 
     /**
-     * @param  boolean[optional] $freeArticles
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $ChipKnipArticles
+     */
+    protected $ChipKnipArticles;
+
+    /**
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $ETicketArticles
+     */
+    protected $ETicketArticles;
+
+    /**
+     * @param  boolean|null    $freeArticles
      * @return ArticleIncludes
      */
     public function setFreeArticles($freeArticles)
@@ -88,7 +158,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean
+     * @return boolean|null
      */
     public function getFreeArticles()
     {
@@ -96,7 +166,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean[optional] $group
+     * @param  boolean|null    $group
      * @return ArticleIncludes
      */
     public function setGroup($group)
@@ -107,7 +177,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean
+     * @return boolean|null
      */
     public function getGroup()
     {
@@ -115,7 +185,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean[optional] $image
+     * @param  boolean|null    $image
      * @return ArticleIncludes
      */
     public function setImage($image)
@@ -126,7 +196,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean
+     * @return boolean|null
      */
     public function getImage()
     {
@@ -134,7 +204,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean[optional] $imageUrl
+     * @param  boolean|null    $imageUrl
      * @return ArticleIncludes
      */
     public function setImageUrl($imageUrl)
@@ -145,7 +215,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean
+     * @return boolean|null
      */
     public function getImageUrl()
     {
@@ -153,26 +223,26 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean[optional] $ingredients
+     * @param  boolean|null    $ingrediënts
      * @return ArticleIncludes
      */
-    public function setIngredients($ingredients)
+    public function setIngrediënts($ingrediënts)
     {
-        $this->Ingrediënts = $ingredients;
+        $this->Ingrediënts = $ingrediënts;
 
         return $this;
     }
 
     /**
-     * @return boolean
+     * @return boolean|null
      */
-    public function getIngredients()
+    public function getIngrediënts()
     {
-        return $this->Ingredients;
+        return $this->Ingrediënts;
     }
 
     /**
-     * @param  boolean[optional] $locations
+     * @param  boolean|null    $locations
      * @return ArticleIncludes
      */
     public function setLocations($locations)
@@ -183,7 +253,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean
+     * @return boolean|null
      */
     public function getLocations()
     {
@@ -191,7 +261,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean[optional] $options
+     * @param  boolean|null    $options
      * @return ArticleIncludes
      */
     public function setOptions($options)
@@ -202,7 +272,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean
+     * @return boolean|null
      */
     public function getOptions()
     {
@@ -210,7 +280,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean[optional] $price
+     * @param  boolean|null    $price
      * @return ArticleIncludes
      */
     public function setPrice($price)
@@ -221,7 +291,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean
+     * @return boolean|null
      */
     public function getPrice()
     {
@@ -229,7 +299,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean[optional] $rentArticles
+     * @param  boolean|null    $rentArticles
      * @return ArticleIncludes
      */
     public function setRentArticles($rentArticles)
@@ -240,7 +310,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean
+     * @return boolean|null
      */
     public function getRentArticles()
     {
@@ -248,7 +318,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean[optional] $saleArticles
+     * @param  boolean|null    $saleArticles
      * @return ArticleIncludes
      */
     public function setSaleArticles($saleArticles)
@@ -259,7 +329,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean
+     * @return boolean|null
      */
     public function getSaleArticles()
     {
@@ -267,7 +337,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean[optional] $soldOutArticles
+     * @param  boolean|null    $soldOutArticles
      * @return ArticleIncludes
      */
     public function setSoldOutArticles($soldOutArticles)
@@ -278,7 +348,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean
+     * @return boolean|null
      */
     public function getSoldOutArticles()
     {
@@ -286,7 +356,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean[optional] $stock
+     * @param  boolean|null    $stock
      * @return ArticleIncludes
      */
     public function setStock($stock)
@@ -297,7 +367,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean
+     * @return boolean|null
      */
     public function getStock()
     {
@@ -305,7 +375,7 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean[optional] $articleCategories
+     * @param  boolean|null    $articleCategories
      * @return ArticleIncludes
      */
     public function setArticleCategories($articleCategories)
@@ -316,10 +386,49 @@ class ArticleIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean
+     * @return boolean|null
      */
     public function getArticleCategories()
     {
         return $this->ArticleCategories;
     }
+
+    /**
+     * @param  boolean|null    $chipKnipArticles
+     * @return ArticleIncludes
+     */
+    public function setChipKnipArticles($chipKnipArticles)
+    {
+        $this->ChipKnipArticles = $chipKnipArticles;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean|null
+     */
+    public function getChipKnipArticles()
+    {
+        return $this->ChipKnipArticles;
+    }
+
+    /**
+     * @param  boolean|null    $eTicketArticles
+     * @return ArticleIncludes
+     */
+    public function setETicketArticles($eTicketArticles)
+    {
+        $this->ETicketArticles = $eTicketArticles;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean|null
+     */
+    public function getETicketArticles()
+    {
+        return $this->ETicketArticles;
+    }
+
 }

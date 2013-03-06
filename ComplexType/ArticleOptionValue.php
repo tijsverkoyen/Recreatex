@@ -14,20 +14,28 @@ class ArticleOptionValue extends ComplexTypeAbstract
     const CLASS_NAME = 'ArticleOptionValue';
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $Id
      */
     protected $Id;
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $Value
      */
     protected $Value;
 
     /**
-     * @param  SimpleType\Guid[optional] $id
+     * @param  SimpleType\guid|null $id
      * @return ArticleOptionValue
      */
-    public function setId(SimpleType\Guid $id = null)
+    public function setId(SimpleType\guid $id = null)
     {
         $this->Id = $id;
 
@@ -35,7 +43,7 @@ class ArticleOptionValue extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getId()
     {
@@ -43,7 +51,7 @@ class ArticleOptionValue extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional]   $value
+     * @param  string|null        $value
      * @return ArticleOptionValue
      */
     public function setValue($value)
@@ -54,10 +62,11 @@ class ArticleOptionValue extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getValue()
     {
         return $this->Value;
     }
+
 }

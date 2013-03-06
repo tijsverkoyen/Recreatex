@@ -12,12 +12,16 @@ class ArrayOfHall extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfHall';
 
     /**
-     * @var array
+
+     * minOccurs = 0
+     * maxOccurs = unbounded
+     *
+     * @var Hall[] $Hall
      */
     protected $Hall = array();
 
     /**
-     * @param  array       $hall
+     * @param  Hall[]      $hall
      * @return ArrayOfHall
      */
     public function setHall(array $hall = array())
@@ -28,13 +32,11 @@ class ArrayOfHall extends ComplexTypeAbstract
     }
 
     /**
-     * @return array
+     * @return Hall[]
      */
     public function getHall()
     {
-	    if(!is_array($this->Hall)) {
-		    return array($this->Hall);
-	    }
-	    return $this->Hall;
+        return $this->Hall;
     }
+
 }

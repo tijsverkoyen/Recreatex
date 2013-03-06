@@ -12,12 +12,16 @@ class ArrayOfSeatAllocation extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfSeatAllocation';
 
     /**
-     * @var array
+
+     * minOccurs = 0
+     * maxOccurs = unbounded
+     *
+     * @var SeatAllocation[] $SeatAllocation
      */
     protected $SeatAllocation = array();
 
     /**
-     * @param  array                 $seatAllocation
+     * @param  SeatAllocation[]      $seatAllocation
      * @return ArrayOfSeatAllocation
      */
     public function setSeatAllocation(array $seatAllocation = array())
@@ -28,13 +32,11 @@ class ArrayOfSeatAllocation extends ComplexTypeAbstract
     }
 
     /**
-     * @return array
+     * @return SeatAllocation[]
      */
     public function getSeatAllocation()
     {
-	    if(!is_array($this->SeatAllocation)) {
-		    return array($this->SeatAllocation);
-	    }
-	    return $this->SeatAllocation;
+        return $this->SeatAllocation;
     }
+
 }

@@ -9,4 +9,6 @@ namespace TijsVerkoyen\Recreatex\ComplexType;
  */
 class AdministrativeCost extends ComplexTypeAbstract
 {
+    const CLASS_NAME = 'AdministrativeCost';
+
 }

@@ -12,12 +12,16 @@ class ReservationCost extends ComplexTypeAbstract
     const CLASS_NAME = 'ReservationCost';
 
     /**
-     * @var float
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var float|null $MaximumCost
      */
     protected $MaximumCost;
 
     /**
-     * @param  float[optional] $maximumCost
+     * @param  float|null      $maximumCost
      * @return ReservationCost
      */
     public function setMaximumCost($maximumCost)
@@ -28,10 +32,11 @@ class ReservationCost extends ComplexTypeAbstract
     }
 
     /**
-     * @return float
+     * @return float|null
      */
     public function getMaximumCost()
     {
         return $this->MaximumCost;
     }
+
 }

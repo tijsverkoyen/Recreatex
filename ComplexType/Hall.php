@@ -14,42 +14,79 @@ class Hall extends ComplexTypeAbstract
     const CLASS_NAME = 'Hall';
 
     /**
-     * @var Address
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var Address|null $Address
      */
     protected $Address;
 
     /**
-     * @var ArrayOfSeatBlock
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var ArrayOfSeatBlock|null $Blocks
      */
     protected $Blocks;
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $Code
      */
     protected $Code;
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $Description
      */
     protected $Description;
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $Id
      */
     protected $Id;
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $Name
      */
     protected $Name;
 
     /**
-     * @var ArrayOfSeatRow
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var ArrayOfSeatRow|null $Rows
      */
     protected $Rows;
 
     /**
-     * @param  Address[optional] $address
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var ArrayOfCultureSite|null $CultureSites
+     */
+    protected $CultureSites;
+
+    /**
+     * @param  Address|null $address
      * @return Hall
      */
     public function setAddress(Address $address = null)
@@ -60,7 +97,7 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @return Address
+     * @return Address|null
      */
     public function getAddress()
     {
@@ -68,7 +105,7 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfSeatBlock[optional] $blocks
+     * @param  ArrayOfSeatBlock|null $blocks
      * @return Hall
      */
     public function setBlocks(ArrayOfSeatBlock $blocks = null)
@@ -79,7 +116,7 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfSeatBlock
+     * @return ArrayOfSeatBlock|null
      */
     public function getBlocks()
     {
@@ -87,7 +124,7 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional] $code
+     * @param  string|null $code
      * @return Hall
      */
     public function setCode($code)
@@ -98,7 +135,7 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getCode()
     {
@@ -106,7 +143,7 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional] $description
+     * @param  string|null $description
      * @return Hall
      */
     public function setDescription($description)
@@ -117,7 +154,7 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getDescription()
     {
@@ -125,10 +162,10 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional] $id
+     * @param  SimpleType\guid|null $id
      * @return Hall
      */
-    public function setId(SimpleType\Guid $id = null)
+    public function setId(SimpleType\guid $id = null)
     {
         $this->Id = $id;
 
@@ -136,7 +173,7 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getId()
     {
@@ -144,7 +181,7 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional] $name
+     * @param  string|null $name
      * @return Hall
      */
     public function setName($name)
@@ -155,7 +192,7 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -163,7 +200,7 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfSeatRow[optional] $rows
+     * @param  ArrayOfSeatRow|null $rows
      * @return Hall
      */
     public function setRows(ArrayOfSeatRow $rows = null)
@@ -174,10 +211,30 @@ class Hall extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfSeatRow
+     * @return ArrayOfSeatRow|null
      */
     public function getRows()
     {
         return $this->Rows;
     }
+
+    /**
+     * @param  ArrayOfCultureSite|null $cultureSites
+     * @return Hall
+     */
+    public function setCultureSites(ArrayOfCultureSite $cultureSites = null)
+    {
+        $this->CultureSites = $cultureSites;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayOfCultureSite|null
+     */
+    public function getCultureSites()
+    {
+        return $this->CultureSites;
+    }
+
 }

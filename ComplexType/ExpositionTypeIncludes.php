@@ -12,17 +12,25 @@ class ExpositionTypeIncludes extends ComplexTypeAbstract
     const CLASS_NAME = 'ExpositionTypeIncludes';
 
     /**
-     * @var boolean
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $Image
      */
     protected $Image;
 
     /**
-     * @var boolean
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $ImageUri
      */
     protected $ImageUri;
 
     /**
-     * @param  boolean[optional]      $image
+     * @param  boolean|null           $image
      * @return ExpositionTypeIncludes
      */
     public function setImage($image)
@@ -33,7 +41,7 @@ class ExpositionTypeIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean
+     * @return boolean|null
      */
     public function getImage()
     {
@@ -41,7 +49,7 @@ class ExpositionTypeIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean[optional]      $imageUri
+     * @param  boolean|null           $imageUri
      * @return ExpositionTypeIncludes
      */
     public function setImageUri($imageUri)
@@ -52,10 +60,11 @@ class ExpositionTypeIncludes extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean
+     * @return boolean|null
      */
     public function getImageUri()
     {
         return $this->ImageUri;
     }
+
 }

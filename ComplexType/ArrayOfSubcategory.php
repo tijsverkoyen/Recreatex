@@ -12,12 +12,16 @@ class ArrayOfSubcategory extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfSubcategory';
 
     /**
-     * @var array
+
+     * minOccurs = 0
+     * maxOccurs = unbounded
+     *
+     * @var Subcategory[] $Subcategory
      */
     protected $Subcategory = array();
 
     /**
-     * @param  array              $subcategory
+     * @param  Subcategory[]      $subcategory
      * @return ArrayOfSubcategory
      */
     public function setSubcategory(array $subcategory = array())
@@ -28,13 +32,11 @@ class ArrayOfSubcategory extends ComplexTypeAbstract
     }
 
     /**
-     * @return array
+     * @return Subcategory[]
      */
     public function getSubcategory()
     {
-	    if(!is_array($this->Subcategory)) {
-		    return array($this->Subcategory);
-	    }
-	    return $this->Subcategory;
+        return $this->Subcategory;
     }
+
 }

@@ -12,17 +12,34 @@ class Occupancy extends ComplexTypeAbstract
     const CLASS_NAME = 'Occupancy';
 
     /**
-     * @var integer
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var integer|null $Current
      */
     protected $Current;
 
     /**
-     * @var integer
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var integer|null $Maximum
      */
     protected $Maximum;
 
     /**
-     * @param  integer[optional] $current
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var integer|null $Remaining
+     */
+    protected $Remaining;
+
+    /**
+     * @param  integer|null $current
      * @return Occupancy
      */
     public function setCurrent($current)
@@ -33,7 +50,7 @@ class Occupancy extends ComplexTypeAbstract
     }
 
     /**
-     * @return integer
+     * @return integer|null
      */
     public function getCurrent()
     {
@@ -41,7 +58,7 @@ class Occupancy extends ComplexTypeAbstract
     }
 
     /**
-     * @param  integer[optional] $maximum
+     * @param  integer|null $maximum
      * @return Occupancy
      */
     public function setMaximum($maximum)
@@ -52,10 +69,30 @@ class Occupancy extends ComplexTypeAbstract
     }
 
     /**
-     * @return integer
+     * @return integer|null
      */
     public function getMaximum()
     {
         return $this->Maximum;
     }
+
+    /**
+     * @param  integer|null $remaining
+     * @return Occupancy
+     */
+    public function setRemaining($remaining)
+    {
+        $this->Remaining = $remaining;
+
+        return $this;
+    }
+
+    /**
+     * @return integer|null
+     */
+    public function getRemaining()
+    {
+        return $this->Remaining;
+    }
+
 }

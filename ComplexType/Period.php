@@ -12,17 +12,25 @@ class Period extends ComplexTypeAbstract
     const CLASS_NAME = 'Period';
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $From
      */
     protected $From;
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $Until
      */
     protected $Until;
 
     /**
-     * @param  string[optional] $from
+     * @param  string|null $from
      * @return Period
      */
     public function setFrom($from)
@@ -33,7 +41,7 @@ class Period extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getFrom()
     {
@@ -41,7 +49,7 @@ class Period extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional] $until
+     * @param  string|null $until
      * @return Period
      */
     public function setUntil($until)
@@ -52,10 +60,11 @@ class Period extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getUntil()
     {
         return $this->Until;
     }
+
 }

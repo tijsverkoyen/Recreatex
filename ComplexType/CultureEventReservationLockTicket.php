@@ -12,12 +12,25 @@ class CultureEventReservationLockTicket extends ComplexTypeAbstract
     const CLASS_NAME = 'CultureEventReservationLockTicket';
 
     /**
-     * @var ArrayOfSeatAllocation
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var ArrayOfSeatAllocation|null $SeatAllocations
      */
     protected $SeatAllocations;
 
     /**
-     * @param  ArrayOfSeatAllocation[optional]   $seatAllocations
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var ArrayOfSiteAllocation|null $SiteAllocations
+     */
+    protected $SiteAllocations;
+
+    /**
+     * @param  ArrayOfSeatAllocation|null        $seatAllocations
      * @return CultureEventReservationLockTicket
      */
     public function setSeatAllocations(ArrayOfSeatAllocation $seatAllocations = null)
@@ -28,10 +41,30 @@ class CultureEventReservationLockTicket extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfSeatAllocation
+     * @return ArrayOfSeatAllocation|null
      */
     public function getSeatAllocations()
     {
         return $this->SeatAllocations;
     }
+
+    /**
+     * @param  ArrayOfSiteAllocation|null        $siteAllocations
+     * @return CultureEventReservationLockTicket
+     */
+    public function setSiteAllocations(ArrayOfSiteAllocation $siteAllocations = null)
+    {
+        $this->SiteAllocations = $siteAllocations;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayOfSiteAllocation|null
+     */
+    public function getSiteAllocations()
+    {
+        return $this->SiteAllocations;
+    }
+
 }

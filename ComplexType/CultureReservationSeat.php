@@ -14,47 +14,79 @@ class CultureReservationSeat extends ComplexTypeAbstract
     const CLASS_NAME = 'CultureReservationSeat';
 
     /**
-     * @var CultureEvent
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var CultureEvent|null $CultureEvent
      */
     protected $CultureEvent;
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $CultureEventId
      */
     protected $CultureEventId;
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $Id
      */
     protected $Id;
 
     /**
-     * @var float
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var float|null $Price
      */
     protected $Price;
 
     /**
-     * @var Price
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var Price|null $PriceGroup
      */
     protected $PriceGroup;
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $PriceGroupName
      */
     protected $PriceGroupName;
 
     /**
-     * @var Seat
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var Seat|null $Seat
      */
     protected $Seat;
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $SeatId
      */
     protected $SeatId;
 
     /**
-     * @param  CultureEvent[optional] $cultureEvent
+     * @param  CultureEvent|null      $cultureEvent
      * @return CultureReservationSeat
      */
     public function setCultureEvent(CultureEvent $cultureEvent = null)
@@ -65,7 +97,7 @@ class CultureReservationSeat extends ComplexTypeAbstract
     }
 
     /**
-     * @return CultureEvent
+     * @return CultureEvent|null
      */
     public function getCultureEvent()
     {
@@ -73,10 +105,10 @@ class CultureReservationSeat extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional] $cultureEventId
+     * @param  SimpleType\guid|null   $cultureEventId
      * @return CultureReservationSeat
      */
-    public function setCultureEventId(SimpleType\Guid $cultureEventId = null)
+    public function setCultureEventId(SimpleType\guid $cultureEventId = null)
     {
         $this->CultureEventId = $cultureEventId;
 
@@ -84,7 +116,7 @@ class CultureReservationSeat extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getCultureEventId()
     {
@@ -92,10 +124,10 @@ class CultureReservationSeat extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional] $id
+     * @param  SimpleType\guid|null   $id
      * @return CultureReservationSeat
      */
-    public function setId(SimpleType\Guid $id = null)
+    public function setId(SimpleType\guid $id = null)
     {
         $this->Id = $id;
 
@@ -103,7 +135,7 @@ class CultureReservationSeat extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getId()
     {
@@ -111,7 +143,7 @@ class CultureReservationSeat extends ComplexTypeAbstract
     }
 
     /**
-     * @param  float[optional]        $price
+     * @param  float|null             $price
      * @return CultureReservationSeat
      */
     public function setPrice($price)
@@ -122,7 +154,7 @@ class CultureReservationSeat extends ComplexTypeAbstract
     }
 
     /**
-     * @return float
+     * @return float|null
      */
     public function getPrice()
     {
@@ -130,7 +162,7 @@ class CultureReservationSeat extends ComplexTypeAbstract
     }
 
     /**
-     * @param  Price[optional]        $priceGroup
+     * @param  Price|null             $priceGroup
      * @return CultureReservationSeat
      */
     public function setPriceGroup(Price $priceGroup = null)
@@ -141,7 +173,7 @@ class CultureReservationSeat extends ComplexTypeAbstract
     }
 
     /**
-     * @return Price
+     * @return Price|null
      */
     public function getPriceGroup()
     {
@@ -149,7 +181,7 @@ class CultureReservationSeat extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional]       $priceGroupName
+     * @param  string|null            $priceGroupName
      * @return CultureReservationSeat
      */
     public function setPriceGroupName($priceGroupName)
@@ -160,7 +192,7 @@ class CultureReservationSeat extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getPriceGroupName()
     {
@@ -168,7 +200,7 @@ class CultureReservationSeat extends ComplexTypeAbstract
     }
 
     /**
-     * @param  Seat[optional]         $seat
+     * @param  Seat|null              $seat
      * @return CultureReservationSeat
      */
     public function setSeat(Seat $seat = null)
@@ -179,7 +211,7 @@ class CultureReservationSeat extends ComplexTypeAbstract
     }
 
     /**
-     * @return Seat
+     * @return Seat|null
      */
     public function getSeat()
     {
@@ -187,10 +219,10 @@ class CultureReservationSeat extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional] $seatId
+     * @param  SimpleType\guid|null   $seatId
      * @return CultureReservationSeat
      */
-    public function setSeatId(SimpleType\Guid $seatId = null)
+    public function setSeatId(SimpleType\guid $seatId = null)
     {
         $this->SeatId = $seatId;
 
@@ -198,10 +230,11 @@ class CultureReservationSeat extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getSeatId()
     {
         return $this->SeatId;
     }
+
 }

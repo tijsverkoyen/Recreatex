@@ -12,12 +12,16 @@ class ArrayOfCultureActivity extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfCultureActivity';
 
     /**
-     * @var array
+
+     * minOccurs = 0
+     * maxOccurs = unbounded
+     *
+     * @var CultureActivity[] $CultureActivity
      */
     protected $CultureActivity = array();
 
     /**
-     * @param  array                  $cultureActivity
+     * @param  CultureActivity[]      $cultureActivity
      * @return ArrayOfCultureActivity
      */
     public function setCultureActivity(array $cultureActivity = array())
@@ -28,13 +32,11 @@ class ArrayOfCultureActivity extends ComplexTypeAbstract
     }
 
     /**
-     * @return array
+     * @return CultureActivity[]
      */
     public function getCultureActivity()
     {
-	    if(!is_array($this->CultureActivity)) {
-		    return array($this->CultureActivity);
-	    }
-	    return $this->CultureActivity;
+        return $this->CultureActivity;
     }
+
 }

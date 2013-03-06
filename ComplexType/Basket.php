@@ -14,30 +14,73 @@ class Basket extends ComplexTypeAbstract
     const CLASS_NAME = 'Basket';
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $CustomerId
      */
     protected $CustomerId;
 
     /**
-     * @var ArrayOfBasketItem
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var ArrayOfBasketItem|null $Items
      */
     protected $Items;
 
     /**
-     * @var ArrayOfBasketPayment
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var ArrayOfBasketPayment|null $Payments
      */
     protected $Payments;
 
     /**
-     * @var float
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var float|null $Price
      */
     protected $Price;
 
     /**
-     * @param  SimpleType\Guid[optional] $customerId
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $DeliveryAddressId
+     */
+    protected $DeliveryAddressId;
+
+    /**
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var ArrayOfAdditionalCost|null $AdditionalCosts
+     */
+    protected $AdditionalCosts;
+
+    /**
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $OrderId
+     */
+    protected $OrderId;
+
+    /**
+     * @param  SimpleType\guid|null $customerId
      * @return Basket
      */
-    public function setCustomerId(SimpleType\Guid $customerId = null)
+    public function setCustomerId(SimpleType\guid $customerId = null)
     {
         $this->CustomerId = $customerId;
 
@@ -45,7 +88,7 @@ class Basket extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getCustomerId()
     {
@@ -53,7 +96,7 @@ class Basket extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfBasketItem[optional] $items
+     * @param  ArrayOfBasketItem|null $items
      * @return Basket
      */
     public function setItems(ArrayOfBasketItem $items = null)
@@ -64,7 +107,7 @@ class Basket extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfBasketItem
+     * @return ArrayOfBasketItem|null
      */
     public function getItems()
     {
@@ -72,7 +115,7 @@ class Basket extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfBasketPayment[optional] $payments
+     * @param  ArrayOfBasketPayment|null $payments
      * @return Basket
      */
     public function setPayments(ArrayOfBasketPayment $payments = null)
@@ -83,7 +126,7 @@ class Basket extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfBasketPayment
+     * @return ArrayOfBasketPayment|null
      */
     public function getPayments()
     {
@@ -91,7 +134,7 @@ class Basket extends ComplexTypeAbstract
     }
 
     /**
-     * @param  float[optional] $price
+     * @param  float|null $price
      * @return Basket
      */
     public function setPrice($price)
@@ -102,10 +145,68 @@ class Basket extends ComplexTypeAbstract
     }
 
     /**
-     * @return float
+     * @return float|null
      */
     public function getPrice()
     {
         return $this->Price;
     }
+
+    /**
+     * @param  SimpleType\guid|null $deliveryAddressId
+     * @return Basket
+     */
+    public function setDeliveryAddressId(SimpleType\guid $deliveryAddressId = null)
+    {
+        $this->DeliveryAddressId = $deliveryAddressId;
+
+        return $this;
+    }
+
+    /**
+     * @return SimpleType\guid|null
+     */
+    public function getDeliveryAddressId()
+    {
+        return $this->DeliveryAddressId;
+    }
+
+    /**
+     * @param  ArrayOfAdditionalCost|null $additionalCosts
+     * @return Basket
+     */
+    public function setAdditionalCosts(ArrayOfAdditionalCost $additionalCosts = null)
+    {
+        $this->AdditionalCosts = $additionalCosts;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayOfAdditionalCost|null
+     */
+    public function getAdditionalCosts()
+    {
+        return $this->AdditionalCosts;
+    }
+
+    /**
+     * @param  string|null $orderId
+     * @return Basket
+     */
+    public function setOrderId($orderId)
+    {
+        $this->OrderId = $orderId;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getOrderId()
+    {
+        return $this->OrderId;
+    }
+
 }

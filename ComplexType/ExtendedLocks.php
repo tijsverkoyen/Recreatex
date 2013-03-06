@@ -12,17 +12,25 @@ class ExtendedLocks extends ComplexTypeAbstract
     const CLASS_NAME = 'ExtendedLocks';
 
     /**
-     * @var ArrayOfLockTicket
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var ArrayOfLockTicket|null $Succeeded
      */
     protected $Succeeded;
 
     /**
-     * @var ArrayOfLockTicket
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var ArrayOfLockTicket|null $Failed
      */
     protected $Failed;
 
     /**
-     * @param  ArrayOfLockTicket[optional] $succeeded
+     * @param  ArrayOfLockTicket|null $succeeded
      * @return ExtendedLocks
      */
     public function setSucceeded(ArrayOfLockTicket $succeeded = null)
@@ -33,7 +41,7 @@ class ExtendedLocks extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfLockTicket
+     * @return ArrayOfLockTicket|null
      */
     public function getSucceeded()
     {
@@ -41,7 +49,7 @@ class ExtendedLocks extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfLockTicket[optional] $failed
+     * @param  ArrayOfLockTicket|null $failed
      * @return ExtendedLocks
      */
     public function setFailed(ArrayOfLockTicket $failed = null)
@@ -52,10 +60,11 @@ class ExtendedLocks extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfLockTicket
+     * @return ArrayOfLockTicket|null
      */
     public function getFailed()
     {
         return $this->Failed;
     }
+
 }

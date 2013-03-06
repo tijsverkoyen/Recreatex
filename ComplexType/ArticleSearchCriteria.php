@@ -14,60 +14,127 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     const CLASS_NAME = 'ArticleSearchCriteria';
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $ArticleGroupId
      */
     protected $ArticleGroupId;
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $ArticleId
      */
     protected $ArticleId;
 
     /**
-     * @var SimpleType\ArticleType
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\ArticleType|null $ArticleTypes
      */
     protected $ArticleTypes;
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $BuyerId
      */
     protected $BuyerId;
 
     /**
-     * @var boolean
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $IncludeDetail
      */
     protected $IncludeDetail;
 
     /**
-     * @var ArticleIncludes
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var ArticleIncludes|null $Includes
      */
     protected $Includes;
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $NamePattern
      */
     protected $NamePattern;
 
     /**
-     * @var PagingCriteria
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var PagingCriteria|null $Paging
      */
     protected $Paging;
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $StockLocationId
      */
     protected $StockLocationId;
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $ArticleCategoryId
      */
     protected $ArticleCategoryId;
 
     /**
-     * @param  SimpleType\Guid[optional] $articleGroupId
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var ArrayOfguid|null $ArticleCategoryIds
+     */
+    protected $ArticleCategoryIds;
+
+    /**
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var float|null $MinPrice
+     */
+    protected $MinPrice;
+
+    /**
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var float|null $MaxPrice
+     */
+    protected $MaxPrice;
+
+    /**
+     * @param  SimpleType\guid|null  $articleGroupId
      * @return ArticleSearchCriteria
      */
-    public function setArticleGroupId(SimpleType\Guid $articleGroupId = null)
+    public function setArticleGroupId(SimpleType\guid $articleGroupId = null)
     {
         $this->ArticleGroupId = $articleGroupId;
 
@@ -75,7 +142,7 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getArticleGroupId()
     {
@@ -83,10 +150,10 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional] $articleId
+     * @param  SimpleType\guid|null  $articleId
      * @return ArticleSearchCriteria
      */
-    public function setArticleId(SimpleType\Guid $articleId = null)
+    public function setArticleId(SimpleType\guid $articleId = null)
     {
         $this->ArticleId = $articleId;
 
@@ -94,7 +161,7 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getArticleId()
     {
@@ -102,7 +169,7 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\ArticleType[optional] $articleTypes
+     * @param  SimpleType\ArticleType|null $articleTypes
      * @return ArticleSearchCriteria
      */
     public function setArticleTypes(SimpleType\ArticleType $articleTypes = null)
@@ -113,7 +180,7 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\ArticleType
+     * @return SimpleType\ArticleType|null
      */
     public function getArticleTypes()
     {
@@ -121,10 +188,10 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional] $buyerId
+     * @param  SimpleType\guid|null  $buyerId
      * @return ArticleSearchCriteria
      */
-    public function setBuyerId(SimpleType\Guid $buyerId = null)
+    public function setBuyerId(SimpleType\guid $buyerId = null)
     {
         $this->BuyerId = $buyerId;
 
@@ -132,7 +199,7 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getBuyerId()
     {
@@ -140,7 +207,7 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  boolean[optional]     $includeDetail
+     * @param  boolean|null          $includeDetail
      * @return ArticleSearchCriteria
      */
     public function setIncludeDetail($includeDetail)
@@ -151,7 +218,7 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean
+     * @return boolean|null
      */
     public function getIncludeDetail()
     {
@@ -159,7 +226,7 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArticleIncludes[optional] $includes
+     * @param  ArticleIncludes|null  $includes
      * @return ArticleSearchCriteria
      */
     public function setIncludes(ArticleIncludes $includes = null)
@@ -170,7 +237,7 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArticleIncludes
+     * @return ArticleIncludes|null
      */
     public function getIncludes()
     {
@@ -178,7 +245,7 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional]      $namePattern
+     * @param  string|null           $namePattern
      * @return ArticleSearchCriteria
      */
     public function setNamePattern($namePattern)
@@ -189,7 +256,7 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getNamePattern()
     {
@@ -197,7 +264,7 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  PagingCriteria[optional] $paging
+     * @param  PagingCriteria|null   $paging
      * @return ArticleSearchCriteria
      */
     public function setPaging(PagingCriteria $paging = null)
@@ -208,7 +275,7 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return PagingCriteria
+     * @return PagingCriteria|null
      */
     public function getPaging()
     {
@@ -216,10 +283,10 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional] $stockLocationId
+     * @param  SimpleType\guid|null  $stockLocationId
      * @return ArticleSearchCriteria
      */
-    public function setStockLocationId(SimpleType\Guid $stockLocationId = null)
+    public function setStockLocationId(SimpleType\guid $stockLocationId = null)
     {
         $this->StockLocationId = $stockLocationId;
 
@@ -227,7 +294,7 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getStockLocationId()
     {
@@ -235,10 +302,10 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional] $articleCategoryId
+     * @param  SimpleType\guid|null  $articleCategoryId
      * @return ArticleSearchCriteria
      */
-    public function setArticleCategoryId(SimpleType\Guid $articleCategoryId = null)
+    public function setArticleCategoryId(SimpleType\guid $articleCategoryId = null)
     {
         $this->ArticleCategoryId = $articleCategoryId;
 
@@ -246,10 +313,68 @@ class ArticleSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getArticleCategoryId()
     {
         return $this->ArticleCategoryId;
     }
+
+    /**
+     * @param  ArrayOfguid|null      $articleCategoryIds
+     * @return ArticleSearchCriteria
+     */
+    public function setArticleCategoryIds(ArrayOfguid $articleCategoryIds = null)
+    {
+        $this->ArticleCategoryIds = $articleCategoryIds;
+
+        return $this;
+    }
+
+    /**
+     * @return ArrayOfguid|null
+     */
+    public function getArticleCategoryIds()
+    {
+        return $this->ArticleCategoryIds;
+    }
+
+    /**
+     * @param  float|null            $minPrice
+     * @return ArticleSearchCriteria
+     */
+    public function setMinPrice($minPrice)
+    {
+        $this->MinPrice = $minPrice;
+
+        return $this;
+    }
+
+    /**
+     * @return float|null
+     */
+    public function getMinPrice()
+    {
+        return $this->MinPrice;
+    }
+
+    /**
+     * @param  float|null            $maxPrice
+     * @return ArticleSearchCriteria
+     */
+    public function setMaxPrice($maxPrice)
+    {
+        $this->MaxPrice = $maxPrice;
+
+        return $this;
+    }
+
+    /**
+     * @return float|null
+     */
+    public function getMaxPrice()
+    {
+        return $this->MaxPrice;
+    }
+
 }

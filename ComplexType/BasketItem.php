@@ -16,35 +16,55 @@ class BasketItem extends ComplexTypeAbstract
     const CLASS_NAME = 'BasketItem';
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $DivisionId
      */
     protected $DivisionId;
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $Id
      */
     protected $Id;
 
     /**
-     * @var integer
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var integer|null $Quantity
      */
     protected $Quantity;
 
     /**
-     * @var ArrayOfstring
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var ArrayOfstring|null $RuleNamesToIgnore
      */
     protected $RuleNamesToIgnore;
 
     /**
-     * @var float
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var float|null $UnitPrice
      */
     protected $UnitPrice;
 
     /**
-     * @param  SimpleType\Guid[optional] $divisionId
+     * @param  SimpleType\guid|null $divisionId
      * @return BasketItem
      */
-    public function setDivisionId(SimpleType\Guid $divisionId = null)
+    public function setDivisionId(SimpleType\guid $divisionId = null)
     {
         $this->DivisionId = $divisionId;
 
@@ -52,7 +72,7 @@ class BasketItem extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getDivisionId()
     {
@@ -60,10 +80,10 @@ class BasketItem extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional] $id
+     * @param  SimpleType\guid|null $id
      * @return BasketItem
      */
-    public function setId(SimpleType\Guid $id = null)
+    public function setId(SimpleType\guid $id = null)
     {
         $this->Id = $id;
 
@@ -71,7 +91,7 @@ class BasketItem extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getId()
     {
@@ -79,7 +99,7 @@ class BasketItem extends ComplexTypeAbstract
     }
 
     /**
-     * @param  integer[optional] $quantity
+     * @param  integer|null $quantity
      * @return BasketItem
      */
     public function setQuantity($quantity)
@@ -90,7 +110,7 @@ class BasketItem extends ComplexTypeAbstract
     }
 
     /**
-     * @return integer
+     * @return integer|null
      */
     public function getQuantity()
     {
@@ -98,7 +118,7 @@ class BasketItem extends ComplexTypeAbstract
     }
 
     /**
-     * @param  ArrayOfstring[optional] $ruleNamesToIgnore
+     * @param  ArrayOfstring|null $ruleNamesToIgnore
      * @return BasketItem
      */
     public function setRuleNamesToIgnore(ArrayOfstring $ruleNamesToIgnore = null)
@@ -109,7 +129,7 @@ class BasketItem extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfstring
+     * @return ArrayOfstring|null
      */
     public function getRuleNamesToIgnore()
     {
@@ -117,7 +137,7 @@ class BasketItem extends ComplexTypeAbstract
     }
 
     /**
-     * @param  float[optional] $unitPrice
+     * @param  float|null $unitPrice
      * @return BasketItem
      */
     public function setUnitPrice($unitPrice)
@@ -128,10 +148,11 @@ class BasketItem extends ComplexTypeAbstract
     }
 
     /**
-     * @return float
+     * @return float|null
      */
     public function getUnitPrice()
     {
         return $this->UnitPrice;
     }
+
 }

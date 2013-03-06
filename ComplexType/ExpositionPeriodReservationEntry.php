@@ -15,17 +15,25 @@ class ExpositionPeriodReservationEntry extends ComplexTypeAbstract
     const CLASS_NAME = 'ExpositionPeriodReservationEntry';
 
     /**
-     * @var integer
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var integer|null $ParticipantCount
      */
     protected $ParticipantCount;
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $PriceGroupId
      */
     protected $PriceGroupId;
 
     /**
-     * @param  integer[optional]                $participantCount
+     * @param  integer|null                     $participantCount
      * @return ExpositionPeriodReservationEntry
      */
     public function setParticipantCount($participantCount)
@@ -36,7 +44,7 @@ class ExpositionPeriodReservationEntry extends ComplexTypeAbstract
     }
 
     /**
-     * @return integer
+     * @return integer|null
      */
     public function getParticipantCount()
     {
@@ -44,10 +52,10 @@ class ExpositionPeriodReservationEntry extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional]        $priceGroupId
+     * @param  SimpleType\guid|null             $priceGroupId
      * @return ExpositionPeriodReservationEntry
      */
-    public function setPriceGroupId(SimpleType\Guid $priceGroupId = null)
+    public function setPriceGroupId(SimpleType\guid $priceGroupId = null)
     {
         $this->PriceGroupId = $priceGroupId;
 
@@ -55,10 +63,11 @@ class ExpositionPeriodReservationEntry extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getPriceGroupId()
     {
         return $this->PriceGroupId;
     }
+
 }

@@ -12,18 +12,26 @@ class Credential extends ComplexTypeAbstract
     const CLASS_NAME = 'Credential';
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $Password
      */
     protected $Password;
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $Username
      */
     protected $Username;
 
     /**
-     * @param string[optional] $password
-     *  Credential
+     * @param  string|null $password
+     * @return Credential
      */
     public function setPassword($password)
     {
@@ -33,7 +41,7 @@ class Credential extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getPassword()
     {
@@ -41,7 +49,7 @@ class Credential extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional] $username
+     * @param  string|null $username
      * @return Credential
      */
     public function setUsername($username)
@@ -52,10 +60,11 @@ class Credential extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getUsername()
     {
         return $this->Username;
     }
+
 }

@@ -12,12 +12,16 @@ class ArrayOfActivityOption extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfActivityOption';
 
     /**
-     * @var array
+
+     * minOccurs = 0
+     * maxOccurs = unbounded
+     *
+     * @var ActivityOption[] $ActivityOption
      */
     protected $ActivityOption = array();
 
     /**
-     * @param  array                 $activityOption
+     * @param  ActivityOption[]      $activityOption
      * @return ArrayOfActivityOption
      */
     public function setActivityOption(array $activityOption = array())
@@ -28,13 +32,11 @@ class ArrayOfActivityOption extends ComplexTypeAbstract
     }
 
     /**
-     * @return array
+     * @return ActivityOption[]
      */
     public function getActivityOption()
     {
-	    if(!is_array($this->ActivityOption)) {
-		    return array($this->ActivityOption);
-	    }
-	    return $this->ActivityOption;
+        return $this->ActivityOption;
     }
+
 }

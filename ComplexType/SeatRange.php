@@ -14,22 +14,43 @@ class SeatRange extends ComplexTypeAbstract
     const CLASS_NAME = 'SeatRange';
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $Code
      */
     protected $Code;
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $Id
      */
     protected $Id;
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $Name
      */
     protected $Name;
 
     /**
-     * @param  string[optional] $code
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var Color|null $Color
+     */
+    protected $Color;
+
+    /**
+     * @param  string|null $code
      * @return SeatRange
      */
     public function setCode($code)
@@ -40,7 +61,7 @@ class SeatRange extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getCode()
     {
@@ -48,10 +69,10 @@ class SeatRange extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional] $id
+     * @param  SimpleType\guid|null $id
      * @return SeatRange
      */
-    public function setId(SimpleType\Guid $id = null)
+    public function setId(SimpleType\guid $id = null)
     {
         $this->Id = $id;
 
@@ -59,7 +80,7 @@ class SeatRange extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getId()
     {
@@ -67,7 +88,7 @@ class SeatRange extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional] $name
+     * @param  string|null $name
      * @return SeatRange
      */
     public function setName($name)
@@ -78,10 +99,30 @@ class SeatRange extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
         return $this->Name;
     }
+
+    /**
+     * @param  Color|null $color
+     * @return SeatRange
+     */
+    public function setColor(Color $color = null)
+    {
+        $this->Color = $color;
+
+        return $this;
+    }
+
+    /**
+     * @return Color|null
+     */
+    public function getColor()
+    {
+        return $this->Color;
+    }
+
 }

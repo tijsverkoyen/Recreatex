@@ -14,23 +14,33 @@ class PagingCriteria extends ComplexTypeAbstract
 
     /**
      * The index of the page. The index starts at zero (zero-based)
-     * @var integer
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var integer|null $PageIndex
      */
     protected $PageIndex;
 
     /**
      * The number of items per page
-     * @var integer
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var integer|null $PageSize
      */
     protected $PageSize;
 
     /**
-     * @var SortingCriteria
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SortingCriteria|null $Sorting
      */
     protected $Sorting;
 
     /**
-     * @param  integer[optional] $pageIndex
+     * @param  integer|null   $pageIndex
      * @return PagingCriteria
      */
     public function setPageIndex($pageIndex)
@@ -41,7 +51,7 @@ class PagingCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return integer
+     * @return integer|null
      */
     public function getPageIndex()
     {
@@ -49,7 +59,7 @@ class PagingCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  integer[optional] $pageSize
+     * @param  integer|null   $pageSize
      * @return PagingCriteria
      */
     public function setPageSize($pageSize)
@@ -60,7 +70,7 @@ class PagingCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return integer
+     * @return integer|null
      */
     public function getPageSize()
     {
@@ -68,7 +78,7 @@ class PagingCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SortingCriteria[optional] $sorting
+     * @param  SortingCriteria|null $sorting
      * @return PagingCriteria
      */
     public function setSorting(SortingCriteria $sorting = null)
@@ -79,10 +89,11 @@ class PagingCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SortingCriteria
+     * @return SortingCriteria|null
      */
     public function getSorting()
     {
         return $this->Sorting;
     }
+
 }

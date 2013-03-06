@@ -12,12 +12,16 @@ class ArrayOfIncassoCost extends ComplexTypeAbstract
     const CLASS_NAME = 'ArrayOfIncassoCost';
 
     /**
-     * @var array
+
+     * minOccurs = 0
+     * maxOccurs = unbounded
+     *
+     * @var IncassoCost[] $IncassoCost
      */
     protected $IncassoCost = array();
 
     /**
-     * @param  array              $incassoCost
+     * @param  IncassoCost[]      $incassoCost
      * @return ArrayOfIncassoCost
      */
     public function setIncassoCost(array $incassoCost = array())
@@ -28,13 +32,11 @@ class ArrayOfIncassoCost extends ComplexTypeAbstract
     }
 
     /**
-     * @return array
+     * @return IncassoCost[]
      */
     public function getIncassoCost()
     {
-	    if(!is_array($this->IncassoCost)) {
-		    return array($this->IncassoCost);
-	    }
-	    return $this->IncassoCost;
+        return $this->IncassoCost;
     }
+
 }

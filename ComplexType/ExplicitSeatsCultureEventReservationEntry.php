@@ -15,15 +15,19 @@ class ExplicitSeatsCultureEventReservationEntry extends ComplexTypeAbstract
     const CLASS_NAME = 'ExplicitSeatsCultureEventReservationEntry';
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 1
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid $SeatId
      */
     protected $SeatId;
 
     /**
-     * @param  SimpleType\Guid                           $seatId
+     * @param  SimpleType\guid                           $seatId
      * @return ExplicitSeatsCultureEventReservationEntry
      */
-    public function setSeatId(SimpleType\Guid $seatId)
+    public function setSeatId(SimpleType\guid $seatId)
     {
         $this->SeatId = $seatId;
 
@@ -31,10 +35,11 @@ class ExplicitSeatsCultureEventReservationEntry extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid
      */
     public function getSeatId()
     {
         return $this->SeatId;
     }
+
 }

@@ -12,17 +12,25 @@ class SeatAllocationsOverview extends ComplexTypeAbstract
     const CLASS_NAME = 'SeatAllocationsOverview';
 
     /**
-     * @var ArrayOfSeatAllocation
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var ArrayOfSeatAllocation|null $Allocations
      */
     protected $Allocations;
 
     /**
-     * @var Seat
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SeatAllocationPerHallSummary|null $Summary
      */
     protected $Summary;
 
     /**
-     * @param  ArrayOfSeatAllocation[optional] $allocations
+     * @param  ArrayOfSeatAllocation|null $allocations
      * @return SeatAllocationsOverview
      */
     public function setAllocations(ArrayOfSeatAllocation $allocations = null)
@@ -33,7 +41,7 @@ class SeatAllocationsOverview extends ComplexTypeAbstract
     }
 
     /**
-     * @return ArrayOfSeatAllocation
+     * @return ArrayOfSeatAllocation|null
      */
     public function getAllocations()
     {
@@ -41,7 +49,7 @@ class SeatAllocationsOverview extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SeatAllocationPerHallSummary[optional] $summary
+     * @param  SeatAllocationPerHallSummary|null $summary
      * @return SeatAllocationsOverview
      */
     public function setSummary(SeatAllocationPerHallSummary $summary = null)
@@ -52,10 +60,11 @@ class SeatAllocationsOverview extends ComplexTypeAbstract
     }
 
     /**
-     * @return SeatAllocationPerHallSummary
+     * @return SeatAllocationPerHallSummary|null
      */
     public function getSummary()
     {
         return $this->Summary;
     }
+
 }

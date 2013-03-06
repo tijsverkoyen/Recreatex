@@ -14,40 +14,64 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     const CLASS_NAME = 'CultureReservationSearchCriteria';
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $CultureEventId
      */
     protected $CultureEventId;
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $CultureEventReservationId
      */
     protected $CultureEventReservationId;
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $From
      */
     protected $From;
 
     /**
-     * @var PagingCriteria
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var PagingCriteria|null $Paging
      */
     protected $Paging;
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $PersonId
      */
     protected $PersonId;
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $Until
      */
     protected $Until;
 
     /**
-     * @param  SimpleType\Guid[optional]        $cultureEventId
+     * @param  SimpleType\guid|null             $cultureEventId
      * @return CultureReservationSearchCriteria
      */
-    public function setCultureEventId(SimpleType\Guid $cultureEventId = null)
+    public function setCultureEventId(SimpleType\guid $cultureEventId = null)
     {
         $this->CultureEventId = $cultureEventId;
 
@@ -55,7 +79,7 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getCultureEventId()
     {
@@ -63,10 +87,10 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional]        $cultureEventReservationId
+     * @param  SimpleType\guid|null             $cultureEventReservationId
      * @return CultureReservationSearchCriteria
      */
-    public function setCultureEventReservationId(SimpleType\Guid $cultureEventReservationId = null)
+    public function setCultureEventReservationId(SimpleType\guid $cultureEventReservationId = null)
     {
         $this->CultureEventReservationId = $cultureEventReservationId;
 
@@ -74,7 +98,7 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getCultureEventReservationId()
     {
@@ -82,7 +106,7 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional]                 $from
+     * @param  string|null                      $from
      * @return CultureReservationSearchCriteria
      */
     public function setFrom($from)
@@ -93,7 +117,7 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getFrom()
     {
@@ -101,7 +125,7 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  PagingCriteria[optional]         $paging
+     * @param  PagingCriteria|null              $paging
      * @return CultureReservationSearchCriteria
      */
     public function setPaging(PagingCriteria $paging = null)
@@ -112,7 +136,7 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return PagingCriteria
+     * @return PagingCriteria|null
      */
     public function getPaging()
     {
@@ -120,10 +144,10 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional]        $personId
+     * @param  SimpleType\guid|null             $personId
      * @return CultureReservationSearchCriteria
      */
-    public function setPersonId(SimpleType\Guid $personId = null)
+    public function setPersonId(SimpleType\guid $personId = null)
     {
         $this->PersonId = $personId;
 
@@ -131,7 +155,7 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getPersonId()
     {
@@ -139,7 +163,7 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional]                 $until
+     * @param  string|null                      $until
      * @return CultureReservationSearchCriteria
      */
     public function setUntil($until)
@@ -150,10 +174,11 @@ class CultureReservationSearchCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getUntil()
     {
         return $this->Until;
     }
+
 }

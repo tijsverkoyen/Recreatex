@@ -12,17 +12,25 @@ class SortingCriteria extends ComplexTypeAbstract
     const CLASS_NAME = 'SortingCriteria';
 
     /**
-     * @var boolean
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var boolean|null $IsAscending
      */
     protected $IsAscending;
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $PropertyName
      */
     protected $PropertyName;
 
     /**
-     * @param  boolean[optional] $isAscending
+     * @param  boolean|null    $isAscending
      * @return SortingCriteria
      */
     public function setIsAscending($isAscending)
@@ -33,7 +41,7 @@ class SortingCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return boolean
+     * @return boolean|null
      */
     public function getIsAscending()
     {
@@ -41,7 +49,7 @@ class SortingCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional] $propertyName
+     * @param  string|null     $propertyName
      * @return SortingCriteria
      */
     public function setPropertyName($propertyName)
@@ -52,10 +60,11 @@ class SortingCriteria extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getPropertyName()
     {
         return $this->PropertyName;
     }
+
 }

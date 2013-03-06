@@ -14,27 +14,43 @@ class ArticleIngredient extends ComplexTypeAbstract
     const CLASS_NAME = 'ArticleIngredient';
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $Code
      */
     protected $Code;
 
     /**
-     * @var SimpleType\Guid
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var SimpleType\guid|null $Id
      */
     protected $Id;
 
     /**
-     * @var string
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var string|null $Name
      */
     protected $Name;
 
     /**
-     * @var float
+
+     * minOccurs = 0
+     * maxOccurs = 1
+     *
+     * @var float|null $Quantity
      */
     protected $Quantity;
 
     /**
-     * @param  string[optional]  $code
+     * @param  string|null       $code
      * @return ArticleIngredient
      */
     public function setCode($code)
@@ -45,7 +61,7 @@ class ArticleIngredient extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getCode()
     {
@@ -53,10 +69,10 @@ class ArticleIngredient extends ComplexTypeAbstract
     }
 
     /**
-     * @param  SimpleType\Guid[optional] $id
+     * @param  SimpleType\guid|null $id
      * @return ArticleIngredient
      */
-    public function setId(SimpleType\Guid $id = null)
+    public function setId(SimpleType\guid $id = null)
     {
         $this->Id = $id;
 
@@ -64,7 +80,7 @@ class ArticleIngredient extends ComplexTypeAbstract
     }
 
     /**
-     * @return SimpleType\Guid
+     * @return SimpleType\guid|null
      */
     public function getId()
     {
@@ -72,7 +88,7 @@ class ArticleIngredient extends ComplexTypeAbstract
     }
 
     /**
-     * @param  string[optional]  $name
+     * @param  string|null       $name
      * @return ArticleIngredient
      */
     public function setName($name)
@@ -83,7 +99,7 @@ class ArticleIngredient extends ComplexTypeAbstract
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -91,7 +107,7 @@ class ArticleIngredient extends ComplexTypeAbstract
     }
 
     /**
-     * @param  float[optional]   $quantity
+     * @param  float|null        $quantity
      * @return ArticleIngredient
      */
     public function setQuantity($quantity)
@@ -102,10 +118,11 @@ class ArticleIngredient extends ComplexTypeAbstract
     }
 
     /**
-     * @return float
+     * @return float|null
      */
     public function getQuantity()
     {
         return $this->Quantity;
     }
+
 }
