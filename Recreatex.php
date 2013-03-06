@@ -90,7 +90,7 @@ class Recreatex extends BaseSoapClient
      *
      * @var int
      */
-    private $timeOut = 10;
+    private $timeOut = 30;
 
     /**
      * The user agent
