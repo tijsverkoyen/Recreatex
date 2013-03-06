@@ -21,32 +21,38 @@ class Recreatex extends BaseSoapClient
     const VERSION = '2.0.0';
 
     /**
-     * The port to use.     * @var int
+     * The port to use.
+     * @var int
      */
     private $port;
 
     /**
-     * The server to use.     * @var string
+     * The server to use.
+     * @var string
      */
     private $server;
 
     /**
-     * The ServiceContext to use     * @var ServiceContext
+     * The ServiceContext to use
+     * @var ServiceContext
      */
     private $serviceContext;
 
     /**
-     * The soapclient     * @var BaseSoapClient
+     * The soapclient
+     * @var BaseSoapClient
      */
     private $soapclient;
 
     /**
-     * The timeout     * @var int
+     * The timeout
+     * @var int
      */
     private $timeOut = 30;
 
     /**
-     * The user agent     * @var string
+     * The user agent
+     * @var string
      */
     private $userAgent;
 
@@ -599,7 +605,8 @@ class Recreatex extends BaseSoapClient
     );
 
     /**
-     * Default constructor     * @param string[optional] $server The server to use.
+     * Default constructor
+     * @param string[optional] $server The server to use.
      * @param int[optional] $port The port whereon the server is operating.
      */
     public function __construct($server = null, $port = null)
@@ -613,7 +620,8 @@ class Recreatex extends BaseSoapClient
     }
 
     /**
-     * Create a service context     * @param string[optional] $shopId
+     * Create a service context
+     * @param string[optional] $shopId
      * @param string[optional] $divisionId
      * @param string[optional] $language
      */
@@ -766,8 +774,10 @@ class Recreatex extends BaseSoapClient
     }
 
     // Authentication methods
-
-    public function listLicenseModules()
+	/**
+	 * @return array
+	 */
+	public function listLicenseModules()
     {
         $response = $this->getSoapClient()->ListLicenseModules($this->getServiceContext());
 
