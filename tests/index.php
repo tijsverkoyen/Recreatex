@@ -22,7 +22,6 @@ try {
 //    $credential->setUsername(USERNAME);
 //    $credential->setPassword(PASSWORD);
 //    $response = $recreatex->authenticateUser($credential);
-//    $response = $recreatex->authenticateUser(new Credential());
 
     // FindActivities   @remark: untested, because my RCX-instance hasn't any activities
 //    $paging = new \TijsVerkoyen\Recreatex\ComplexType\PagingCriteria();

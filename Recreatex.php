@@ -812,7 +812,7 @@ class Recreatex extends BaseSoapClient
     }
 
     /**
-     * @param  Credential           $Credentials
+     * @param  Credential $Credentials
      * @return AuthenticationResult
      */
     public function authenticateUser(Credential $Credentials)
