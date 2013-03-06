@@ -104,6 +104,21 @@ class RecreatexTest extends PHPUnit_Framework_TestCase
 		$this->assertFalse($response->getHasSucceeded());
 	}
 
+	/**
+	 * Tests Recreatex->AuthenticateManager()
+	 */
+	public function testAuthenticateManager()
+	{
+		$credential = new \TijsVerkoyen\Recreatex\ComplexType\Credential();
+		$credential->setUsername(USERNAME);
+		$credential->setPassword(PASSWORD);
+		$response = $this->recreatex->authenticateManager($credential);
+
+		$this->assertInstanceOf('\TijsVerkoyen\Recreatex\ComplexType\AuthenticationResult', $response);
+		$this->assertFalse($response->getHasSucceeded());
+	}
+
+
     /**
      * Tests Recreatex->FindActivities();
      */

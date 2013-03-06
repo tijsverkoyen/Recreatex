@@ -28,6 +28,11 @@ try {
 	// AuthenticateNationalNumber
 //	$response = $recreatex->authenticateNationalNumber('1');
 
+	// AuthenticateManager
+//    $credential = new Credential();
+//    $credential->setUsername(USERNAME);
+//    $credential->setPassword(PASSWORD);
+//    $response = $recreatex->authenticateManager($credential);
 
     // FindActivities   @remark: untested, because my RCX-instance hasn't any activities
 //    $paging = new \TijsVerkoyen\Recreatex\ComplexType\PagingCriteria();

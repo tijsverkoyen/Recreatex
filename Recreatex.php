@@ -799,6 +799,21 @@ class Recreatex extends BaseSoapClient
 	}
 
 	/**
+	 * @param  Credential $Credentials
+	 * @return AuthenticationResult
+	 */
+	public function authenticateUser(Credential $Credentials)
+	{
+		$response = $this->getSoapClient()->AuthenticateUser(
+			$this->getServiceContext(),
+			$Credentials
+		);
+		$this->isValidResponse($response);
+
+		return $response;
+	}
+
+	/**
 	 * @param $nationalNumber
 	 * @return AuthenticationResult
 	 */
@@ -812,6 +827,22 @@ class Recreatex extends BaseSoapClient
 		return $response;
 	}
 
+	/**
+	 * @param  Credential $Credentials
+	 * @return AuthenticationResult
+	 */
+	public function authenticateManager(Credential $Credentials)
+	{
+		$response = $this->getSoapClient()->AuthenticateManager(
+			$this->getServiceContext(),
+			$Credentials
+		);
+		$this->isValidResponse($response);
+
+		return $response;
+	}
+
+
 
     /**
      * Check if the service is available     * @return bool
@@ -822,21 +853,6 @@ class Recreatex extends BaseSoapClient
         $this->isValidResponse($response, 'IsAvailableResult');
 
         return $response->IsAvailableResult;
-    }
-
-    /**
-     * @param  Credential $Credentials
-     * @return AuthenticationResult
-     */
-    public function authenticateUser(Credential $Credentials)
-    {
-        $response = $this->getSoapClient()->AuthenticateUser(
-            $this->getServiceContext(),
-            $Credentials
-        );
-        $this->isValidResponse($response);
-
-        return $response;
     }
 
     /**
